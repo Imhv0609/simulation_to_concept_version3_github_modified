@@ -23,12 +23,17 @@ class StartSessionRequest(BaseModel):
         None, 
         description="Optional student identifier for tracking"
     )
+    language: Optional[str] = Field(
+        "english",
+        description="Session language: 'english' or 'kannada'. Controls translation of all user-facing text."
+    )
     
     class Config:
         json_schema_extra = {
             "example": {
                 "simulation_id": "simple_pendulum",
-                "student_id": "student_12345"
+                "student_id": "student_12345",
+                "language": "english"
             }
         }
 
@@ -119,6 +124,7 @@ class SessionResponse(BaseModel):
     concepts: ConceptsState
     teacher_message: TeacherMessage
     learning_state: LearningState
+    language: Optional[str] = "english"
     summary: Optional[Dict[str, Any]] = None
     
     class Config:

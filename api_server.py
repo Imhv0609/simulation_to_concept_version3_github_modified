@@ -149,7 +149,8 @@ async def start_session(request: StartSessionRequest):
         # Create session
         session_id, response = create_teaching_session(
             simulation_id=request.simulation_id,
-            student_id=request.student_id
+            student_id=request.student_id,
+            language=request.language or "english"
         )
         
         return response
