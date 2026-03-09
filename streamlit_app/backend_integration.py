@@ -26,6 +26,15 @@ try:
     from state import create_initial_state, TeachingState
     from graph import continue_session, get_session_state
     from langchain_core.runnables import RunnableConfig
+    from translation import (
+        needs_translation,
+        translate,
+        translate_to_english,
+        translate_to_kannada,
+        translate_student_input,
+        translate_batch,
+        get_language_code,
+    )
     
     BACKEND_AVAILABLE = True
     
@@ -44,12 +53,13 @@ def is_backend_available() -> bool:
     return BACKEND_AVAILABLE
 
 
-def create_new_session(simulation_id: str = "simple_pendulum") -> Tuple[str, Dict[str, Any]]:
+def create_new_session(simulation_id: str = "simple_pendulum", language: str = "english") -> Tuple[str, Dict[str, Any]]:
     """
     Create a new teaching session for a specific simulation.
     
     Args:
         simulation_id: The ID of the simulation to create a session for
+        language: Session language ('english' or 'kannada')
     
     Returns:
         Tuple of (thread_id, initial_state_from_backend)
@@ -108,7 +118,8 @@ def create_new_session(simulation_id: str = "simple_pendulum") -> Tuple[str, Dic
     initial_state = create_initial_state(
         topic_description=topic_description,
         initial_params=initial_params,
-        simulation_id=simulation_id  # Pass simulation_id for content_loader
+        simulation_id=simulation_id,  # Pass simulation_id for content_loader
+        language=language  # Pass language for translation
     )
     
     # Start the session - runs until first interrupt (waiting for student input)
@@ -117,13 +128,14 @@ def create_new_session(simulation_id: str = "simple_pendulum") -> Tuple[str, Dic
     return thread_id, state
 
 
-def send_student_response(thread_id: str, response: str) -> Dict[str, Any]:
+def send_student_response(thread_id: str, response: str, language: str = "english") -> Dict[str, Any]:
     """
     Send a student response and get the updated state.
     
     Args:
         thread_id: The session thread ID
         response: Student's response text
+        language: Session language for inbound translation
         
     Returns:
         Updated state dict
@@ -131,10 +143,13 @@ def send_student_response(thread_id: str, response: str) -> Dict[str, Any]:
     if not BACKEND_AVAILABLE:
         raise RuntimeError("Backend not available")
     
+    # Translate student input to English if needed
+    translated_response = translate_student_input(response, language)
+    
     # Import fresh continue_session to ensure we're using the reloaded graph
     from graph import continue_session as fresh_continue_session
     
-    state = fresh_continue_session(response, thread_id)
+    state = fresh_continue_session(translated_response, thread_id)
     return state
 
 
@@ -247,6 +262,67 @@ def extract_display_data(state: Dict[str, Any]) -> Dict[str, Any]:
         "quiz_complete": state.get("quiz_complete", False),
         "quiz_evaluation": state.get("quiz_evaluation", {})
     }
+
+
+def translate_display_data(display_data: Dict[str, Any], language: str) -> Dict[str, Any]:
+    """
+    Translate user-facing text fields in display_data to the target language.
+    
+    Translates: teacher_message, concept titles/descriptions, quiz questions,
+    quiz evaluation feedback. Does NOT translate parameter names/values, IDs, etc.
+    
+    Args:
+        display_data: The dict returned by extract_display_data()
+        language: Target language ('english' or 'kannada')
+        
+    Returns:
+        display_data with translated text fields
+    """
+    if not BACKEND_AVAILABLE or not needs_translation(language):
+        return display_data
+    
+    target = get_language_code(language)
+    
+    # 1. Translate teacher message
+    if display_data.get("teacher_message"):
+        display_data["teacher_message"] = translate(
+            display_data["teacher_message"], source="en", target=target
+        )
+    
+    # 2. Translate current concept (title, description, key_insight)
+    if display_data.get("current_concept"):
+        concept = display_data["current_concept"]
+        for field in ["title", "description", "key_insight"]:
+            if concept.get(field):
+                concept[field] = translate(concept[field], source="en", target=target)
+    
+    # 3. Translate all concepts list
+    for concept in display_data.get("concepts", []):
+        for field in ["title", "description", "key_insight"]:
+            if concept.get(field):
+                concept[field] = translate(concept[field], source="en", target=target)
+    
+    # 4. Translate quiz questions (challenge text)
+    for question in display_data.get("quiz_questions", []):
+        if question.get("challenge"):
+            question["challenge"] = translate(
+                question["challenge"], source="en", target=target
+            )
+    
+    # 5. Translate quiz evaluation feedback
+    quiz_eval = display_data.get("quiz_evaluation", {})
+    if quiz_eval:
+        if quiz_eval.get("feedback"):
+            quiz_eval["feedback"] = translate(
+                quiz_eval["feedback"], source="en", target=target
+            )
+    
+    # 6. Translate conversation history (teacher messages only)
+    for msg in display_data.get("conversation_history", []):
+        if msg.get("role") == "teacher" and msg.get("content"):
+            msg["content"] = translate(msg["content"], source="en", target=target)
+    
+    return display_data
 
 
 def get_initial_params(simulation_id: str = "simple_pendulum") -> Dict[str, Any]:

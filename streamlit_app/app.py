@@ -47,8 +47,19 @@ from backend_integration import (
     send_student_response,
     get_current_state,
     extract_display_data,
+    translate_display_data,
     get_initial_params,
     submit_quiz_answer
+)
+
+# Import translation
+from translation import (
+    needs_translation,
+    translate,
+    translate_to_kannada,
+    translate_student_input,
+    get_language_code,
+    SUPPORTED_LANGUAGES,
 )
 
 # Page config
@@ -85,6 +96,10 @@ def initialize_session_state():
     if "last_concept_shown" not in st.session_state:
         st.session_state.last_concept_shown = -1
 
+    # Language preference (for translation)
+    if "language" not in st.session_state:
+        st.session_state.language = "english"
+
 
 def start_new_teaching_session():
     """Start a new teaching session with the backend."""
@@ -95,17 +110,19 @@ def start_new_teaching_session():
     try:
         # Get the current simulation from session state
         simulation_id = st.session_state.get("current_simulation", "simple_pendulum")
+        language = st.session_state.get("language", "english")
         
-        # Create new session with the selected simulation
-        thread_id, state = create_new_session(simulation_id)
+        # Create new session with the selected simulation and language
+        thread_id, state = create_new_session(simulation_id, language=language)
         
         # Store in session state
         st.session_state.thread_id = thread_id
         st.session_state.backend_state = state
         st.session_state.session_started = True
         
-        # Extract display data
+        # Extract display data and translate if needed
         display_data = extract_display_data(state)
+        display_data = translate_display_data(display_data, language)
         
         # Update simulation params
         st.session_state.simulation_params = display_data["current_params"]
@@ -142,12 +159,14 @@ def process_student_response(user_input: str):
         return
     
     try:
-        # Send response to backend
-        state = send_student_response(st.session_state.thread_id, user_input)
+        # Send response to backend (translated to English if needed)
+        language = st.session_state.get("language", "english")
+        state = send_student_response(st.session_state.thread_id, user_input, language=language)
         st.session_state.backend_state = state
         
-        # Extract display data
+        # Extract display data and translate if needed
         display_data = extract_display_data(state)
+        display_data = translate_display_data(display_data, language)
         
         # Check for parameter changes (single simulation display)
         simulation_data = None
@@ -200,6 +219,7 @@ def sync_conversation_to_chat(state: dict):
     """
     conversation_history = state.get("conversation_history", [])
     current_chat_count = len(st.session_state.chat_messages)
+    language = st.session_state.get("language", "english")
     
     # Add any new messages from conversation history
     for i, msg in enumerate(conversation_history):
@@ -210,6 +230,10 @@ def sync_conversation_to_chat(state: dict):
             timestamp = msg.get("timestamp", "")
             
             if role == "teacher" and content:
+                # Translate teacher message if needed
+                if needs_translation(language):
+                    target = get_language_code(language)
+                    content = translate(content, source="en", target=target)
                 formatted_content = format_teacher_message(content)
                 add_message_to_chat("teacher", formatted_content)
 
@@ -387,12 +411,32 @@ def render_sidebar():
             st.info(f"🔒 **Current:** {current_sim['title']}")
             st.caption("(Cannot change during active session)")
         
+        # ── Language Selection ──
+        st.markdown("## 🌐 Language")
+        
+        language_options = {"English": "english", "ಕನ್ನಡ (Kannada)": "kannada"}
+        
+        if not st.session_state.session_started:
+            selected_lang_label = st.selectbox(
+                "Choose language:",
+                options=list(language_options.keys()),
+                index=0 if st.session_state.language == "english" else 1,
+                help="Select the language for teaching. Internal reasoning stays in English."
+            )
+            st.session_state.language = language_options[selected_lang_label]
+        else:
+            # Show current language (read-only during session)
+            current_lang_label = "English" if st.session_state.language == "english" else "ಕನ್ನಡ (Kannada)"
+            st.info(f"🔒 **Language:** {current_lang_label}")
+            st.caption("(Cannot change during active session)")
+        
         st.markdown("---")
         st.markdown("## �📊 Learning Progress")
         
         # Show progress if session is active
         if st.session_state.backend_state:
             display_data = extract_display_data(st.session_state.backend_state)
+            display_data = translate_display_data(display_data, st.session_state.get("language", "english"))
             
             # Check if in quiz mode
             if display_data.get("quiz_mode", False):
@@ -635,6 +679,7 @@ def main():
         # Check if session is complete
         if st.session_state.backend_state:
             display_data = extract_display_data(st.session_state.backend_state)
+            display_data = translate_display_data(display_data, st.session_state.get("language", "english"))
             
             # Check if in quiz mode
             if display_data.get("quiz_mode", False):
