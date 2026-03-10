@@ -26,15 +26,6 @@ try:
     from state import create_initial_state, TeachingState
     from graph import continue_session, get_session_state
     from langchain_core.runnables import RunnableConfig
-    from translation import (
-        needs_translation,
-        translate,
-        translate_to_english,
-        translate_to_kannada,
-        translate_student_input,
-        translate_batch,
-        get_language_code,
-    )
     
     BACKEND_AVAILABLE = True
     
@@ -46,6 +37,31 @@ except Exception as e:
     # Set defaults
     INITIAL_PARAMS = {"length": 5, "number_of_oscillations": 10}
     MAX_EXCHANGES = 6
+
+# Translation imports are kept separate so a missing/broken translation module
+# does NOT pull down the core backend (BACKEND_AVAILABLE stays True).
+try:
+    from translation import (
+        needs_translation,
+        translate,
+        translate_to_english,
+        translate_to_kannada,
+        translate_student_input,
+        translate_batch,
+        get_language_code,
+    )
+    TRANSLATION_AVAILABLE = True
+except Exception as _t_err:
+    print(f"Translation import warning: {_t_err} — translation disabled, English only.")
+    TRANSLATION_AVAILABLE = False
+    # Stub out helpers so callers never crash
+    def needs_translation(language: str) -> bool: return False
+    def translate(text, source="en", target="kn"): return text
+    def translate_to_english(text): return text
+    def translate_to_kannada(text): return text
+    def translate_student_input(text, language): return text
+    def translate_batch(texts, source="en", target="kn"): return texts
+    def get_language_code(language): return "en"
 
 
 def is_backend_available() -> bool:

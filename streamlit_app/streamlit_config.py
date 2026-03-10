@@ -523,6 +523,63 @@ SIMULATIONS = {
     }
 }
 
+# =============================================================================
+# KANNADA SIMULATIONS
+# ಕನ್ನಡ ಸಿಮ್ಯುಲೇಷನ್‌ಗಳು
+# =============================================================================
+# GitHub Pages base URL for the Kannada simulations folder
+GITHUB_PAGES_BASE_KN = (
+    "https://imhv0609.github.io/simulation_to_concept_version3_github"
+    "/simulations_kannada"
+)
+
+# Each Kannada simulation is added directly to the SIMULATIONS dict so that
+# build_simulation_url() and get_default_params() work without modification.
+# A "language": "kannada" field is added so the sidebar can group them.
+
+SIMULATIONS["industrial_waste_treatment_kn"] = {
+    "name": "ಕೈಗಾರಿಕಾ ತ್ಯಾಜ್ಯ ಚಿಕಿತ್ಸೆ (Industrial Waste Treatment)",
+    "language": "kannada",
+    "description": (
+        "ತಟಸ್ಥೀಕರಣ ವಿಧಾನದ ಮೂಲಕ ಕೈಗಾರಿಕಾ ತ್ಯಾಜ್ಯ ನಿರ್ವಹಣೆ ಅಧ್ಯಯನ ಮಾಡಿ.\n"
+        "Explore neutralisation of acidic industrial waste to protect river ecosystems."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation10_industrial_waste_treatment_kn.html"
+    ),
+    # ── Parameter definitions ────────────────────────────────────────────────
+    # initialState : dropdown — controls which demonstration state auto-loads
+    # showHints    : checkbox — shows/hides the insight explanation box
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Simulation State / ಸಿಮ್ಯುಲೇಷನ್ ಸ್ಥಿತಿ",
+            "default": "initial",
+            # options list is used by Streamlit quiz UI to build a dropdown
+            "options": ["initial", "polluted", "treated"],
+            "option_labels": [
+                "ಪ್ರಾರಂಭ (Initial — clean river)",
+                "ಮಾಲಿನ್ಯ (Polluted — untreated waste)",
+                "ಚಿಕಿತ್ಸೆ (Treated — neutralised waste)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            # bool options → Streamlit checkbox
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
 
 # =============================================================================
 # DEFAULT SIMULATION

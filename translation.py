@@ -16,6 +16,11 @@ Features:
 from typing import Dict, List, Optional, Tuple
 from deep_translator import GoogleTranslator
 import traceback
+import concurrent.futures
+
+# Timeout (seconds) for each Google Translate HTTP request.
+# Prevents Streamlit from hanging when Google rate-limits or is slow.
+_TRANSLATE_TIMEOUT_SECONDS = 8
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -85,7 +90,20 @@ def translate(text: str, source: str = "en", target: str = "kn") -> str:
     
     try:
         translator = GoogleTranslator(source=source, target=target)
-        translated = translator.translate(text)
+        
+        # Run in thread with timeout to avoid hanging when Google rate-limits.
+        # IMPORTANT: do NOT use ThreadPoolExecutor as a context manager here —
+        # executor.__exit__ calls shutdown(wait=True), which blocks until the
+        # worker thread finishes, negating the timeout entirely.
+        # Instead, call shutdown(wait=False) so the timeout is real.
+        executor = concurrent.futures.ThreadPoolExecutor(max_workers=1)
+        future = executor.submit(translator.translate, text)
+        executor.shutdown(wait=False)
+        try:
+            translated = future.result(timeout=_TRANSLATE_TIMEOUT_SECONDS)
+        except concurrent.futures.TimeoutError:
+            print(f"[TRANSLATE] Timeout ({_TRANSLATE_TIMEOUT_SECONDS}s) translating: {text[:50]}... — returning original")
+            return text
         
         if translated:
             _set_cached(text, source, target, translated)
