@@ -135,7 +135,15 @@ def start_new_teaching_session():
         teacher_msg = display_data["teacher_message"]
         if teacher_msg:
             formatted_msg = format_teacher_message(teacher_msg)
-            add_message_to_chat("teacher", formatted_msg)
+            # Also pass simulation_data if a parameter change was suggested in the opening message
+            initial_simulation_data = None
+            param_change_info = display_data.get("param_change_info")
+            if param_change_info:
+                initial_simulation_data = {
+                    "current_params": display_data["current_params"],
+                    "param_change_info": param_change_info
+                }
+            add_message_to_chat("teacher", formatted_msg, simulation_data=initial_simulation_data)
         
         # Show concept marker if applicable
         if display_data["current_concept"]:
@@ -604,8 +612,8 @@ def render_chat_with_simulations():
                     current_params = simulation_data.get("current_params", {})
                     change_info = simulation_data.get("param_change_info", {})
                     
-                    # Show what changed
-                    if change_info:
+                    # Show what changed (only if values are actually different)
+                    if change_info and change_info.get("old_value") != change_info.get("new_value"):
                         label = change_info["parameter"].replace("_", " ").title()
                         st.info(f"📊 **Parameter Change:** **{label}**: {change_info['old_value']} → {change_info['new_value']}")
                     
