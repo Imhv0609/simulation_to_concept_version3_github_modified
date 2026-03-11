@@ -2605,6 +2605,1069 @@ QUIZ_QUESTIONS_KN["battery_connection_kn"] = [
 ]
 
 
+# =============================================================================
+# LAMP TYPES — Config
+# =============================================================================
+SIMULATIONS_KN["lamp_types_kn"] = {
+    "id": "lamp_types_kn",
+    "title": "ದೀಪ ಪ್ರಕಾರಗಳು (Lamp Types — Incandescent vs LED)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation6_lamp_types_kn.html",
+    "description": (
+        "ಇನ್ಕ್ಯಾಂಡಿಸೆಂಟ್ ಬಲ್ಬ್ ಮತ್ತು LED ಅನ್ನು ಆನ್/ಆಫ್ ಮಾಡಿ ಹೋಲಿಕೆ ಮಾಡಿ. "
+        "Compare an incandescent bulb (filament-heated) and an LED (semiconductor) by toggling "
+        "each lamp on and off. Observe how the incandescent filament glows orange-red while the "
+        "LED emits green light without any filament. A comparison table shows efficiency, polarity "
+        "requirements, and lifespan differences."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative power consumption measurement (watts)",
+        "Heat generation measured in degrees",
+        "Actual semiconductor physics inside an LED",
+    ],
+    "initial_params": {"initialState": "incandescent_off", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Lamp State",
+            "range": "incandescent_off, incandescent_on, led_off, led_on",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which lamp is selected and whether it is switched on.\n"
+                "  'incandescent_off' → incandescent bulb selected, switch off (default)\n"
+                "  'incandescent_on'  → incandescent bulb selected, switch on (filament glows)\n"
+                "  'led_off'          → LED selected, switch off\n"
+                "  'led_on'           → LED selected, switch on (LED emits green light)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card inside the simulation.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "incandescent_working",
+            "title": "Incandescent Bulb — Filament Heating",
+            "description": (
+                "An incandescent bulb contains a thin tungsten wire (filament). When electric "
+                "current flows through it, the filament heats up to about 2500°C and glows white-hot, "
+                "producing light."
+            ),
+            "key_insight": (
+                "Incandescent bulbs waste ~90% of electrical energy as heat. Only ~10% becomes "
+                "visible light. The filament works in ANY polarity — it doesn't matter which "
+                "way current flows."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "led_working",
+            "title": "LED — Semiconductor Light Emission",
+            "description": (
+                "An LED (Light Emitting Diode) contains a semiconductor chip. When current flows "
+                "through the chip in the correct direction, it emits light directly without any "
+                "filament or heat."
+            ),
+            "key_insight": (
+                "LEDs convert ~90% of electrical energy directly to light — almost no heat waste. "
+                "POLARITY MATTERS: the long leg must connect to (+) and short leg to (−). "
+                "Reversed polarity = no light."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "lamp_comparison",
+            "title": "Incandescent vs LED — Why LED Wins",
+            "description": (
+                "A side-by-side comparison of efficiency, lifespan, and polarity requirements "
+                "shows why LEDs have replaced incandescent bulbs in most applications."
+            ),
+            "key_insight": (
+                "LED lifespan (~50,000 hours) is 50× longer than incandescent (~1,000 hours). "
+                "LEDs use far less electricity for the same brightness. "
+                "The only trade-off is polarity sensitivity — LEDs require correct (+/−) connection."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# SIMPLE CIRCUIT — Config
+# =============================================================================
+SIMULATIONS_KN["simple_circuit_kn"] = {
+    "id": "simple_circuit_kn",
+    "title": "ಸರಳ ವಿದ್ಯುತ್ ಸರ್ಕ್ಯೂಟ್ (Simple Electric Circuit)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation7_simple_circuit_kn.html",
+    "description": (
+        "ಕೋಶ, ಬಲ್ಬ್, ಸ್ವಿಚ್ ಮತ್ತು ತಂತಿಗಳನ್ನು ಸರ್ಕ್ಯೂಟ್ ಪ್ರದೇಶದಲ್ಲಿ ಇರಿಸಿ ಸರ್ಕ್ಯೂಟ್ ನಿರ್ಮಿಸಿ ಮತ್ತು ಪರೀಕ್ಷಿಸಿ. "
+        "Build a simple electric circuit by placing a cell, bulb, switch and wires "
+        "onto the circuit board, then test the circuit to see the bulb light up and "
+        "current flow animation. Teaches what components are needed for a complete circuit."
+    ),
+    "cannot_demonstrate": [
+        "Incomplete circuit failure (short circuit vs open circuit distinction)",
+        "Parallel circuit connections",
+        "Quantitative voltage or current values",
+    ],
+    "initial_params": {"initialState": "empty", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Circuit State",
+            "range": "empty, built, tested",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the pre-loaded state of the circuit builder.\n"
+                "  'empty'  → blank circuit board, no components placed (default)\n"
+                "  'built'  → auto-places all four components (cell, bulb, switch, wires)\n"
+                "  'tested' → auto-places all components AND runs the circuit test (bulb glows)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "circuit_components",
+            "title": "Four Essential Circuit Components",
+            "description": (
+                "A basic electric circuit requires four components: a cell (energy source), "
+                "a bulb (load/output), a switch (controller), and wires (conductors that connect everything)."
+            ),
+            "key_insight": (
+                "Remove any ONE component and the circuit is incomplete — no current flows and "
+                "the bulb stays off. ALL four must be present and connected in a closed loop."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "closed_loop",
+            "title": "Complete Circuit = Closed Loop",
+            "description": (
+                "Electric current can only flow when there is a complete, unbroken loop "
+                "from the cell's positive terminal, through the bulb and switch, back to "
+                "the cell's negative terminal."
+            ),
+            "key_insight": (
+                "Think of current like water in a pipe — it needs a complete loop with no "
+                "gaps. Breaking the loop anywhere (opening the switch, removing a wire) "
+                "instantly stops all current flow."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "switch_function",
+            "title": "Role of the Switch in a Circuit",
+            "description": (
+                "A switch controls the circuit by either closing the gap (completing the loop, "
+                "current flows) or opening the gap (breaking the loop, no current)."
+            ),
+            "key_insight": (
+                "Switch CLOSED = circuit complete = current flows = bulb ON. "
+                "Switch OPEN = circuit broken = no current = bulb OFF. "
+                "The switch gives us convenient control without touching live wires."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# ELECTRIC SWITCH — Config
+# =============================================================================
+SIMULATIONS_KN["electric_switch_kn"] = {
+    "id": "electric_switch_kn",
+    "title": "ವಿದ್ಯುತ್ ಸ್ವಿಚ್ (Electric Switch)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation8_electric_switch_kn.html",
+    "description": (
+        "ಸ್ವಿಚ್ ಟ್ಯಾಪ್ ಮಾಡಿ ಸರ್ಕ್ಯೂಟ್ ತೆರೆದ/ಮುಚ್ಚಿದ ಸ್ಥಿತಿಯನ್ನು ವೀಕ್ಷಿಸಿ — ಲಿವರ್, ಪುಶ್ ಮತ್ತು ಟಾಗಲ್ ಸ್ವಿಚ್ ಪ್ರಕಾರಗಳನ್ನು ಪ್ರಯೋಗಿಸಿ. "
+        "Tap the switch to toggle the circuit between open (OFF) and closed (ON) states. "
+        "Observe the bulb turning on/off and the current flow indicator. "
+        "Explore three types of switches: lever, push-button, and toggle switch."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative current or voltage values",
+        "Multi-way switching (two switches controlling one bulb)",
+        "Electronic (transistor-based) switching",
+    ],
+    "initial_params": {"initialState": "off", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Switch State",
+            "range": "off, on",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the initial state of the switch.\n"
+                "  'off' → switch open, circuit broken, bulb OFF (default)\n"
+                "  'on'  → switch closed, circuit complete, bulb ON (current flows)"
+            )
+        },
+        "switchType": {
+            "label": "Switch Type",
+            "range": "lever, push, toggle",
+            "url_key": "switchType",
+            "effect": (
+                "Selects which type of switch to display.\n"
+                "  'lever'  → lever switch (rockers in walls) — default\n"
+                "  'push'   → push-button switch (doorbells, calculators)\n"
+                "  'toggle' → toggle switch (used on electronic boards)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "switch_off_state",
+            "title": "Open Switch — Circuit Broken (OFF)",
+            "description": (
+                "When a switch is OPEN (OFF), there is a physical gap or break in the "
+                "circuit. No current can flow across the gap, so the bulb stays dark."
+            ),
+            "key_insight": (
+                "An open switch = a gap in the wire. Electrons cannot jump a gap — "
+                "they need a solid conductor path. Even one tiny break in the circuit "
+                "is enough to stop ALL current flow."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "switch_on_state",
+            "title": "Closed Switch — Circuit Complete (ON)",
+            "description": (
+                "When a switch is CLOSED (ON), it creates a conducting bridge across "
+                "the gap, completing the circuit loop and allowing current to flow "
+                "through the bulb."
+            ),
+            "key_insight": (
+                "A closed switch = a conducting bridge. Current can now flow the complete "
+                "loop: cell (+) → wire → closed switch → wire → bulb → wire → cell (−). "
+                "The bulb converts electrical energy to light and heat."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "switch_types",
+            "title": "Types of Switches — Lever, Push, Toggle",
+            "description": (
+                "Different switch mechanisms all do the same job (open/close a circuit) "
+                "but are designed for different situations: lever switches for walls, "
+                "push-buttons for doorbells, toggle switches for electronics."
+            ),
+            "key_insight": (
+                "All switches share one principle: they physically make or break an "
+                "electrical connection. The mechanism differs (flip, press, slide) but "
+                "the effect is the same — completing or breaking the circuit loop."
+            ),
+            "related_params": ["initialState", "switchType", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# CIRCUIT SYMBOLS — Config
+# =============================================================================
+SIMULATIONS_KN["circuit_symbols_kn"] = {
+    "id": "circuit_symbols_kn",
+    "title": "ಸರ್ಕ್ಯೂಟ್ ಚಿಹ್ನೆಗಳು (Circuit Symbols)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation9_circuit_symbols_kn.html",
+    "description": (
+        "ಸರ್ಕ್ಯೂಟ್ ಚಿತ್ರಗಳಲ್ಲಿ ಬಳಸಲಾಗುವ ಮಾನಕ ಚಿಹ್ನೆಗಳನ್ನು ಕಲಿಯಿರಿ — ಕೋಶ, ಬ್ಯಾಟರಿ, ಬಲ್ಬ್, LED, ಸ್ವಿಚ್, ತಂತಿ. "
+        "Learn the standard circuit diagram symbols used in electrical engineering: "
+        "cell, battery, bulb, LED, open switch, closed switch, wire, and wire crossing. "
+        "Click each symbol card to see its detailed diagram representation, physical appearance, "
+        "and usage explanation. Includes a built-in quiz."
+    ),
+    "cannot_demonstrate": [
+        "Symbols for resistors, capacitors, or transistors",
+        "Drawing full circuit diagrams interactively",
+        "Ohm's law or quantitative circuit analysis",
+    ],
+    "initial_params": {"initialState": "cell", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Symbol View",
+            "range": "cell, battery, bulb, led, switch_open, switch_closed, wire, wire_cross",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which circuit symbol is displayed in the detail panel on page load.\n"
+                "  'cell'          → cell symbol (long + short parallel lines)\n"
+                "  'battery'       → battery symbol (multiple cell pairs)\n"
+                "  'bulb'          → bulb/lamp symbol (circle with X inside)\n"
+                "  'led'           → LED symbol (triangle with arrow)\n"
+                "  'switch_open'   → open switch symbol (gap in line)\n"
+                "  'switch_closed' → closed switch symbol (complete line)\n"
+                "  'wire'          → connecting wire symbol (straight line)\n"
+                "  'wire_cross'    → crossing wires with no connection symbol"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show concept card (default)\n"
+                "  false → hide concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "cell_battery_symbols",
+            "title": "Cell and Battery Circuit Symbols",
+            "description": (
+                "In circuit diagrams, a CELL is drawn as one long line (positive terminal) "
+                "and one short line (negative terminal). A BATTERY is multiple such pairs."
+            ),
+            "key_insight": (
+                "Long line = positive terminal; short line = negative terminal. "
+                "A single cell symbol = one long + one short line. "
+                "A battery symbol = two or more repeated pairs. "
+                "This notation is identical worldwide — every electrician uses it."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "switch_symbols",
+            "title": "Open and Closed Switch Symbols",
+            "description": (
+                "An OPEN switch is drawn as a line with a visible gap or a lever raised at an "
+                "angle. A CLOSED switch is drawn as a complete unbroken line or lever lying flat."
+            ),
+            "key_insight": (
+                "The symbol tells you the state: gap in symbol = gap in circuit = OFF. "
+                "Complete line in symbol = complete circuit = ON. "
+                "Just by reading the diagram you know whether current is flowing."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "component_symbols_overview",
+            "title": "Standardised Symbols Enable Universal Circuit Diagrams",
+            "description": (
+                "All circuit components have agreed international symbols. Engineers in "
+                "any country can read the same circuit diagram without a language barrier."
+            ),
+            "key_insight": (
+                "Bulb = circle with X; LED = triangle with arrow + light rays; "
+                "wire = straight line; crossing wires (no connection) = lines crossing WITHOUT a dot. "
+                "A DOT at a junction means wires ARE connected — no dot means they cross but don't connect."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# METALS AND NON-METALS APPLICATIONS — Config
+# =============================================================================
+SIMULATIONS_KN["materials_applications_kn"] = {
+    "id": "materials_applications_kn",
+    "title": "ಲೋಹ ಮತ್ತು ಅಲೋಹ ಬಳಕೆಗಳು (Applications of Metals & Non-metals)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation10_applications_kn.html",
+    "description": (
+        "ಲೋಹ, ಅಲೋಹ ಮತ್ತು ಎರಡೂ ಬಳಸುವ ವಸ್ತುಗಳ ನೈಜ-ಜೀವನ ಅನ್ವಯಗಳನ್ನು ಅನ್ವೇಷಿಸಿ. "
+        "Explore real-world applications of metals, non-metals, and everyday objects that "
+        "use both. Click category tabs (Metals / Non-metals / Both) to discover applications "
+        "like electrical wires (copper), insulation (rubber), and tools (metal head + wooden handle). "
+        "A matching quiz tests understanding. Includes the Iron Pillar of Delhi fun fact."
+    ),
+    "cannot_demonstrate": [
+        "Atomic structure differences between metals and non-metals",
+        "Chemical reactions of metals",
+        "Alloy compositions",
+        "Quantitative physical property measurements",
+    ],
+    "initial_params": {"initialState": "metals", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Category",
+            "range": "metals, nonmetals, both",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the active category tab when the simulation loads.\n"
+                "  'metals'    → shows metal applications (wires, cookware, bells, jewellery)\n"
+                "  'nonmetals' → shows non-metal applications (insulation, oxygen, chlorine, iodine)\n"
+                "  'both'      → shows everyday items combining metals and non-metals (tools, pans, plugs)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of concept card and fun-fact panel.\n"
+                "  true  → show concept card and Iron Pillar fun fact (default)\n"
+                "  false → hide both panels (focused view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "metal_properties_uses",
+            "title": "Metals — Properties and Applications",
+            "description": (
+                "Metals are used where their key properties are needed: electrical conductivity "
+                "(copper wires), heat conductivity (aluminium cookware), malleability/ductility "
+                "(jewellery, bells), and strength (construction)."
+            ),
+            "key_insight": (
+                "Match property to application: conductivity → wires; malleability → sheets; "
+                "ductility → wires drawn thin; sonority → bells. Every metal application "
+                "exploits one or more of these physical properties."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "nonmetal_properties_uses",
+            "title": "Non-metals — Properties and Applications",
+            "description": (
+                "Non-metals are used for their poor conductivity (rubber/plastic insulation), "
+                "essential life functions (oxygen for breathing), and chemical properties "
+                "(chlorine for disinfection, iodine as antiseptic)."
+            ),
+            "key_insight": (
+                "Non-metals protect us from electricity (rubber handle, plastic casing) "
+                "and sustain life (oxygen, chlorine in water). Their low conductivity, "
+                "which seems like a weakness, is actually their most useful property."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "combined_applications",
+            "title": "Combining Metals and Non-metals in Everyday Objects",
+            "description": (
+                "Many everyday tools deliberately combine a metal component (for strength/conductivity) "
+                "with a non-metal component (for insulation/grip): frying pans, electric plugs, "
+                "hammers, pencils."
+            ),
+            "key_insight": (
+                "Engineering principle: use each material where its property is an advantage. "
+                "Electric plug = metal pins (conduct current) + plastic body (insulate the user). "
+                "Removing either material makes the object either non-functional or dangerous."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# QUIZ QUESTIONS — LAMP TYPES
+# =============================================================================
+QUIZ_QUESTIONS_KN["lamp_types_kn"] = [
+    {
+        "id": "lamp_q1",
+        "challenge": (
+            "Switch the INCANDESCENT bulb ON. Describe what you observe — "
+            "what part of the bulb glows and why?\n\n"
+            "(ಇನ್ಕ್ಯಾಂಡಿಸೆಂಟ್ ಬಲ್ಬ್ ಆನ್ ಮಾಡಿ — ಯಾವ ಭಾಗ ಬೆಳಗುತ್ತದೆ ಮತ್ತು ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "incandescent_on"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'incandescent_on'. Watch the glass bulb turn yellow "
+                "and the filament glow orange-red — the filament is heating up to ~2500°C!"
+            ),
+            "attempt_2": (
+                "Choose 'incandescent_on': The FILAMENT (thin tungsten wire inside) heats "
+                "when current flows, glowing white-hot and producing light."
+            ),
+            "attempt_3": (
+                "Set 'initialState=incandescent_on': Current → filament heats → glows. "
+                "This is the incandescent (ಫಿಲಾಮೆಂಟ್ ಜ್ವಲಿಸುವ) state."
+            )
+        },
+        "concept_reminder": (
+            "Incandescent bulb: electric current heats the filament (tungsten wire) to ~2500°C. "
+            "The hot filament glows white, producing light. BUT ~90% of energy is wasted as heat. "
+            "(ಫಿಲಾಮೆಂಟ್ = ತೆಳು ತಂತಿ | ಬಿಸಿ = ಬೆಳಕು!)"
+        )
+    },
+    {
+        "id": "lamp_q2",
+        "challenge": (
+            "Now switch to the LED and turn it ON. "
+            "Compare what you see with the incandescent — does the LED have a filament? "
+            "What colour does it glow?\n\n"
+            "(LED ಆನ್ ಮಾಡಿ — ಅದರಲ್ಲಿ ಫಿಲಾಮೆಂಟ್ ಇದೆಯೇ? ಯಾವ ಬಣ್ಣ ಹೊಳೆಯುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "led_on"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'led_on'. Observe the LED dome turn green — "
+                "no filament glows; the semiconductor chip itself emits light."
+            ),
+            "attempt_2": (
+                "Choose 'led_on': The LED glows green from the semiconductor chip, "
+                "NOT from a heated filament. No heat = much more efficient."
+            ),
+            "attempt_3": (
+                "Set 'initialState=led_on': LED on = chip emits light directly. "
+                "No orange glow, no filament. LED (ಸೆಮಿಕಂಡಕ್ಟರ್) ≠ incandescent (ಫಿಲಾಮೆಂಟ್)."
+            )
+        },
+        "concept_reminder": (
+            "LED = Light Emitting Diode. A semiconductor chip emits light when current flows "
+            "in the correct direction — NO filament, NO heat. ~90% efficiency vs ~10% for incandescent. "
+            "POLARITY: long leg = + (ಧನ), short leg = − (ಋಣ). Wrong polarity = no light! "
+            "(LED = ಸೆಮಿಕಂಡಕ್ಟರ್ ಚಿಪ್ | ಫಿಲಾಮೆಂಟ್ ಇಲ್ಲ | ಹೆಚ್ಚು ಕಾರ್ಯಕ್ಷಮ!)"
+        )
+    },
+    {
+        "id": "lamp_q3",
+        "challenge": (
+            "Set the simulation to show the LED in OFF state. "
+            "Explain: why does an LED need correct polarity to work, "
+            "but an incandescent bulb does not?\n\n"
+            "(LED ಆಫ್ ಸ್ಥಿತಿ ತೋರಿಸಿ — LED ಗೆ ಧ್ರುವತೆ ಯಾಕೆ ಅಗತ್ಯ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "led_off"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'led_off'. The LED is selected but the switch is off. "
+                "Think about WHY an LED is a DIODE — it only conducts one way."
+            ),
+            "attempt_2": (
+                "Choose 'led_off': Diode = one-way conductor. Current can only flow from "
+                "long leg (+) to short leg (−). Reversed = blocked. Incandescent = resistor = works both ways."
+            ),
+            "attempt_3": (
+                "Set 'initialState=led_off': LED is a DIODE — semiconductor with a P-N junction "
+                "that only allows current in ONE direction. Incandescent filament is just a resistor — "
+                "direction does not matter."
+            )
+        },
+        "concept_reminder": (
+            "LED = DIODE = one-directional conductor. The P-N junction inside only allows "
+            "current when (+) connects to the P-side (long leg). Reversed = junction blocks current = no light. "
+            "Incandescent filament = simple resistor = conducts in both directions = polarity irrelevant. "
+            "(LED: ಉದ್ದ ಕಾಲು + ⟶ ಮಾತ್ರ | ಕಿರಿದಾದ ಕಾಲು − ⟵ ಮಾತ್ರ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — SIMPLE CIRCUIT
+# =============================================================================
+QUIZ_QUESTIONS_KN["simple_circuit_kn"] = [
+    {
+        "id": "circuit_q1",
+        "challenge": (
+            "Start with an EMPTY circuit board. "
+            "Name all four components needed to build a working simple circuit, and "
+            "state the role of each component.\n\n"
+            "(ಖಾಲಿ ಸರ್ಕ್ಯೂಟ್ ಬೋರ್ಡ್ ತೋರಿಸಿ — ಸರಳ ಸರ್ಕ್ಯೂಟ್‌ನ ನಾಲ್ಕು ಭಾಗಗಳು ಯಾವುವು?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "empty"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'empty'. Read the component panel — "
+                "there are four components: cell, bulb, switch, wires."
+            ),
+            "attempt_2": (
+                "Choose 'empty': (1) Cell — energy source. (2) Bulb — output device. "
+                "(3) Switch — controller. (4) Wires — conductors that connect all three."
+            ),
+            "attempt_3": (
+                "Set 'initialState=empty': Think of a circuit as a powered loop. "
+                "You need: a PUMP (cell), a LOAD (bulb), a VALVE (switch), and PIPES (wires)."
+            )
+        },
+        "concept_reminder": (
+            "Four essential circuit components: "
+            "CELL (energy source, chemical → electrical), BULB (load, electrical → light), "
+            "SWITCH (controller, opens/closes circuit), WIRES (conductors, connect everything in a loop). "
+            "Missing any one = circuit is incomplete = no current = bulb off. "
+            "(ಕೋಶ + ಬಲ್ಬ್ + ಸ್ವಿಚ್ + ತಂತಿ = ಪೂರ್ಣ ಸರ್ಕ್ಯೂಟ್!)"
+        )
+    },
+    {
+        "id": "circuit_q2",
+        "challenge": (
+            "Build the circuit by placing ALL four components. "
+            "Before testing, predict: in which direction will the current flow "
+            "around the circuit once the switch is closed?\n\n"
+            "(ಎಲ್ಲ ನಾಲ್ಕು ಭಾಗಗಳನ್ನು ಇರಿಸಿ — ಪ್ರವಾಹ ಯಾವ ದಿಕ್ಕಿನಲ್ಲಿ ಹರಿಯುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "built"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'built'. Watch all four components auto-place — "
+                "cell, bulb, switch, and wires all in position."
+            ),
+            "attempt_2": (
+                "Choose 'built': Conventional current flows from cell (+) through the "
+                "external circuit (bulb, switch) and returns to cell (−). It's always (+) to (−) externally."
+            ),
+            "attempt_3": (
+                "Set 'initialState=built': Current direction: cell (+) → top wire → bulb → "
+                "right wire → switch → bottom wire → cell (−). Counterclockwise in this layout."
+            )
+        },
+        "concept_reminder": (
+            "Conventional current direction: always from (+) terminal of cell, "
+            "through external circuit components (bulb, switch), and back to (−) terminal. "
+            "Current always flows from higher potential (+) to lower potential (−) externally. "
+            "Inside the cell, current flows from − to + (the cell does work to push charges). "
+            "(ಪ್ರವಾಹ: + → ಬಾಹ್ಯ ಸರ್ಕ್ಯೂಟ್ → − | ಕೋಶ ಒಳಗೆ − → +!)"
+        )
+    },
+    {
+        "id": "circuit_q3",
+        "challenge": (
+            "Now TEST the completed circuit. Observe what happens when the circuit "
+            "is tested. What does the bulb lighting up confirm about the circuit?\n\n"
+            "(ಸರ್ಕ್ಯೂಟ್ ಪರೀಕ್ಷಿಸಿ — ಬಲ್ಬ್ ಬೆಳಗಿದರೆ ಅದು ಏನನ್ನು ಖಚಿತಪಡಿಸುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "tested"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'tested'. Watch all components auto-place and "
+                "the circuit test run — the bulb should glow and current arrows appear."
+            ),
+            "attempt_2": (
+                "Choose 'tested': A glowing bulb confirms the circuit loop is COMPLETE "
+                "and unbroken. Current is flowing through all components."
+            ),
+            "attempt_3": (
+                "Set 'initialState=tested': Bulb ON = closed loop = current flowing = "
+                "all connections correct. The current arrow animation shows the flow direction."
+            )
+        },
+        "concept_reminder": (
+            "A lit bulb is the proof of a complete circuit. It means: "
+            "(1) All 4 components are connected correctly. "
+            "(2) The circuit loop is unbroken — no gaps in any connection. "
+            "(3) Current is flowing from (+) through bulb → switch → back to (−). "
+            "Remove any wire or component → bulb off immediately. "
+            "(ಬಲ್ಬ್ ಬೆಳಕು = ಪೂರ್ಣ ಸರ್ಕ್ಯೂಟ್ ಧೃಢೀಕರಣ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — ELECTRIC SWITCH
+# =============================================================================
+QUIZ_QUESTIONS_KN["electric_switch_kn"] = [
+    {
+        "id": "switch_q1",
+        "challenge": (
+            "Show the switch in the OFF state. Explain — using the circuit diagram — "
+            "exactly WHY the bulb does not glow when the switch is open.\n\n"
+            "(ಸ್ವಿಚ್ ಆಫ್ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಬಲ್ಬ್ ಯಾಕೆ ಬೆಳಗುವುದಿಲ್ಲ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "off"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'off'. Observe the top wire (going to the switch) — "
+                "it stays grey/inactive. The current cannot reach the bulb."
+            ),
+            "attempt_2": (
+                "Choose 'off': The open switch creates a GAP in the circuit loop. "
+                "Electrons cannot jump a gap — current stops completely."
+            ),
+            "attempt_3": (
+                "Set 'initialState=off': Open switch = broken loop = zero current. "
+                "The state card shows 'ತೆರೆದ ಸರ್ಕ್ಯೂಟ್' (open circuit)."
+            )
+        },
+        "concept_reminder": (
+            "Open switch (OFF) = physical gap in the circuit. "
+            "Electrons need a continuous conductor path — they CANNOT jump a gap. "
+            "Result: current = 0 everywhere in the circuit, bulb is dark. "
+            "Even one tiny gap stops all current in the ENTIRE loop. "
+            "(ಅಂತರ = ಶೂನ್ಯ ಪ್ರವಾಹ = ಬಲ್ಬ್ ಆಫ್!)"
+        )
+    },
+    {
+        "id": "switch_q2",
+        "challenge": (
+            "Close the switch (turn it ON). Describe the change you see in "
+            "the circuit diagram. What does 'closed circuit' mean physically?\n\n"
+            "(ಸ್ವಿಚ್ ಆನ್ ಮಾಡಿ — ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ಯಾವ ಬದಲಾವಣೆ ಕಾಣುತ್ತೀರಿ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "on"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'on'. Watch the entire circuit light up green "
+                "and the bulb glow — the closed switch bridged the gap."
+            ),
+            "attempt_2": (
+                "Choose 'on': The switch lever moves to bridge the two contact points, "
+                "creating a conducting path. The loop is now complete — current flows."
+            ),
+            "attempt_3": (
+                "Set 'initialState=on': Closed switch = conducting bridge = complete loop. "
+                "Current indicators appear. State card shows 'ಮುಚ್ಚಿದ ಸರ್ಕ್ಯೂಟ್' (closed circuit)."
+            )
+        },
+        "concept_reminder": (
+            "Closed switch (ON) = conducting bridge across what was a gap. "
+            "The metal lever/contact physically touches both terminals, providing a "
+            "continuous metal path for electrons to flow. "
+            "Complete loop → current flows → bulb lights up → energy is transferred. "
+            "(ಸ್ವಿಚ್ ಮುಚ್ಚಿದ = ಸೇತುವೆ = ಪ್ರವಾಹ = ಬಲ್ಬ್ ಆನ್!)"
+        )
+    },
+    {
+        "id": "switch_q3",
+        "challenge": (
+            "Explore the push-button switch type with the circuit ON. "
+            "Give one real-world example of a push-button switch and explain "
+            "why it is better than a lever switch for that application.\n\n"
+            "(ಪುಶ್ ಬಟನ್ ಸ್ವಿಚ್ ಆನ್ ಸ್ಥಿತಿಯಲ್ಲಿ ತೋರಿಸಿ — ನೈಜ ಉದಾಹರಣೆ ಕೊಡಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "on"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'on' and 'switchType' to 'push'. "
+                "Think of where you press and release a button — doorbell, keyboard key, calculator."
+            ),
+            "attempt_2": (
+                "Choose 'on' + 'switchType=push': A doorbell uses a push-button "
+                "because it should ring ONLY while pressed — momentary contact. "
+                "A lever switch would stay ON continuously — wrong for a doorbell!"
+            ),
+            "attempt_3": (
+                "Set 'initialState=on', 'switchType=push': Examples — doorbell (momentary press), "
+                "computer keyboard (each key is a push-button switch). "
+                "Push-button = momentary contact = circuit closes only while pressed."
+            )
+        },
+        "concept_reminder": (
+            "Three switch types: LEVER (stays in position — light switches), "
+            "PUSH-BUTTON (momentary — springs back — doorbells, keyboards), "
+            "TOGGLE (flip between positions — stays where you put it — electronics boards). "
+            "All three do the same job (complete/break a circuit) by different mechanisms. "
+            "The right switch for the job depends on whether you need a LATCHING or MOMENTARY action. "
+            "(ಲಿವರ್ = ಸ್ಥಿರ | ಪುಶ್ = ಕ್ಷಣಿಕ | ಟಾಗಲ್ = ಹಿಡಿದ ಸ್ಥಾನ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — CIRCUIT SYMBOLS
+# =============================================================================
+QUIZ_QUESTIONS_KN["circuit_symbols_kn"] = [
+    {
+        "id": "symbols_q1",
+        "challenge": (
+            "Display the CELL symbol. Explain the circuit symbol for a cell — "
+            "which line is longer, which is shorter, and what do they represent?\n\n"
+            "(ಕೋಶ ಚಿಹ್ನೆ ತೋರಿಸಿ — ಉದ್ದ ಮತ್ತು ಕಿರಿದು ರೇಖೆ ಏನನ್ನು ಸೂಚಿಸುತ್ತವೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "cell"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'cell'. Look at the detailed symbol — "
+                "two parallel vertical lines of different lengths."
+            ),
+            "attempt_2": (
+                "Choose 'cell': LONG line = positive terminal (+). "
+                "SHORT line = negative terminal (−). The longer line represents "
+                "the higher-potential side where current exits."
+            ),
+            "attempt_3": (
+                "Set 'initialState=cell': Long line = + (current exits here). "
+                "Short line = − (current returns here). "
+                "Memory tip: Long = positive (extra bit sticking out, like the metal cap bump)."
+            )
+        },
+        "concept_reminder": (
+            "Cell circuit symbol: two parallel lines — ONE LONG, ONE SHORT. "
+            "LONG line = POSITIVE (+) terminal — current exits here. "
+            "SHORT line = NEGATIVE (−) terminal — current enters here. "
+            "This is a universal standard — every circuit diagram in the world uses this. "
+            "(ಉದ್ದ ರೇಖೆ = + | ಕಿರಿದಾ ರೇಖೆ = − | ಜಾಗತಿಕ ಮಾನಕ!)"
+        )
+    },
+    {
+        "id": "symbols_q2",
+        "challenge": (
+            "Show the OPEN SWITCH symbol. If you see this symbol in a circuit diagram, "
+            "what does it tell you about the state of the circuit — is current flowing?\n\n"
+            "(ತೆರೆದ ಸ್ವಿಚ್ ಚಿಹ್ನೆ ತೋರಿಸಿ — ಇದು ಸರ್ಕ್ಯೂಟ್ ಬಗ್ಗೆ ಏನು ಹೇಳುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "switch_open"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'switch_open'. Observe the symbol — "
+                "the lever is drawn at an angle, showing a GAP in the circuit path."
+            ),
+            "attempt_2": (
+                "Choose 'switch_open': A raised lever = open switch = gap in circuit = "
+                "NO current flowing. Any device in this circuit would be OFF."
+            ),
+            "attempt_3": (
+                "Set 'initialState=switch_open': The gap in the switch symbol represents "
+                "a physical break in the conducting path. Open switch anywhere in a series "
+                "circuit stops current EVERYWHERE in that loop."
+            )
+        },
+        "concept_reminder": (
+            "Open switch symbol = lever drawn at an angle with a visible gap. "
+            "Meaning: circuit is BROKEN at this point. Current = 0. Everything OFF. "
+            "Closed switch symbol = lever lying flat, completing the line — current flows. "
+            "Reading circuit diagrams: spot the switch symbol and its state to know if the circuit is live. "
+            "(ಕೋನದ ಲಿವರ್ = ತೆರೆದ = ಆಫ್ | ಸಮ ಲಿವರ್ = ಮುಚ್ಚಿದ = ಆನ್!)"
+        )
+    },
+    {
+        "id": "symbols_q3",
+        "challenge": (
+            "Display the BATTERY symbol. How does the battery symbol differ from "
+            "a single cell symbol, and what does that difference represent?\n\n"
+            "(ಬ್ಯಾಟರಿ ಚಿಹ್ನೆ ತೋರಿಸಿ — ಇದು ಕೋಶ ಚಿಹ್ನೆಯಿಂದ ಹೇಗೆ ಭಿನ್ನ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "battery"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'battery'. Compare the symbol with the cell — "
+                "a battery has MULTIPLE pairs of long-short lines."
+            ),
+            "attempt_2": (
+                "Choose 'battery': Single cell = one long + one short line. "
+                "Battery = TWO or more long-short pairs representing multiple cells in series."
+            ),
+            "attempt_3": (
+                "Set 'initialState=battery': More line-pairs = more cells = more voltage. "
+                "A 9V battery symbol has 6 pairs (6 × 1.5V = 9V). "
+                "The symbol visually shows the number of cells!"
+            )
+        },
+        "concept_reminder": (
+            "Battery symbol = multiple cell symbols stacked together. "
+            "Each long-short pair = one cell (1.5V). "
+            "Count the pairs to find the number of cells. "
+            "Battery of 4 cells = 4 pairs = 4 × 1.5V = 6V total. "
+            "Key difference from cell: cell = 1 pair, battery = 2+ pairs. "
+            "(ಬ್ಯಾಟರಿ = ಅನೇಕ ಕೋಶ ಚಿಹ್ನೆಗಳ ಜೋಡಣೆ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — MATERIALS APPLICATIONS
+# =============================================================================
+QUIZ_QUESTIONS_KN["materials_applications_kn"] = [
+    {
+        "id": "materials_q1",
+        "challenge": (
+            "Show the METALS category. Name one metal application and explain "
+            "which specific property of the metal makes it suitable for that use.\n\n"
+            "(ಲೋಹಗಳ ವರ್ಗ ತೋರಿಸಿ — ಒಂದು ಅನ್ವಯ ಮತ್ತು ಆ ಲೋಹದ ನಿರ್ದಿಷ್ಟ ಗುಣ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "metals"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'metals'. Look at the four metal application cards — "
+                "electrical wires, cookware, bells, jewellery."
+            ),
+            "attempt_2": (
+                "Choose 'metals': Electrical wires = copper/aluminium used because of "
+                "ELECTRICAL CONDUCTIVITY. Cookware = aluminium because of HEAT CONDUCTIVITY + MALLEABILITY."
+            ),
+            "attempt_3": (
+                "Set 'initialState=metals': Property-application pairs: "
+                "Conductivity → wires; Heat conductivity → cookware; "
+                "Sonority → bells; Malleability + lustre → jewellery."
+            )
+        },
+        "concept_reminder": (
+            "Metal properties and their applications: "
+            "CONDUCTIVITY → electrical wires (copper/aluminium carry current). "
+            "HEAT CONDUCTIVITY → cookware (aluminium/steel distribute heat evenly). "
+            "MALLEABILITY → sheets (gold beaten into thin foil). "
+            "DUCTILITY → wires (copper drawn into thin wire). "
+            "SONORITY → bells (metal rings when struck). "
+            "LUSTRE → jewellery (gold/silver shine). "
+            "(ಲೋಹ ಗುಣ → ನಿರ್ದಿಷ್ಟ ಬಳಕೆ!)"
+        )
+    },
+    {
+        "id": "materials_q2",
+        "challenge": (
+            "Display NON-METALS applications. Why is rubber used to insulate electric "
+            "cables instead of a metal? Which property makes rubber suitable?\n\n"
+            "(ಅಲೋಹ ವರ್ಗ ತೋರಿಸಿ — ವಿದ್ಯುತ್ ತಂತಿ ರಕ್ಷಾಕವಚಕ್ಕೆ ರಬ್ಬರ್ ಯಾಕೆ ಬಳಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "nonmetals"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'nonmetals'. Look at the insulation card — "
+                "rubber and plastic block electricity."
+            ),
+            "attempt_2": (
+                "Choose 'nonmetals': Rubber is a POOR conductor of electricity (an insulator). "
+                "It DOES NOT allow current to flow through it, protecting us from electric shock."
+            ),
+            "attempt_3": (
+                "Set 'initialState=nonmetals': Rubber insulation property = "
+                "high electrical resistance = poor conductivity. "
+                "If metal was used as insulation, it would conduct current and cause a short circuit!"
+            )
+        },
+        "concept_reminder": (
+            "Non-metals like rubber and plastic are POOR electrical conductors (insulators). "
+            "This property — which looks like a weakness — is exactly what makes them useful "
+            "as cable insulation. They protect us from shock by blocking current from "
+            "escaping the metal core wire. "
+            "Other non-metal uses: oxygen (O₂) for breathing, chlorine (Cl) to disinfect water. "
+            "(ಕಳಪೆ ವಾಹಕತೆ = ಉತ್ತಮ ರಕ್ಷಾಕವಚ!)"
+        )
+    },
+    {
+        "id": "materials_q3",
+        "challenge": (
+            "Show BOTH category. Pick one everyday object that combines metal AND "
+            "non-metal parts. Explain why each material is chosen for its specific part.\n\n"
+            "(ಎರಡೂ ವರ್ಗ ತೋರಿಸಿ — ಒಂದು ವಸ್ತು ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ಪ್ರತಿ ಭಾಗಕ್ಕೆ ವಸ್ತು ಯಾಕೆ ಎಂದು ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "both"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'both'. Look at the four combination cards — "
+                "hammer, frying pan, electric plug, pencil."
+            ),
+            "attempt_2": (
+                "Choose 'both': Electric plug = metal pins (conduct electricity to appliance) + "
+                "plastic body (insulate the user). Each material does a DIFFERENT job."
+            ),
+            "attempt_3": (
+                "Set 'initialState=both': Frying pan = metal body (conducts heat to food) + "
+                "plastic handle (insulates cook's hand from heat). "
+                "Design principle: metal where conductivity helps; non-metal where it would be dangerous."
+            )
+        },
+        "concept_reminder": (
+            "Everyday combination objects use metals and non-metals strategically: "
+            "ELECTRIC PLUG: metal pins (conductivity) + plastic body (insulation). "
+            "FRYING PAN: metal base (heat conductivity) + plastic handle (heat insulation). "
+            "PENCIL: graphite/carbon core (marks paper — non-metal) + wooden barrel (grip). "
+            "HAMMER: metal head (hardness to drive nails) + wooden handle (grip + heat insulation). "
+            "Key insight: use each material exactly where ITS property gives an advantage. "
+            "(ಲೋಹ ಕಾರ್ಯ ಮಾಡುವಲ್ಲಿ | ಅಲೋಹ ರಕ್ಷಿಸುವಲ್ಲಿ!)"
+        )
+    }
+]
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════

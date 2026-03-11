@@ -1204,6 +1204,232 @@ SIMULATIONS["battery_connection_kn"] = {
 
 
 # =============================================================================
+# LAMP TYPES (KN)
+# =============================================================================
+SIMULATIONS["lamp_types_kn"] = {
+    "name": "ದೀಪ ಪ್ರಕಾರಗಳು (Lamp Types — Incandescent vs LED)",
+    "language": "kannada",
+    "description": (
+        "ಇನ್ಕ್ಯಾಂಡಿಸೆಂಟ್ ಬಲ್ಬ್ ಮತ್ತು LED ಅನ್ನು ಆನ್/ಆಫ್ ಮಾಡಿ ಹೋಲಿಕೆ ಮಾಡಿ — ಫಿಲಾಮೆಂಟ್ vs ಸೆಮಿಕಂಡಕ್ಟರ್.\n"
+        "Compare incandescent (filament) and LED (semiconductor) lamps by switching each on and off."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation6_lamp_types_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ದೀಪ ಸ್ಥಿತಿ / Lamp State",
+            "default": "incandescent_off",
+            "options": ["incandescent_off", "incandescent_on", "led_off", "led_on"],
+            "option_labels": [
+                "ಇನ್ಕ್ಯಾಂಡಿಸೆಂಟ್ ಆಫ್ (Incandescent off — default view)",
+                "ಇನ್ಕ್ಯಾಂಡಿಸೆಂಟ್ ಆನ್ (Incandescent on — filament glowing)",
+                "LED ಆಫ್ (LED off — polarity view)",
+                "LED ಆನ್ (LED on — semiconductor emitting light)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+# =============================================================================
+# SIMPLE CIRCUIT (KN)
+# =============================================================================
+SIMULATIONS["simple_circuit_kn"] = {
+    "name": "ಸರಳ ವಿದ್ಯುತ್ ಸರ್ಕ್ಯೂಟ್ (Simple Electric Circuit)",
+    "language": "kannada",
+    "description": (
+        "ಕೋಶ, ಬಲ್ಬ್, ಸ್ವಿಚ್ ಮತ್ತು ತಂತಿಗಳನ್ನು ಇರಿಸಿ ಸರ್ಕ್ಯೂಟ್ ನಿರ್ಮಿಸಿ ಮತ್ತು ಪರೀಕ್ಷಿಸಿ.\n"
+        "Build a simple circuit by placing all four components and test it to see the bulb light up."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation7_simple_circuit_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಸರ್ಕ್ಯೂಟ್ ಸ್ಥಿತಿ / Circuit State",
+            "default": "empty",
+            "options": ["empty", "built", "tested"],
+            "option_labels": [
+                "ಖಾಲಿ ಬೋರ್ಡ್ (Empty — no components placed)",
+                "ನಿರ್ಮಿಸಿದ (Built — all components placed)",
+                "ಪರೀಕ್ಷಿಸಿದ (Tested — circuit running, bulb lit)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+# =============================================================================
+# ELECTRIC SWITCH (KN)
+# =============================================================================
+SIMULATIONS["electric_switch_kn"] = {
+    "name": "ವಿದ್ಯುತ್ ಸ್ವಿಚ್ (Electric Switch)",
+    "language": "kannada",
+    "description": (
+        "ಸ್ವಿಚ್ ಆನ್/ಆಫ್ ಟಾಗಲ್ ಮಾಡಿ — ಲಿವರ್, ಪುಶ್ ಮತ್ತು ಟಾಗಲ್ ಸ್ವಿಚ್ ಪ್ರಕಾರಗಳನ್ನು ಅನ್ವೇಷಿಸಿ.\n"
+        "Toggle the switch ON/OFF and observe circuit changes. Explore three switch types."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation8_electric_switch_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಸ್ವಿಚ್ ಸ್ಥಿತಿ / Switch State",
+            "default": "off",
+            "options": ["off", "on"],
+            "option_labels": [
+                "ಆಫ್ (Off — open circuit, bulb dark)",
+                "ಆನ್ (On — closed circuit, bulb lit)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "switchType",
+            "type": "select",
+            "display_name": "ಸ್ವಿಚ್ ಪ್ರಕಾರ / Switch Type",
+            "default": "lever",
+            "options": ["lever", "push", "toggle"],
+            "option_labels": [
+                "ಲಿವರ್ ಸ್ವಿಚ್ (Lever — wall switches)",
+                "ಪುಶ್ ಬಟನ್ (Push button — doorbells, calculators)",
+                "ಟಾಗಲ್ ಸ್ವಿಚ್ (Toggle — electronics boards)"
+            ],
+            "url_param": "switchType"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+# =============================================================================
+# CIRCUIT SYMBOLS (KN)
+# =============================================================================
+SIMULATIONS["circuit_symbols_kn"] = {
+    "name": "ಸರ್ಕ್ಯೂಟ್ ಚಿಹ್ನೆಗಳು (Circuit Symbols)",
+    "language": "kannada",
+    "description": (
+        "ಸರ್ಕ್ಯೂಟ್ ಚಿತ್ರಗಳಲ್ಲಿ ಬಳಸಲಾಗುವ ಮಾನಕ ಚಿಹ್ನೆಗಳನ್ನು ಕಲಿಯಿರಿ — ಕೋಶ, ಬ್ಯಾಟರಿ, ಬಲ್ಬ್, LED, ಸ್ವಿಚ್, ತಂತಿ.\n"
+        "Learn standard circuit diagram symbols for cell, battery, bulb, LED, switches and wires."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation9_circuit_symbols_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಚಿಹ್ನೆ / Symbol to Display",
+            "default": "cell",
+            "options": [
+                "cell", "battery", "bulb", "led",
+                "switch_open", "switch_closed", "wire", "wire_cross"
+            ],
+            "option_labels": [
+                "ಕೋಶ (Cell — single long+short line pair)",
+                "ಬ್ಯಾಟರಿ (Battery — multiple cell pairs)",
+                "ದೀಪ/ಬಲ್ಬ್ (Bulb — circle with X)",
+                "LED (LED — triangle + arrow)",
+                "ತೆರೆದ ಸ್ವಿಚ್ (Switch Open — gap in line)",
+                "ಮುಚ್ಚಿದ ಸ್ವಿಚ್ (Switch Closed — complete line)",
+                "ತಂತಿ (Wire — straight conductor line)",
+                "ತಂತಿ ಛೇದನ (Wire Cross — crossing without connection)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+# =============================================================================
+# MATERIALS APPLICATIONS (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["materials_applications_kn"] = {
+    "name": "ಲೋಹ ಮತ್ತು ಅಲೋಹ ಬಳಕೆಗಳು (Applications of Metals & Non-metals)",
+    "language": "kannada",
+    "description": (
+        "ಲೋಹ, ಅಲೋಹ ಮತ್ತು ಎರಡೂ ಬಳಸುವ ವಸ್ತುಗಳ ನೈಜ-ಜೀವನ ಅನ್ವಯಗಳನ್ನು ಅನ್ವೇಷಿಸಿ.\n"
+        "Explore real-world applications of metals, non-metals, and objects combining both."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation10_applications_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ವರ್ಗ / Category",
+            "default": "metals",
+            "options": ["metals", "nonmetals", "both"],
+            "option_labels": [
+                "ಲೋಹಗಳು (Metals — wires, cookware, bells, jewellery)",
+                "ಅಲೋಹಗಳು (Non-metals — insulation, oxygen, chlorine, iodine)",
+                "ಎರಡೂ ಬಳಕೆ (Both — tools, pans, plugs, pencils)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================
