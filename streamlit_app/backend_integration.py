@@ -296,48 +296,58 @@ def translate_display_data(display_data: Dict[str, Any], language: str) -> Dict[
     """
     if not BACKEND_AVAILABLE or not needs_translation(language):
         return display_data
-    
+
     target = get_language_code(language)
-    
-    # 1. Translate teacher message
+
+    # ── Collect all (object, field) pairs that need translation ──────────────
+    # We gather every text string into one flat list, translate the whole batch
+    # in parallel with a single translate_batch() call, then write results back.
+    # This reduces wall-clock time from (N × latency) to (~1 × latency).
+
+    refs: list = []   # list of (container, key)  — container[key] is the text
+
+    # 1. Teacher message
     if display_data.get("teacher_message"):
-        display_data["teacher_message"] = translate(
-            display_data["teacher_message"], source="en", target=target
-        )
-    
-    # 2. Translate current concept (title, description, key_insight)
+        refs.append((display_data, "teacher_message"))
+
+    # 2. Current concept fields
     if display_data.get("current_concept"):
         concept = display_data["current_concept"]
         for field in ["title", "description", "key_insight"]:
             if concept.get(field):
-                concept[field] = translate(concept[field], source="en", target=target)
-    
-    # 3. Translate all concepts list
+                refs.append((concept, field))
+
+    # 3. All concepts list
     for concept in display_data.get("concepts", []):
         for field in ["title", "description", "key_insight"]:
             if concept.get(field):
-                concept[field] = translate(concept[field], source="en", target=target)
-    
-    # 4. Translate quiz questions (challenge text)
+                refs.append((concept, field))
+
+    # 4. Quiz question challenge text
     for question in display_data.get("quiz_questions", []):
         if question.get("challenge"):
-            question["challenge"] = translate(
-                question["challenge"], source="en", target=target
-            )
-    
-    # 5. Translate quiz evaluation feedback
-    quiz_eval = display_data.get("quiz_evaluation", {})
-    if quiz_eval:
-        if quiz_eval.get("feedback"):
-            quiz_eval["feedback"] = translate(
-                quiz_eval["feedback"], source="en", target=target
-            )
-    
-    # 6. Translate conversation history (teacher messages only)
+            refs.append((question, "challenge"))
+
+    # 5. Quiz evaluation feedback
+    quiz_eval = display_data.get("quiz_evaluation") or {}
+    if quiz_eval.get("feedback"):
+        refs.append((quiz_eval, "feedback"))
+
+    # 6. Conversation history (teacher messages only)
     for msg in display_data.get("conversation_history", []):
         if msg.get("role") == "teacher" and msg.get("content"):
-            msg["content"] = translate(msg["content"], source="en", target=target)
-    
+            refs.append((msg, "content"))
+
+    if not refs:
+        return display_data
+
+    # ── Parallel batch translate ──────────────────────────────────────────────
+    texts = [container[key] for container, key in refs]
+    translated_texts = translate_batch(texts, source="en", target=target)
+
+    for (container, key), translated in zip(refs, translated_texts):
+        container[key] = translated
+
     return display_data
 
 
@@ -377,7 +387,7 @@ def build_sim_url(params: Dict[str, Any], autostart: bool = True) -> str:
         return build_simulation_url(params, autostart)
     
     # Fallback URL building
-    base_url = "https://imhv0609.github.io/simulation_to_concept_github/SimulationsNCERT-main/simple_pendulum.html"
+    base_url = "https://imhvs0609.github.io/simulation_to_concept_version3_github_modified/simulations/simple_pendulum.html"
     url = f"{base_url}?length={params.get('length', 5)}&oscillations={params.get('number_of_oscillations', 10)}"
     if autostart:
         url += "&autoStart=true"

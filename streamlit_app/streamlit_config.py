@@ -8,7 +8,7 @@ Easy to add new simulations here.
 # =============================================================================
 # GITHUB PAGES BASE URL
 # =============================================================================
-GITHUB_PAGES_BASE = "https://imhv0609.github.io/simulation_to_concept_version3_github/simulations"
+GITHUB_PAGES_BASE = "https://imhvs0609.github.io/simulation_to_concept_version3_github_modified/simulations"
 
 # =============================================================================
 # SIMULATION CONFIGURATIONS
@@ -529,7 +529,7 @@ SIMULATIONS = {
 # =============================================================================
 # GitHub Pages base URL for the Kannada simulations folder
 GITHUB_PAGES_BASE_KN = (
-    "https://imhv0609.github.io/simulation_to_concept_version3_github"
+    "https://imhvs0609.github.io/simulation_to_concept_version3_github_modified"
     "/simulations_kannada"
 )
 
