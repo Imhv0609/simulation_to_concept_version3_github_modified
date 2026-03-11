@@ -1634,6 +1634,228 @@ SIMULATIONS["electrical_conductivity_kn"] = {
 }
 
 # =============================================================================
+# RUSTING EXPERIMENT (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["rusting_experiment_kn"] = {
+    "name": "ತುಕ್ಕು ಪ್ರಯೋಗ (Rusting Experiment)",
+    "language": "kannada",
+    "description": (
+        "ಮೂರು ಟ್ಯೂಬ್‌ಗಳಲ್ಲಿ ಕಬ್ಬಿಣದ ಉಗುರುಗಳನ್ನು ಇಟ್ಟು ತುಕ್ಕಿಗೆ ಗಾಳಿ ಮತ್ತು ನೀರು ಎರಡೂ ಅಗತ್ಯ ಎಂದು ತೋರಿಸಿ.\n"
+        "Place iron nails in 3 conditions and discover that BOTH air and water are needed for rusting."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation6_rusting_experiment_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಸಮಯ ಸ್ಥಿತಿ / Time State",
+            "default": "initial",
+            "options": ["initial", "day3", "day7"],
+            "option_labels": [
+                "ದಿನ 0 — ಆರಂಭ (Initial — day 0, all nails shiny)",
+                "ದಿನ 3 — ಮಧ್ಯ (Day 3 — rust beginning in Tube C only)",
+                "ದಿನ 7 — ಪ್ರಯೋಗ ಪೂರ್ಣ (Day 7 — experiment complete, results clear)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# METAL OXIDE REACTION (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["metal_oxide_reaction_kn"] = {
+    "name": "ಲೋಹ ಆಕ್ಸೈಡ್ ಪ್ರತಿಕ್ರಿಯೆ (Metal Oxide Reaction)",
+    "language": "kannada",
+    "description": (
+        "ಮೆಗ್ನೀಸಿಯಂ ಸುಡಿ → MgO ಕರಗಿಸಿ → ಲಿಟ್ಮಸ್ ಪರೀಕ್ಷೆ — ಲೋಹ ಆಕ್ಸೈಡ್ ಕ್ಷಾರೀಯ ಎಂದು ತೋರಿಸಿ.\n"
+        "Burn Mg → dissolve MgO in water → test with litmus — proves metal oxides are basic."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation7_metal_oxide_reaction_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರಯೋಗ ಹಂತ / Experiment Step",
+            "default": "initial",
+            "options": ["initial", "burned", "dissolved", "tested"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — Mg ribbon ready, not yet burned)",
+                "ಸುಟ್ಟ (Burned — Mg burned, white MgO ash formed)",
+                "ಕರಗಿಸಿದ (Dissolved — MgO dissolved in water, Mg(OH)₂ ready)",
+                "ಪರೀಕ್ಷಿಸಿದ (Tested — litmus test done, red→blue, proves basic)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# NON-METAL OXIDE REACTION (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["nonmetal_oxide_reaction_kn"] = {
+    "name": "ಅಲೋಹ ಆಕ್ಸೈಡ್ ಪ್ರತಿಕ್ರಿಯೆ (Non-metal Oxide Reaction)",
+    "language": "kannada",
+    "description": (
+        "ಸಲ್ಫರ್ ಸುಡಿ → SO₂ ಕರಗಿಸಿ → ಲಿಟ್ಮಸ್ ಪರೀಕ್ಷೆ — ಅಲೋಹ ಆಕ್ಸೈಡ್ ಆಮ್ಲೀಯ ಎಂದು ತೋರಿಸಿ.\n"
+        "Burn S → dissolve SO₂ in water → test with litmus — proves non-metal oxides are acidic."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation8_nonmetal_oxide_reaction_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರಯೋಗ ಹಂತ / Experiment Step",
+            "default": "initial",
+            "options": ["initial", "burned", "dissolved", "tested"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — sulfur powder ready, not yet burned)",
+                "ಸುಟ್ಟ (Burned — sulfur burned with blue flame, SO₂ collected)",
+                "ಕರಗಿಸಿದ (Dissolved — SO₂ dissolved, H₂SO₃ sulfurous acid formed)",
+                "ಪರೀಕ್ಷಿಸಿದ (Tested — litmus test done, blue→red, proves acidic)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# METALS vs NON-METALS COMPARISON (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["metals_nonmetals_compare_kn"] = {
+    "name": "ಲೋಹ ಮತ್ತು ಅಲೋಹ ಹೋಲಿಕೆ (Metals vs Non-metals Comparison)",
+    "language": "kannada",
+    "description": (
+        "8 ಗುಣಗಳ ಸಂವಾದಾತ್ಮಕ ಹೋಲಿಕೆ — ದ್ಯುತಿ, ನಮ್ಯತೆ, ಸೆಳೆತ, ಧ್ವನಿ, ಉಷ್ಣ, ವಿದ್ಯುತ್, ಕಾಠಿಣ್ಯ, ಆಕ್ಸೈಡ್.\n"
+        "8-property interactive comparison: tap a property to see metal vs non-metal side by side."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation9_metals_nonmetals_compare_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರದರ್ಶಿಸಲು ಗುಣ / Property to Display",
+            "default": "initial",
+            "options": [
+                "initial", "malleability", "ductility", "sonority",
+                "heat_conduction", "electrical_conduction", "hardness", "oxide_nature"
+            ],
+            "option_labels": [
+                "ದ್ಯುತಿ (Lustre — shiny vs dull)",
+                "ನಮ್ಯತೆ (Malleability — flatten vs shatter)",
+                "ಸೆಳೆತ (Ductility — wire vs snap)",
+                "ಧ್ವನಿ (Sonority — ring vs thud)",
+                "ಉಷ್ಣ ವಾಹಕತೆ (Heat Conduction — good vs poor)",
+                "ವಿದ್ಯುತ್ ವಾಹಕತೆ (Electrical Conduction — conductor vs insulator)",
+                "ಕಾಠಿಣ್ಯ (Hardness — generally hard vs soft)",
+                "ಆಕ್ಸೈಡ್ ಸ್ವಭಾವ (Oxide Nature — basic vs acidic)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# WEATHERING AND EROSION (KN) — Chapter 5
+# =============================================================================
+SIMULATIONS["weathering_erosion_kn"] = {
+    "name": "ವಾತಾವರಣ ಮತ್ತು ಕೊರೆತ (Weathering and Erosion)",
+    "language": "kannada",
+    "description": (
+        "ಪರ್ವತ, ನದಿ, ಸಮುದ್ರ ಬಂಡೆ ದೃಶ್ಯಗಳಲ್ಲಿ ಲಕ್ಷಾಂತರ ವರ್ಷ ಕಾಲ-ಪ್ರಯಾಣ ಮಾಡಿ ಭೂರೂಪ ಬದಲಾವಣೆ ನೋಡಿ.\n"
+        "Time-travel through mountain, river, and sea-cliff scenes to see landscapes shaped over millions of years."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter5_simulation10_weathering_erosion_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ದೃಶ್ಯ / ಸ್ಥಿತಿ — Scene / Time State",
+            "default": "initial",
+            "options": [
+                "initial", "mountain", "river", "cliff",
+                "mountain_aged", "river_aged", "cliff_aged"
+            ],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — mountain scene, time = 0)",
+                "ಪರ್ವತ (Mountain — fresh peak, snow cap, time = 0)",
+                "ನದಿ (River — angular rocks, time = 0)",
+                "ಸಮುದ್ರ ಬಂಡೆ (Sea Cliff — intact cliff face, time = 0)",
+                "ಹಳೆಯ ಪರ್ವತ (Mountain Aged — 1M yrs, peak eroded, sediment spread)",
+                "ಹಳೆಯ ನದಿ (River Aged — 1M yrs, smooth rounded pebbles, sand)",
+                "ಹಳೆಯ ಸಮುದ್ರ ಬಂಡೆ (Cliff Aged — 1M yrs, cave + sea stack formed)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Earth & Landforms (ಭೂಮಿ ಮತ್ತು ಭೂರೂಪ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

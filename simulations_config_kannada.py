@@ -4729,6 +4729,1124 @@ QUIZ_QUESTIONS_KN["electrical_conductivity_kn"] = [
     }
 ]
 
+# =============================================================================
+# RUSTING EXPERIMENT — Config
+# =============================================================================
+SIMULATIONS_KN["rusting_experiment_kn"] = {
+    "id": "rusting_experiment_kn",
+    "title": "ತುಕ್ಕು ಪ್ರಯೋಗ (Rusting Experiment)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation6_rusting_experiment_kn.html",
+    "description": (
+        "ಮೂರು ಕಬ್ಬಿಣದ ಉಗುರುಗಳನ್ನು ಒಣ ಗಾಳಿ, ಕುದಿಸಿದ ನೀರು+ಎಣ್ಣೆ, ಮತ್ತು ಗಾಳಿ+ನೀರು ಸ್ಥಿತಿಗಳಲ್ಲಿ "
+        "7 ದಿನ ಇಟ್ಟು ಯಾವ ಉಗುರು ತುಕ್ಕು ಹಿಡಿಯುತ್ತದೆ ಎಂದು ಗಮನಿಸಿ. "
+        "Three iron nails are placed in different conditions — Tube A (dry air only), "
+        "Tube B (boiled water + oil seal, no air), Tube C (air + water together) — "
+        "and observed over 7 days via a time slider. "
+        "Only Tube C (both air AND water present) develops rust, proving that rusting "
+        "requires BOTH oxygen (from air) and water simultaneously."
+    ),
+    "cannot_demonstrate": [
+        "Exact rust formation rate or quantitative measurement",
+        "Effect of salt water vs fresh water on rusting speed",
+        "Galvanisation or paint as rust prevention in action",
+        "Rusting of metals other than iron",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Time State",
+            "range": "initial, day3, day7",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which point in the 7-day experiment is auto-loaded.\n"
+                "  'initial' → Day 0: all nails shiny, experiment just started (default)\n"
+                "  'day3'    → Day 3: rust beginning to form in Tube C only\n"
+                "  'day7'    → Day 7: experiment complete — Tube C heavily rusted, "
+                "Tubes A and B rust-free"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the key concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Rusting Requires Both Oxygen AND Water",
+            "description": (
+                "Iron rusts through a chemical reaction that requires two reactants: "
+                "oxygen (from air) and water (moisture). If either is absent, "
+                "rusting cannot occur."
+            ),
+            "key_insight": (
+                "Tube A has only air → no rust. Tube B has only water → no rust. "
+                "Tube C has air + water → rust forms. "
+                "This proves rusting needs BOTH simultaneously. "
+                "Chemical equation: 4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O (iron oxide = rust)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Rust Prevention — Blocking Oxygen or Water",
+            "description": (
+                "Since rusting needs both oxygen and water, preventing rust means "
+                "blocking one or both. Common methods: painting, oiling, galvanisation "
+                "(zinc coating), and making stainless steel alloys."
+            ),
+            "key_insight": (
+                "Paint/oil = forms a barrier that prevents oxygen and water reaching iron surface. "
+                "Galvanisation = zinc layer corrodes preferentially, protecting iron underneath. "
+                "Stainless steel = chromium in alloy forms protective oxide layer automatically."
+            ),
+            "related_params": ["initialState", "showHints"]
+        },
+        {
+            "id": 3,
+            "title": "Delhi Iron Pillar — Iron That Doesn't Rust",
+            "description": (
+                "The 1600+ year-old Iron Pillar of Delhi has remarkably not rusted "
+                "because of its unique phosphorus-rich composition, which forms a "
+                "protective passive layer."
+            ),
+            "key_insight": (
+                "Normal iron + oxygen + water → rust in days/weeks. "
+                "Delhi Pillar iron + phosphorus → stable protective FePO₄ layer → "
+                "resists further oxidation for 1600+ years. "
+                "This is an ancient example of alloying for corrosion resistance."
+            ),
+            "related_params": ["initialState"]
+        }
+    ]
+}
+
+# =============================================================================
+# METAL OXIDE REACTION — Config
+# =============================================================================
+SIMULATIONS_KN["metal_oxide_reaction_kn"] = {
+    "id": "metal_oxide_reaction_kn",
+    "title": "ಲೋಹ ಆಕ್ಸೈಡ್ ಪ್ರತಿಕ್ರಿಯೆ (Metal Oxide Reaction)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation7_metal_oxide_reaction_kn.html",
+    "description": (
+        "ಮೆಗ್ನೀಸಿಯಂ ರಿಬ್ಬನ್ ಉರಿಸಿ MgO ಬೂದಿ ರಚಿಸಿ, ನೀರಲ್ಲಿ ಕರಗಿಸಿ, ಮತ್ತು ಲಿಟ್ಮಸ್ ಪರೀಕ್ಷೆ ಮಾಡಿ. "
+        "Burn a magnesium ribbon in oxygen to form white MgO ash, dissolve it in water "
+        "to form Mg(OH)₂, then test with litmus paper. "
+        "The red litmus turns blue, proving that metal oxides are basic (alkaline) in nature. "
+        "Covers the 3-step reaction chain: Mg → MgO → Mg(OH)₂."
+    ),
+    "cannot_demonstrate": [
+        "Metal oxides that are amphoteric (e.g., Al₂O₃, ZnO)",
+        "Different metals burning at different temperatures",
+        "Quantitative yield from burning reaction",
+        "Solubility differences of different metal oxides in water",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Experiment Step",
+            "range": "initial, burned, dissolved, tested",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which experimental step is auto-demonstrated.\n"
+                "  'initial'   → fresh experiment ready, Mg ribbon in tongs (default)\n"
+                "  'burned'    → Mg has been burned; white MgO ash formed\n"
+                "  'dissolved' → MgO dissolved in water; Mg(OH)₂ solution ready\n"
+                "  'tested'    → litmus test complete; red litmus turned blue (basic)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the key concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Metal + Oxygen → Metal Oxide (Basic)",
+            "description": (
+                "When metals react with oxygen they form metal oxides. "
+                "Metal oxides are basic (alkaline) in nature — they turn red litmus blue "
+                "and have pH > 7."
+            ),
+            "key_insight": (
+                "2Mg + O₂ → 2MgO (brilliant white light during combustion). "
+                "MgO + H₂O → Mg(OH)₂ (magnesium hydroxide — a base). "
+                "Red litmus → blue = proof of basic nature. "
+                "This is true for most metal oxides: CaO, Na₂O, Fe₂O₃ (when dissolved) are all basic."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Metal Oxides vs Non-metal Oxides — Opposite pH",
+            "description": (
+                "Metal oxides are basic (pH > 7). Non-metal oxides are acidic (pH < 7). "
+                "This is a key distinguishing chemical property between metals and non-metals."
+            ),
+            "key_insight": (
+                "MgO dissolves → Mg(OH)₂ (base, pH > 7) → red litmus turns blue. "
+                "SO₂ dissolves → H₂SO₃ (acid, pH < 7) → blue litmus turns red. "
+                "Opposite litmus results = opposite pH = fundamental chemical difference "
+                "between metal and non-metal oxides."
+            ),
+            "related_params": ["initialState", "showHints"]
+        },
+        {
+            "id": 3,
+            "title": "Safety: Mg Burns with Blinding White Light",
+            "description": (
+                "Magnesium burns with an extremely bright white light that can damage "
+                "the retina. This is why photographers once used magnesium flash powder "
+                "and why you should never look directly at burning magnesium."
+            ),
+            "key_insight": (
+                "Mg combustion releases very high energy → white light emission "
+                "(temperature ~3100°C). The simulation shows this with a bright-light effect. "
+                "Real lab: always use tinted goggles when burning magnesium."
+            ),
+            "related_params": ["initialState"]
+        }
+    ]
+}
+
+# =============================================================================
+# NON-METAL OXIDE REACTION — Config
+# =============================================================================
+SIMULATIONS_KN["nonmetal_oxide_reaction_kn"] = {
+    "id": "nonmetal_oxide_reaction_kn",
+    "title": "ಅಲೋಹ ಆಕ್ಸೈಡ್ ಪ್ರತಿಕ್ರಿಯೆ (Non-metal Oxide Reaction)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation8_nonmetal_oxide_reaction_kn.html",
+    "description": (
+        "ಸಲ್ಫರ್ ನೀಲಿ ಜ್ವಾಲೆಯಲ್ಲಿ ಉರಿಸಿ SO₂ ಅನಿಲ ರಚಿಸಿ, ನೀರಲ್ಲಿ ಕರಗಿಸಿ H₂SO₃ (ಸಲ್ಫ್ಯೂರಸ್ ಆಮ್ಲ) ರೂಪಿಸಿ, "
+        "ಲಿಟ್ಮಸ್ ಪರೀಕ್ಷೆ ಮಾಡಿ. "
+        "Burn sulfur powder in a gas jar to collect SO₂, dissolve it in water to form "
+        "sulfurous acid (H₂SO₃), then test with litmus paper. "
+        "The blue litmus turns red, proving non-metal oxides are acidic in nature. "
+        "Directly contrasts with the metal oxide experiment."
+    ),
+    "cannot_demonstrate": [
+        "Different non-metals burning at different temperatures",
+        "SO₃ formation and H₂SO₄ (sulfuric acid) chain",
+        "Acid rain formation mechanism in the atmosphere",
+        "Quantitative acid concentration measurement",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Experiment Step",
+            "range": "initial, burned, dissolved, tested",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which experimental step is auto-demonstrated.\n"
+                "  'initial'   → fresh experiment, sulfur powder on spoon (default)\n"
+                "  'burned'    → sulfur has been burned with blue flame; SO₂ collected in jar\n"
+                "  'dissolved' → SO₂ dissolved in water; H₂SO₃ (sulfurous acid) formed\n"
+                "  'tested'    → litmus test complete; blue litmus turned red (acidic)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the key concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Non-metal + Oxygen → Non-metal Oxide (Acidic)",
+            "description": (
+                "When non-metals react with oxygen they form non-metal oxides. "
+                "Non-metal oxides are acidic in nature — they turn blue litmus red "
+                "and have pH < 7."
+            ),
+            "key_insight": (
+                "S + O₂ → SO₂ (characteristic blue flame, pungent choking smell). "
+                "SO₂ + H₂O → H₂SO₃ (sulfurous acid — an acid). "
+                "Blue litmus → red = proof of acidic nature. "
+                "Similarly: C + O₂ → CO₂; CO₂ + H₂O → H₂CO₃ (carbonic acid)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Contrast: Metal Oxides Basic, Non-metal Oxides Acidic",
+            "description": (
+                "The single most important chemical contrast between metals and non-metals "
+                "is the nature of their oxides. Metal oxides → basic. "
+                "Non-metal oxides → acidic. This is a reliable rule for the exam."
+            ),
+            "key_insight": (
+                "Litmus test summary: \n"
+                "Metal oxide + water → base → RED litmus turns BLUE (ಕೆಂಪು → ನೀಲಿ). \n"
+                "Non-metal oxide + water → acid → BLUE litmus turns RED (ನೀಲಿ → ಕೆಂಪು). \n"
+                "Memory trick: M→B (Metal→Basic), N→A (Non-metal→Acidic)."
+            ),
+            "related_params": ["initialState", "showHints"]
+        },
+        {
+            "id": 3,
+            "title": "Acid Rain — SO₂ in the Atmosphere",
+            "description": (
+                "Industrial burning of sulfur-containing fuels produces SO₂ which "
+                "dissolves in atmospheric moisture to form sulfurous acid (H₂SO₃), "
+                "causing acid rain. The simulation demonstrates the same chemistry "
+                "that makes acid rain harmful."
+            ),
+            "key_insight": (
+                "Factory chimneys → SO₂ into air → dissolves in rain clouds → H₂SO₃ → "
+                "acid rain falls → damages marble buildings, metal structures, forests. "
+                "This is a direct real-world application of the SO₂ + H₂O → H₂SO₃ reaction."
+            ),
+            "related_params": ["initialState"]
+        }
+    ]
+}
+
+# =============================================================================
+# METALS vs NON-METALS COMPARISON — Config
+# =============================================================================
+SIMULATIONS_KN["metals_nonmetals_compare_kn"] = {
+    "id": "metals_nonmetals_compare_kn",
+    "title": "ಲೋಹ ಮತ್ತು ಅಲೋಹ ಹೋಲಿಕೆ (Metals vs Non-metals Comparison)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation9_metals_nonmetals_compare_kn.html",
+    "description": (
+        "8 ಭೌತಿಕ ಮತ್ತು ರಾಸಾಯನಿಕ ಗುಣಗಳನ್ನು (ದ್ಯುತಿ, ನಮ್ಯತೆ, ಸೆಳೆತ, ಧ್ವನಿ, ಉಷ್ಣ ವಾಹಕತೆ, "
+        "ವಿದ್ಯುತ್ ವಾಹಕತೆ, ಕಾಠಿಣ್ಯ, ಆಕ್ಸೈಡ್ ಸ್ವಭಾವ) ಲೋಹ ಮತ್ತು ಅಲೋಹಗಳ ನಡುವೆ ಹೋಲಿಸಿ. "
+        "An 8-property interactive comparison chart: tap any property button "
+        "(lustre, malleability, ductility, sonority, heat conduction, electrical conduction, "
+        "hardness, oxide nature) to see side-by-side metal vs non-metal cards. "
+        "Includes a summary table and a built-in quiz. "
+        "Serves as a chapter-end consolidation tool covering all metal/non-metal properties."
+    ),
+    "cannot_demonstrate": [
+        "Individual element-level detail (only general metal/non-metal trends shown)",
+        "Absolute quantitative values for properties",
+        "Exceptions in interactive form (shown only as text reminders)",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Property to Display",
+            "range": (
+                "initial, malleability, ductility, sonority, "
+                "heat_conduction, electrical_conduction, hardness, oxide_nature"
+            ),
+            "url_key": "initialState",
+            "effect": (
+                "Sets which property comparison is auto-displayed on load.\n"
+                "  'initial'               → lustre comparison (default first view)\n"
+                "  'malleability'          → malleability comparison card\n"
+                "  'ductility'             → ductility comparison card\n"
+                "  'sonority'              → sonority comparison card\n"
+                "  'heat_conduction'       → heat conductivity comparison card\n"
+                "  'electrical_conduction' → electrical conductivity comparison card\n"
+                "  'hardness'              → hardness comparison card\n"
+                "  'oxide_nature'          → oxide nature comparison card (basic vs acidic)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the key concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Physical Properties — Metals Are Generally Shiny, Malleable, Ductile, Sonorous",
+            "description": (
+                "Metals as a group share physical properties: metallic lustre (shiny surface), "
+                "malleability (can be beaten into sheets), ductility (can be drawn into wires), "
+                "and sonority (ring when struck). Non-metals are typically the opposite."
+            ),
+            "key_insight": (
+                "All 4 physical properties stem from the same root: free electron sea + layered "
+                "atomic structure in metals. These electrons also make metals good conductors. "
+                "Non-metals lack free electrons → dull, brittle, non-ductile, non-sonorous."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Chemical Property — Oxide Nature Distinguishes Metals from Non-metals",
+            "description": (
+                "The single most reliable chemical test: metal oxides dissolve in water to "
+                "give basic solutions (turn red litmus blue); non-metal oxides give acidic "
+                "solutions (turn blue litmus red)."
+            ),
+            "key_insight": (
+                "Metal oxide → basic. Non-metal oxide → acidic. No exceptions in NCERT Class 8. "
+                "(Note: some oxides like Al₂O₃ are amphoteric but this is beyond current level.) "
+                "This oxide nature rule is a guaranteed exam question."
+            ),
+            "related_params": ["initialState", "showHints"]
+        },
+        {
+            "id": 3,
+            "title": "Important Exceptions to Remember",
+            "description": (
+                "Not all metals are hard solids — sodium and potassium can be cut with a knife. "
+                "Mercury is a liquid metal at room temperature. "
+                "Diamond (carbon, a non-metal) is the hardest natural substance. "
+                "Graphite (carbon, a non-metal) conducts electricity — unlike most non-metals."
+            ),
+            "key_insight": (
+                "Exceptions = favourite exam questions! Na, K: soft metals (stored in oil). "
+                "Hg: only liquid metal. Diamond: hardest substance. Graphite: conducting non-metal. "
+                "These 4 exceptions fully cover the NCERT Class 8 exception list."
+            ),
+            "related_params": ["initialState"]
+        }
+    ]
+}
+
+# =============================================================================
+# WEATHERING AND EROSION — Config
+# =============================================================================
+SIMULATIONS_KN["weathering_erosion_kn"] = {
+    "id": "weathering_erosion_kn",
+    "title": "ವಾತಾವರಣ ಮತ್ತು ಕೊರೆತ (Weathering and Erosion)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation10_weathering_erosion_kn.html",
+    "description": (
+        "ಪರ್ವತ, ನದಿ ಕಲ್ಲುಗಳು, ಮತ್ತು ಸಮುದ್ರ ಬಂಡೆ ದೃಶ್ಯಗಳಲ್ಲಿ ಲಕ್ಷಾಂತರ ವರ್ಷಗಳ ಕಾಲ-ಪ್ರಯಾಣ ಮಾಡಿ. "
+        "Three animated landscape scenes — mountain, river rocks, sea cliff — "
+        "each with a time-travel slider spanning 0 to 1 million years. "
+        "See mountains erode and shed rocks, river stones become rounded smooth pebbles, "
+        "and sea cliffs develop caves then sea stacks. "
+        "Teaches that weathering (breaking rocks) + erosion (moving fragments to new locations) "
+        "together continually reshape Earth's surface over geological time."
+    ),
+    "cannot_demonstrate": [
+        "Exact geological timescales for specific landforms",
+        "Chemical weathering reactions in detail (only physical weathering shown animated)",
+        "Deposition and sedimentary rock formation process",
+        "Soil formation from weathered rock",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Scene / Time State",
+            "range": (
+                "initial, mountain, river, cliff, "
+                "mountain_aged, river_aged, cliff_aged"
+            ),
+            "url_key": "initialState",
+            "effect": (
+                "Sets which scene and time period is auto-loaded.\n"
+                "  'initial'       → mountain scene at time=0 (default)\n"
+                "  'mountain'      → mountain scene at time=0 (fresh peak, snow cap)\n"
+                "  'river'         → river scene at time=0 (angular rocks in river)\n"
+                "  'cliff'         → sea cliff scene at time=0 (steep intact cliff face)\n"
+                "  'mountain_aged' → mountain scene at time=100% (peak eroded, sediment spread)\n"
+                "  'river_aged'    → river scene at time=100% (smooth rounded pebbles, sand)\n"
+                "  'cliff_aged'    → sea cliff scene at time=100% (cave + sea stack formed)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the key concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Weathering — Breaking Rocks Into Smaller Pieces",
+            "description": (
+                "Weathering is the process by which rocks are broken into smaller "
+                "fragments by physical or chemical agents. Physical weathering includes "
+                "temperature changes (expansion/contraction), ice wedging, and plant roots. "
+                "Chemical weathering includes dissolution, oxidation, and acid rain reactions."
+            ),
+            "key_insight": (
+                "Rock doesn't need to move to be weathered — it breaks IN PLACE. "
+                "Water enters cracks → freezes → expands 9% → cracks widen → mechanical breakage. "
+                "This is called 'frost wedging' — the main weathering force in cold climates."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Erosion — Moving Fragments to New Locations",
+            "description": (
+                "Erosion is the transport of weathered rock fragments by water, wind, "
+                "ice, or gravity to new locations. Erosion is what shapes valleys, "
+                "smooths river pebbles, and retreats cliff faces."
+            ),
+            "key_insight": (
+                "River erosion: angular rocks bounce along riverbed → edges knock off → "
+                "rocks become rounded smooth pebbles (abrasion). "
+                "Sea erosion: waves pound cliff base → cave forms → arch → sea stack. "
+                "Wind erosion: fine particles carried away, large rocks left behind (deflation)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Geological Time — Millions of Years to Reshape Landscapes",
+            "description": (
+                "Weathering and erosion are extremely slow processes — imperceptibly slow "
+                "on a human timescale but enormously powerful over geological time. "
+                "The Grand Canyon took 5–6 million years to form. "
+                "Smooth river pebbles take thousands of years to form."
+            ),
+            "key_insight": (
+                "Rate of erosion for rivers: ~1 mm per year at riverbed. "
+                "It took the Colorado River 5–6 million years to carve 1.6 km deep Grand Canyon. "
+                "Yet these are IRREVERSIBLE changes — eroded mountains don't regrow! "
+                "This is why understanding these processes matters for land use planning."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# QUIZ QUESTIONS — RUSTING EXPERIMENT
+# =============================================================================
+QUIZ_QUESTIONS_KN["rusting_experiment_kn"] = [
+    {
+        "id": "rusting_q1",
+        "challenge": (
+            "Set the simulation to Day 7 (experiment complete) and explain: "
+            "which tube showed rust and why? What does this prove about the "
+            "conditions needed for rusting?\n\n"
+            "(ದಿನ 7 ತೋರಿಸಿ — ಯಾವ ಟ್ಯೂಬ್‌ನಲ್ಲಿ ತುಕ್ಕು ಬಂತು, ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "day7"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'day7'. The slider auto-advances to Day 7 — "
+                "the experiment is complete. Observe which nail has rusted."
+            ),
+            "attempt_2": (
+                "Choose 'day7': Tube C (air + water) shows heavy rust. "
+                "Tubes A and B remain rust-free. "
+                "The conclusion: BOTH oxygen and water are needed simultaneously."
+            ),
+            "attempt_3": (
+                "Set 'initialState=day7': Only Tube C (ಗಾಳಿ + ನೀರು) rusted. "
+                "Tube A (dry air only) = no rust. Tube B (water, no air) = no rust. "
+                "Proof: rusting requires O₂ AND H₂O together."
+            )
+        },
+        "concept_reminder": (
+            "Rusting needs BOTH oxygen AND water simultaneously. "
+            "Tube A = air only → no rust (no water). "
+            "Tube B = water only → no rust (oil seal blocked oxygen). "
+            "Tube C = air + water → RUST! (both present). "
+            "Chemical equation: 4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O "
+            "(ತುಕ್ಕಿಗೆ ಗಾಳಿ + ನೀರು ಎರಡೂ ಅಗತ್ಯ!)"
+        )
+    },
+    {
+        "id": "rusting_q2",
+        "challenge": (
+            "Show the experiment at Day 3 — the mid-point where rust is just starting. "
+            "Explain why Tube C shows rust first while A and B still look clean.\n\n"
+            "(ದಿನ 3 ತೋರಿಸಿ — ಟ್ಯೂಬ್ C ಮಾತ್ರ ತುಕ್ಕು ಆರಂಭಿಸಲು ಏಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "day3"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'day3'. The slider moves to Day 3 — "
+                "you can see rust beginning in Tube C while A and B are still clean."
+            ),
+            "attempt_2": (
+                "Choose 'day3': Only Tube C (both O₂ and H₂O present) starts rusting. "
+                "Tube A has air but no water — reaction cannot proceed without water. "
+                "Tube B has water but no oxygen — sealed by oil layer."
+            ),
+            "attempt_3": (
+                "Set 'initialState=day3': Rusting is a slow chemical process. "
+                "At Day 3, Tube C shows brown spots (Fe₂O₃ forming). "
+                "This is the early stage of: 4Fe + 3O₂ + 6H₂O → 2Fe₂O₃·3H₂O."
+            )
+        },
+        "concept_reminder": (
+            "Rusting is a SLOW chemical reaction — it takes several days, not hours. "
+            "At Day 3, only Tube C (air + water) shows rust beginning. "
+            "The oil layer in Tube B creates an effective seal against dissolved oxygen. "
+            "Boiling water removes dissolved O₂ — another reason Tube B doesn't rust. "
+            "(ತುಕ್ಕು ನಿಧಾನ ಪ್ರಕ್ರಿಯೆ!)"
+        )
+    },
+    {
+        "id": "rusting_q3",
+        "challenge": (
+            "Show the INITIAL state (Day 0). Explain: a bicycle left outside in rain rusts "
+            "quickly, but an identical bicycle kept indoors in a dry room does not rust. "
+            "Which tube in the experiment represents each scenario, and why?\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಸೈಕಲ್ ಠ ಮತ್ತು ಅಂದಿನ ಕೋಣೆ ಸೈಕಲ್ ಯಾವ ಟ್ಯೂಬ್‌ಗೆ ಅನುರೂಪ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. This shows Day 0 — "
+                "read the tube labels and think about real-world conditions."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Outdoor bicycle = Tube C (air + water from rain). "
+                "Indoor dry bicycle = Tube A (air only, no moisture). "
+                "Tube A → no rust, just like the indoor bicycle."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Rain provides the water. Air provides oxygen. "
+                "Both present outdoors → Tube C → rust. "
+                "Dry indoor room has air but no moisture → Tube A → no rust."
+            )
+        },
+        "concept_reminder": (
+            "Applying the experiment to real life: "
+            "Outdoor bicycle in rain = air (O₂) + water → Tube C → rusts. "
+            "Indoor dry bicycle = air (O₂) only, no water → Tube A → no rust. "
+            "Prevention: oil the chain (like Tube B's oil seal!) = blocks water. "
+            "Paint the frame = blocks both water and oxygen. "
+            "(ವಾಸ್ತವ ಜೀವನದ ತೊಂದರೆ, ಪ್ರಯೋಗ ಪರಿಹಾರ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — METAL OXIDE REACTION
+# =============================================================================
+QUIZ_QUESTIONS_KN["metal_oxide_reaction_kn"] = [
+    {
+        "id": "metal_oxide_q1",
+        "challenge": (
+            "Demonstrate the full metal oxide experiment: burn magnesium, dissolve in water, "
+            "and complete the litmus test to prove the oxide is basic.\n\n"
+            "(ಸಂಪೂರ್ಣ ಪ್ರಯೋಗ ಮಾಡಿ — Mg ಸುಡಿ, MgO ಕರಗಿಸಿ, ಲಿಟ್ಮಸ್ ಪರೀಕ್ಷಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "tested"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'tested'. "
+                "The simulation auto-runs all 3 steps: burns Mg, dissolves MgO, tests litmus."
+            ),
+            "attempt_2": (
+                "Choose 'tested': You see the completed experiment — red litmus has turned BLUE, "
+                "confirming MgO is a basic (alkaline) oxide."
+            ),
+            "attempt_3": (
+                "Set 'initialState=tested': The red litmus strip turns blue = pH > 7 = basic. "
+                "Complete reaction chain: 2Mg+O₂→2MgO, MgO+H₂O→Mg(OH)₂."
+            )
+        },
+        "concept_reminder": (
+            "Metal oxide experiment chain: "
+            "Step 1: 2Mg + O₂ → 2MgO (brilliant white light). "
+            "Step 2: MgO + H₂O → Mg(OH)₂ (dissolves). "
+            "Step 3: Mg(OH)₂ solution → red litmus turns blue (basic, pH > 7). "
+            "CONCLUSION: Metal oxides are BASIC in nature. "
+            "(ಕೆಂಪು → ನೀಲಿ = ಕ್ಷಾರೀಯ ಆಕ್ಸೈಡ್!)"
+        )
+    },
+    {
+        "id": "metal_oxide_q2",
+        "challenge": (
+            "Show just the burning step. Describe what you observe and explain "
+            "why magnesium burns with such a bright white light.\n\n"
+            "(ಉರಿಸುವ ಹಂತ ತೋರಿಸಿ — ಪ್ರಕಾಶಮಾನ ಬೆಳಕಿಗೆ ಕಾರಣ ಏನು?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "burned"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'burned'. The simulation auto-clicks the burn button "
+                "and shows the blinding white light and MgO ash forming."
+            ),
+            "attempt_2": (
+                "Choose 'burned': After burning, shiny Mg ribbon becomes white powdery ash (MgO). "
+                "The reaction: 2Mg + O₂ → 2MgO releases huge energy → white light."
+            ),
+            "attempt_3": (
+                "Set 'initialState=burned': Mg combustion temperature ~3100°C → "
+                "energy emitted as brilliant white light + UV. Never look directly!"
+            )
+        },
+        "concept_reminder": (
+            "Magnesium burning observations: "
+            "Bright white/silver ribbon → burns with dazzling white light → white powdery ash. "
+            "Why so bright? High reaction enthalpy releases energy as visible + UV light "
+            "(temperature ~3100°C). "
+            "Product: MgO (magnesium oxide) — a white powder. "
+            "This is an oxidation reaction (combining with oxygen). "
+            "(ಪ್ರಕಾಶಮಾನ ಬೆಳಕು = ಅಪಾರ ಶಕ್ತಿ ಬಿಡುಗಡೆ!)"
+        )
+    },
+    {
+        "id": "metal_oxide_q3",
+        "challenge": (
+            "Show the initial state. Predict: if we did the same experiment with copper "
+            "(Cu) instead of magnesium, would the resulting copper oxide solution "
+            "turn red litmus blue or blue litmus red? Explain.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ತಾಮ್ರ ಆಕ್ಸೈಡ್ ಯಾವ ಲಿಟ್ಮಸ್ ಬದಲಿಸುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Think: copper is a metal. "
+                "What happens when metals react with oxygen?"
+            ),
+            "attempt_2": (
+                "Choose 'initial': The rule is — ALL metal oxides are basic. "
+                "Copper is a metal → CuO is a metal oxide → basic → red litmus turns blue."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Cu + O₂ → CuO (copper oxide). "
+                "CuO is a metal oxide → basic → red litmus → blue. "
+                "Same conclusion as MgO. ALL metal oxides behave the same way."
+            )
+        },
+        "concept_reminder": (
+            "General rule: Metal + O₂ → Metal Oxide (basic). "
+            "Applies to ALL metals: Mg, Cu, Fe, Na, Ca, Al, etc. "
+            "All metal oxides are basic → turn red litmus blue → pH > 7. "
+            "This is why the rule is stated as a general principle, not just for Mg. "
+            "(ಎಲ್ಲಾ ಲೋಹ ಆಕ್ಸೈಡ್ = ಕ್ಷಾರೀಯ = ಕೆಂಪು ಲಿಟ್ಮಸ್ ನೀಲಿ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — NON-METAL OXIDE REACTION
+# =============================================================================
+QUIZ_QUESTIONS_KN["nonmetal_oxide_reaction_kn"] = [
+    {
+        "id": "nonmetal_oxide_q1",
+        "challenge": (
+            "Run the full non-metal oxide experiment: burn sulfur, dissolve in water, "
+            "and complete the litmus test to prove the oxide is acidic.\n\n"
+            "(ಸಂಪೂರ್ಣ ಪ್ರಯೋಗ ಮಾಡಿ — S ಸುಡಿ, SO₂ ಕರಗಿಸಿ, ಲಿಟ್ಮಸ್ ಪರೀಕ್ಷಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "tested"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'tested'. "
+                "All 3 steps auto-run: burns sulfur, dissolves SO₂, tests litmus."
+            ),
+            "attempt_2": (
+                "Choose 'tested': Blue litmus turns RED — proving the SO₂ solution is acidic. "
+                "Complete chain: S+O₂→SO₂, SO₂+H₂O→H₂SO₃."
+            ),
+            "attempt_3": (
+                "Set 'initialState=tested': Blue litmus strip → red = pH < 7 = acidic. "
+                "Non-metal oxide (SO₂) forms an acid when dissolved — confirms the rule."
+            )
+        },
+        "concept_reminder": (
+            "Non-metal oxide experiment chain: "
+            "Step 1: S + O₂ → SO₂ (blue flame, pungent smell). "
+            "Step 2: SO₂ + H₂O → H₂SO₃ (sulfurous acid forms). "
+            "Step 3: H₂SO₃ solution → blue litmus turns red (acidic, pH < 7). "
+            "CONCLUSION: Non-metal oxides are ACIDIC in nature. "
+            "(ನೀಲಿ → ಕೆಂಪು = ಆಮ್ಲೀಯ ಆಕ್ಸೈಡ್!)"
+        )
+    },
+    {
+        "id": "nonmetal_oxide_q2",
+        "challenge": (
+            "Show the sulfur burning step. Describe the color of the flame "
+            "and explain how this differs from magnesium burning.\n\n"
+            "(ಸಲ್ಫರ್ ಉರಿಯುವ ಹಂತ ತೋರಿಸಿ — ಜ್ವಾಲೆ ಬಣ್ಣ Mg ಜ್ವಾಲೆಯಿಂದ ಹೇಗೆ ಭಿನ್ನ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "burned"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'burned'. Watch the characteristic blue flame "
+                "of sulfur combustion appear."
+            ),
+            "attempt_2": (
+                "Choose 'burned': Sulfur burns with a BLUE flame (unlike Mg's white). "
+                "SO₂ gas (colorless, pungent) collects in the gas jar."
+            ),
+            "attempt_3": (
+                "Set 'initialState=burned': Comparison: Mg = brilliant WHITE flame (~3100°C). "
+                "Sulfur = characteristic BLUE flame (~900°C). Different non-metals = different flame colors."
+            )
+        },
+        "concept_reminder": (
+            "Flame color comparison: "
+            "Mg (metal): brilliant white/silver flame — very high energy combustion. "
+            "Sulfur (non-metal): characteristic BLUE flame — lower temperature. "
+            "Carbon (non-metal): yellow-orange flame (incomplete) or blue (complete). "
+            "Natural gas (methane): blue flame when burning completely. "
+            "Flame color indicates the element and combustion temperature. "
+            "(ಸಲ್ಫರ್ = ನೀಲಿ ಜ್ವಾಲೆ, Mg = ಬಿಳಿ ಜ್ವಾಲೆ!)"
+        )
+    },
+    {
+        "id": "nonmetal_oxide_q3",
+        "challenge": (
+            "Show the initial state. Compare: if metal oxide → basic (red litmus → blue), "
+            "what does non-metal oxide → acidic mean for litmus? "
+            "Complete the contrast table in your answer.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಲೋಹ ಮತ್ತು ಅಲೋಹ ಆಕ್ಸೈಡ್ ಲಿಟ್ಮಸ್ ವ್ಯತ್ಯಾಸ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Note the concept card — "
+                "it shows the contrast between metal and non-metal oxide nature."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Metal oxide → basic → red litmus turns BLUE. "
+                "Non-metal oxide → acidic → blue litmus turns RED. Complete opposites!"
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': "
+                "MgO (metal oxide) → base → RED→BLUE. "
+                "SO₂ (non-metal oxide) → acid → BLUE→RED."
+            )
+        },
+        "concept_reminder": (
+            "The key contrast table for exams: \n"
+            "Metal oxide (MgO, CaO, Na₂O) → dissolves in water → BASE → red litmus BLUE. \n"
+            "Non-metal oxide (SO₂, CO₂, P₂O₅) → dissolves in water → ACID → blue litmus RED. \n"
+            "Memory technique: M→B (Metal→Basic) and N→A (Non-metal→Acidic). \n"
+            "Exam guaranteed: 'What happens to blue litmus when non-metal oxide dissolves?' \n"
+            "Answer: Blue litmus turns RED (it becomes acidic). \n"
+            "(ಲೋಹ = ಮೂಲ | ಅಲೋಹ = ಆಮ್ಲ — ವಿರುದ್ಧ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — METALS vs NON-METALS COMPARISON
+# =============================================================================
+QUIZ_QUESTIONS_KN["metals_nonmetals_compare_kn"] = [
+    {
+        "id": "compare_q1",
+        "challenge": (
+            "Show the OXIDE NATURE comparison. Explain the single most important "
+            "chemical difference between metal oxides and non-metal oxides.\n\n"
+            "(ಆಕ್ಸೈಡ್ ಸ್ವಭಾವ ಹೋಲಿಕೆ ತೋರಿಸಿ — ಲೋಹ ಮತ್ತು ಅಲೋಹ ಆಕ್ಸೈಡ್ ಪ್ರಮುಖ ವ್ಯತ್ಯಾಸ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "oxide_nature"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'oxide_nature'. "
+                "The oxide nature comparison card auto-loads."
+            ),
+            "attempt_2": (
+                "Choose 'oxide_nature': Metal oxides form basic solutions (MgO → Mg(OH)₂). "
+                "Non-metal oxides form acidic solutions (SO₂ → H₂SO₃)."
+            ),
+            "attempt_3": (
+                "Set 'initialState=oxide_nature': "
+                "The comparison shows: Metal oxide → basic (red litmus blue). "
+                "Non-metal oxide → acidic (blue litmus red)."
+            )
+        },
+        "concept_reminder": (
+            "Oxide nature is the CHEMICAL property contrast between metals and non-metals: "
+            "Metal oxide + H₂O → BASE (pH > 7) → red litmus turns BLUE. "
+            "Non-metal oxide + H₂O → ACID (pH < 7) → blue litmus turns RED. "
+            "Examples: MgO (basic), CaO (basic), SO₂ (acidic), CO₂ (acidic). "
+            "(ಲೋಹ ಆಕ್ಸೈಡ್ = ಕ್ಷಾರ | ಅಲೋಹ ಆಕ್ಸೈಡ್ = ಆಮ್ಲ!)"
+        )
+    },
+    {
+        "id": "compare_q2",
+        "challenge": (
+            "Show the electrical conductivity comparison. Name two metals used "
+            "as electrical conductors in real life and explain WHY they conduct.\n\n"
+            "(ವಿದ್ಯುತ್ ವಾಹಕತೆ ಹೋಲಿಕೆ ತೋರಿಸಿ — ವಿದ್ಯುತ್ ಉದ್ಯಮದಲ್ಲಿ ಯಾವ ಲೋಹ ಬಳಸುತ್ತಾರೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "electrical_conduction"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'electrical_conduction'. "
+                "The electrical conductivity comparison card auto-loads."
+            ),
+            "attempt_2": (
+                "Choose 'electrical_conduction': Metals conduct electricity because "
+                "they have free electrons. Copper and aluminium are the main wire metals."
+            ),
+            "attempt_3": (
+                "Set 'initialState=electrical_conduction': "
+                "Copper = best conductor for home wiring (high conductivity + ductility). "
+                "Aluminium = used for high-tension power lines (lighter weight)."
+            )
+        },
+        "concept_reminder": (
+            "Why metals conduct electricity: free valence electrons move through the metal lattice. "
+            "Voltage applied → electrons flow → electric current. "
+            "Why non-metals don't: all electrons are tightly bonded → no free charge carriers. "
+            "Real uses: copper (home wiring), aluminium (power transmission lines), "
+            "tungsten (light bulb filament — high melting point). "
+            "Exception: graphite (carbon, non-metal) conducts — used in electrodes. "
+            "(ಮುಕ್ತ ಇಲೆಕ್ಟ್ರಾನ್ = ವಿದ್ಯುತ್ ವಾಹಕ!)"
+        )
+    },
+    {
+        "id": "compare_q3",
+        "challenge": (
+            "Show the INITIAL state (lustre). Explain why metals have a shiny lustre "
+            "while non-metals appear dull. Connect this to the atomic structure.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ / ದ್ಯುತಿ ತೋರಿಸಿ — ಲೋಹ ಹೊಳೆಯಲು ಕಾರಣ ಏನು?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. "
+                "The default lustre comparison card appears — read both sides."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Metals are shiny because their free electrons "
+                "absorb and re-emit light efficiently. Non-metals appear dull."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Free electron sea in metals reflects light "
+                "at all wavelengths uniformly → silvery metallic shine. "
+                "Non-metals have no free electrons → light is absorbed differently → dull appearance."
+            )
+        },
+        "concept_reminder": (
+            "Metallic lustre origin: The free electron sea in metals interacts strongly "
+            "with incoming light — electrons absorb photons and immediately re-emit them. "
+            "This efficient re-emission gives the characteristic silvery metallic shine. "
+            "Non-metals (coal, sulfur, phosphorus) have no sea of electrons → "
+            "light energy is absorbed without being re-emitted uniformly → dull. "
+            "Note: freshly cut sodium is shiny too (metallic lustre) but quickly dulls "
+            "as it oxidises — another reminder that metallic lustre = free electrons. "
+            "(ಮುಕ್ತ ಇಲೆಕ್ಟ್ರಾನ್ ಬೆಳಕು ಹಿಂದಿರುಗಿಸುತ್ತದೆ = ಹೊಳಪು!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — WEATHERING AND EROSION
+# =============================================================================
+QUIZ_QUESTIONS_KN["weathering_erosion_kn"] = [
+    {
+        "id": "weathering_q1",
+        "challenge": (
+            "Show the AGED MOUNTAIN scene (1 million years of erosion). "
+            "Describe what has changed and explain which weathering forces caused it.\n\n"
+            "(ಹಳೆಯ ಪರ್ವತ ದೃಶ್ಯ ತೋರಿಸಿ — ಯಾವ ಬದಲಾವಣೆಗಳಾದವು, ಕಾರಣ ಏನು?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "mountain_aged"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'mountain_aged'. "
+                "This loads the mountain scene at maximum time — a heavily eroded landscape."
+            ),
+            "attempt_2": (
+                "Choose 'mountain_aged': The peak has lowered, rocks have fallen, "
+                "sediment has spread. Temperature changes, frost wedging, and plant roots caused this."
+            ),
+            "attempt_3": (
+                "Set 'initialState=mountain_aged': Over 1 million years — "
+                "sharp peaks become gentle hills, fallen rocks form sediment plains, "
+                "snow cap disappears. Weathering + gravity erosion together."
+            )
+        },
+        "concept_reminder": (
+            "Mountain weathering over 1 million years: "
+            "1. Temperature changes → rock expands/contracts → micro-cracks form. "
+            "2. Water in cracks → freezes → expands 9% → cracks widen (frost wedging). "
+            "3. Plant roots grow into cracks → split rocks further. "
+            "4. Gravity + rain → fallen rocks roll downhill (erosion = transport). "
+            "Result: sharp peaks → rounded gentle hills → flat plains (over millions of years). "
+            "(ವಾತಾವರಣ + ಕೊರೆತ = ಲಕ್ಷಾಂತರ ವರ್ಷ ಭೂರೂಪ ಬದಲಾವಣೆ!)"
+        )
+    },
+    {
+        "id": "weathering_q2",
+        "challenge": (
+            "Show the AGED RIVER ROCKS scene. Explain the process that transformed "
+            "angular rocks into smooth rounded pebbles in the riverbed.\n\n"
+            "(ಹಳೆಯ ನದಿ ಕಲ್ಲುಗಳ ದೃಶ್ಯ ತೋರಿಸಿ — ಕೋನೀಯ ಕಲ್ಲು ನಯವಾಗಲು ಕಾರಣ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "river_aged"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'river_aged'. "
+                "This loads the river scene at maximum time — smooth pebbles everywhere."
+            ),
+            "attempt_2": (
+                "Choose 'river_aged': Angular rocks → smooth round pebbles through 'abrasion'. "
+                "Rocks tumble in the river current → edges chip off → gradually rounded."
+            ),
+            "attempt_3": (
+                "Set 'initialState=river_aged': Process called abrasion: "
+                "rocks roll along riverbed → collide → edges break off → smooth oval pebbles. "
+                "Sand accumulates from fine particles."
+            )
+        },
+        "concept_reminder": (
+            "River rock smoothing = ABRASION (a type of erosion): "
+            "Angular rocks tumble along the riverbed carried by water current. "
+            "Rocks knock against each other and the riverbed → edges and corners break off. "
+            "Gradually: sharp angular → oval → rounded smooth pebble. "
+            "Fine particles produced become sand → settles as riverbed deposit. "
+            "This process takes thousands of years of constant tumbling. "
+            "LINK TO REAL LIFE: Beach pebbles and riverbed pebbles are always smooth "
+            "because of this same abrasion process. New quarry rocks are angular. "
+            "(ಉಜ್ಜಾಟ = ಕೋನೀಯ → ನಯ!)"
+        )
+    },
+    {
+        "id": "weathering_q3",
+        "challenge": (
+            "Show the INITIAL state (fresh mountain at time=0). "
+            "Explain the difference between weathering and erosion using the mountain scene.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ವಾತಾವರಣ ಮತ್ತು ಕೊರೆತ ವ್ಯತ್ಯಾಸ ವಿವರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. "
+                "This shows a fresh intact mountain — the starting point before any changes."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Weathering = breaking rocks IN PLACE (no movement). "
+                "Erosion = MOVING the broken fragments to a new location."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': "
+                "On the mountain: cracks forming = weathering. "
+                "Rocks rolling downhill to form sediment = erosion."
+            )
+        },
+        "concept_reminder": (
+            "KEY DISTINCTION for exams: \n"
+            "WEATHERING = breaking or decomposing rocks without moving them. "
+            "Agents: temperature, frost, plant roots, acid rain. IN PLACE. \n"
+            "EROSION = picking up and transporting weathered material to a new place. "
+            "Agents: water (rivers, rain), wind, ice (glaciers), gravity. TRANSPORT. \n"
+            "They work TOGETHER: weathering produces fragments → erosion carries them away. \n"
+            "Without weathering, erosion has nothing to transport. "
+            "Without erosion, weathered material would pile up in place. "
+            "(ವಾತಾವರಣ = ಒಡೆಯುವಿಕೆ | ಕೊರೆತ = ಸಾಗಿಸುವಿಕೆ!)"
+        )
+    }
+]
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
