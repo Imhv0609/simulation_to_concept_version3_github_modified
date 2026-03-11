@@ -2074,6 +2074,209 @@ SIMULATIONS["fire_triangle_kn"] = {
 
 
 # =============================================================================
+# OXYGEN AND COMBUSTION SIMULATION (KANNADA) — Chapter 5 Sim 6
+# =============================================================================
+SIMULATIONS["oxygen_combustion_kn"] = {
+    "name": "ಉರಿಯಲು ಆಮ್ಲಜನಕ ಅಗತ್ಯ (Oxygen Required for Combustion)",
+    "language": "kannada",
+    "description": (
+        "Candle-and-glass-jar experiment demonstrating that oxygen is essential for "
+        "combustion. Light the candle, then cover it — oxygen depletes, CO₂ builds up, "
+        "flame extinguishes. Proves the role of oxygen in sustaining fire."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter5_simulation6_oxygen_combustion_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Experiment State / ಪ್ರಯೋಗ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "lit", "covered_extinguished"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — candle unlit, no jar)",
+                "ಉರಿಯುತ್ತಿದೆ (Lit — candle burning freely)",
+                "ಮುಚ್ಚಿ ಆರಿಸಿ (Covered & Extinguished — jar seals, O₂ depletes, flame dies)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# CANDLE BURNING — DUAL CHANGE SIMULATION (KANNADA) — Chapter 5 Sim 7
+# =============================================================================
+SIMULATIONS["candle_burning_kn"] = {
+    "name": "ಮೇಣ ಉರಿಯುವಿಕೆ – ಭೌತಿಕ ಮತ್ತು ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ (Candle Burning)",
+    "language": "kannada",
+    "description": (
+        "Two-tab simulation showing that a burning candle involves BOTH a physical "
+        "change (wax melting) AND a chemical change (wax combustion) simultaneously. "
+        "Toggle between the two views to compare."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter5_simulation7_candle_burning_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Change Type / ಬದಲಾವಣೆಯ ಪ್ರಕಾರ",
+            "default": "physical",
+            "options": ["physical", "chemical"],
+            "option_labels": [
+                "ಭೌತಿಕ ಬದಲಾವಣೆ (Physical — wax melting: solid → liquid, reversible)",
+                "ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ (Chemical — wax burning: wax + O₂ → CO₂ + H₂O, irreversible)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# COMBUSTION EXAMPLES SIMULATION (KANNADA) — Chapter 5 Sim 8
+# =============================================================================
+SIMULATIONS["combustion_examples_kn"] = {
+    "name": "ವಿವಿಧ ಪದಾರ್ಥಗಳ ದಹನ (Combustion Examples)",
+    "language": "kannada",
+    "description": (
+        "Select from six materials (magnesium, paper, wood, charcoal, sulfur, match) "
+        "and observe each burning with its characteristic flame colour and chemical products. "
+        "Teaches that all combustion requires oxygen and produces oxides."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter5_simulation8_combustion_examples_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Material to Burn / ಸುಡಬೇಕಾದ ಪದಾರ್ಥ",
+            "default": "magnesium",
+            "options": ["initial", "magnesium", "paper", "wood", "charcoal", "sulfur", "match"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — no material selected)",
+                "ಮೆಗ್ನೀಸಿಯಂ (Magnesium — 2Mg + O₂ → 2MgO, bright white flame)",
+                "ಹಾಳೆ/ಕಾಗದ (Paper — yellow flame, CO₂ + H₂O + grey ash)",
+                "ಮರ (Wood — orange-yellow flame, CO₂ + H₂O + smoke)",
+                "ಇದ್ದಲು (Charcoal — red glow, no flame, C + O₂ → CO₂)",
+                "ಗಂಧಕ (Sulfur — blue flame, S + O₂ → SO₂)",
+                "ಬೆಂಕಿಕಡ್ಡಿ (Match — two-stage: head then wood ignites)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# DESIRABLE AND UNDESIRABLE CHANGES SIMULATION (KANNADA) — Chapter 5 Sim 9
+# =============================================================================
+SIMULATIONS["desirable_undesirable_kn"] = {
+    "name": "ಅಪೇಕ್ಷಣೀಯ ಮತ್ತು ಅನಪೇಕ್ಷಿತ ಬದಲಾವಣೆಗಳು (Desirable & Undesirable Changes)",
+    "language": "kannada",
+    "description": (
+        "Quiz simulation classifying 10 real-world changes (milk curdling, rusting, cooking, "
+        "rotting, germination, pollution, composting, tooth decay, bread making, global warming) "
+        "as desirable or undesirable, with detailed feedback."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter5_simulation9_desirable_undesirable_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Quiz State / ಪ್ರಶ್ನೋತ್ತರ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "show_desirable", "show_undesirable"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — first question shown, no answer yet)",
+                "ಅಪೇಕ್ಷಣೀಯ ತೋರಿಸಿ (Show Desirable — auto-answers Q1 correctly as desirable)",
+                "ಅನಪೇಕ್ಷಿತ ತೋರಿಸಿ (Show Undesirable — auto-answers Q1 incorrectly as undesirable)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# SAY NO TO HARMFUL SUBSTANCES SIMULATION (KANNADA) — Chapter 6 Sim 10
+# =============================================================================
+SIMULATIONS["say_no_kn"] = {
+    "name": "ಹಾನಿಕರ ವಸ್ತುಗಳಿಗೆ 'ಇಲ್ಲ' ಹೇಳಿ (Say No to Harmful Substances)",
+    "language": "kannada",
+    "description": (
+        "Scenario-based refusal training (Chapter 6): 5 peer-pressure situations involving "
+        "tobacco, alcohol, vaping, pills, and social settings. Students practice saying NO "
+        "with immediate feedback. Helpline: 14446."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter6_simulation10_say_no_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Scenario State / ಸನ್ನಿವೇಶ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "show_no", "show_yes"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — scenario 1 shown, no response yet)",
+                "'ಇಲ್ಲ' ತೋರಿಸಿ (Show NO — correct refusal choice with positive feedback)",
+                "'ಹೌದು' ತೋರಿಸಿ (Show YES — wrong acceptance choice with consequences feedback)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Knowing About Tobacco, Alcohol and Drugs (ತಂಬಾಕು, ಮದ್ಯ ಮತ್ತು ಮಾದಕ ದ್ರವ್ಯಗಳ ಬಗ್ಗೆ)"
+}
+
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

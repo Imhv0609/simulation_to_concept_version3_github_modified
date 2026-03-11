@@ -6917,6 +6917,1128 @@ QUIZ_QUESTIONS_KN["fire_triangle_kn"] = [
 ]
 
 
+# =============================================================================
+# OXYGEN AND COMBUSTION SIMULATION
+# ಉರಿಯಲು ಆಮ್ಲಜನಕ ಅಗತ್ಯ – ಮೇಣ ಮತ್ತು ಜಾರ್ ಪ್ರಯೋಗ
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["oxygen_combustion_kn"] = {
+    "title": "ಉರಿಯಲು ಆಮ್ಲಜನಕ ಅಗತ್ಯ (Oxygen Required for Combustion)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation6_oxygen_combustion_kn.html",
+    "description": (
+        "Kannada candle-and-glass-jar experiment simulation demonstrating that oxygen "
+        "is essential for combustion. Students light a candle, then cover it with a "
+        "glass jar — the trapped oxygen is consumed, CO₂ and water vapour are produced, "
+        "and the flame automatically extinguishes when oxygen runs out. "
+        "A timer tracks the seconds, oxygen indicators fade as they are consumed, "
+        "and CO₂ indicators appear. "
+        "This is a classic school experiment proving the role of oxygen in sustaining fire."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative measurement of oxygen consumed",
+        "Effect of different jar sizes on burn duration",
+        "Incomplete combustion producing carbon monoxide",
+        "The precise chemical equation for wax combustion"
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Experiment State",
+            "range": "initial, lit, covered_extinguished",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which stage of the candle-jar experiment is shown:\n"
+                "  'initial'              → candle unlit, jar not present (default start)\n"
+                "  'lit'                  → candle is burning, O₂ indicators visible\n"
+                "  'covered_extinguished' → jar covers candle, oxygen depletes, flame extinguishes"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, learning panel, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Oxygen Is Essential for Combustion",
+            "description": (
+                "Combustion (burning) requires oxygen to proceed. When the supply of "
+                "oxygen is cut off — by covering the flame — the fire extinguishes "
+                "because combustion cannot continue without oxygen."
+            ),
+            "key_insight": (
+                "The glass jar traps a fixed amount of oxygen. As the candle burns, "
+                "oxygen (O₂) is consumed and replaced by CO₂. When O₂ runs out, "
+                "the flame dies — proving oxygen is a non-negotiable requirement for fire."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Combustion Produces CO₂ and Water Vapour",
+            "description": (
+                "Candle wax (a hydrocarbon) reacts with oxygen to produce carbon dioxide "
+                "and water vapour. These new substances are the products of the "
+                "chemical change of combustion."
+            ),
+            "key_insight": (
+                "Wax + O₂ → CO₂ + H₂O. This is why a glass jar placed over a burning "
+                "candle fogs up (water vapour condenses on the cool glass) and CO₂ "
+                "accumulates inside, displacing oxygen."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Smothering — Removing Oxygen to Extinguish Fire",
+            "description": (
+                "One of the three fire-extinguishing methods is smothering: cutting off "
+                "the oxygen supply. Covering the candle with a jar demonstrates this "
+                "principle directly."
+            ),
+            "key_insight": (
+                "Fire can be extinguished by removing fuel, removing oxygen, or cooling. "
+                "The jar experiment removes oxygen — the same principle used by blanket "
+                "smothering and CO₂ fire extinguishers."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# CANDLE BURNING — PHYSICAL AND CHEMICAL CHANGES SIMULATION
+# ಮೇಣ ಉರಿಯುವಿಕೆ – ಭೌತಿಕ ಮತ್ತು ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["candle_burning_kn"] = {
+    "title": "ಮೇಣ ಉರಿಯುವಿಕೆ – ಭೌತಿಕ ಮತ್ತು ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ (Candle Burning)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation7_candle_burning_kn.html",
+    "description": (
+        "Kannada two-tab simulation showing that a burning candle involves BOTH a "
+        "physical change AND a chemical change simultaneously. "
+        "Physical tab: wax melts (solid → liquid) — same substance, reversible, no new material. "
+        "Chemical tab: wax vapour burns with oxygen → CO₂ + H₂O — new substances, irreversible. "
+        "Students toggle between the two views with a colour-coded before/after comparison "
+        "and an explanation box that updates for each type of change."
+    ),
+    "cannot_demonstrate": [
+        "The balanced chemical equation for wax combustion",
+        "Intermediate partial combustion states",
+        "Quantitative measurements of reactants and products",
+        "Other real-world examples of dual physical-chemical changes"
+    ],
+    "initial_params": {"initialState": "physical", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Change Type View",
+            "range": "physical, chemical",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which change-type tab is shown:\n"
+                "  'physical'  → wax melting view (solid → liquid, same substance, reversible)\n"
+                "  'chemical'  → wax burning view (wax + O₂ → CO₂ + H₂O, new substances, irreversible)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and explanation box."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Wax Melting Is a Physical Change",
+            "description": (
+                "When a candle is lit, the solid wax near the wick melts into liquid wax — "
+                "a state change. The wax molecules remain the same; only the state changes. "
+                "Solidifying the liquid wax restores the original solid."
+            ),
+            "key_insight": (
+                "Wax melting is physical: same substance (wax), different state (solid → liquid). "
+                "It is reversible — cooling solidifies the wax again. "
+                "No new substance is formed in the melting zone."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Wax Burning Is a Chemical Change",
+            "description": (
+                "The liquid wax vaporises and the wax vapour reacts with oxygen in a "
+                "combustion reaction, producing carbon dioxide and water vapour — "
+                "entirely new substances. This is irreversible."
+            ),
+            "key_insight": (
+                "Wax vapour + O₂ → CO₂ + H₂O. New substances form, energy (heat and light) "
+                "is released, and the wax is permanently consumed. "
+                "This cannot be reversed — you cannot convert CO₂ and water back to wax candle."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "One Candle — Two Changes Happening Together",
+            "description": (
+                "A burning candle is a real-world example where physical and chemical "
+                "changes occur simultaneously in the same object — wax melts (physical) "
+                "and wax vapour burns (chemical)."
+            ),
+            "key_insight": (
+                "Key distinction: the melting wax → physical (reversible, same substance). "
+                "The burning flame zone → chemical (irreversible, new substances). "
+                "This dual-change phenomenon shows that a single event can contain "
+                "both types of change at once."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# COMBUSTION EXAMPLES SIMULATION
+# ವಿವಿಧ ಪದಾರ್ಥಗಳ ದಹನ – ಜ್ವಾಲೆಯ ಬಣ್ಣ ಮತ್ತು ಉತ್ಪನ್ನಗಳು
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["combustion_examples_kn"] = {
+    "title": "ವಿವಿಧ ಪದಾರ್ಥಗಳ ದಹನ (Combustion Examples)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation8_combustion_examples_kn.html",
+    "description": (
+        "Kannada combustion laboratory simulation where students select from six "
+        "materials (magnesium, paper, wood, charcoal, sulfur, match) and observe "
+        "each material burning on a lab burner. Each combustion experiment shows: "
+        "the characteristic flame colour (white for Mg, yellow for paper/wood, "
+        "blue for sulfur, red glow for charcoal), the chemical equation, and "
+        "the products formed. Students learn that all combustion requires oxygen "
+        "and produces oxides, but each material has unique properties."
+    ),
+    "cannot_demonstrate": [
+        "Incomplete combustion producing carbon monoxide",
+        "Effect of temperature and surface area on combustion rate",
+        "Combustion in pure oxygen vs. air",
+        "Extinguishing fires caused by different materials"
+    ],
+    "initial_params": {"initialState": "magnesium", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Material to Burn",
+            "range": "initial, magnesium, paper, wood, charcoal, sulfur, match",
+            "url_key": "initialState",
+            "effect": (
+                "Selects a material and auto-burns it showing the flame and products:\n"
+                "  'initial'   → no material selected (default empty state)\n"
+                "  'magnesium' → bright white flame, MgO (white ash): 2Mg + O₂ → 2MgO\n"
+                "  'paper'     → yellow flame, CO₂ + H₂O + grey ash\n"
+                "  'wood'      → orange-yellow flame, CO₂ + H₂O + smoke + ash\n"
+                "  'charcoal'  → glowing red (no visible flame), CO₂: C + O₂ → CO₂\n"
+                "  'sulfur'    → blue flame, SO₂ (pungent): S + O₂ → SO₂\n"
+                "  'match'     → two-stage: head burns then wood ignites"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, learning panel, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Different Materials Produce Different Flame Colours",
+            "description": (
+                "Each combustible material burns with a characteristic flame colour "
+                "that depends on the chemical elements present: magnesium → brilliant "
+                "white, sulfur → blue, hydrocarbons (wood, paper) → yellow/orange, "
+                "charcoal → red glow without visible flame."
+            ),
+            "key_insight": (
+                "Flame colour is a diagnostic property of what is burning. "
+                "Pyrotechnicians use this principle — magnesium for white light, "
+                "sulfur for blue, potassium for violet. "
+                "Charcoal's lack of visible flame shows glowing combustion differs from flaming combustion."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "All Combustion Requires Oxygen and Produces Oxides",
+            "description": (
+                "Despite looking different, all combustion reactions follow the same "
+                "pattern: fuel + O₂ → oxide products + heat + light. "
+                "Carbon → CO₂, hydrogen → H₂O, magnesium → MgO, sulfur → SO₂."
+            ),
+            "key_insight": (
+                "The common thread: oxygen is the reactant in all cases and the "
+                "products are always oxides of the elements in the fuel. "
+                "This is why combustion is categorised as oxidation."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Combustion Is an Irreversible Chemical Change",
+            "description": (
+                "All combustion reactions produce new substances (oxides) that cannot "
+                "be converted back to the original fuel. They are irreversible chemical "
+                "changes releasing energy as heat and light."
+            ),
+            "key_insight": (
+                "You cannot un-burn wood back into a log, un-burn magnesium back into "
+                "a shiny ribbon, or un-burn sulfur from SO₂. The irreversible production "
+                "of oxide products is the defining characteristic of combustion as a "
+                "chemical change."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# DESIRABLE AND UNDESIRABLE CHANGES SIMULATION
+# ಅಪೇಕ್ಷಣೀಯ ಮತ್ತು ಅನಪೇಕ್ಷಿತ ಬದಲಾವಣೆಗಳು
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["desirable_undesirable_kn"] = {
+    "title": "ಅಪೇಕ್ಷಣೀಯ ಮತ್ತು ಅನಪೇಕ್ಷಿತ ಬದಲಾವಣೆಗಳು (Desirable & Undesirable Changes)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation9_desirable_undesirable_kn.html",
+    "description": (
+        "Kannada quiz simulation where students classify 10 real-world changes as "
+        "desirable (beneficial/wanted) or undesirable (harmful/unwanted). "
+        "Changes include: milk curdling (desirable), iron rusting (undesirable), "
+        "cooking food (desirable), fruit rotting (undesirable), seed germination "
+        "(desirable), air pollution (undesirable), composting (desirable), "
+        "tooth decay (undesirable), bread making (desirable), and global warming (undesirable). "
+        "Each answer gives detailed feedback explaining the reasoning. "
+        "Students learn that the desirability of a change depends on its usefulness "
+        "or harmfulness to humans and the environment."
+    ),
+    "cannot_demonstrate": [
+        "Preventing undesirable changes (only classification shown)",
+        "Partial desirability (e.g. fruit rotting is undesirable for us but useful for ecosystems)",
+        "Changes that are desirable in one context but undesirable in another"
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Quiz State",
+            "range": "initial, show_desirable, show_undesirable",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which quiz state to demonstrate:\n"
+                "  'initial'          → first question shown (milk curdling), no answer selected\n"
+                "  'show_desirable'   → auto-answers first question (curdling) as desirable\n"
+                "  'show_undesirable' → auto-answers first question (curdling) as undesirable"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and takeaway panels."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Desirable Changes Benefit Humans or the Environment",
+            "description": (
+                "A change is desirable when it produces a useful or beneficial outcome: "
+                "cooking food makes it safe and nutritious; milk curdling gives us yoghurt; "
+                "seed germination grows crops; composting recycles nutrients."
+            ),
+            "key_insight": (
+                "The question to ask: 'Does this change help us or harm us?' "
+                "Desirable changes are those we intentionally bring about or want to happen. "
+                "Cooking, fermentation, germination — all are deliberately induced beneficial changes."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Undesirable Changes Are Harmful or Wasteful",
+            "description": (
+                "A change is undesirable when it causes damage, loss, or harm: rusting weakens "
+                "structures, tooth decay causes pain, air pollution harms health, "
+                "global warming threatens ecosystems."
+            ),
+            "key_insight": (
+                "Undesirable changes are those we try to prevent or minimise. "
+                "Iron is painted to prevent rusting; food is refrigerated to slow spoilage; "
+                "emissions are regulated to reduce air pollution. Prevention is the response to undesirability."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "The Same Type of Change Can Be Desirable or Undesirable",
+            "description": (
+                "Biological decomposition (rotting/decay) is: desirable when composting "
+                "kitchen waste → soil nutrients, but undesirable when it means "
+                "fruit spoiling and going to waste. Context determines desirability."
+            ),
+            "key_insight": (
+                "Desirability is not a property of the change itself, but of its context and impact. "
+                "Fungal decomposition in compost = desirable. Same process on food = undesirable. "
+                "This teaches students to evaluate changes critically rather than categorise them "
+                "by type alone."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# SAY NO TO HARMFUL SUBSTANCES SIMULATION
+# ಹಾನಿಕರ ವಸ್ತುಗಳಿಗೆ 'ಇಲ್ಲ' ಹೇಳಿ – ಸನ್ನಿವೇಶ ಆಧಾರಿತ ತರಬೇತಿ
+# Science Chapter 6 – Knowing About Tobacco, Alcohol and Drugs
+# =============================================================================
+SIMULATIONS_KN["say_no_kn"] = {
+    "title": "ಹಾನಿಕರ ವಸ್ತುಗಳಿಗೆ 'ಇಲ್ಲ' ಹೇಳಿ (Say No to Harmful Substances)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation10_say_no_kn.html",
+    "description": (
+        "Kannada scenario-based simulation (Chapter 6) where students practice "
+        "saying NO to harmful substances — tobacco (cigarettes), alcohol, vaping, "
+        "pills, and family social pressure. "
+        "For each scenario involving peer pressure or temptation, students choose "
+        "between accepting (wrong) or refusing (correct). The simulation provides "
+        "immediate feedback: saying NO gives positive reinforcement explaining health "
+        "reasons; saying YES shows the consequences and guides students to the correct choice. "
+        "A national helpline number (14446) is displayed for real-world support. "
+        "5 scenarios cover peer pressure, curiosity, online influence, exam stress, "
+        "and family situations."
+    ),
+    "cannot_demonstrate": [
+        "Physical health effects of tobacco/alcohol on body organs",
+        "Chemical composition of addictive substances",
+        "Long-term addiction progression",
+        "Legal consequences of substance use"
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Scenario State",
+            "range": "initial, show_no, show_yes",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which response is demonstrated in the first scenario:\n"
+                "  'initial'  → first scenario shown (cigarette peer pressure), no answer yet\n"
+                "  'show_no'  → auto-selects 'NO' for scenario 1, showing the correct response\n"
+                "  'show_yes' → auto-selects 'YES' for scenario 1, showing the wrong-choice feedback"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and takeaway (refusal strategies) panel."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Peer Pressure and Harmful Substances",
+            "description": (
+                "Adolescents often face peer pressure to try tobacco, alcohol, or other "
+                "harmful substances. Recognising these situations and having strategies "
+                "to refuse is a critical life skill for health and safety."
+            ),
+            "key_insight": (
+                "Peer pressure scenarios include: 'everyone's doing it', 'it'll make you cool', "
+                "'just try it once'. None of these are valid reasons to risk one's health. "
+                "True friends respect a NO; those who don't aren't real friends."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Health Consequences of Tobacco, Alcohol and Drugs",
+            "description": (
+                "Tobacco contains nicotine (highly addictive), alcohol affects the developing "
+                "adolescent brain, vapes contain harmful chemicals, and unprescribed pills "
+                "can be addictive or fatal. All are dangerous, particularly for adolescents "
+                "whose bodies and brains are still developing."
+            ),
+            "key_insight": (
+                "The adolescent brain is more vulnerable to addiction than an adult brain. "
+                "One cigarette can start nicotine dependency. Alcohol impairs judgment and "
+                "brain development. Each substance has specific biological harms, "
+                "making early refusal critically important."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Strategies to Refuse Harmful Substances",
+            "description": (
+                "Students learn practical refusal strategies: 'No thank you, I'm fine', "
+                "leaving the situation, citing parents or values, offering an alternative "
+                "activity, or just walking away without explanation."
+            ),
+            "key_insight": (
+                "Saying NO is a strength, not a weakness. Having a prepared response reduces "
+                "hesitation in a real pressure situation. The national helpline 14446 is "
+                "toll-free and available 24/7 for anyone needing support with substance issues."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# QUIZ QUESTIONS — OXYGEN AND COMBUSTION (Kannada)
+# 3 questions: show lit candle → show extinguished → explain baseline
+# =============================================================================
+QUIZ_QUESTIONS_KN["oxygen_combustion_kn"] = [
+
+    {
+        "id": "o2_kn_q1",
+        "challenge": (
+            "Show the candle burning. Light the candle to demonstrate that a flame "
+            "is sustained when oxygen is freely available.\n\n"
+            "(ಮೇಣ ಉರಿಯುತ್ತಿದೆ ಎಂದು ತೋರಿಸಿ — ಆಮ್ಲಜನಕ ಲಭ್ಯವಿರುವಾಗ ಜ್ವಾಲೆ ಇರುತ್ತದೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "lit"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'lit' as the initialState. "
+                "The simulation lights the candle — the flame burns freely with open air "
+                "providing unlimited oxygen."
+            ),
+            "attempt_2": (
+                "Set 'initialState=lit'. The lit candle shows O₂ indicators around the flame. "
+                "Oxygen is freely available → combustion continues → flame stays lit."
+            ),
+            "attempt_3": (
+                "Choose 'lit'. The burning flame is the baseline: open air = oxygen available = "
+                "fire sustained. Compare this with 'covered_extinguished' to see the difference."
+            )
+        },
+        "concept_reminder": (
+            "A candle burns freely in open air because oxygen (O₂) from the atmosphere "
+            "continuously reaches the flame. Combustion: wax + O₂ → CO₂ + H₂O + heat + light. "
+            "As long as O₂ is available and fuel (wax) remains, the flame continues. "
+            "(ಆಮ್ಲಜನಕ + ಇಂಧನ = ಜ್ವಾಲೆ ಮುಂದುವರಿಯುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "o2_kn_q2",
+        "challenge": (
+            "Cover the candle with the glass jar and show that the flame extinguishes "
+            "when oxygen runs out. This proves that oxygen is essential for combustion.\n\n"
+            "(ಜಾರ್‌ನಿಂದ ಮುಚ್ಚಿ ಆಮ್ಲಜನಕ ಮುಗಿದಾಗ ಜ್ವಾಲೆ ಆರುವುದನ್ನು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "covered_extinguished"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'covered_extinguished' as the initialState. "
+                "The simulation lights the candle then covers it — watch the oxygen deplete and "
+                "the flame extinguish."
+            ),
+            "attempt_2": (
+                "Set 'initialState=covered_extinguished'. The jar traps a fixed oxygen supply. "
+                "As wax burns, O₂ is consumed. When O₂ runs out → flame extinguishes. "
+                "CO₂ indicators appear showing what was produced."
+            ),
+            "attempt_3": (
+                "Choose 'covered_extinguished'. The timer shows how long the flame lasts "
+                "with limited oxygen. Extinguishing proves: no oxygen = no combustion. "
+                "This is the scientific proof that oxygen is an essential requirement for fire."
+            )
+        },
+        "concept_reminder": (
+            "When enclosed in a jar, the candle consumes all available oxygen (O₂) "
+            "and produces CO₂ + H₂O. When O₂ is exhausted, combustion stops and the flame "
+            "extinguishes — not because of lack of fuel (wax remains) but lack of oxygen. "
+            "This classically proves O₂ is essential for burning. "
+            "(ಆಮ್ಲಜನಕ ಮುಗಿದರೆ — ಜ್ವಾಲೆ ಆರಿಹೋಗುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "o2_kn_q3",
+        "challenge": (
+            "Show the initial state of the experiment — candle unlit, jar absent. "
+            "This is the baseline before any combustion occurs.\n\n"
+            "(ಪ್ರಯೋಗ ಪ್ರಾರಂಭ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಉರಿಯದ ಮೇಣ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' as the initialState. "
+                "The candle is unlit and no jar is present — the starting point before the experiment."
+            ),
+            "attempt_2": (
+                "Set 'initialState=initial'. The unlit candle shows the setup before any reaction. "
+                "Oxygen is present, fuel (wax) is present, but no heat/ignition → no combustion."
+            ),
+            "attempt_3": (
+                "Choose 'initial' to show the candle before lighting. "
+                "This reinforces the fire triangle: fuel (wax ✓) + oxygen (air ✓) + heat (✗) = "
+                "no fire yet. All three elements of the fire triangle must be present."
+            )
+        },
+        "concept_reminder": (
+            "Before lighting, the candle has fuel (wax) and oxygen (air) but no ignition heat. "
+            "This shows the fire triangle requirement: fuel + oxygen + ignition temperature = fire. "
+            "Wax and air alone do not spontaneously combust — heat is the trigger. "
+            "(ಇಂಧನ + ಆಮ್ಲಜನಕ ಆದರೆ ಉಷ್ಣ ಇಲ್ಲ → ಅಗ್ನಿ ಇಲ್ಲ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — CANDLE BURNING — PHYSICAL VS CHEMICAL CHANGE (Kannada)
+# 3 questions: physical change → chemical change → distinguish both
+# =============================================================================
+QUIZ_QUESTIONS_KN["candle_burning_kn"] = [
+
+    {
+        "id": "candle_kn_q1",
+        "challenge": (
+            "Show the PHYSICAL change in a burning candle. "
+            "Demonstrate that wax melting is a physical change — same substance, "
+            "different state, reversible.\n\n"
+            "(ಮೇಣ ಕರಗುವಿಕೆ ಭೌತಿಕ ಬದಲಾವಣೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "physical"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'physical' as the initialState. "
+                "The simulation shows the wax melting zone — solid wax → liquid wax. "
+                "The substance (wax) is the same; only the state changes."
+            ),
+            "attempt_2": (
+                "Set 'initialState=physical'. The physical-change tab shows: solid wax melts to "
+                "liquid near the wick. This is reversible — cool the liquid wax and it solidifies again."
+            ),
+            "attempt_3": (
+                "Choose 'physical'. Wax melting: same substance (wax), different state (solid → liquid), "
+                "reversible. No new substance forms. The substance identity is preserved."
+            )
+        },
+        "concept_reminder": (
+            "Wax melting = PHYSICAL change: the wax changes from solid to liquid but is still wax. "
+            "The chemical composition of wax does not change. "
+            "It is reversible — liquid wax solidifies when cooled. "
+            "No new substance is formed in the melting zone. "
+            "(ಮೇಣ ಕರಗುವಿಕೆ = ಭೌತಿಕ — ಪದಾರ್ಥ ಅದೇ!)"
+        )
+    },
+
+    {
+        "id": "candle_kn_q2",
+        "challenge": (
+            "Show the CHEMICAL change in a burning candle. "
+            "Demonstrate that wax vapour burning with oxygen is a chemical change — "
+            "new substances CO₂ and H₂O are formed.\n\n"
+            "(ಮೇಣ ಉರಿಯುವಿಕೆ ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "chemical"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'chemical' as the initialState. "
+                "The simulation shows the combustion zone — wax vapour + O₂ → CO₂ + H₂O. "
+                "New substances form, making this a chemical change."
+            ),
+            "attempt_2": (
+                "Set 'initialState=chemical'. The chemical tab shows wax vapour reacting with oxygen. "
+                "Products: CO₂ and H₂O — completely different molecules from wax. Irreversible."
+            ),
+            "attempt_3": (
+                "Choose 'chemical'. The before/after comparison shows: wax + O₂ (before) → "
+                "CO₂ + H₂O (after). Different substances = chemical change. "
+                "You cannot convert CO₂ and H₂O back into wax."
+            )
+        },
+        "concept_reminder": (
+            "Wax burning = CHEMICAL change: wax vapour + O₂ → CO₂ + H₂O + heat + light. "
+            "New substances (carbon dioxide and water) form — completely different from wax. "
+            "It is irreversible — the wax molecules are permanently destroyed. "
+            "The yellow flame is visible because of incandescent carbon particles. "
+            "(ಮೇಣ ಉರಿಯುವಿಕೆ = ರಾಸಾಯನಿಕ — ಹೊಸ ಪದಾರ್ಥ CO₂ ಮತ್ತು H₂O!)"
+        )
+    },
+
+    {
+        "id": "candle_kn_q3",
+        "challenge": (
+            "Go back to the physical change view. Explain why a single burning candle "
+            "demonstrates BOTH a physical change AND a chemical change at the same time.\n\n"
+            "(ಮೇಣ ಕರಗುವಿಕೆಗೆ ಮರಳಿ — ಒಂದು ಮೇಣ ಎರಡೂ ಬದಲಾವಣೆ ಹೇಗೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "physical"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'physical' as the initialState. "
+                "The physical tab reminds us: wax melts (physical) — then the liquid wax "
+                "vaporises and the vapour burns (chemical). Same candle, two zones."
+            ),
+            "attempt_2": (
+                "Set 'initialState=physical'. Melting zone: solid → liquid (physical, reversible). "
+                "Flame zone: vapour + O₂ → CO₂ + H₂O (chemical, irreversible). "
+                "Both happen simultaneously in a burning candle."
+            ),
+            "attempt_3": (
+                "Choose 'physical'. The candle simultaneously: melts wax (physical change) in "
+                "the lower zone AND burns wax vapour (chemical change) in the flame zone. "
+                "This is why a burning candle is THE classic dual-change example."
+            )
+        },
+        "concept_reminder": (
+            "A burning candle = BOTH changes at once. "
+            "Zone 1 (near wick): solid wax → liquid wax (PHYSICAL — same substance, reversible). "
+            "Zone 2 (flame): liquid wax → vapour → CO₂ + H₂O (CHEMICAL — new substances, irreversible). "
+            "This dual-change phenomenon is unique and commonly tested in exams. "
+            "(ಒಂದು ಮೇಣ = ಭೌತಿಕ + ರಾಸಾಯನಿಕ ಬದಲಾವಣೆಗಳು ಒಟ್ಟಿಗೆ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — COMBUSTION EXAMPLES (Kannada)
+# 3 questions: magnesium (distinctive flame) → charcoal (no visible flame) → initial
+# =============================================================================
+QUIZ_QUESTIONS_KN["combustion_examples_kn"] = [
+
+    {
+        "id": "comb_kn_q1",
+        "challenge": (
+            "Burn MAGNESIUM and observe its characteristic flame. Show why magnesium "
+            "produces such a distinctive bright white flame when burned.\n\n"
+            "(ಮೆಗ್ನೀಸಿಯಂ ಸುಡಿ — ಪ್ರಕಾಶಮಾನ ಬಿಳಿ ಜ್ವಾಲೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "magnesium"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'magnesium' as the initialState. "
+                "The simulation shows magnesium ribbon burning with a brilliant white flame "
+                "and forming white MgO powder."
+            ),
+            "attempt_2": (
+                "Set 'initialState=magnesium'. The equation shown is: 2Mg + O₂ → 2MgO. "
+                "The product is magnesium oxide (white ash). "
+                "Magnesium's intense white light is used in fireworks and photography flash."
+            ),
+            "attempt_3": (
+                "Choose 'magnesium'. The bright white flame is unique — do not look directly at it! "
+                "Magnesium burns at very high temperature, which is why it produces such brilliant light. "
+                "Product: white powdery ash (MgO)."
+            )
+        },
+        "concept_reminder": (
+            "Magnesium combustion: 2Mg + O₂ → 2MgO. "
+            "Magnesium burns with an intensely bright white flame due to the high temperature reached. "
+            "The product is magnesium oxide (white powder). "
+            "Real-world use: fireworks (white light), old-style photography flash bulbs. "
+            "Do not look directly at burning magnesium — it can damage your eyes! "
+            "(2Mg + O₂ → 2MgO + ಪ್ರಕಾಶಮಾನ ಬಿಳಿ ಬೆಳಕು!)"
+        )
+    },
+
+    {
+        "id": "comb_kn_q2",
+        "challenge": (
+            "Burn CHARCOAL and observe that it glows red without a visible flame. "
+            "Explain why charcoal burns differently from wood or paper.\n\n"
+            "(ಇದ್ದಲು ಸುಡಿ — ಗೋಚರ ಜ್ವಾಲೆ ಇಲ್ಲ, ಕೆಂಪು ಜ್ವಳಿಕೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "charcoal"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'charcoal' as the initialState. "
+                "The simulation shows charcoal glowing red without a visible flame — "
+                "this is called glowing combustion (vs flaming combustion)."
+            ),
+            "attempt_2": (
+                "Set 'initialState=charcoal'. Charcoal is nearly pure carbon (C). "
+                "Equation: C + O₂ → CO₂. It burns hotter than wood but without a visible flame. "
+                "The red glow is incandescence of hot carbon."
+            ),
+            "attempt_3": (
+                "Choose 'charcoal'. Charcoal has no volatile compounds that produce a visible flame. "
+                "It undergoes surface combustion — glowing red. "
+                "This makes it ideal for cooking (uniform heat without flames)"
+            )
+        },
+        "concept_reminder": (
+            "Charcoal combustion: C + O₂ → CO₂. "
+            "Charcoal is nearly pure carbon. Unlike wood, it has no hydrogen or volatile compounds "
+            "to produce a visible flame — instead it glows red (surface combustion). "
+            "It burns hotter and more uniformly than wood, making it ideal for cooking and barbecue. "
+            "(ಇದ್ದಲು = ಶುದ್ಧ ಕಾರ್ಬನ್ — ಗೋಚರ ಜ್ವಾಲೆ ಇಲ್ಲ, ಆದರೆ ಅತಿ ಬಿಸಿ!)"
+        )
+    },
+
+    {
+        "id": "comb_kn_q3",
+        "challenge": (
+            "Burn SULFUR and observe its distinctive blue flame and pungent SO₂ gas. "
+            "Show this unusual combustion reaction that produces a toxic oxide.\n\n"
+            "(ಸಲ್ಫರ್ ಸುಡಿ — ನೀಲಿ ಜ್ವಾಲೆ ಮತ್ತು SO₂ ಅನಿಲ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "sulfur"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'sulfur' as the initialState. "
+                "The simulation shows sulfur burning with a distinctive blue flame "
+                "and producing SO₂ (sulfur dioxide) — a pungent, choking gas."
+            ),
+            "attempt_2": (
+                "Set 'initialState=sulfur'. Equation: S + O₂ → SO₂. "
+                "Sulfur dioxide is acidic and toxic. The blue flame is unique to sulfur "
+                "and metal compounds."
+            ),
+            "attempt_3": (
+                "Choose 'sulfur'. The blue flame is a diagnostic property of sulfur combustion. "
+                "SO₂ formed is the cause of acid rain when sulfur-containing fuels (coal, oil) "
+                "are burned in power plants."
+            )
+        },
+        "concept_reminder": (
+            "Sulfur combustion: S + O₂ → SO₂. "
+            "Sulfur burns with a unique blue flame. The product SO₂ (sulfur dioxide) is acidic, "
+            "pungent (rotten egg smell), and toxic. "
+            "Real-world impact: burning of sulfur-containing coal and oil in power plants produces "
+            "SO₂ which causes acid rain — an environmental problem. "
+            "Always burn sulfur in a well-ventilated area or fume cupboard! "
+            "(S + O₂ → SO₂ — ನೀಲಿ ಜ್ವಾಲೆ, ಆಮ್ಲ ಮಳೆ ಕಾರಣ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — DESIRABLE AND UNDESIRABLE CHANGES (Kannada)
+# 3 questions: initial → demonstrate desirable → demonstrate undesirable
+# =============================================================================
+QUIZ_QUESTIONS_KN["desirable_undesirable_kn"] = [
+
+    {
+        "id": "desir_kn_q1",
+        "challenge": (
+            "Start the quiz at the beginning. Show the first question (milk curdling) "
+            "and identify whether it is a desirable or undesirable change.\n\n"
+            "(ಮೊದಲ ಪ್ರಶ್ನೆ ತೋರಿಸಿ — ಹಾಲಿನಿಂದ ಮೊಸರು ಅಪೇಕ್ಷಣೀಯವೇ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' as the initialState to show the first question (milk curdling). "
+                "Think: is making curd from milk beneficial or harmful?"
+            ),
+            "attempt_2": (
+                "Set 'initialState=initial'. The first question is milk curdling. "
+                "Bacteria convert milk to curd — a useful food product. "
+                "Is this change something we want (desirable) or something we want to prevent?"
+            ),
+            "attempt_3": (
+                "Choose 'initial'. Milk → curd via bacterial fermentation: "
+                "this produces nutritious food (yoghurt, lassi) — a deliberately induced, "
+                "beneficial change that humans have used for thousands of years."
+            )
+        },
+        "concept_reminder": (
+            "Desirable changes are those that produce beneficial outcomes. "
+            "Milk curdling by bacteria is desirable: it produces yoghurt and curd — "
+            "nutritious, probiotic food enjoyed worldwide. "
+            "It is an irreversible chemical change but a WANTED one. "
+            "(ಅಪೇಕ್ಷಣೀಯ = ಲಾಭಕರ ಬದಲಾವಣೆ — ಮೊಸರು ಉಪಯುಕ್ತ!)"
+        )
+    },
+
+    {
+        "id": "desir_kn_q2",
+        "challenge": (
+            "Demonstrate a DESIRABLE change by auto-answering the first quiz question "
+            "correctly as desirable. Show the feedback explaining why milk curdling "
+            "is beneficial.\n\n"
+            "(ಅಪೇಕ್ಷಣೀಯ ಉತ್ತರ ತೋರಿಸಿ — ಮೊಸರು ಉಪಯೋಗಿ!)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "show_desirable"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'show_desirable' as the initialState. "
+                "The simulation auto-clicks the desirable button and shows positive feedback "
+                "for milk curdling."
+            ),
+            "attempt_2": (
+                "Set 'initialState=show_desirable'. The feedback confirms milk curdling is desirable: "
+                "it produces nutritious curd used in yoghurt, lassi, and other dairy products "
+                "— a beneficial use of bacterial fermentation."
+            ),
+            "attempt_3": (
+                "Choose 'show_desirable'. The correct answer with feedback: curdling is a "
+                "desirable chemical change that humans have used intentionally for thousands of "
+                "years to preserve milk and create food products."
+            )
+        },
+        "concept_reminder": (
+            "Desirable chemical changes are those humans intentionally bring about for benefit. "
+            "Examples: cooking food, curdling milk, composting waste, fermenting bread, germinating seeds. "
+            "The key question: 'Is this change something we WANT to happen?' "
+            "Desirable ≠ reversible. Many desirable changes are irreversible (cooking, curdling). "
+            "(ಅಪೇಕ್ಷಣೀಯ = ನಾವು ಬಯಸುವ ಬದಲಾವಣೆ — ಲಾಭದಾಯಕ!)"
+        )
+    },
+
+    {
+        "id": "desir_kn_q3",
+        "challenge": (
+            "Show an UNDESIRABLE answer for the first question — demonstrate what happens "
+            "when a student incorrectly classifies milk curdling as undesirable, "
+            "and see the feedback explaining the correct classification.\n\n"
+            "(ಅನಪೇಕ್ಷಿತ ಉತ್ತರ ತೋರಿಸಿ — ತಪ್ಪು ಆಯ್ಕೆಯ ಪ್ರತಿಕ್ರಿಯೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "show_undesirable"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'show_undesirable' as the initialState. "
+                "The simulation auto-clicks 'undesirable' for milk curdling — an incorrect answer — "
+                "and shows the corrective feedback."
+            ),
+            "attempt_2": (
+                "Set 'initialState=show_undesirable'. The wrong-answer feedback explains: "
+                "milk curdling is actually desirable because it produces useful food products. "
+                "The simulation guides the student toward correct understanding."
+            ),
+            "attempt_3": (
+                "Choose 'show_undesirable'. The incorrect-answer feedback reinforces: "
+                "if a change produces a useful product (curd), it is desirable even though "
+                "it changes the milk permanently."
+            )
+        },
+        "concept_reminder": (
+            "Contrast for exam preparation: "
+            "Milk curdling (desired → produces curd food) = DESIRABLE. "
+            "Milk spoiling through unwanted bacteria (making it undrinkable) = UNDESIRABLE. "
+            "The same underlying process (bacterial action on milk) can be desirable or undesirable "
+            "depending on whether it is controlled and produces something useful. "
+            "(ಬ್ಯಾಕ್ಟೀರಿಯಾ ಕ್ರಿಯೆ: ಉದ್ದೇಶಪೂರ್ವಕ = ಅಪೇಕ್ಷಣೀಯ, ಅನಿಯಂತ್ರಿತ = ಅನಪೇಕ್ಷಿತ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — SAY NO TO HARMFUL SUBSTANCES (Kannada)
+# 3 questions: show first scenario → show correct NO choice → show wrong YES choice
+# =============================================================================
+QUIZ_QUESTIONS_KN["say_no_kn"] = [
+
+    {
+        "id": "sayno_kn_q1",
+        "challenge": (
+            "Start the scenario at the beginning. Show scenario 1 (cigarette peer pressure) "
+            "before any response is selected — let the student understand the situation.\n\n"
+            "(ಮೊದಲ ಸನ್ನಿವೇಶ ತೋರಿಸಿ — ಸಮವಯಸ್ಕ ಒತ್ತಡ: ಸಿಗರೇಟ್ ಕೊಡುತ್ತಾರೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' as the initialState. "
+                "Scenario 1 is shown: a friend offers a cigarette at a party saying "
+                "'everyone's doing it'. No response is selected yet."
+            ),
+            "attempt_2": (
+                "Set 'initialState=initial'. The peer pressure scenario appears. "
+                "Think: what is the right response? What are the health consequences of accepting?"
+            ),
+            "attempt_3": (
+                "Choose 'initial'. The scenario shows the starting situation before any choice. "
+                "Context: cigarettes contain highly addictive nicotine and cause serious lung disease. "
+                "This is the moment to assess the situation and make a decision."
+            )
+        },
+        "concept_reminder": (
+            "Peer pressure scenario: friend offers cigarette. "
+            "Tobacco contains NICOTINE — highly addictive. Just one cigarette can start dependency. "
+            "Long-term effects: lung cancer, heart disease, reduced lung capacity. "
+            "You always have the right to say NO. Real friends respect your decision. "
+            "(ಸಮವಯಸ್ಕ ಒತ್ತಡ: ನಿಮ್ಮ ಆರೋಗ್ಯ ರಕ್ಷಿಸಲು 'ಇಲ್ಲ' ಹೇಳಿ!)"
+        )
+    },
+
+    {
+        "id": "sayno_kn_q2",
+        "challenge": (
+            "Show the CORRECT response to peer pressure: demonstrate saying NO to "
+            "the cigarette offer and see the positive reinforcement feedback.\n\n"
+            "(ಸರಿಯಾದ ಉತ್ತರ ತೋರಿಸಿ — 'ಇಲ್ಲ' ಹೇಳುವ ಸಾಹಸ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "show_no"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'show_no' as the initialState. "
+                "The simulation auto-clicks 'NO' for scenario 1 and shows the "
+                "positive feedback: 'Saying NO takes courage and is the smart choice!'"
+            ),
+            "attempt_2": (
+                "Set 'initialState=show_no'. The correct NO response is selected. "
+                "Feedback explains: real friends respect your decision; nicotine is highly addictive; "
+                "one cigarette can lead to addiction."
+            ),
+            "attempt_3": (
+                "Choose 'show_no'. The positive feedback reinforces: saying NO is the brave and "
+                "healthy choice. Confidence comes from self-respect, not social conformity. "
+                "The helpline number 14446 is available if support is ever needed."
+            )
+        },
+        "concept_reminder": (
+            "Saying NO to cigarettes: correct and healthy choice. "
+            "Nicotine is one of the most addictive substances known. "
+            "Adolescent brains are more susceptible to addiction than adult brains. "
+            "Strategies to say NO: 'No thank you', leave the situation, cite your values, "
+            "change the subject. True friends never pressure you into harming yourself. "
+            "(ಧೈರ್ಯದಿಂದ 'ಇಲ್ಲ' ಹೇಳಿ — ಇದು ಶೌರ್ಯ, ಹೇಡಿತನ ಅಲ್ಲ!)"
+        )
+    },
+
+    {
+        "id": "sayno_kn_q3",
+        "challenge": (
+            "Show the WRONG response: demonstrate selecting 'YES' to the cigarette offer "
+            "to reveal the consequences and understand why this choice is harmful.\n\n"
+            "(ತಪ್ಪು ಆಯ್ಕೆ ತೋರಿಸಿ — 'ಹೌದು' ಹೇಳಿದರೆ ಏನಾಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "show_yes"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'show_yes' as the initialState. "
+                "The simulation auto-clicks 'YES' (wrong choice) and shows the warning feedback "
+                "about health risks and addiction potential."
+            ),
+            "attempt_2": (
+                "Set 'initialState=show_yes'. The wrong-answer feedback explains: "
+                "accepting to fit in puts health at serious risk. "
+                "One cigarette can create nicotine addiction. Real friends don't pressure you."
+            ),
+            "attempt_3": (
+                "Choose 'show_yes' to reveal consequences: giving in to peer pressure → "
+                "potential addiction, health damage, and compromised decision-making. "
+                "The simulation uses this to teach students why the temptation must be resisted."
+            )
+        },
+        "concept_reminder": (
+            "Saying YES to harmful substances: wrong choice with serious consequences. "
+            "Accepting peer-pressured cigarettes risks: nicotine addiction (within days), "
+            "lung damage, reduced sports performance, and normalising harmful behaviour. "
+            "If you feel pressured: walk away, call the helpline (14446 — free, 24/7), "
+            "or talk to a trusted adult. Your health and future are worth protecting. "
+            "(ಒತ್ತಡಕ್ಕೆ ಮಣಿಯಬೇಡಿ — ಆರೋಗ್ಯ ಬೆಲೆಕಟ್ಟಲಾಗದ ಸಂಪತ್ತು!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
