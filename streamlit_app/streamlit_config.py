@@ -3342,6 +3342,177 @@ SIMULATIONS["time_units_kn"] = {
 }
 
 # =============================================================================
+# SPEED CALCULATOR SIMULATION (Kannada)
+# ವೇಗ ಕ್ಯಾಲ್ಕುಲೇಟರ್ – ವೇಗ, ದೂರ ಮತ್ತು ಸಮಯ ಲೆಕ್ಕ ಹಾಕಿ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS["speed_calculator_kn"] = {
+    "name": "ವೇಗ ಕ್ಯಾಲ್ಕುಲೇಟರ್ (Speed Calculator)",
+    "language": "kannada",
+    "description": (
+        "ವೇಗ, ದೂರ ಮತ್ತು ಸಮಯ ಲೆಕ್ಕ ಹಾಕಿ — ಮೂರು ಮೋಡ್‌ಗಳಲ್ಲಿ ಸೂತ್ರ ಅಭ್ಯಾಸ ಮಾಡಿ.\n"
+        "Practice the speed-distance-time triangle in three calculator modes."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter8_simulation6_speed_calculator_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಕ್ಯಾಲ್ಕುಲೇಟರ್ ಮೋಡ್ (Calculator Mode)",
+            "default": "speed",
+            "options": ["speed", "distance", "time"],
+            "option_labels": [
+                "speed – ವೇಗ ಕಂಡुಹಿಡಿ (Find Speed)",
+                "distance – ದೂರ ಕಂಡுಹಿಡಿ (Find Distance)",
+                "time – ಸಮಯ ಕಂಡुಹಿಡಿ (Find Time)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Motion and Time (ಚಲನೆ ಮತ್ತು ಸಮಯ)"
+}
+
+# =============================================================================
+# SPEED RACE SIMULATION (Kannada)
+# ವೇಗ ಓಟ – 1 km ಸ್ಪರ್ಧೆ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS["speed_race_kn"] = {
+    "name": "ವೇಗ ಓಟ (Speed Race)",
+    "language": "kannada",
+    "description": (
+        "1 km ಓಟದಲ್ಲಿ ನಡೆದಾಡುವವನು, ಸೈಕ್ಲಿಸ್ಟ್, ಕಾರು ಮತ್ತು ರೈಲು ಸ್ಪರ್ಧಿಸುತ್ತಾರೆ.\n"
+        "Race 4 vehicles over 1 km to observe that higher speed means less finish time."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter8_simulation7_speed_race_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಓಟ ಸ್ಥಿತಿ (Race State)",
+            "default": "setup",
+            "options": ["setup", "racing"],
+            "option_labels": [
+                "setup – ಸ್ಥಾಪನೆ (Show setup before race)",
+                "racing – ಓಟ ಪ್ರಾರಂಭ (Auto-start the race)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Motion and Time (ಚಲನೆ ಮತ್ತು ಸಮಯ)"
+}
+
+# =============================================================================
+# UNIFORM LINEAR MOTION SIMULATION (Kannada)
+# ಏಕರೂಪ ರೇಖೀಯ ಚಲನೆ – ಸ್ಥಿರ ವೇಗ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS["uniform_motion_kn"] = {
+    "name": "ಏಕರೂಪ ರೇಖೀಯ ಚಲನೆ (Uniform Linear Motion)",
+    "language": "kannada",
+    "description": (
+        "ಸ್ಥಿರ ವೇಗದ ರೈಲು ಚಲನೆ — ನೇರ ರೇಖೆ ಗ್ರಾಫ್ ಮತ್ತು ಸಮ ದೂರ ಅಂತರಗಳು.\n"
+        "Animate a train at constant speed; build a straight-line distance-time graph."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter8_simulation8_uniform_motion_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಚಲನ ಸ್ಥಿತಿ (Motion State)",
+            "default": "setup",
+            "options": ["setup", "slow_run", "fast_run"],
+            "option_labels": [
+                "setup – ಡಿಫಾಲ್ಟ್ (Default view, 50 km/h slider)",
+                "slow_run – ಮಂದ ಓಟ 20 km/h (Slow — auto-start)",
+                "fast_run – ತ್ವರಿತ ಓಟ 80 km/h (Fast — auto-start)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Motion and Time (ಚಲನೆ ಮತ್ತು ಸಮಯ)"
+}
+
+# =============================================================================
+# NON-UNIFORM MOTION SIMULATION (Kannada)
+# ಅಸಮ ಚಲನೆ – ತ್ವರಣ, ಬ್ರೇಕ್, ನಗರ ಸಂಚಾರ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS["nonuniform_motion_kn"] = {
+    "name": "ಅಸಮ ಚಲನೆ (Non-Uniform Motion)",
+    "language": "kannada",
+    "description": (
+        "ಕಾರಿನ ತ್ವರಣ, ಬ್ರೇಕ್ ಮತ್ತು ನಗರ ಸಂಚಾರ — ಅಸಮ ಚಲನೆ ಮೂರು ಮೋಡ್‌ಗಳಲ್ಲಿ.\n"
+        "Car accelerating, braking, or in city traffic — curved distance-time graph."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter8_simulation9_nonuniform_motion_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಚಲನ ಮೋಡ್ (Motion Mode)",
+            "default": "accelerate",
+            "options": ["accelerate", "decelerate", "traffic"],
+            "option_labels": [
+                "accelerate – ತ್ವರಣ (Speeding up, 0→100 km/h)",
+                "decelerate – ಬ್ರೇಕ್ (Slowing down, 100→0 km/h)",
+                "traffic – ನಗರ ಸಂಚಾರ (City stop-go pattern)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Motion and Time (ಚಲನೆ ಮತ್ತು ಸಮಯ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

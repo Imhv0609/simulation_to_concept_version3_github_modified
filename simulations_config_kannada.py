@@ -14275,6 +14275,672 @@ QUIZ_QUESTIONS_KN["time_units_kn"] = [
 ]
 
 
+
+# =============================================================================
+# SPEED CALCULATOR SIMULATION (Kannada)
+# ವೇಗ ಕ್ಯಾಲ್ಕುಲೇಟರ್ – ವೇಗ, ದೂರ ಮತ್ತು ಸಮಯ ಲೆಕ್ಕ ಹಾಕಿ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS_KN["speed_calculator_kn"] = {
+    "title": "ವೇಗ ಕ್ಯಾಲ್ಕುಲೇಟರ್ (Speed Calculator)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter8_simulation6_speed_calculator_kn.html",
+    "description": (
+        "An interactive Kannada-language calculator that teaches the three forms of the "
+        "speed–distance–time triangle. Students switch between three modes: finding speed "
+        "(ವೇಗ = ದೂರ ÷ ಸಮಯ), finding distance (ದೂರ = ವೇಗ × ಸಮಯ), and finding time "
+        "(ಸಮಯ = ದೂರ ÷ ವೇಗ). Real-world speed examples (walker, cyclist, car, train, "
+        "aeroplane) anchor the formula to daily experience. Unit conversion between "
+        "km/h and m/s is also demonstrated."
+    ),
+    "cannot_demonstrate": [
+        "Relative speed or motion of two objects simultaneously",
+        "Average speed over a journey with different speeds",
+        "Acceleration or change in speed over time",
+        "Graphical representation of distance-time relationship",
+        "Velocity (direction of motion)"
+    ],
+    "initial_params": {
+        "initialState": "speed",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Calculator Mode",
+            "range": "speed, distance, time",
+            "url_key": "initialState",
+            "effect": (
+                "'speed'    → Find Speed mode (ವೇಗ = ದೂರ ÷ ಸಮಯ) — default\n"
+                "'distance' → Find Distance mode (ದೂರ = ವೇಗ × ಸಮಯ)\n"
+                "'time'     → Find Time mode (ಸಮಯ = ದೂರ ÷ ವೇಗ)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the insight explanation box (if present)."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Speed Formula: Speed = Distance ÷ Time",
+            "description": (
+                "Speed measures how fast an object moves — the distance covered per unit time. "
+                "When distance and time are known, speed is calculated as ವೇಗ = ದೂರ ÷ ಸಮಯ."
+            ),
+            "key_insight": (
+                "A car travelling 100 km in 2 hours has speed = 100 ÷ 2 = 50 km/h. "
+                "Doubling the distance at the same speed doubles the travel time. "
+                "Speed unit km/h means 'kilometres per hour'."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Distance Formula: Distance = Speed × Time",
+            "description": (
+                "When speed and time are known, the distance covered can be calculated as "
+                "ದೂರ = ವೇಗ × ಸಮಯ. This rearranges the speed triangle."
+            ),
+            "key_insight": (
+                "A train moving at 100 km/h for 3 hours covers 100 × 3 = 300 km. "
+                "Higher speed means greater distance in the same time."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Time Formula and Unit Conversion (km/h ↔ m/s)",
+            "description": (
+                "Time = Distance ÷ Speed completes the triangle. Additionally, speed in "
+                "km/h converts to m/s by dividing by 3.6, and m/s converts to km/h by "
+                "multiplying by 3.6."
+            ),
+            "key_insight": (
+                "36 km/h = 36 ÷ 3.6 = 10 m/s. The SI unit of speed is m/s. "
+                "km/h is used for road vehicles; m/s in scientific contexts."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["speed_calculator_kn"] = [
+
+    # Q1: Use the speed-finding mode (core formula)
+    {
+        "id": "speed_calc_kn_q1",
+        "question": (
+            "A train travels 200 km in 4 hours. Set the calculator to FIND SPEED mode "
+            "and calculate its speed. (ರೈಲು 4 ಗಂಟೆಯಲ್ಲಿ 200 km ಓಡಿದೆ — ವೇಗ ಕಂಡুಹಿಡಿ)"
+        ),
+        "action_required": "Set 'initialState' to 'speed' to activate Find Speed mode.",
+        "hint": "Select 'speed' mode — the calculator shows ವೇಗ = ದೂರ ÷ ಸಮಯ. Enter 200 km and 4 h.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "speed"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! Speed = 200 ÷ 4 = 50 km/h. "
+            "The speed mode directly applies ವೇಗ = ದೂರ ÷ ಸಮಯ."
+        ),
+        "failure_message": (
+            "Select 'speed' from the Calculator Mode dropdown to activate the "
+            "Find Speed mode (ವೇಗ ಕಂಡುಹಿಡಿ)."
+        )
+    },
+
+    # Q2: Use the distance-finding mode
+    {
+        "id": "speed_calc_kn_q2",
+        "question": (
+            "A cyclist rides at 20 km/h for 3 hours. Set the calculator to FIND DISTANCE "
+            "mode. (ಸೈಕ್ಲಿಸ್ಟ್ 20 km/h ವೇಗದಲ್ಲಿ 3 ಗಂಟೆ ಸವಾರಿ ಮಾಡಿದ — ದೂರ ಕಂಡухиди)"
+        ),
+        "action_required": "Set 'initialState' to 'distance' to activate Find Distance mode.",
+        "hint": "Select 'distance' mode — the calculator shows ದೂರ = ವೇಗ × ಸಮಯ. Enter 20 km/h and 3 h.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "distance"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! Distance = 20 × 3 = 60 km. "
+            "ದೂರ = ವೇಗ × ಸಮಯ — the distance formula is the reverse of the speed formula."
+        ),
+        "failure_message": (
+            "Select 'distance' from the Calculator Mode dropdown to activate Find Distance mode."
+        )
+    },
+
+    # Q3: Use the time-finding mode
+    {
+        "id": "speed_calc_kn_q3",
+        "question": (
+            "A car needs to travel 150 km at 50 km/h. Set the calculator to FIND TIME "
+            "mode to calculate how long the journey takes. "
+            "(ಕಾರು 150 km, 50 km/h ವೇಗ — ಸಮಯ ಎಷ್ಟಾಗುತ್ತದೆ?)"
+        ),
+        "action_required": "Set 'initialState' to 'time' to activate Find Time mode.",
+        "hint": "Select 'time' mode — the calculator shows ಸಮಯ = ದೂರ ÷ ವೇಗ. Enter 150 km and 50 km/h.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "time"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! Time = 150 ÷ 50 = 3 hours. "
+            "ಸಮಯ = ದೂರ ÷ ವೇಗ — completing the speed-distance-time triangle."
+        ),
+        "failure_message": (
+            "Select 'time' from the Calculator Mode dropdown to activate Find Time mode."
+        )
+    }
+]
+
+
+# =============================================================================
+# SPEED RACE SIMULATION (Kannada)
+# ವೇಗ ಓಟ – 1 ಕಿಮೀ ಸ್ಪರ್ಧೆ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS_KN["speed_race_kn"] = {
+    "title": "ವೇಗ ಓಟ (Speed Race)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter8_simulation7_speed_race_kn.html",
+    "description": (
+        "An animated 1-km race in Kannada that pits a walker (5 km/h), cyclist (20 km/h), "
+        "car (60 km/h), and train (100 km/h) against each other on the same track. "
+        "Students observe that higher speed means shorter time to cover the same distance. "
+        "After the race, the simulation shows the calculated finish times using "
+        "Time = Distance ÷ Speed, reinforcing the inverse relationship between speed and time."
+    ),
+    "cannot_demonstrate": [
+        "Different distances for each racer",
+        "Acceleration or deceleration during the race",
+        "Average speed across multiple segments",
+        "Relative speed between two moving objects",
+        "Direction of motion or vector quantities"
+    ],
+    "initial_params": {
+        "initialState": "setup",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Race State",
+            "range": "setup, racing",
+            "url_key": "initialState",
+            "effect": (
+                "'setup'  → show the race setup screen before starting — default\n"
+                "'racing' → auto-click 'Start Race' button (800 ms delay), animation begins"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the insight explanation box (if present)."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Higher Speed → Less Time for Same Distance",
+            "description": (
+                "When multiple objects travel the same distance, the faster object finishes first. "
+                "Time = Distance ÷ Speed, so doubling speed halves travel time."
+            ),
+            "key_insight": (
+                "Walker at 5 km/h takes 720 s for 1 km. Train at 100 km/h takes only 36 s. "
+                "The train is 20× faster and finishes 20× sooner — a direct inverse relationship."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Calculating Finish Time: Time = Distance ÷ Speed",
+            "description": (
+                "After the race, the simulation shows the finish time for each racer "
+                "computed as Time = 1 km ÷ speed. This connects the visual race to "
+                "the mathematical formula."
+            ),
+            "key_insight": (
+                "Car at 60 km/h: 1 km ÷ 60 km/h = 1/60 h = 60 s. "
+                "Cyclist at 20 km/h: 1 km ÷ 20 km/h = 3 min. "
+                "Same distance, different speeds → very different times."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Comparing Real-Life Speeds",
+            "description": (
+                "The four racers represent real-world modes of transport. Comparing their "
+                "speeds builds number sense about how fast different vehicles actually move."
+            ),
+            "key_insight": (
+                "Speeds in daily life: walking ~5 km/h, cycling ~20 km/h, "
+                "car in city ~60 km/h, express train ~100–160 km/h. "
+                "These benchmarks help estimate travel time for familiar journeys."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["speed_race_kn"] = [
+
+    # Q1: Observe the setup (default state — identify speeds)
+    {
+        "id": "speed_race_kn_q1",
+        "question": (
+            "Look at the race setup. Which racer has the LOWEST speed, and which has the "
+            "HIGHEST? Set the simulation to its default SETUP state to examine the starting "
+            "speeds. (ಯಾರಿಗೆ ಅತಿ ಕಡಿಮೆ ವೇಗ? ಯಾರಿಗೆ ಅತಿ ಹೆಚ್ಚು?)"
+        ),
+        "action_required": "Set 'initialState' to 'setup' to show the race configuration.",
+        "hint": "Select 'setup' state — observe the speed inputs: walker=5 km/h, train=100 km/h.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "setup"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! In setup mode you can see all four speeds. "
+            "Walker (5 km/h) is slowest; Train (100 km/h) is fastest. "
+            "The train is 20× faster than the walker."
+        ),
+        "failure_message": (
+            "Select 'setup' from the Race State dropdown to display the starting configuration."
+        )
+    },
+
+    # Q2: Start the race (racing state)
+    {
+        "id": "speed_race_kn_q2",
+        "question": (
+            "Now START the race to see who reaches the 1 km finish line first. "
+            "Set the simulation to RACING state. "
+            "(1 km ಓಟ ಪ್ರಾರಂಭಿಸಿ — ಯಾರು ಮೊದಲು ಗೆಲ್ಲುತ್ತಾರೆ?)"
+        ),
+        "action_required": "Set 'initialState' to 'racing' to auto-start the race.",
+        "hint": "Select 'racing' state — the Start Race button is automatically clicked and the animation begins.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "racing"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Race started! The train wins, followed by the car, cyclist, and walker. "
+            "Finish times: Train ~36 s, Car ~60 s, Cyclist ~180 s, Walker ~720 s."
+        ),
+        "failure_message": (
+            "Select 'racing' from the Race State dropdown to auto-start the race animation."
+        )
+    },
+
+    # Q3: Back to setup to verify calculations
+    {
+        "id": "speed_race_kn_q3",
+        "question": (
+            "After watching the race, return to SETUP mode. Using Time = Distance ÷ Speed, "
+            "calculate how many SECONDS the walker takes to finish 1 km at 5 km/h. "
+            "(ನಡೆದಾಡುವವನು 1 km ಮುಗಿಸಲು ಎಷ್ಟು ಸೆಕೆಂಡ್ ತೆಗೆದುಕೊಳ್ಳುತ್ತಾನೆ?)"
+        ),
+        "action_required": "Set 'initialState' to 'setup' and verify walker finish time manually.",
+        "hint": (
+            "Select 'setup' state. Then calculate: Time = 1 km ÷ 5 km/h = 0.2 h = "
+            "0.2 × 3600 = 720 seconds."
+        ),
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "setup"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! 1 km ÷ 5 km/h = 0.2 h = 720 s (12 minutes). "
+            "The race result panel confirms this when you run the simulation."
+        ),
+        "failure_message": (
+            "Return to 'setup' state to review the racer speeds before calculating."
+        )
+    }
+]
+
+
+# =============================================================================
+# UNIFORM LINEAR MOTION SIMULATION (Kannada)
+# ಏಕರೂಪ ರೇಖೀಯ ಚಲನೆ – ಸ್ಥಿರ ವೇಗ, ನೇರ ರೇಖೆ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS_KN["uniform_motion_kn"] = {
+    "title": "ಏಕರೂಪ ರೇಖೀಯ ಚಲನೆ (Uniform Linear Motion)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter8_simulation8_uniform_motion_kn.html",
+    "description": (
+        "An animated Kannada simulation of a train moving along a 10 km track at a "
+        "student-chosen constant speed (10–100 km/h). The simulation fills a distance–time "
+        "data table and draws the distance-time graph in real time, showing that uniform "
+        "motion produces a straight-line graph with the slope equal to speed. "
+        "Students observe that equal distances are covered in equal time intervals."
+    ),
+    "cannot_demonstrate": [
+        "Non-uniform (accelerating or decelerating) motion",
+        "Two-dimensional or curved-path motion",
+        "Average speed vs instantaneous speed distinction",
+        "Velocity (direction) vs speed",
+        "Forces causing the motion"
+    ],
+    "initial_params": {
+        "initialState": "setup",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Motion State",
+            "range": "setup, slow_run, fast_run",
+            "url_key": "initialState",
+            "effect": (
+                "'setup'    → slider at 50 km/h, no animation — default view\n"
+                "'slow_run' → set slider to 20 km/h, auto-start animation\n"
+                "'fast_run' → set slider to 80 km/h, auto-start animation"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the insight explanation box (if present)."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Uniform Motion: Equal Distance in Equal Time",
+            "description": (
+                "In uniform linear motion, an object moves in a straight line at constant speed, "
+                "covering equal distances in equal time intervals."
+            ),
+            "key_insight": (
+                "At 50 km/h, the train covers exactly 13.9 m every second. "
+                "The distance column increases by the same amount each second — "
+                "this uniformity is what 'uniform motion' means."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Distance-Time Graph is a Straight Line",
+            "description": (
+                "The distance-time graph for uniform motion is a straight line (not a curve). "
+                "The steeper the line, the higher the speed."
+            ),
+            "key_insight": (
+                "At 80 km/h the graph line is steeper than at 20 km/h. "
+                "Slope = rise/run = distance/time = speed. "
+                "A straight line confirms constant (uniform) speed."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Faster Speed → Steeper Graph Slope",
+            "description": (
+                "Comparing slow (20 km/h) and fast (80 km/h) runs on the same graph "
+                "shows that speed equals the slope of the distance-time graph."
+            ),
+            "key_insight": (
+                "Slow run (20 km/h): low slope. Fast run (80 km/h): steep slope. "
+                "Double the speed → doubled slope → doubled distance per second. "
+                "This visual comparison makes the speed-slope relationship concrete."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["uniform_motion_kn"] = [
+
+    # Q1: Observe the setup (default state)
+    {
+        "id": "uniform_motion_kn_q1",
+        "question": (
+            "Open the simulation in SETUP state. Observe the slider and the empty graph. "
+            "What type of graph line do you predict for uniform motion? "
+            "(ಏಕರೂಪ ಚಲನೆಗೆ ದೂರ-ಸಮಯ ಗ್ರಾಫ್ ಹೇಗಿರುತ್ತದೆ?)"
+        ),
+        "action_required": "Set 'initialState' to 'setup' to view the initial configuration.",
+        "hint": "Select 'setup' — the graph axes are visible. Recall that uniform motion = constant speed = straight line graph.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "setup"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! In setup mode the empty graph shows the axes. "
+            "Uniform motion produces a STRAIGHT LINE because speed (slope) is constant."
+        ),
+        "failure_message": (
+            "Select 'setup' from the Motion State dropdown to open the default configuration view."
+        )
+    },
+
+    # Q2: Slow run to observe equal-distance intervals
+    {
+        "id": "uniform_motion_kn_q2",
+        "question": (
+            "Set the simulation to SLOW RUN (20 km/h) and observe the distance-time table. "
+            "Are the distances in each second interval equal? "
+            "(ಮಂದ ಓಟ 20 km/h — ಪ್ರತಿ ಸೆಕೆಂಡ್ ದೂರ ಸಮಾನವಾಗಿದೆಯೇ?)"
+        ),
+        "action_required": "Set 'initialState' to 'slow_run' to start a 20 km/h animation.",
+        "hint": "Select 'slow_run' — the slider moves to 20 km/h and animation starts. Watch the data table fill with equal values.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "slow_run"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! At 20 km/h = 5.6 m/s, each second shows ~5.6 m added. "
+            "Equal distance per second confirms this is uniform motion."
+        ),
+        "failure_message": (
+            "Select 'slow_run' from the Motion State dropdown to run the animation at 20 km/h."
+        )
+    },
+
+    # Q3: Fast run to compare slope
+    {
+        "id": "uniform_motion_kn_q3",
+        "question": (
+            "Now set the simulation to FAST RUN (80 km/h). Compare the graph slope with "
+            "the slow run. What does a steeper slope indicate? "
+            "(ತ್ವರಿತ ಓಟ 80 km/h — ಗ್ರಾಫ್ ಇಳಿಜಾರು ಹೆಚ್ಚಾಗಿದೆ ಎಂದರೇನು?)"
+        ),
+        "action_required": "Set 'initialState' to 'fast_run' to start an 80 km/h animation.",
+        "hint": "Select 'fast_run' — slider moves to 80 km/h. The graph line is steeper because slope = speed.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "fast_run"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! At 80 km/h the slope is 4× steeper than at 20 km/h. "
+            "Steeper slope = higher speed. Slope of distance-time graph = speed."
+        ),
+        "failure_message": (
+            "Select 'fast_run' from the Motion State dropdown to run the animation at 80 km/h."
+        )
+    }
+]
+
+
+# =============================================================================
+# NON-UNIFORM MOTION SIMULATION (Kannada)
+# ಅಸಮ ಚಲನೆ – ವೇಗ ಬದಲಾಗುತ್ತಿದೆ
+# Science Chapter 8 – Motion and Time
+# =============================================================================
+SIMULATIONS_KN["nonuniform_motion_kn"] = {
+    "title": "ಅಸಮ ಚಲನೆ (Non-Uniform Motion)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter8_simulation9_nonuniform_motion_kn.html",
+    "description": (
+        "A Kannada simulation of a car undergoing non-uniform motion in three scenarios: "
+        "accelerating (speed increases linearly), decelerating/braking (speed decreases), "
+        "and city traffic (stop-go pattern with acceleration and cruising phases). "
+        "An onscreen speedometer shows the changing speed; a distance–time graph is drawn "
+        "in real time as a CURVED line — contrasted with a dashed straight-line reference "
+        "for uniform motion. A data table shows unequal distances in successive seconds, "
+        "defining non-uniform motion."
+    ),
+    "cannot_demonstrate": [
+        "Uniform motion (shown only as a reference dashed line)",
+        "Two-dimensional or projectile motion",
+        "Forces causing acceleration (Newton's laws)",
+        "Quantitative calculation of acceleration",
+        "Motion with friction effects modelled explicitly"
+    ],
+    "initial_params": {
+        "initialState": "accelerate",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Motion Mode",
+            "range": "accelerate, decelerate, traffic",
+            "url_key": "initialState",
+            "effect": (
+                "'accelerate' → car speeds up (0 → 100 km/h) — default, auto-starts\n"
+                "'decelerate' → car slows down (100 → 0 km/h / braking) — auto-starts\n"
+                "'traffic'    → city stop-go pattern — auto-starts"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the insight explanation box (if present)."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Non-Uniform Motion: Unequal Distances in Equal Time",
+            "description": (
+                "In non-uniform motion, the speed changes over time, so unequal distances "
+                "are covered in equal successive time intervals."
+            ),
+            "key_insight": (
+                "An accelerating car covers 0 m in the first second and many more metres "
+                "in the fifth second. The unequal distances in the data table are the "
+                "defining signature of non-uniform motion."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Curved Distance-Time Graph vs Straight-Line (Uniform)",
+            "description": (
+                "Non-uniform motion produces a CURVED distance-time graph. "
+                "A dashed straight line shows what uniform motion would look like for comparison."
+            ),
+            "key_insight": (
+                "Acceleration → graph curves upward (increasing slope = increasing speed). "
+                "Deceleration → graph curves and flattens (decreasing slope = decreasing speed). "
+                "The curve shape reveals whether the object is speeding up or slowing down."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "City Traffic: The Most Common Non-Uniform Pattern",
+            "description": (
+                "Real-world city driving is a classic example of non-uniform motion — "
+                "the car repeatedly stops, accelerates, cruises, and brakes."
+            ),
+            "key_insight": (
+                "In the traffic mode, the speed cycles: 0 (stopped at signal) → "
+                "accelerating → 60 km/h (cruising) → decelerating → 0 again. "
+                "This irregular pattern means the distance-time graph is neither straight "
+                "nor smoothly curved."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["nonuniform_motion_kn"] = [
+
+    # Q1: Show accelerating motion (the canonical non-uniform demonstration)
+    {
+        "id": "nonuniform_motion_kn_q1",
+        "question": (
+            "Show ACCELERATING non-uniform motion — a car that speeds up from rest. "
+            "Observe the data table: are the distances in successive seconds equal or unequal? "
+            "(ವೇಗ ಹೆಚ್ಚಾಗುವ ಅಸಮ ಚಲನೆ ತೋರಿಸಿ — ಪ್ರತಿ ಸೆಕೆಂಡ್ ದೂರ ಸಮಾನವೇ?)"
+        ),
+        "action_required": "Set 'initialState' to 'accelerate' to show accelerating motion.",
+        "hint": "Select 'accelerate' mode — the car speeds up from 0 to 100 km/h. The graph curves upward and distances in the table increase each second.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "accelerate"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! Accelerating motion shows UNEQUAL distances in successive seconds "
+            "(e.g., the car covers more distance in second 5 than in second 1). "
+            "This is the definition of non-uniform motion."
+        ),
+        "failure_message": (
+            "Select 'accelerate' from the Motion Mode dropdown to show the accelerating car."
+        )
+    },
+
+    # Q2: Show decelerating / braking motion
+    {
+        "id": "nonuniform_motion_kn_q2",
+        "question": (
+            "Now show DECELERATING motion — a car applying brakes and slowing to a stop. "
+            "How does the graph shape differ from accelerating motion? "
+            "(ಬ್ರೇಕ್ ಹಾಕಿ ನಿಲ್ಲುವ ಚಲನೆ ತೋರಿಸಿ — ಗ್ರಾಫ್ ಎಂತಿರುತ್ತದೆ?)"
+        ),
+        "action_required": "Set 'initialState' to 'decelerate' to show braking motion.",
+        "hint": "Select 'decelerate' mode — the car slows from 100 km/h to 0. The graph slope decreases (flattens) as speed drops.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "decelerate"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! Braking produces a FLATTENING curve — distances per second shrink "
+            "as speed decreases toward zero. Compare: acceleration curves up, "
+            "deceleration curves and flattens."
+        ),
+        "failure_message": (
+            "Select 'decelerate' from the Motion Mode dropdown to show braking motion."
+        )
+    },
+
+    # Q3: Show city traffic (most complex non-uniform pattern)
+    {
+        "id": "nonuniform_motion_kn_q3",
+        "question": (
+            "Show CITY TRAFFIC mode — the most realistic example of non-uniform motion with "
+            "repeated stop-and-go cycles. Observe how the graph shape differs from both "
+            "accelerate and decelerate modes. "
+            "(ನಗರ ಸಂಚಾರ ಮೋಡ್ ತೋರಿಸಿ — ಗ್ರಾಫ್ ಹೇಗಿದೆ?)"
+        ),
+        "action_required": "Set 'initialState' to 'traffic' to show city stop-go motion.",
+        "hint": "Select 'traffic' mode — the car cycles through stopped, accelerating, cruising, and braking phases. The distance-time graph is irregular.",
+        "conditions": [
+            {"parameter": "initialState", "operator": "==", "value": "traffic"}
+        ],
+        "scoring": {"perfect": 1.0, "acceptable": 0.5, "wrong": 0.0},
+        "success_message": (
+            "Correct! City traffic is the most common real-world non-uniform motion. "
+            "The graph shows flat sections (stopped), upward curves (accelerating), "
+            "and nearly straight sections (cruising) — all within one journey."
+        ),
+        "failure_message": (
+            "Select 'traffic' from the Motion Mode dropdown to show the stop-go city traffic pattern."
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
