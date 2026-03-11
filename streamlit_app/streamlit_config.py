@@ -1430,6 +1430,210 @@ SIMULATIONS["materials_applications_kn"] = {
 }
 
 # =============================================================================
+# MALLEABILITY (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["malleability_kn"] = {
+    "name": "ನಮ್ಯತೆ (Malleability)",
+    "language": "kannada",
+    "description": (
+        "ಲೋಹ ಮತ್ತು ಅಲೋಹ ವಸ್ತುಗಳ ಮೇಲೆ ಸುತ್ತಿಗೆ ಬಡಿದು ನಮ್ಯ ಮತ್ತು ಭಂಗುರ ಗುಣ ಕಲಿಯಿರಿ.\n"
+        "Hammer metals and non-metals to learn which flatten (malleable) and which shatter (brittle)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation1_malleability_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರದರ್ಶನ ಸ್ಥಿತಿ / Demonstration State",
+            "default": "initial",
+            "options": ["initial", "metal_hammer", "nonmetal_hammer"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — blank experiment)",
+                "ಲೋಹ ಸುತ್ತಿಗೆ (Metal Hammer — copper flattens into sheet)",
+                "ಅಲೋಹ ಸುತ್ತಿಗೆ (Non-metal Hammer — coal shatters into pieces)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# DUCTILITY (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["ductility_kn"] = {
+    "name": "ಸೆಳೆತ / ಎಳೆಯಬಲ್ಲ ಗುಣ (Ductility)",
+    "language": "kannada",
+    "description": (
+        "ಲೋಹ ಮತ್ತು ಅಲೋಹ ವಸ್ತುಗಳನ್ನು ತೆಳು ತಂತಿಯಾಗಿ ಎಳೆಯಲು ಪ್ರಯತ್ನಿಸಿ — ಯಾವುದು ಎಳೆಯಲ್ಪಡುತ್ತದೆ, ಯಾವುದು ಮುರಿಯುತ್ತದೆ?\n"
+        "Attempt to draw metals and non-metals into wires — which stretches and which snaps?"
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation2_ductility_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರದರ್ಶನ ಸ್ಥಿತಿ / Demonstration State",
+            "default": "initial",
+            "options": ["initial", "metal_draw", "nonmetal_draw"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — blank experiment)",
+                "ಲೋಹ ಎಳೆತ (Metal Draw — copper stretches into wire)",
+                "ಅಲೋಹ ಎಳೆತ (Non-metal Draw — coal snaps when pulled)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# SONORITY (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["sonority_kn"] = {
+    "name": "ಧ್ವನಿವಂತ ಗುಣ (Sonority)",
+    "language": "kannada",
+    "description": (
+        "ಘಂಟೆ, ಚಮಚ, ಮರ ಮತ್ತು ರಬ್ಬರ್ ಹೊಡೆದು ಲೋಹ ಮತ್ತು ಅಲೋಹ ಶಬ್ದ ಹೋಲಿಸಿ.\n"
+        "Strike bells, spoons, wood, and rubber to compare the ringing of metals vs the thud of non-metals."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation3_sonority_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರದರ್ಶನ ಸ್ಥಿತಿ / Demonstration State",
+            "default": "initial",
+            "options": ["initial", "metal_strike", "nonmetal_strike"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — nothing struck yet)",
+                "ಲೋಹ ಹೊಡೆತ (Metal Strike — bell rings clearly)",
+                "ಅಲೋಹ ಹೊಡೆತ (Non-metal Strike — wood produces dull thud)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# HEAT CONDUCTION (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["heat_conduction_kn"] = {
+    "name": "ಉಷ್ಣ ವಾಹಕತೆ (Heat Conduction)",
+    "language": "kannada",
+    "description": (
+        "ಲೋಹ ಮತ್ತು ಮರದ ಚಮಚಗಳನ್ನು ಬಿಸಿ ನೀರಲ್ಲಿ ಇಟ್ಟು ಉಷ್ಣ ವಾಹಕತೆ ಹೋಲಿಸಿ.\n"
+        "Place metal and wooden spoons in hot water and compare how heat travels through each."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation4_heat_conduction_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರಯೋಗ ಸ್ಥಿತಿ / Experiment State",
+            "default": "initial",
+            "options": ["initial", "running"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — spoons in water, experiment not started)",
+                "ಪ್ರಾರಂಭ (Running — auto-starts 15-second heat conduction experiment)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
+# ELECTRICAL CONDUCTIVITY (KN) — Chapter 4
+# =============================================================================
+SIMULATIONS["electrical_conductivity_kn"] = {
+    "name": "ವಿದ್ಯುತ್ ವಾಹಕತೆ (Electrical Conductivity)",
+    "language": "kannada",
+    "description": (
+        "ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ವಿವಿಧ ವಸ್ತುಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ — ಬಲ್ಬ್ ಬೆಳಗುತ್ತದೆಯೇ ಅಥವಾ ಇಲ್ಲವೇ?\n"
+        "Test materials in a circuit — does the bulb light (conductor) or stay dark (insulator)?"
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter4_simulation5_electrical_conductivity_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪರೀಕ್ಷಾ ವಸ್ತು / Test Material",
+            "default": "initial",
+            "options": ["initial", "conductor_test", "insulator_test"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — idle circuit, no material inserted)",
+                "ವಾಹಕ ಪರೀಕ್ಷೆ (Conductor Test — copper inserted, bulb lights)",
+                "ಅವಾಹಕ ಪರೀಕ್ಷೆ (Insulator Test — rubber inserted, bulb stays off)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Materials: Metals & Non-metals (ಲೋಹ ಮತ್ತು ಅಲೋಹ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

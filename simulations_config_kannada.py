@@ -3668,6 +3668,1067 @@ QUIZ_QUESTIONS_KN["materials_applications_kn"] = [
     }
 ]
 
+# =============================================================================
+# MALLEABILITY — Config
+# =============================================================================
+SIMULATIONS_KN["malleability_kn"] = {
+    "id": "malleability_kn",
+    "title": "ನಮ್ಯತೆ (Malleability)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation1_malleability_kn.html",
+    "description": (
+        "ತಾಮ್ರ, ಅಲ್ಯೂಮಿನಿಯಂ, ಕಬ್ಬಿಣ, ಕಲ್ಲಿದ್ದಲು, ಸಲ್ಫರ್ ಮತ್ತು ಸೀಮೆಸುಣ್ಣ ಮೇಲೆ ಸುತ್ತಿಗೆ ಬಡಿದು ನಮ್ಯ ಮತ್ತು ಭಂಗುರ ವಸ್ತುಗಳ ವ್ಯತ್ಯಾಸ ಕಲಿಯಿರಿ. "
+        "Hammer six materials (copper, aluminium, iron, coal, sulfur, chalk) "
+        "to discover which are malleable (flatten into sheets) and which are brittle (shatter into pieces). "
+        "Results are recorded in a comparison table. Teaches the key physical property that "
+        "distinguishes metals (malleable) from non-metals (brittle) under mechanical force."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative force measurements",
+        "Temperature effects on malleability",
+        "Alloy malleability (only pure elements shown)",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Demonstration State",
+            "range": "initial, metal_hammer, nonmetal_hammer",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which demonstration is auto-loaded.\n"
+                "  'initial'        → blank experiment, no material selected (default)\n"
+                "  'metal_hammer'   → auto-selects copper and hammers it → flattens (malleable)\n"
+                "  'nonmetal_hammer'→ auto-selects coal and hammers it → shatters (brittle)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "malleability_definition",
+            "title": "Malleability — Metals Flatten Under Force",
+            "description": (
+                "Malleability is the property of metals that allows them to be beaten or "
+                "rolled into thin sheets without breaking. When a force is applied, the metal "
+                "atoms (arranged in layers) slide over each other rather than snapping apart."
+            ),
+            "key_insight": (
+                "Metal atoms sit in regular layered arrangements. Under pressure, these layers "
+                "slide past each other — the metal deforms but does NOT break. "
+                "This is why copper can be beaten into foil and gold into gold leaf."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "brittleness_nonmetals",
+            "title": "Brittleness — Non-metals Shatter Under Force",
+            "description": (
+                "Non-metals like coal, sulfur, and chalk are brittle — they shatter into "
+                "fragments when struck. Their atoms are rigidly bonded in fixed positions "
+                "and cannot slide, so force causes fracture instead of deformation."
+            ),
+            "key_insight": (
+                "Non-metal atoms are locked in rigid bonds — they cannot slip past each other. "
+                "Instead, the material fractures along bond lines. "
+                "This is why chalk snaps cleanly and sulfur crumbles when hammered."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "malleability_applications",
+            "title": "Real-world Applications of Malleability",
+            "description": (
+                "Malleability explains many everyday uses of metals: aluminium foil in kitchens, "
+                "copper pipes bent into shape, iron rolled into construction beams, "
+                "gold beaten into ornamental leaf."
+            ),
+            "key_insight": (
+                "If metals were brittle like coal, they could not be shaped into pipes, wires, "
+                "or sheets. Malleability is the foundation of metalworking — every shaped "
+                "metal product exploits this property."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# DUCTILITY — Config
+# =============================================================================
+SIMULATIONS_KN["ductility_kn"] = {
+    "id": "ductility_kn",
+    "title": "ಸೆಳೆತ / ಎಳೆಯಬಲ್ಲ ಗುಣ (Ductility)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation2_ductility_kn.html",
+    "description": (
+        "ತಾಮ್ರ, ಚಿನ್ನ, ಅಲ್ಯೂಮಿನಿಯಂ, ಕಲ್ಲಿದ್ದಲು, ಸಲ್ಫರ್ ಮತ್ತು ಮರವನ್ನು ತೆಳು ತಂತಿಯಾಗಿ ಎಳೆಯಲು ಪ್ರಯತ್ನಿಸಿ. "
+        "Try drawing six materials (copper, gold, aluminium, coal, sulfur, wood) into wires. "
+        "Ductile metals stretch into thin wires while non-ductile materials snap. "
+        "Results build a comparative table. Teaches why copper and gold are used for electrical "
+        "wiring — their ductility allows them to be drawn into long, thin conductors."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative wire diameter or tensile strength values",
+        "Ductility under elevated temperatures",
+        "Alloy behavior",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Demonstration State",
+            "range": "initial, metal_draw, nonmetal_draw",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which demonstration is auto-loaded.\n"
+                "  'initial'      → blank experiment, no material selected (default)\n"
+                "  'metal_draw'   → auto-selects copper and draws it → forms a wire (ductile)\n"
+                "  'nonmetal_draw'→ auto-selects coal and draws it → snaps (non-ductile)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "ductility_definition",
+            "title": "Ductility — Metals Can Be Drawn Into Wires",
+            "description": (
+                "Ductility is the property of metals that allows them to be stretched into "
+                "long, thin wires without breaking. Like malleability, it depends on metal "
+                "atoms being able to slide past each other under tension."
+            ),
+            "key_insight": (
+                "When a metal is pulled, its atomic layers stretch and re-bond in new positions. "
+                "The metal becomes longer and thinner but stays intact. "
+                "Copper is so ductile that 1 gram can be drawn into over 2 km of wire."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "non_ductility_nonmetals",
+            "title": "Non-metals — Not Ductile, They Snap",
+            "description": (
+                "Non-metals like coal, sulfur, and wood cannot be drawn into wires. "
+                "When pulled, their rigid atomic bonds simply fracture — the material "
+                "breaks cleanly rather than stretching."
+            ),
+            "key_insight": (
+                "Non-metal atoms are in fixed, directional bonds. Pulling force "
+                "exceeds bond strength → material snaps. This is why rubber-insulated "
+                "wires have a METAL core (copper/aluminium) to carry current — "
+                "no non-metal could form the wire itself."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "ductility_vs_malleability",
+            "title": "Ductility vs Malleability — Two Faces of the Same Property",
+            "description": (
+                "Both ductility (wire-drawing) and malleability (sheet-forming) come from "
+                "the same atomic-level sliding mechanism in metals. "
+                "Ductility = stretched under tension. Malleability = compressed under pressure."
+            ),
+            "key_insight": (
+                "Gold is BOTH the most malleable AND most ductile metal. "
+                "Ductility: gold leaf can be hammered to 100 nm thickness. "
+                "Malleability: 1 gram of gold can be drawn into 3 km of wire. "
+                "Same atomic sliding mechanism, different directions of force."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# SONORITY — Config
+# =============================================================================
+SIMULATIONS_KN["sonority_kn"] = {
+    "id": "sonority_kn",
+    "title": "ಧ್ವನಿವಂತ ಗುಣ (Sonority)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation3_sonority_kn.html",
+    "description": (
+        "ಘಂಟೆ, ಚಮಚ, ನಾಣ್ಯ, ಮರ, ಪ್ಲಾಸ್ಟಿಕ್ ಮತ್ತು ರಬ್ಬರ್ ವಸ್ತುಗಳನ್ನು ಹೊಡೆದು ಅವು ಉಂಟುಮಾಡುವ ಶಬ್ದ ಕೇಳಿ. "
+        "Strike six objects (bell, spoon, coin, wood, plastic, rubber) to hear and compare "
+        "their sounds. Metals ring with a clear sustained tone (sonorous); non-metals produce "
+        "a dull thud. A comparison table records results. Teaches why school bells, "
+        "temple bells, and musical instruments are made of metal."
+    ),
+    "cannot_demonstrate": [
+        "Exact frequency or pitch (Hz) measurements",
+        "Effect of thickness or alloy composition on sound",
+        "Resonance or harmonic analysis",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Demonstration State",
+            "range": "initial, metal_strike, nonmetal_strike",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which demonstration is auto-loaded.\n"
+                "  'initial'        → blank experiment, no object struck (default)\n"
+                "  'metal_strike'   → auto-strikes bell → clear ringing sound (sonorous)\n"
+                "  'nonmetal_strike'→ auto-strikes wood → dull thud (not sonorous)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "sonority_definition",
+            "title": "Sonority — Metals Produce a Ringing Sound",
+            "description": (
+                "Sonority is the property of metals to produce a clear, sustained ringing "
+                "sound when struck. Metal atoms are arranged in a crystal lattice that "
+                "efficiently transfers and sustains vibrations, creating audible ringing."
+            ),
+            "key_insight": (
+                "When metal is struck, the force sets up vibrations that travel through "
+                "the crystal lattice and persist for a long time → clear ring. "
+                "The denser and more uniform the lattice, the clearer and longer the ring. "
+                "This is why bells, cymbals, and xylophones are made of metal."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "non_sonority_nonmetals",
+            "title": "Non-metals — Dull Thud, No Ring",
+            "description": (
+                "Non-metals like wood, plastic, and rubber produce a dull sound when struck "
+                "because they absorb (dampen) vibrations instead of propagating them. "
+                "Their disordered atomic/molecular structure causes energy to be dissipated "
+                "quickly as heat rather than sustained sound waves."
+            ),
+            "key_insight": (
+                "Non-metals are sound dampers. Wood absorbs vibrations → dull thud. "
+                "Rubber is so effective at damping that it is used in anti-vibration mounts. "
+                "This is why wooden mallets are used when you want to hit something without ringing."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "sonority_applications",
+            "title": "Sonority in Musical Instruments and Everyday Life",
+            "description": (
+                "Sonority explains the choice of materials in bells, gongs, musical instruments, "
+                "and alarm systems. All rely on metal's ability to sustain clear vibrations "
+                "that travel as audible sound waves."
+            ),
+            "key_insight": (
+                "School bell (iron), temple bell (bronze), xylophone (steel bars), "
+                "cymbal (brass) — all exploit sonority. "
+                "The specific metal and shape determine the pitch and quality of sound. "
+                "Non-metal bells would produce only a dull knock — useless for signaling."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# HEAT CONDUCTION — Config
+# =============================================================================
+SIMULATIONS_KN["heat_conduction_kn"] = {
+    "id": "heat_conduction_kn",
+    "title": "ಉಷ್ಣ ವಾಹಕತೆ (Heat Conduction)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation4_heat_conduction_kn.html",
+    "description": (
+        "ಲೋಹ ಮತ್ತು ಮರದ ಚಮಚಗಳನ್ನು ಬಿಸಿ ನೀರಲ್ಲಿ ಇರಿಸಿ ತಾಪಮಾನ ಹೇಗೆ ಬದಲಾಗುತ್ತದೆ ಎಂದು ಗಮನಿಸಿ. "
+        "Place metal and wooden spoons in hot water and observe how temperature changes "
+        "over 15 seconds. The metal spoon conducts heat rapidly to its handle while "
+        "the wooden spoon stays cool. Real-time temperature displays and a colour-coded "
+        "heat gradient animate the conduction. Teaches why metal cookware has wooden/plastic "
+        "handles and why our hands feel hot when touching a metal spoon in hot soup."
+    ),
+    "cannot_demonstrate": [
+        "Exact thermal conductivity values (W/m·K)",
+        "Comparison between different metals (only metal vs wood)",
+        "Convection or radiation heat transfer modes",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Experiment State",
+            "range": "initial, running",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the state of the heat conduction experiment.\n"
+                "  'initial' → idle state, spoons in water, experiment not started (default)\n"
+                "  'running' → auto-clicks start button and begins the 15-second experiment"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "metals_good_conductors_heat",
+            "title": "Metals Are Good Conductors of Heat",
+            "description": (
+                "Metals contain free electrons that can move throughout the metal. "
+                "These electrons carry thermal energy (heat) rapidly from hotter to cooler "
+                "regions, making metals excellent heat conductors."
+            ),
+            "key_insight": (
+                "Metal spoon handle gets hot quickly because free electrons in the metal "
+                "carry thermal energy from the hot end to the cool end almost instantly. "
+                "This is why metals feel cold to touch — they rapidly conduct body heat away!"
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "nonmetals_poor_conductors_heat",
+            "title": "Non-metals Are Poor Conductors (Insulators) of Heat",
+            "description": (
+                "Wood, plastic, and rubber have no free electrons. Heat transfer must happen "
+                "by vibrating atoms bumping into adjacent atoms — a much slower process. "
+                "This makes non-metals poor thermal conductors (good insulators)."
+            ),
+            "key_insight": (
+                "Wooden spoon handle stays cool because heat barely moves through wood. "
+                "This is not a disadvantage — it is exactly WHY wooden/plastic handles are safe: "
+                "they insulate your hand from the heat of the pan."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "heat_conduction_applications",
+            "title": "Why Cookware Uses Both Metal and Non-metal Parts",
+            "description": (
+                "Good cookware deliberately combines metals (for efficient heat transfer to food) "
+                "and non-metal handles (for safe gripping without burning hands). "
+                "This is a direct application of the contrast in thermal conductivity."
+            ),
+            "key_insight": (
+                "Metal base = conducts heat fast from stove to food. "
+                "Plastic/wood handle = insulates cook's hand from heat. "
+                "If the handle were metal too, it would become too hot to hold. "
+                "Every kitchen pan illustrates this principle."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# ELECTRICAL CONDUCTIVITY — Config
+# =============================================================================
+SIMULATIONS_KN["electrical_conductivity_kn"] = {
+    "id": "electrical_conductivity_kn",
+    "title": "ವಿದ್ಯುತ್ ವಾಹಕತೆ (Electrical Conductivity)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter4_simulation5_electrical_conductivity_kn.html",
+    "description": (
+        "ತಾಮ್ರ, ಕಬ್ಬಿಣ, ಅಲ್ಯೂಮಿನಿಯಂ, ರಬ್ಬರ್, ಪ್ಲಾಸ್ಟಿಕ್ ಮತ್ತು ಮರವನ್ನು ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ಪರೀಕ್ಷಿಸಿ ಅವು ವಿದ್ಯುತ್ ವಾಹಕಗಳೇ ಅಥವಾ ಅವಾಹಕಗಳೇ ಎಂದು ತಿಳಿಯಿರಿ. "
+        "Insert six materials (copper, iron, aluminium, rubber, plastic, wood) into a test "
+        "circuit and observe whether the bulb lights up. Conductors complete the circuit "
+        "(bulb glows, current flows); insulators block current (bulb stays dark). "
+        "Results populate a comparison table. Teaches the fundamental distinction between "
+        "electrical conductors and insulators and connects it to safe electrical wiring."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative resistance measurements (ohms)",
+        "Semiconductors or partial conductors",
+        "Effect of temperature on conductivity",
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Test Material",
+            "range": "initial, conductor_test, insulator_test",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which demonstration is auto-loaded.\n"
+                "  'initial'        → idle circuit, no material inserted (default)\n"
+                "  'conductor_test' → auto-inserts copper → bulb lights (conductor)\n"
+                "  'insulator_test' → auto-inserts rubber → bulb stays off (insulator)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "conductors_free_electrons",
+            "title": "Electrical Conductors — Metals Have Free Electrons",
+            "description": (
+                "Metals conduct electricity because their outermost electrons are loosely bound "
+                "and can move freely through the metal lattice as a 'sea of electrons'. "
+                "When a voltage is applied, these free electrons flow — forming an electric current."
+            ),
+            "key_insight": (
+                "Free electrons = electrical conductivity. When copper is placed in the circuit, "
+                "its free electrons are pushed by the battery's voltage → current flows → bulb glows. "
+                "The more free electrons, the better the conductor. Copper and aluminium are best "
+                "for wires because they have many free electrons AND can be drawn thin (ductile)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "insulators_no_free_electrons",
+            "title": "Electrical Insulators — Non-metals Block Current",
+            "description": (
+                "Non-metals like rubber, plastic, and wood have electrons tightly bound to their "
+                "atoms. No free electrons → no current flow → they act as insulators, "
+                "blocking electricity completely."
+            ),
+            "key_insight": (
+                "When rubber is placed in the circuit, no electrons can move through it → "
+                "circuit is broken → bulb stays dark. This property makes rubber the perfect "
+                "cable insulation material — it prevents current from escaping the copper wire core, "
+                "protecting people from electric shocks."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "conductors_insulators_applications",
+            "title": "Why Every Wire Has Both a Conductor and an Insulator",
+            "description": (
+                "Electric cables always have a metal core (conductor) surrounded by rubber or "
+                "plastic coating (insulator). This design uses both properties intentionally: "
+                "metal carries the current; insulation keeps it safely contained."
+            ),
+            "key_insight": (
+                "Wire design: copper/aluminium core (high conductivity, free electrons) "
+                "+ rubber/PVC outer layer (insulator, no free electrons, protects user). "
+                "Remove the insulation → live wire → dangerous shock hazard. "
+                "This is why electricians wear rubber gloves — rubber blocks current."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+# =============================================================================
+# QUIZ QUESTIONS — MALLEABILITY
+# =============================================================================
+QUIZ_QUESTIONS_KN["malleability_kn"] = [
+    {
+        "id": "malleability_q1",
+        "challenge": (
+            "Demonstrate that a METAL is malleable. "
+            "Select and hammer a metal to show it flattening into a sheet.\n\n"
+            "(ಲೋಹ ನಮ್ಯವಾಗಿದೆ ಎಂದು ತೋರಿಸಿ — ಒಂದು ಲೋಹ ಆಯ್ಕೆ ಮಾಡಿ ಮತ್ತು ಬಡಿದಾಗ ಅದು ಚಪ್ಪಟೆಯಾಗುತ್ತದೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "metal_hammer"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'metal_hammer'. The simulation auto-selects copper "
+                "and hammers it — watch it flatten into a thin sheet."
+            ),
+            "attempt_2": (
+                "Choose 'metal_hammer': Copper is selected and hammered → flattens. "
+                "The result badge shows '✅ ನಮ್ಯ'. Malleable metals squash, they do NOT break."
+            ),
+            "attempt_3": (
+                "Set 'initialState=metal_hammer': Copper (ತಾಮ್ರ) flattens when struck because "
+                "its atomic layers slide past each other. Result: thin sheet, no fracture."
+            )
+        },
+        "concept_reminder": (
+            "Malleability: metal atoms are in layered crystal structure. Under hammer force, "
+            "layers SLIDE past each other → metal deforms into a sheet. "
+            "Does NOT break because atomic bonds reform in new positions. "
+            "Malleable metals: copper, aluminium, iron, gold. "
+            "(ಬಡಿದಾಗ ಚಪ್ಪಟೆ = ನಮ್ಯ ಲೋಹ!)"
+        )
+    },
+    {
+        "id": "malleability_q2",
+        "challenge": (
+            "Now demonstrate a NON-METAL that is BRITTLE. "
+            "Hammer a non-metal and show it shattering.\n\n"
+            "(ಅಲೋಹ ಭಂಗುರವಾಗಿದೆ ಎಂದು ತೋರಿಸಿ — ಬಡಿದಾಗ ಚೂರ್ಣವಾಗುತ್ತದೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "nonmetal_hammer"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'nonmetal_hammer'. The simulation auto-selects coal "
+                "and hammers it — watch it shatter into fragments."
+            ),
+            "attempt_2": (
+                "Choose 'nonmetal_hammer': Coal (ಕಲ್ಲಿದ್ದಲು) is hammered → shatters. "
+                "Result badge shows '❌ ಭಂಗುರ'. Brittle materials break — they do NOT flatten."
+            ),
+            "attempt_3": (
+                "Set 'initialState=nonmetal_hammer': Coal shatters because its atoms are "
+                "rigidly bonded and cannot slide. Force exceeds bond strength → fracture."
+            )
+        },
+        "concept_reminder": (
+            "Brittleness: non-metal atoms are in rigid, directional bonds. "
+            "Under hammer force, bonds BREAK rather than slide → material shatters. "
+            "Brittle non-metals: coal, sulfur, chalk, glass. "
+            "CONTRAST: metals flatten (slide), non-metals shatter (break). "
+            "(ಬಡಿದಾಗ ಚೂರು = ಭಂಗುರ ಅಲೋಹ!)"
+        )
+    },
+    {
+        "id": "malleability_q3",
+        "challenge": (
+            "Start with the INITIAL empty state. "
+            "Explain: why can metals be beaten into sheets while non-metals cannot? "
+            "What is different about their atomic structure?\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಲೋಹ ಮತ್ತು ಅಲೋಹ ಪರಮಾಣು ರಚನೆಯ ವ್ಯತ್ಯಾಸ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Read the concept card — "
+                "it explains the layered atomic structure of metals."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Metals = atoms in sliding layers. Non-metals = atoms in "
+                "rigid fixed bonds. Same force → different outcome."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Metal layers can slide (like cards in a deck). "
+                "Non-metal bonds are directional and rigid — they fracture, not slide."
+            )
+        },
+        "concept_reminder": (
+            "Metal atomic structure: layers of atoms that can SLIDE past each other. "
+            "Force applied → layers slide → metal deforms without breaking. "
+            "Non-metal atomic structure: rigidly positioned atoms in fixed bonds. "
+            "Force applied → bonds exceed limit → fracture. "
+            "This structural difference is why ONLY metals are malleable. "
+            "(ಜಾರಬಹುದಾದ ಪದರ = ನಮ್ಯ | ಗಟ್ಟಿ ಬಂಧ = ಭಂಗುರ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — DUCTILITY
+# =============================================================================
+QUIZ_QUESTIONS_KN["ductility_kn"] = [
+    {
+        "id": "ductility_q1",
+        "challenge": (
+            "Show that COPPER is ductile. Draw copper into a wire in the simulation.\n\n"
+            "(ತಾಮ್ರ ಸೆಳೆಯಬಲ್ಲ ಗುಣ ಇದೆ ಎಂದು ತೋರಿಸಿ — ಅದನ್ನು ತಂತಿಯಾಗಿ ಎಳೆಯಿರಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "metal_draw"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'metal_draw'. The simulation auto-selects copper "
+                "and draws it — watch it stretch into a long thin wire."
+            ),
+            "attempt_2": (
+                "Choose 'metal_draw': Copper stretches into a wire (ductile result). "
+                "The wire-result group appears. Copper atoms slide apart without snapping."
+            ),
+            "attempt_3": (
+                "Set 'initialState=metal_draw': Copper (ತಾಮ್ರ) draws into a wire because "
+                "its atoms reposition under tension. Perfect for electrical wires!"
+            )
+        },
+        "concept_reminder": (
+            "Ductility: metal atoms slide and reposition under tensile (pulling) force. "
+            "The metal elongates and thins without breaking → wire forms. "
+            "Copper is the most common wire material: good ductility + excellent conductivity. "
+            "1 gram of copper can make 2+ km of thin wire. "
+            "(ಎಳೆದಾಗ ತಂತಿ = ಸೆಳೆತ ಗುಣ!)"
+        )
+    },
+    {
+        "id": "ductility_q2",
+        "challenge": (
+            "Show that a NON-METAL cannot be drawn into a wire. "
+            "Attempt to draw coal — demonstrate the 'snapping' result.\n\n"
+            "(ಅಲೋಹವನ್ನು ತಂತಿಯಾಗಿ ಎಳೆಯಲಾಗದು ಎಂದು ತೋರಿಸಿ — ಕಲ್ಲಿದ್ದಲು ಮುರಿಯುವುದನ್ನು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "nonmetal_draw"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'nonmetal_draw'. The simulation auto-selects coal "
+                "and attempts to draw it — watch it snap."
+            ),
+            "attempt_2": (
+                "Choose 'nonmetal_draw': Coal snaps when pulled (not-ductile result). "
+                "The broken-pieces group appears. Non-metal bonds fracture under tension."
+            ),
+            "attempt_3": (
+                "Set 'initialState=nonmetal_draw': Coal (ಕಲ್ಲಿದ್ದಲು) breaks when pulled. "
+                "Rigid bonds between carbon atoms fracture → no wire possible."
+            )
+        },
+        "concept_reminder": (
+            "Non-ductile materials: their atoms are in rigid, fixed bonds. "
+            "Pulling force → bonds break → material snaps. No repositioning possible. "
+            "This is why electrical wire cores must be METAL — no non-metal can form a wire. "
+            "Coal, sulfur, wood: all snap when pulled. "
+            "(ಎಳೆದಾಗ ಮುರಿಯುತ್ತದೆ = ಸೆಳೆತ ಗುಣ ಇಲ್ಲ!)"
+        )
+    },
+    {
+        "id": "ductility_q3",
+        "challenge": (
+            "Show the INITIAL state. Explain why electrical wires are made of "
+            "copper or aluminium and NOT of materials like coal or wood.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ವಿದ್ಯುತ್ ತಂತಿಗೆ ತಾಮ್ರ ಅಥವಾ ಅಲ್ಯೂಮಿನಿಯಂ ಯಾಕೆ ಬಳಸುತ್ತಾರೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Read the concept card — "
+                "then think: what TWO properties must a wire material have?"
+            ),
+            "attempt_2": (
+                "Choose 'initial': Wire needs TWO properties: (1) DUCTILITY to be drawn thin, "
+                "(2) ELECTRICAL CONDUCTIVITY to carry current. Copper has both."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Coal cannot be drawn thin (brittle, not ductile). "
+                "Wood cannot conduct electricity (insulator). Copper: ductile + conductor = ideal."
+            )
+        },
+        "concept_reminder": (
+            "Why copper wires? TWO reasons working together: "
+            "1. DUCTILITY: copper can be drawn into very thin, long wires without breaking. "
+            "2. ELECTRICAL CONDUCTIVITY: copper has free electrons that carry current efficiently. "
+            "Coal: brittle (no ductility) → can't form a wire. "
+            "Wood: not ductile + insulator → useless for wires. "
+            "Aluminium also used: lighter, cheaper, but less conductive than copper. "
+            "(ತಾಮ್ರ = ಸೆಳೆತ ಗುಣ + ವಿದ್ಯುತ್ ವಾಹಕ = ಆದರ್ಶ ತಂತಿ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — SONORITY
+# =============================================================================
+QUIZ_QUESTIONS_KN["sonority_kn"] = [
+    {
+        "id": "sonority_q1",
+        "challenge": (
+            "Strike a METAL object and demonstrate its ringing sound. "
+            "Which objects in the simulation are sonorous?\n\n"
+            "(ಲೋಹ ವಸ್ತು ಹೊಡೆದಾಗ ಶಬ್ದ ತೋರಿಸಿ — ಯಾವ ವಸ್ತುಗಳು ಧ್ವನಿವಂತವಾಗಿವೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "metal_strike"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'metal_strike'. The simulation auto-strikes the bell — "
+                "watch the sound waves appear and hear the ringing."
+            ),
+            "attempt_2": (
+                "Choose 'metal_strike': Bell (ಘಂಟೆ) produces a sustained ringing sound. "
+                "The 'sonorous' badge appears. Metal sound waves persist."
+            ),
+            "attempt_3": (
+                "Set 'initialState=metal_strike': Bell, spoon, and coin are all sonorous — "
+                "all metals produce a clear ring. The sound waves radiate outward."
+            )
+        },
+        "concept_reminder": (
+            "Sonority: metals produce a clear, sustained ringing sound. "
+            "Metal crystal lattice efficiently transmits vibrations → long-lasting sound waves. "
+            "Sonorous metals: bell (iron/bronze), spoon (steel), coin (various metals). "
+            "Volume persists: if you strike a metal bell, the ring lasts for seconds. "
+            "(ಲೋಹ ಹೊಡೆದಾಗ ಘಂಟಾ ಧ್ವನಿ = ಧ್ವನಿವಂತ ಗುಣ!)"
+        )
+    },
+    {
+        "id": "sonority_q2",
+        "challenge": (
+            "Strike a NON-METAL object and show the 'dull thud' result. "
+            "Why do non-metals not ring when struck?\n\n"
+            "(ಅಲೋಹ ಹೊಡೆದ ಮಂಕಾದ ಶಬ್ದ ತೋರಿಸಿ — ಅಲೋಹಗಳು ಯಾಕೆ ಘಂಟಾ ಧ್ವನಿ ಮಾಡುವುದಿಲ್ಲ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "nonmetal_strike"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'nonmetal_strike'. The simulation auto-strikes wood — "
+                "no ringing, just a dull thud. 'Not sonorous' result appears."
+            ),
+            "attempt_2": (
+                "Choose 'nonmetal_strike': Wood (ಮರ) produces a dull thud. "
+                "Non-metal structure absorbs vibrations instead of propagating them."
+            ),
+            "attempt_3": (
+                "Set 'initialState=nonmetal_strike': Wood, plastic, rubber all give dull sounds. "
+                "Their disordered molecular structure dampens vibrations → no sustained ring."
+            )
+        },
+        "concept_reminder": (
+            "Non-sonorous non-metals: wood, plastic, rubber produce only dull thuds. "
+            "Their amorphous (disordered) molecular structure ABSORBS vibrations. "
+            "Energy is quickly converted to heat rather than sustained sound. "
+            "This is why drum STICKS are wood — they produce a sharp hit, not a ringing tone. "
+            "(ಅಲೋಹ = ಕಂಪನ ಹೀರಿಕೊಳ್ಳುತ್ತದೆ = ಧ್ವನಿ ಇಲ್ಲ!)"
+        )
+    },
+    {
+        "id": "sonority_q3",
+        "challenge": (
+            "Show the INITIAL state. Give two real-world examples where "
+            "sonority is the primary reason metal is chosen for that application.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಧ್ವನಿವಂತ ಗುಣ ಕಾರಣ ಲೋಹ ಬಳಸುವ ಎರಡು ಉದಾಹರಣೆ ಕೊಡಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Read the concept card and takeaway. "
+                "Think about bells, musical instruments, and alarm systems."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Example 1 — school bells (iron) ring to signal breaks. "
+                "Example 2 — musical triangle (steel) sustains its note in music."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Temple bell = metal (sustained devotional ring). "
+                "Cymbal = brass (loud, sustained crash in music). Non-metal versions would only thud."
+            )
+        },
+        "concept_reminder": (
+            "Sonority applications where metal is chosen specifically for its ringing property: "
+            "1. SCHOOL BELL: iron bell produces a loud, clear ring audible across the school. "
+            "2. TEMPLE BELL: bronze bell sustains its ring (OM resonance) for several seconds. "
+            "3. MUSICAL TRIANGLE: steel bar rings when struck, sustains through musical passage. "
+            "4. CYMBAL: brass plate produces loud sustained crash in percussion music. "
+            "In ALL cases: if replaced with wood or plastic → only a dull thud → useless. "
+            "(ಧ್ವನಿ ಮುಖ್ಯ = ಲೋಹ ಆಯ್ಕೆ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — HEAT CONDUCTION
+# =============================================================================
+QUIZ_QUESTIONS_KN["heat_conduction_kn"] = [
+    {
+        "id": "heat_q1",
+        "challenge": (
+            "Start the heat conduction experiment. Observe how quickly "
+            "the metal spoon handle heats up compared to the wooden spoon.\n\n"
+            "(ಪ್ರಯೋಗ ಪ್ರಾರಂಭಿಸಿ — ಲೋಹ ಮತ್ತು ಮರದ ಚಮಚ ಉಷ್ಣತೆ ಹೇಗೆ ಬದಲಾಗುತ್ತವೆ ಎಂದು ಗಮನಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "running"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'running'. The start button auto-clicks and "
+                "the 15-second experiment begins. Watch the temperature cards."
+            ),
+            "attempt_2": (
+                "Choose 'running': Metal spoon temperature rises quickly (good conductor). "
+                "Wood spoon stays near 25°C (poor conductor / insulator)."
+            ),
+            "attempt_3": (
+                "Set 'initialState=running': The metal spoon reaches ~70°C at 15s while wood "
+                "barely rises above 30°C. Metal conducts heat; wood insulates."
+            )
+        },
+        "concept_reminder": (
+            "Heat conduction experiment: both spoons start at 25°C in hot water. "
+            "METAL spoon: temperature rises rapidly → handle becomes hot (good conductor). "
+            "WOODEN spoon: temperature barely rises → handle stays cool (poor conductor/insulator). "
+            "Reason: metal has free electrons that carry heat; wood has no free electrons. "
+            "(ಲೋಹ ತ್ವರಿತ ಉಷ್ಣ ವಾಹಕ | ಮರ ಉಷ್ಣ ಅವಾಹಕ!)"
+        )
+    },
+    {
+        "id": "heat_q2",
+        "challenge": (
+            "Show the INITIAL idle state. Explain why metal pans have wooden or "
+            "plastic handles instead of metal handles.\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಅಡುಗೆ ಪಾತ್ರೆಗಳಿಗೆ ಮರದ ಅಥವಾ ಪ್ಲಾಸ್ಟಿಕ್ ಹಿಡಿ ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Look at the two spoons — "
+                "observe this is the resting state before the experiment."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Metal conducts heat rapidly to the handle → "
+                "a metal handle would burn the cook's hand. Wood insulates → safe to grip."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': Same principle as the experiment. "
+                "The pan body = metal (heats food fast). Handle = wood/plastic (keeps hand safe)."
+            )
+        },
+        "concept_reminder": (
+            "Cookware design principle: "
+            "METAL BASE/BODY: good heat conductor → transfers heat from flame to food efficiently. "
+            "WOODEN/PLASTIC HANDLE: poor heat conductor (insulator) → stays cool → safe to grip. "
+            "If the handle were also metal, it would heat up to the same temperature as the base "
+            "→ impossible to pick up without getting burned. "
+            "This is direct application of differential thermal conductivity. "
+            "(ಲೋಹ ಅಡಿ + ಮರ ಹಿಡಿ = ಸುರಕ್ಷಿತ ಅಡುಗೆ ಪಾತ್ರೆ!)"
+        )
+    },
+    {
+        "id": "heat_q3",
+        "challenge": (
+            "Run the experiment. After observing results, explain: "
+            "why does a metal object feel cold when you touch it at room temperature, "
+            "even though it is the same temperature as a wooden object nearby?\n\n"
+            "(ಪ್ರಯೋಗ ಚಾಲಿಸಿ — ಒಂದೇ ತಾಪಮಾನದಲ್ಲಿ ಇದ್ದರೂ ಲೋಹ ಏಕೆ ತಂಪಾಗಿ ಅನ್ನಿಸುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "running"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'running'. Watch the heat transfer happen. "
+                "The key clue is in the direction of heat flow."
+            ),
+            "attempt_2": (
+                "Choose 'running': Metal conducts heat AWAY from your hand rapidly → "
+                "your skin loses heat fast → you feel cold. Wood barely conducts → "
+                "heat stays in your skin → feels warmer."
+            ),
+            "attempt_3": (
+                "Set 'initialState=running': Temperature sensation = rate of heat transfer. "
+                "Metal removes body heat fast (feels cold). Wood keeps body heat (feels warm). "
+                "Both are at 25°C — only CONDUCTIVITY differs."
+            )
+        },
+        "concept_reminder": (
+            "Why metal feels cold at room temperature: "
+            "Touch metal at 25°C → metal (good conductor) rapidly draws heat FROM your hand "
+            "into itself → your skin temperature drops → brain interprets as 'cold'. "
+            "Touch wood at 25°C → wood (insulator) barely conducts heat away → "
+            "your skin stays warm → brain interprets as 'warm or neutral'. "
+            "BOTH objects are at the same temperature — sensation depends on HEAT TRANSFER RATE. "
+            "(ಲೋಹ ಶೀತ ಅನ್ನಿಸಲು ಕಾರಣ = ಉಷ್ಣ ವಾಹಕ, ಶರೀರ ಉಷ್ಣ ಎಳೆಯುತ್ತದೆ!)"
+        )
+    }
+]
+
+# =============================================================================
+# QUIZ QUESTIONS — ELECTRICAL CONDUCTIVITY
+# =============================================================================
+QUIZ_QUESTIONS_KN["electrical_conductivity_kn"] = [
+    {
+        "id": "conductivity_q1",
+        "challenge": (
+            "Test COPPER in the circuit. Demonstrate that it is an electrical conductor.\n\n"
+            "(ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ತಾಮ್ರ ಪರೀಕ್ಷಿಸಿ — ಅದು ವಿದ್ಯುತ್ ವಾಹಕ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "conductor_test"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'conductor_test'. The simulation auto-inserts copper "
+                "into the circuit and tests it — the bulb should light up."
+            ),
+            "attempt_2": (
+                "Choose 'conductor_test': Copper completes the circuit → current flows → "
+                "bulb glows. The '⚡ ವಾಹಕ' badge appears."
+            ),
+            "attempt_3": (
+                "Set 'initialState=conductor_test': Copper has free electrons that carry "
+                "current through the circuit. Bulb ON = conductor."
+            )
+        },
+        "concept_reminder": (
+            "Copper (ತಾಮ್ರ) is an excellent electrical conductor. "
+            "Free electrons in copper move in response to voltage → electric current. "
+            "Current flows → circuit is complete → bulb lights. "
+            "Also good conductors: iron (ಕಬ್ಬಿಣ), aluminium (ಅಲ್ಯೂಮಿನಿಯಂ). "
+            "(ಮುಕ್ತ ಇಲೆಕ್ಟ್ರಾನ್ = ವಿದ್ಯುತ್ ಹರಿಯುತ್ತದೆ = ಬಲ್ಬ್ ಬೆಳಗುತ್ತದೆ!)"
+        )
+    },
+    {
+        "id": "conductivity_q2",
+        "challenge": (
+            "Test RUBBER in the circuit. Demonstrate that it is an electrical insulator.\n\n"
+            "(ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ರಬ್ಬರ್ ಪರೀಕ್ಷಿಸಿ — ಅದು ಅವಾಹಕ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "insulator_test"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'insulator_test'. Rubber is auto-inserted — "
+                "the bulb stays dark. Circuit cannot be completed through rubber."
+            ),
+            "attempt_2": (
+                "Choose 'insulator_test': Rubber (ರಬ್ಬರ್) blocks current → bulb stays off. "
+                "The '🚫 ಅವಾಹಕ' badge appears. No free electrons in rubber."
+            ),
+            "attempt_3": (
+                "Set 'initialState=insulator_test': Rubber has no free electrons → "
+                "current cannot flow → circuit stays open → bulb dark."
+            )
+        },
+        "concept_reminder": (
+            "Rubber (ರಬ್ಬರ್) is an excellent electrical insulator. "
+            "Its electrons are tightly bound → no free electrons → no current flow. "
+            "Circuit with rubber = open circuit = no current = bulb dark. "
+            "Also insulators: plastic (ಪ್ಲಾಸ್ಟಿಕ್), wood (ಮರ). "
+            "This is WHY rubber is used to coat electric cables — "
+            "it prevents current from escaping the metal wire core. "
+            "(ಮುಕ್ತ ಇಲೆಕ್ಟ್ರಾನ್ ಇಲ್ಲ = ವಿದ್ಯುತ್ ತಡೆಯಲಾಗುತ್ತದೆ = ಅವಾಹಕ!)"
+        )
+    },
+    {
+        "id": "conductivity_q3",
+        "challenge": (
+            "Show the INITIAL idle state. Explain why an electric cable has "
+            "a metal core surrounded by a rubber/plastic coating. "
+            "What would happen if the outer coating were also metal?\n\n"
+            "(ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ — ತಂತಿಗೆ ರಬ್ಬರ್ ಹೊದಿಕೆ ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'initial'. Read the concept card — "
+                "note the roles of conductor and insulator in a cable."
+            ),
+            "attempt_2": (
+                "Choose 'initial': Metal core (copper) = carries current. "
+                "Rubber coating = prevents current from reaching the user's hand or nearby wires."
+            ),
+            "attempt_3": (
+                "Set 'initialState=initial': If coating were metal → current would flow "
+                "to anyone touching the outside → electric shock hazard. "
+                "Rubber stops this: no free electrons → no current through coating."
+            )
+        },
+        "concept_reminder": (
+            "Electric cable design intentionally uses BOTH types: "
+            "METAL CORE (copper/aluminium): free electrons carry current from source to appliance. "
+            "RUBBER/PLASTIC COATING: no free electrons → insulates → current stays in core. "
+            "If outer coating were metal → current could flow through it → shock anyone it touches. "
+            "Rubber gloves protect electricians for the same reason: no current through rubber. "
+            "Two materials, two opposite properties, working TOGETHER for safe electricity delivery. "
+            "(ಲೋಹ ತಂತಿ + ರಬ್ಬರ್ ಹೊದಿಕೆ = ಸುರಕ್ಷಿತ ವಿದ್ಯುತ್!)"
+        )
+    }
+]
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
