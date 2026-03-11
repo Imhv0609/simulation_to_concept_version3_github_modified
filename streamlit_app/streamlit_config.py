@@ -1008,6 +1008,200 @@ SIMULATIONS["conductors_insulators_kn"] = {
     "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
 }
 
+SIMULATIONS["electricity_uses_kn"] = {
+    "name": "ವಿದ್ಯುತ್ ಬಳಕೆಗಳು (Electricity Uses)",
+    "language": "kannada",
+    "description": (
+        "12 ವಿದ್ಯುತ್ ಉಪಕರಣಗಳನ್ನು 6 ವರ್ಗಗಳಿಗೆ ವರ್ಗೀಕರಿಸಿ — ಅಡುಗೆ, ಬೆಳಕು, ತಂಪು, ಸಂವಹನ, ಮನರಂಜನೆ, ಸಾರಿಗೆ.\n"
+        "Classify 12 electrical appliances into 6 categories to understand how electricity powers daily life."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation1_electricity_uses_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಆರಂಭಿಕ ವರ್ಗ / Starting Category",
+            "default": "cooking",
+            "options": ["cooking", "lighting", "cooling", "communication", "entertainment", "transport"],
+            "option_labels": [
+                "ಅಡುಗೆ (Cooking)",
+                "ಬೆಳಕು (Lighting)",
+                "ತಂಪು/ಬಿಸಿ (Cooling/Heating)",
+                "ಸಂವಹನ (Communication)",
+                "ಮನರಂಜನೆ (Entertainment)",
+                "ಸಾರಿಗೆ (Transport)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+SIMULATIONS["electricity_sources_kn"] = {
+    "name": "ವಿದ್ಯುತ್ ಮೂಲಗಳು (Electricity Sources)",
+    "language": "kannada",
+    "description": (
+        "ಜಲ, ಸೌರ, ಗಾಳಿ ಮತ್ತು ಉಷ್ಣ ವಿದ್ಯುತ್ ಉತ್ಪಾದನಾ ಮೂಲಗಳ ದೃಶ್ಯ ಅನ್ವೇಷಣೆ.\n"
+        "Explore hydro, solar, wind and thermal power generation and transmission to homes."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation2_electricity_sources_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ವಿದ್ಯುತ್ ಮೂಲ / Power Source",
+            "default": "hydro",
+            "options": ["hydro", "solar", "wind", "thermal"],
+            "option_labels": [
+                "ಜಲವಿದ್ಯುತ್ (Hydro — dam & turbine)",
+                "ಸೌರ (Solar — panels & sunlight)",
+                "ಗಾಳಿ (Wind — turbine blades)",
+                "ಉಷ್ಣ (Thermal — coal/fossil fuel)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+SIMULATIONS["torch_components_kn"] = {
+    "name": "ಟಾರ್ಚ್ ಒಳಭಾಗ (Torch Components)",
+    "language": "kannada",
+    "description": (
+        "ಟಾರ್ಚ್‌ನ ಮೂರು ಮುಖ್ಯ ಭಾಗಗಳನ್ನು (ಕೋಶ, ದೀಪ, ಸ್ವಿಚ್) ಅನ್ವೇಷಿಸಿ.\n"
+        "Explore the 3 components of a torch — cells, bulb, switch — and learn how a simple circuit works."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation3_torch_components_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ನೋಟ ಸ್ಥಿತಿ / View Mode",
+            "default": "assembled",
+            "options": ["assembled", "exploded", "on"],
+            "option_labels": [
+                "ಜೋಡಿಸಿದ ಟಾರ್ಚ್ (Assembled — normal view)",
+                "ಒಳ ನೋಟ (Exploded — see all components)",
+                "ಆನ್ ಸ್ಥಿತಿ (ON — switch turned on, bulb glowing)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+SIMULATIONS["electric_cell_kn"] = {
+    "name": "ವಿದ್ಯುತ್ ಕೋಶ (Electric Cell)",
+    "language": "kannada",
+    "description": (
+        "ವಿದ್ಯುತ್ ಕೋಶದ ಧನ (+) ಮತ್ತು ಋಣ (−) ಟರ್ಮಿನಲ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ ಮತ್ತು ಸರ್ಕ್ಯೂಟ್ ಚಿಹ್ನೆ ಕಲಿಯಿರಿ.\n"
+        "Explore the positive and negative terminals of an electric cell and learn the circuit symbol."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation4_electric_cell_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಟರ್ಮಿನಲ್ / Terminal",
+            "default": "positive",
+            "options": ["positive", "negative", "circuit"],
+            "option_labels": [
+                "ಧನ ಟರ್ಮಿನಲ್ + (Positive — metal cap highlighted)",
+                "ಋಣ ಟರ್ಮಿನಲ್ − (Negative — flat disc highlighted)",
+                "ಸರ್ಕ್ಯೂಟ್ ದೃಶ್ಯ (Circuit — current flow shown)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+SIMULATIONS["battery_connection_kn"] = {
+    "name": "ಬ್ಯಾಟರಿ ಜೋಡಣೆ (Battery Connection)",
+    "language": "kannada",
+    "description": (
+        "1, 2 ಮತ್ತು 3 ಕೋಶಗಳನ್ನು ಸರಣಿಯಲ್ಲಿ ಜೋಡಿಸಿ — ಹೆಚ್ಚು ಕೋಶ = ಹೆಚ್ಚು ವೋಲ್ಟೇಜ್ = ಹೆಚ್ಚು ಬೆಳಕು.\n"
+        "Connect 1, 2 or 3 cells in series — observe voltage addition and increasing bulb brightness."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation5_battery_connection_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಕೋಶಗಳ ಸಂಖ್ಯೆ / Number of Cells",
+            "default": "one_cell",
+            "options": ["one_cell", "two_cells", "three_cells"],
+            "option_labels": [
+                "1 ಕೋಶ (One Cell — 1.5V, dim bulb)",
+                "2 ಕೋಶಗಳು (Two Cells — 3V, brighter bulb)",
+                "3 ಕೋಶಗಳು (Three Cells — 4.5V, brightest bulb)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
 
 # =============================================================================
 # DEFAULT SIMULATION

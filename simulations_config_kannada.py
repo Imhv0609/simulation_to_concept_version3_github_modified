@@ -1913,6 +1913,697 @@ QUIZ_QUESTIONS_KN["conductors_insulators_kn"] = [
     }
 ]
 
+# ─────────────────────────────────────────────────────────────────────
+# Chapter 3 – Electricity (sim11–sim15)
+# ─────────────────────────────────────────────────────────────────────
+
+SIMULATIONS_KN["electricity_uses_kn"] = {
+    "id": "electricity_uses_kn",
+    "title": "ವಿದ್ಯುತ್ ಬಳಕೆಗಳು (Electricity Uses)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation1_electricity_uses_kn.html",
+    "description": (
+        "ವಿದ್ಯುತ್ ಉಪಕರಣಗಳನ್ನು 6 ವರ್ಗಗಳಲ್ಲಿ ವರ್ಗೀಕರಿಸಿ: ಅಡುಗೆ, ಬೆಳಕು, ತಂಪು, ಸಂವಹನ, ಮನರಂಜನೆ, ಸಾರಿಗೆ. "
+        "Classify 12 electrical appliances into 6 daily-life categories to understand how electricity powers modern life."
+    ),
+    "cannot_demonstrate": [
+        "Auto-completing the sorting game — user must manually classify each appliance"
+    ],
+    "initial_params": {"initialState": "cooking", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Starting Category",
+            "range": "cooking, lighting, cooling, communication, entertainment, transport",
+            "url_key": "initialState",
+            "effect": (
+                "Pre-selects the appliance category when the simulation loads.\n"
+                "  'cooking'       → cooking appliances selected (kettle, microwave)\n"
+                "  'lighting'      → lighting appliances selected (bulb, tube light)\n"
+                "  'cooling'       → cooling/heating appliances selected (fan, AC)\n"
+                "  'communication' → communication devices selected (mobile, telephone)\n"
+                "  'entertainment' → entertainment devices selected (TV, computer)\n"
+                "  'transport'     → transport devices selected (electric train, car)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card inside the simulation.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "electricity_uses_classification",
+            "title": "Classifying Electrical Appliances",
+            "description": "Electrical appliances can be grouped by their primary purpose into cooking, lighting, cooling/heating, communication, entertainment, and transport categories.",
+            "key_insight": "Every electrical device converts electrical energy into another useful form — heat, light, motion, or sound — for a specific human need.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "electricity_in_daily_life",
+            "title": "Electricity in Daily Life",
+            "description": "Electricity powers nearly every aspect of modern daily life, from preparing food to communicating and travelling.",
+            "key_insight": "Without electricity, cooking (microwave), lighting (bulb), refrigeration (AC/fan), communication (phone), entertainment (TV), and electric transport would all stop.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "energy_conversion_purpose",
+            "title": "Energy Conversion and Purpose",
+            "description": "Each appliance converts electrical energy to a specific output. Understanding the purpose helps classify the device correctly.",
+            "key_insight": "A kettle converts electrical energy to heat (cooking). A bulb converts it to light. A fan converts it to kinetic energy (cooling). All share electricity as input.",
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["electricity_sources_kn"] = {
+    "id": "electricity_sources_kn",
+    "title": "ವಿದ್ಯುತ್ ಮೂಲಗಳು (Electricity Sources)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation2_electricity_sources_kn.html",
+    "description": (
+        "ಜಲ, ಸೌರ, ಗಾಳಿ ಮತ್ತು ಉಷ್ಣ ವಿದ್ಯುತ್ ಉತ್ಪಾದನಾ ಮೂಲಗಳ ದೃಶ್ಯ ಅನ್ವೇಷಣೆ. "
+        "Explore how hydro, solar, wind and thermal power plants generate electricity and deliver it to homes via transmission lines."
+    ),
+    "cannot_demonstrate": [],
+    "initial_params": {"initialState": "hydro", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Power Source",
+            "range": "hydro, solar, wind, thermal",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which electricity generation source is shown when the simulation loads.\n"
+                "  'hydro'   → hydroelectric dam with turbine animation\n"
+                "  'solar'   → solar panels with sunlight rays\n"
+                "  'wind'    → wind turbine with rotating blades\n"
+                "  'thermal' → coal thermal plant with smoke stack"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card inside the simulation.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "electricity_generation",
+            "title": "How Electricity is Generated",
+            "description": "Power plants convert different forms of energy — falling water, sunlight, wind, heat — into electrical energy using generators or solar cells.",
+            "key_insight": "A generator converts mechanical rotation into electrical energy. Hydro, wind, and thermal plants all spin turbines to run generators; solar directly converts light.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "renewable_vs_nonrenewable",
+            "title": "Renewable vs Non-renewable Sources",
+            "description": "Hydro, solar, and wind are renewable (replenished naturally); thermal (coal/oil/gas) is non-renewable and causes pollution.",
+            "key_insight": "Fossil fuels used in thermal plants will eventually run out and produce CO₂. Renewable sources like sun and wind are limitless and clean.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "electricity_transmission",
+            "title": "Electricity Transmission to Homes",
+            "description": "Electricity travels long distances from power plants to homes through metal transmission wires supported by towers.",
+            "key_insight": "The energy journey: Source → Generator → Transmission towers & wires → Your home. For experiments, always use CELLS not mains electricity.",
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["torch_components_kn"] = {
+    "id": "torch_components_kn",
+    "title": "ಟಾರ್ಚ್ ಒಳಭಾಗ (Torch Components)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation3_torch_components_kn.html",
+    "description": (
+        "ಟಾರ್ಚ್‌ನ ಮೂರು ಭಾಗಗಳನ್ನು (ಕೋಶ, ದೀಪ, ಸ್ವಿಚ್) ಅನ್ವೇಷಿಸಿ ಮತ್ತು ಸ್ವಿಚ್ ಆನ್/ಆಫ್ ಮಾಡಿ ಸರ್ಕ್ಯೂಟ್ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ. "
+        "Explore a torch's 3 main components — cells, bulb, switch — and toggle the switch to understand open/closed circuit concepts."
+    ),
+    "cannot_demonstrate": [],
+    "initial_params": {"initialState": "assembled", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "View Mode",
+            "range": "assembled, exploded, on",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the initial view state of the torch simulation.\n"
+                "  'assembled' → normal assembled torch view (default)\n"
+                "  'exploded'  → inside/exploded view showing all components labelled\n"
+                "  'on'        → switch toggled ON after 800ms — bulb glows, light beam visible"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card inside the simulation.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "torch_as_circuit",
+            "title": "Torch as a Simple Electric Circuit",
+            "description": "A torch is a complete simple electric circuit: cells supply energy, the switch controls current flow, and the bulb converts electrical energy to light.",
+            "key_insight": "All three components must be connected in a complete loop for the torch to light up. Missing any one breaks the circuit.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "switch_function",
+            "title": "Role of the Switch",
+            "description": "A switch controls whether the circuit is complete (closed) or broken (open). Switch ON → circuit closed → current flows → bulb lights up.",
+            "key_insight": "A switch is like a 'gate' for electric current. Open gate (OFF) = no current. Closed gate (ON) = current flows and bulb glows.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "cells_as_energy_source",
+            "title": "Cells as the Energy Source",
+            "description": "Electric cells inside the torch supply the electrical energy needed to push current through the circuit and light the bulb.",
+            "key_insight": "Cells store chemical energy and convert it to electrical energy. Two cells in a torch add their voltages together to provide more energy.",
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["electric_cell_kn"] = {
+    "id": "electric_cell_kn",
+    "title": "ವಿದ್ಯುತ್ ಕೋಶ (Electric Cell)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation4_electric_cell_kn.html",
+    "description": (
+        "ವಿದ್ಯುತ್ ಕೋಶದ ಧನ (+) ಮತ್ತು ಋಣ (−) ಟರ್ಮಿನಲ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ ಮತ್ತು ಸರ್ಕ್ಯೂಟ್ ಚಿಹ್ನೆ ಕಲಿಯಿರಿ. "
+        "Explore the positive (+) and negative (−) terminals of an electric cell, understand their physical identification, and learn the circuit symbol."
+    ),
+    "cannot_demonstrate": [],
+    "initial_params": {"initialState": "positive", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Terminal View",
+            "range": "positive, negative, circuit",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which terminal or view is highlighted when the simulation loads.\n"
+                "  'positive' → positive (+) terminal highlighted, metal cap detail shown\n"
+                "  'negative' → negative (−) terminal highlighted, flat disc detail shown\n"
+                "  'circuit'  → both terminals highlighted with current flow arrow animated"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card inside the simulation.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "cell_terminals",
+            "title": "Cell Terminals — Positive and Negative",
+            "description": "An electric cell has two terminals: the positive terminal (small metal cap/bump) and the negative terminal (flat metal disc). They are always marked + and −.",
+            "key_insight": "The metal cap (bump) = positive terminal (+). The flat disc = negative terminal (−). Look for the bump to find the positive end of any cell.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "current_direction",
+            "title": "Direction of Current Flow",
+            "description": "Conventional electric current flows from the positive terminal through the external circuit (bulb, wires) to the negative terminal.",
+            "key_insight": "Think of the cell as a pump: current is pushed OUT of the + terminal, travels through the circuit doing work, and enters back at the − terminal.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "circuit_symbol_cell",
+            "title": "Cell Symbol in Circuit Diagrams",
+            "description": "In circuit diagrams, a cell is represented by two parallel lines: a LONG line for positive (+) and a SHORT line for negative (−).",
+            "key_insight": "Long line = positive (more energy side). Short line = negative. This symbol is universal — same in all circuit diagrams worldwide.",
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["battery_connection_kn"] = {
+    "id": "battery_connection_kn",
+    "title": "ಬ್ಯಾಟರಿ ಜೋಡಣೆ (Battery Connection)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation5_battery_connection_kn.html",
+    "description": (
+        "1, 2 ಮತ್ತು 3 ಕೋಶಗಳನ್ನು ಸರಣಿಯಲ್ಲಿ ಜೋಡಿಸಿ ಬ್ಯಾಟರಿ ಮಾಡಿ — ಹೆಚ್ಚು ಕೋಶ = ಹೆಚ್ಚು ವೋಲ್ಟೇಜ್ = ಹೆಚ್ಚು ಹೊಳೆಯುವ ಬಲ್ಬ್. "
+        "Connect 1, 2 or 3 cells in series to form a battery — observe that voltage adds up and the bulb gets brighter with each additional cell."
+    ),
+    "cannot_demonstrate": [],
+    "initial_params": {"initialState": "one_cell", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Number of Cells",
+            "range": "one_cell, two_cells, three_cells",
+            "url_key": "initialState",
+            "effect": (
+                "Sets how many cells are connected in series when the simulation loads.\n"
+                "  'one_cell'    → 1 cell = 1.5V, dim bulb glow\n"
+                "  'two_cells'   → 2 cells in series = 3.0V, brighter bulb\n"
+                "  'three_cells' → 3 cells in series = 4.5V, brightest bulb"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the concept card inside the simulation.\n"
+                "  true  → show the concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": "battery_definition",
+            "title": "Battery = Multiple Cells in Series",
+            "description": "A battery is formed when two or more cells are connected in series: the positive (+) terminal of one cell connected to the negative (−) terminal of the next.",
+            "key_insight": "A single cell ≠ a battery. A battery must have at least 2 cells connected + to −. The AA batteries in a remote control are actually individual cells.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "series_voltage_addition",
+            "title": "Voltages Add in Series",
+            "description": "When cells are connected in series (+ to −), their voltages add up: 2 cells × 1.5V = 3V; 3 cells × 1.5V = 4.5V.",
+            "key_insight": "Series connection = voltage addition. Total battery voltage = number of cells × voltage per cell. More cells → more voltage → more current → brighter bulb.",
+            "related_params": ["initialState"]
+        },
+        {
+            "id": "correct_connection_polarity",
+            "title": "Correct Polarity is Essential",
+            "description": "Cells must be connected with correct polarity (+ to −) in series. Reversing one cell cancels its voltage and reduces total output.",
+            "key_insight": "Always connect one cell's (+) to the next cell's (−). Wrong polarity = cells work against each other. This is why battery compartments show + and − markings.",
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["electricity_uses_kn"] = [
+    {
+        "id": "electricity_uses_q1",
+        "challenge": (
+            "Show the COOKING category selected in the simulation. "
+            "Name two electrical appliances that convert electrical energy to heat for food preparation.\n\n"
+            "(ಅಡುಗೆ ವರ್ಗ ಆಯ್ಕೆ ಮಾಡಿ — ಯಾವ ಎರಡು ಉಪಕರಣಗಳು ವಿದ್ಯುತ್ ಶಕ್ತಿಯನ್ನು ಶಾಖವಾಗಿ ಮಾರ್ಪಡಿಸಿ ಅಡುಗೆಗೆ ಬಳಸುತ್ತವೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "cooking"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'cooking' as the initialState. Look for appliances that produce heat to prepare food — think of what heats water or reheats leftovers.",
+            "attempt_2": "Set 'initialState' to 'cooking'. The electric kettle (🫖) boils water; the microwave (📦) heats food — both convert electrical energy to heat.",
+            "attempt_3": "Choose 'cooking': Electric kettle and microwave both use electrical energy → heat energy for food preparation. Select 'cooking' in the simulation."
+        },
+        "concept_reminder": (
+            "Cooking appliances convert electrical energy to HEAT. "
+            "Electric kettle: electrical → heat to boil water. "
+            "Microwave: electrical → microwave radiation → heat inside food. "
+            "(ವಿದ್ಯುತ್ → ಶಾಖ → ಅಡುಗೆ!)"
+        )
+    },
+    {
+        "id": "electricity_uses_q2",
+        "challenge": (
+            "Set the simulation to show COMMUNICATION devices. "
+            "Explain — what energy conversion happens inside a mobile phone?\n\n"
+            "(ಸಂವಹನ ವರ್ಗ ಆಯ್ಕೆ ಮಾಡಿ — ಮೊಬೈಲ್ ಫೋನ್‌ನಲ್ಲಿ ಯಾವ ಶಕ್ತಿ ಪರಿವರ್ತನೆ ಆಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "communication"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'communication' as the initialState. Think about devices that send and receive information — voice, text, internet.",
+            "attempt_2": "Set 'initialState' to 'communication'. Mobile phones and telephones both convert electrical signals to sound (and vice versa for sending).",
+            "attempt_3": "Choose 'communication': Mobile phone converts electrical energy → screen light + sound + radio waves. It's a multi-conversion device!"
+        },
+        "concept_reminder": (
+            "Communication devices convert electrical energy to multiple forms: "
+            "sound (speaker), light (screen), and radio waves (transmitter). "
+            "Mobile phone is the most complex everyday energy converter. "
+            "(ವಿದ್ಯುತ್ → ಶಬ್ದ + ಬೆಳಕು + ರೇಡಿಯೋ ತರಂಗ!)"
+        )
+    },
+    {
+        "id": "electricity_uses_q3",
+        "challenge": (
+            "Show TRANSPORT category. Explain one advantage of electric vehicles "
+            "over petrol/diesel vehicles for cities.\n\n"
+            "(ಸಾರಿಗೆ ವರ್ಗ ಆಯ್ಕೆ ಮಾಡಿ — ವಿದ್ಯುತ್ ವಾಹನಗಳ ಒಂದು ಪ್ರಮುಖ ಅನುಕೂಲತೆ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "transport"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'transport' as the initialState. Electric trains (🚃) and electric cars (🚗) use electricity instead of burning fuel.",
+            "attempt_2": "Set 'initialState' to 'transport'. Electric vehicles produce ZERO exhaust emissions at the point of use — much cleaner for city air quality.",
+            "attempt_3": "Choose 'transport': Electric vehicles convert electrical energy → motion (kinetic energy). No burning = no exhaust = cleaner urban air."
+        },
+        "concept_reminder": (
+            "Electric transport: electrical energy → kinetic energy (motion). "
+            "Advantage over petrol: zero exhaust emissions, quieter, lower running cost. "
+            "Electric trains and cars run on stored electrical energy (from grid or battery). "
+            "(ವಿದ್ಯುತ್ ವಾಹನ = ಕಡಿಮೆ ಮಾಲಿನ್ಯ + ಅಧಿಕ ಕಾರ್ಯಕ್ಷಮತೆ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["electricity_sources_kn"] = [
+    {
+        "id": "electricity_sources_q1",
+        "challenge": (
+            "Show how HYDRO power generates electricity. "
+            "Describe the energy conversion chain from falling water to the light in your home.\n\n"
+            "(ಜಲವಿದ್ಯುತ್ ಆಯ್ಕೆ ಮಾಡಿ — ನೀರಿನಿಂದ ನಿಮ್ಮ ಮನೆ ಬೆಳಕಿಗೆ ಶಕ್ತಿ ಪರಿವರ್ತನೆ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "hydro"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'hydro' as the initialState. Watch the dam animation — falling water spins turbines which spin generators.",
+            "attempt_2": "Set 'initialState' to 'hydro'. Chain: Potential energy (water in dam) → Kinetic energy (falling water) → Mechanical energy (turbine) → Electrical energy (generator) → Light (bulb).",
+            "attempt_3": "Choose 'hydro': Water PE → KE → turbine rotation → generator → electricity → transmission wires → your home's bulb. 5-step chain!"
+        },
+        "concept_reminder": (
+            "Hydro power energy chain: Water PE → KE → Turbine (mechanical) → Generator (electrical) → Home (light/heat). "
+            "Renewable: water cycle constantly replenishes the dam. "
+            "India example: Bhakra Nangal Dam generates hydroelectric power. "
+            "(ಅಣೆಕಟ್ಟು → ಟರ್ಬೈನ್ → ಜನರೇಟರ್ → ವಿದ್ಯುತ್!)"
+        )
+    },
+    {
+        "id": "electricity_sources_q2",
+        "challenge": (
+            "Show SOLAR power. Why is solar power called a 'renewable' source? "
+            "What happens to solar electricity generation at night?\n\n"
+            "(ಸೌರ ಶಕ್ತಿ ಆಯ್ಕೆ ಮಾಡಿ — ಅದನ್ನು 'ನವೀಕರಣೀಯ' ಎಂದೇಕೆ ಕರೆಯುತ್ತಾರೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "solar"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'solar' as the initialState. Solar panels directly convert sunlight to electricity — no moving parts, no fuel burnt.",
+            "attempt_2": "Set 'initialState' to 'solar'. Renewable = source naturally replenishes. Sun rises every day → solar is always available during the day.",
+            "attempt_3": "Choose 'solar': The sun shines every day (renewable). No electricity at night unless stored in batteries. No pollution — the cleanest source."
+        },
+        "concept_reminder": (
+            "Solar = renewable because the sun naturally replenishes every day — it won't run out. "
+            "Solar panels: sunlight → electricity directly (no turbine needed). "
+            "Limitation: no generation at night; storage needed. "
+            "Zero emissions, zero fuel cost after installation. "
+            "(ಸೂರ್ಯ ಪ್ರತಿದಿನ ಉದಯಿಸುತ್ತದೆ → ನವೀಕರಣೀಯ!)"
+        )
+    },
+    {
+        "id": "electricity_sources_q3",
+        "challenge": (
+            "Show THERMAL power and explain why it is classified as 'non-renewable'. "
+            "What is the main environmental concern with thermal power plants?\n\n"
+            "(ಉಷ್ಣ ವಿದ್ಯುತ್ ಆಯ್ಕೆ ಮಾಡಿ — ಅದು ನವೀಕರಣೇತರ ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "thermal"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'thermal' as the initialState. Thermal plants burn coal, oil or gas — these fossil fuels are formed over millions of years and cannot be replaced quickly.",
+            "attempt_2": "Set 'initialState' to 'thermal'. Non-renewable = once used, cannot be replenished in our lifetime. Coal takes millions of years to form.",
+            "attempt_3": "Choose 'thermal': Burning coal → CO₂ + other pollutants → air pollution + climate change. That's the main environmental concern."
+        },
+        "concept_reminder": (
+            "Thermal = non-renewable: coal/oil/gas take millions of years to form, can run out. "
+            "Main environmental concern: burning fossil fuels releases CO₂ → greenhouse gas → climate change + air pollution. "
+            "India uses thermal plants for most of its electricity — major source of pollution. "
+            "(ಇಂಗಾಲ ಸುಡುವುದು → CO₂ → ವಾತಾವರಣ ಮಾಲಿನ್ಯ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["torch_components_kn"] = [
+    {
+        "id": "torch_q1",
+        "challenge": (
+            "Turn the torch ON using the switch. Explain the complete circuit — "
+            "what path does the current take from cell to bulb and back?\n\n"
+            "(ಸ್ವಿಚ್ ಆನ್ ಮಾಡಿ — ಕೋಶದಿಂದ ದೀಪಕ್ಕೆ ಮತ್ತು ಹಿಂದೆ ಪ್ರವಾಹ ಯಾವ ಮಾರ್ಗದಲ್ಲಿ ಹೋಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "on"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'on'. Watch the light beam appear — the circuit is now complete: cells → switch → bulb → back to cells.",
+            "attempt_2": "Choose 'on': Current flows from cell (+) → wire → closed switch → wire → bulb (lights up) → wire → cell (−). One complete loop.",
+            "attempt_3": "Set 'initialState=on': The switch closes the gap in the circuit. Complete loop = current flows = bulb glows. Break the loop = OFF."
+        },
+        "concept_reminder": (
+            "A complete circuit is a continuous loop: Cell(+) → switch (closed) → bulb → Cell(−) → back inside cell. "
+            "Switch ON = loop is complete = current flows = bulb on. "
+            "Switch OFF = loop broken = no current = bulb off. "
+            "(ಸ್ವಿಚ್ ಆನ್ → ಸರ್ಕ್ಯೂಟ್ ಪೂರ್ಣ → ದೀಪ ಬೆಳಗುತ್ತದೆ!)"
+        )
+    },
+    {
+        "id": "torch_q2",
+        "challenge": (
+            "Switch to EXPLODED view. Identify the three components inside a torch and state the role of each.\n\n"
+            "(ಒಳ ನೋಟ ಆಯ್ಕೆ ಮಾಡಿ — ಟಾರ್ಚ್‌ನ ಮೂರು ಭಾಗಗಳು ಮತ್ತು ಅವುಗಳ ಕರ್ತವ್ಯ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "exploded"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'exploded'. The inside view shows cells, bulb, and switch labelled.",
+            "attempt_2": "Choose 'exploded': (1) Cells — supply electrical energy. (2) Bulb — converts electrical to light. (3) Switch — opens/closes the circuit.",
+            "attempt_3": "Set 'initialState=exploded': Cells (energy source) + Switch (controller) + Bulb (output) = complete torch circuit. All three needed!"
+        },
+        "concept_reminder": (
+            "Torch = 3-component circuit: "
+            "1. CELLS: chemical energy → electrical energy (energy source). "
+            "2. SWITCH: opens or closes the circuit (controller). "
+            "3. BULB: electrical energy → light energy (output device). "
+            "All three must be connected in a complete loop. "
+            "(ಕೋಶ + ಸ್ವಿಚ್ + ದೀಪ = ಸರ್ಕ್ಯೂಟ್!)"
+        )
+    },
+    {
+        "id": "torch_q3",
+        "challenge": (
+            "Show the ASSEMBLED view. What would happen if you removed the switch from the torch? "
+            "Would the bulb stay ON, stay OFF, or could you control it?\n\n"
+            "(ಜೋಡಿಸಿದ ನೋಟ ತೋರಿಸಿ — ಸ್ವಿಚ್ ತೆಗೆದರೆ ಏನಾಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "assembled"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'assembled'. A switch controls whether the circuit loop is complete or broken.",
+            "attempt_2": "Choose 'assembled': Without a switch, either the circuit is permanently complete (bulb always ON) or permanently broken (bulb always OFF). No control possible.",
+            "attempt_3": "Set 'initialState=assembled': Without a switch, you'd have to physically connect/disconnect a wire to turn the bulb on/off. Very inconvenient — switch provides easy control."
+        },
+        "concept_reminder": (
+            "Without a switch: no control over the circuit. "
+            "If wires are touching → circuit always complete → bulb always ON → battery drains fast. "
+            "If wires not touching → circuit always open → bulb always OFF. "
+            "Switch allows convenient ON/OFF control without physically touching live wires. "
+            "(ಸ್ವಿಚ್ = ಸರ್ಕ್ಯೂಟ್ ನಿಯಂತ್ರಕ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["electric_cell_kn"] = [
+    {
+        "id": "cell_q1",
+        "challenge": (
+            "Highlight the POSITIVE terminal of the cell. "
+            "Describe its physical appearance — how would you identify the positive terminal "
+            "of a real battery by just looking at it?\n\n"
+            "(ಧನ ಟರ್ಮಿನಲ್ ತೋರಿಸಿ — ನಿಜ ಜೀವನದ ಬ್ಯಾಟರಿಯಲ್ಲಿ ಅದನ್ನು ಹೇಗೆ ಗುರುತಿಸುತ್ತೀರಿ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "positive"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'positive'. Look at the highlighted terminal — it has a protruding metal bump/cap.",
+            "attempt_2": "Choose 'positive': The positive terminal has a small metal cap (bump) sticking out, usually marked with '+' symbol.",
+            "attempt_3": "Set 'initialState=positive': Physical identification: Look for the BUMP/CAP at one end = positive (+). The flat disc at the other end = negative (−)."
+        },
+        "concept_reminder": (
+            "Positive terminal (+): Small metal cap or bump protruding from one end. Marked with + sign. "
+            "In circuit symbol: LONG line represents positive. "
+            "Current flows OUT of the + terminal into the external circuit. "
+            "Memory tip: + has an extra line (bump sticks OUT). "
+            "(ಲೋಹ ಟೋಪಿ / ಬಂಪ್ = ಧನ (+) ಟರ್ಮಿನಲ್!)"
+        )
+    },
+    {
+        "id": "cell_q2",
+        "challenge": (
+            "Highlight the NEGATIVE terminal. Compare it to the positive terminal — "
+            "what is the key physical difference between them?\n\n"
+            "(ಋಣ ಟರ್ಮಿನಲ್ ತೋರಿಸಿ — ಧನ ಮತ್ತು ಋಣ ಟರ್ಮಿನಲ್‌ಗಳ ನಡುವಿನ ವ್ಯತ್ಯಾಸ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "negative"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'negative'. The negative terminal is the flat metal disc at the other end of the cell.",
+            "attempt_2": "Choose 'negative': (+) = bump/cap sticking out. (−) = flat metal plate, no protrusion. In symbol: short line = negative.",
+            "attempt_3": "Set 'initialState=negative': Key difference: BUMP = positive; FLAT = negative. Current enters the cell at the − terminal after completing the external circuit."
+        },
+        "concept_reminder": (
+            "Negative terminal (−): Flat metal disc at the base. Marked with − sign. "
+            "In circuit symbol: SHORT line represents negative. "
+            "Current flows INTO the − terminal from the external circuit. "
+            "Key difference from +: NO bump/protrusion — completely flat. "
+            "(ಚಪ್ಪಟೆ ತಟ್ಟೆ = ಋಣ (−) ಟರ್ಮಿನಲ್!)"
+        )
+    },
+    {
+        "id": "cell_q3",
+        "challenge": (
+            "Show the CIRCUIT view (both terminals highlighted). "
+            "Draw and explain the circuit symbol of an electric cell — which line is longer and what does it represent?\n\n"
+            "(ಸರ್ಕ್ಯೂಟ್ ದೃಶ್ಯ ತೋರಿಸಿ — ವಿದ್ಯುತ್ ಕೋಶದ ಸರ್ಕ್ಯೂಟ್ ಚಿಹ್ನೆ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "circuit"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'circuit'. Watch both terminals highlight and the current flow arrow appear.",
+            "attempt_2": "Choose 'circuit': Cell symbol = two parallel vertical lines. LONG line = positive (+). SHORT line = negative (−). Current arrow goes from + to − externally.",
+            "attempt_3": "Set 'initialState=circuit': Long line (+) pushed current out. Short line (−) receives current back. The symbol tells you both identity and current direction."
+        },
+        "concept_reminder": (
+            "Cell circuit symbol: TWO PARALLEL LINES — long and short. "
+            "LONG line = POSITIVE terminal (+) = current exits here. "
+            "SHORT line = NEGATIVE terminal (−) = current returns here. "
+            "The direction of the current arrow in circuit diagrams: always from + to − outside the cell. "
+            "(ಉದ್ದ ರೇಖೆ = + | ಕಿರಿದಾದ ರೇಖೆ = − | ಪ್ರವಾಹ + ರಿಂದ − ಕ್ಕೆ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["battery_connection_kn"] = [
+    {
+        "id": "battery_q1",
+        "challenge": (
+            "Show a SINGLE CELL (1 cell) powering the bulb. "
+            "What is the voltage and how bright is the bulb? "
+            "Is a single cell called a 'battery'?\n\n"
+            "(ಒಂದು ಕೋಶ ಆಯ್ಕೆ ಮಾಡಿ — ವೋಲ್ಟೇಜ್ ಎಷ್ಟು? ಒಂದು ಕೋಶವನ್ನು 'ಬ್ಯಾಟರಿ' ಎಂದು ಕರೆಯಬಹುದೇ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "one_cell"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'one_cell'. Observe the bulb brightness and voltage reading — 1 cell = 1.5V.",
+            "attempt_2": "Choose 'one_cell': 1 cell × 1.5V = 1.5V. Bulb glows dimly. Technically, a single cell is NOT a battery — a battery needs 2+ cells.",
+            "attempt_3": "Set 'initialState=one_cell': One cell = 1.5V, dim glow. A battery = 2 or more cells connected. Common mistake: we call AA cells 'batteries' but they are actually single cells."
+        },
+        "concept_reminder": (
+            "Single cell = 1.5V. Bulb glows but dimly. "
+            "IMPORTANT: A single cell is technically NOT a battery. "
+            "Battery = 2+ cells connected in series. "
+            "Common misuse: people call AA cells 'batteries' but they are individual cells. "
+            "(ಒಂದು ಕೋಶ = 1.5V | ಬ್ಯಾಟರಿ = 2+ ಕೋಶಗಳು!)"
+        )
+    },
+    {
+        "id": "battery_q2",
+        "challenge": (
+            "Connect TWO cells in series. What is the total voltage? "
+            "Compare the bulb brightness to the single-cell case.\n\n"
+            "(ಎರಡು ಕೋಶ ಜೋಡಿಸಿ — ಒಟ್ಟು ವೋಲ್ಟೇಜ್ ಎಷ್ಟು? ಒಂದು ಕೋಶಕ್ಕೆ ಹೋಲಿಸಿದರೆ ದೀಪ ಹೇಗಿದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "two_cells"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'two_cells'. Watch the voltage display change and the bulb get brighter.",
+            "attempt_2": "Choose 'two_cells': 2 × 1.5V = 3V. The bulb glows more brightly because higher voltage pushes more current through the circuit.",
+            "attempt_3": "Set 'initialState=two_cells': Voltage doubles (3V), current increases, bulb glows twice as bright. Series connection = voltages add."
+        },
+        "concept_reminder": (
+            "Two cells in series: 1.5V + 1.5V = 3V. "
+            "Connection: Cell 1 (+) → Cell 2 (−). One end of cell 1 connects to one end of cell 2. "
+            "More voltage → more current → more energy to bulb → BRIGHTER. "
+            "This is why TV remotes use 2 cells — needs 3V to work. "
+            "(2 ಕೋಶ = 3V | ಹೆಚ್ಚು ವೋಲ್ಟೇಜ್ = ಹೆಚ್ಚು ಹೊಳೆಯುವ ಬಲ್ಬ್!)"
+        )
+    },
+    {
+        "id": "battery_q3",
+        "challenge": (
+            "Connect THREE cells. What is the total voltage? "
+            "Explain the rule for connecting cells in series — which terminal connects to which?\n\n"
+            "(ಮೂರು ಕೋಶ ಜೋಡಿಸಿ — ಒಟ್ಟು ವೋಲ್ಟೇಜ್ ಎಷ್ಟು? ಸರಣಿ ಸಂಪರ್ಕದ ನಿಯಮ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "three_cells"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Set 'initialState' to 'three_cells'. Observe 3 × 1.5V = 4.5V and notice the brightest bulb.",
+            "attempt_2": "Choose 'three_cells': Rule for series: each cell's + terminal connects to the NEXT cell's − terminal. Polarity must alternate. Total = 4.5V.",
+            "attempt_3": "Set 'initialState=three_cells': (+)cell1(−)→(+)cell2(−)→(+)cell3(−). + of one always to − of next. Total = 4.5V. Brightest bulb!"
+        },
+        "concept_reminder": (
+            "Three cells in series: 1.5V + 1.5V + 1.5V = 4.5V. "
+            "SERIES RULE: (+) of one cell always connects to (−) of the next cell. "
+            "If polarity is wrong (+ to +), cells work against each other and voltage is REDUCED. "
+            "Battery compartments show + and − markings for this exact reason. "
+            "(3 ಕೋಶ = 4.5V | ಧನ (+) → ಋಣ (−) → ಅಗತ್ಯ ನಿಯಮ!)"
+        )
+    }
+]
+
 
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
