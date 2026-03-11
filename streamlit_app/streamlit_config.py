@@ -2930,6 +2930,206 @@ SIMULATIONS["land_sea_breeze_kn"] = {
 
 
 # =============================================================================
+# RADIATION (Chapter 7, sim6) — Kannada
+# =============================================================================
+SIMULATIONS["radiation_kn"] = {
+    "name": "ವಿಕಿರಣ (Radiation)",
+    "language": "kannada",
+    "description": (
+        "ಶಾಖ ವಿಕಿರಣ ಅನ್ವೇಷಿಸಿ — ಬೆಂಕಿ, ಸೂರ್ಯ, ಬಿಸಿ ಪಾತ್ರೆಯಿಂದ ಶಾಖ ಮಾಧ್ಯಮ ಇಲ್ಲದೆ ಹೇಗೆ ಹರಡುತ್ತದೆ?"
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter7_simulation6_radiation_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಶಾಖ ಮೂಲ (Heat Source)",
+            "default": "fire",
+            "options": ["fire", "sun", "pan"],
+            "option_labels": ["🔥 ಬೆಂಕಿ (Fire)", "☀️ ಸೂರ್ಯ (Sun)", "🍳 ಪಾತ್ರೆ (Hot Pan)"],
+            "url_param": "initialState"
+        },
+        {
+            "name": "distance",
+            "type": "slider",
+            "display_name": "ಅಂತರ (Distance)",
+            "default": 5,
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "url_param": "distance"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+# =============================================================================
+# COMBINED HEAT TRANSFER (Chapter 7, sim7) — Kannada
+# =============================================================================
+SIMULATIONS["combined_heat_transfer_kn"] = {
+    "name": "ಸಂಯೋಜಿತ ಉಷ್ಣ ವರ್ಗಾವಣೆ (Combined Heat Transfer)",
+    "language": "kannada",
+    "description": (
+        "ವಾಹಕತೆ, ಸಂವಹನ, ವಿಕಿರಣ — ಮೂರೂ ಒಟ್ಟಿಗೆ ಅಡುಗೆ ದೃಶ್ಯದಲ್ಲಿ ತೋರಿಸಿ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter7_simulation7_combined_heat_transfer_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ವರ್ಗಾವಣೆ ವಿಧ (Transfer Mode)",
+            "default": "conduction",
+            "options": ["conduction", "convection", "radiation"],
+            "option_labels": [
+                "🔗 ವಾಹಕತೆ (Conduction)",
+                "🌊 ಸಂವಹನ (Convection)",
+                "☀️ ವಿಕಿರಣ (Radiation)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+# =============================================================================
+# WATER CYCLE (Chapter 7, sim8) — Kannada
+# =============================================================================
+SIMULATIONS["water_cycle_kn"] = {
+    "name": "ಜಲ ಚಕ್ರ (Water Cycle)",
+    "language": "kannada",
+    "description": (
+        "ಆವಿಯಾಗುವಿಕೆ, ಘನೀಭವನ, ಅವಕ್ಷೇಪಣ, ಹರಿಯುವಿಕೆ, ಸಂಗ್ರಹ — ಜಲ ಚಕ್ರದ ಎಲ್ಲ ಹಂತ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter7_simulation8_water_cycle_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಚಕ್ರ ಹಂತ (Cycle Stage)",
+            "default": "initial",
+            "options": [
+                "initial",
+                "playing",
+                "evaporation",
+                "condensation",
+                "precipitation",
+                "runoff",
+                "collection"
+            ],
+            "option_labels": [
+                "🌍 ಆರಂಭ (Initial)",
+                "▶️ ಚಲಿಸಿ (Play All)",
+                "☀️ ಆವಿಯಾಗುವಿಕೆ (Evaporation)",
+                "☁️ ಘನೀಭವನ (Condensation)",
+                "🌧️ ಅವಕ್ಷೇಪಣ (Precipitation)",
+                "🏞️ ಹರಿಯುವಿಕೆ (Runoff)",
+                "🌊 ಸಂಗ್ರಹ (Collection)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Water (ಜಲ)"
+}
+
+# =============================================================================
+# INFILTRATION RACE (Chapter 7, sim9) — Kannada
+# =============================================================================
+SIMULATIONS["infiltration_kn"] = {
+    "name": "ಅಂತರ್ಸೇಚನ ಓಟ (Infiltration Race)",
+    "language": "kannada",
+    "description": (
+        "ಜಲ್ಲಿ, ಮರಳು, ಜೇಡಿ ಮಣ್ಣು — ಯಾವ ಮಣ್ಣು ನೀರನ್ನು ವೇಗವಾಗಿ ಹೀರಿಕೊಳ್ಳುತ್ತದೆ?"
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter7_simulation9_infiltration_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಓಟ ಸ್ಥಿತಿ (Race State)",
+            "default": "initial",
+            "options": ["initial", "raining"],
+            "option_labels": ["⏳ ಆರಂಭ (Initial)", "🌧️ ಮಳೆ (Raining)"],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Water (ಜಲ)"
+}
+
+# =============================================================================
+# SPEEDOMETER (Chapter 8, sim10) — Kannada
+# =============================================================================
+SIMULATIONS["speedometer_kn"] = {
+    "name": "ಸ್ಪೀಡೋಮೀಟರ್ ಮತ್ತು ಓಡೋಮೀಟರ್ (Speedometer & Odometer)",
+    "language": "kannada",
+    "description": (
+        "ತ್ವರಿತ ವೇಗ vs ಒಟ್ಟು ಅಂತರ — ವಾಹನ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಮೂಲಕ ಅನ್ವೇಷಿಸಿ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter8_simulation10_speedometer_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ವೇಗ ಸ್ಥಿತಿ (Speed State)",
+            "default": "stopped",
+            "options": ["stopped", "slow", "medium", "fast"],
+            "option_labels": [
+                "🛑 ನಿಂತಿದೆ (Stopped – 0 km/h)",
+                "🐢 ನಿಧಾನ (Slow – 40 km/h)",
+                "🚗 ಮಧ್ಯಮ (Medium – 100 km/h)",
+                "🚀 ವೇಗ (Fast – 200 km/h)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Motion and Speed (ಚಲನೆ ಮತ್ತು ವೇಗ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

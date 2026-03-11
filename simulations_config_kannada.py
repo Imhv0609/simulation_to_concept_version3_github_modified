@@ -12081,6 +12081,1083 @@ QUIZ_QUESTIONS_KN["land_sea_breeze_kn"] = [
     }
 ]
 
+# =============================================================================
+# RADIATION SIMULATION (Chapter 7, sim6)
+# ವಿಕಿರಣ – ಮಾಧ್ಯಮವಿಲ್ಲದ ಉಷ್ಣ ವರ್ಗಾವಣೆ
+# =============================================================================
+SIMULATIONS_KN["radiation_kn"] = {
+    "title": "ವಿಕಿರಣ (Radiation — Heat Without a Medium)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter7_simulation6_radiation_kn.html",
+
+    "description": (
+        "Interactive Kannada radiation simulation. Students select a heat source "
+        "(fire / sun / hot pan) then use the distance slider to observe how radiated "
+        "heat intensity varies with distance (inverse-square-law concept). A colour "
+        "experiment shows that dark surfaces absorb more radiation than light ones."
+    ),
+
+    "cannot_demonstrate": [
+        "Infrared wavelength or electromagnetic spectrum details",
+        "Quantitative Stefan-Boltzmann calculations",
+        "Simultaneous side-by-side comparison of multiple sources",
+    ],
+
+    "initial_params": {"initialState": "fire", "distance": 5, "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Heat Source",
+            "range": "fire, sun, pan",
+            "url_key": "initialState",
+            "effect": (
+                "Selects the radiating heat source shown on load.\n"
+                "  'fire' → campfire / bonfire (default)\n"
+                "  'sun'  → the Sun radiating to Earth\n"
+                "  'pan'  → hot cooking pan radiating to a nearby hand"
+            )
+        },
+        "distance": {
+            "label": "Distance from Source",
+            "range": "1–10 (integer)",
+            "url_key": "distance",
+            "effect": (
+                "Sets the slider position (receiver distance).\n"
+                "  1 → very close (intensity ~100%, HOT!)\n"
+                "  5 → medium distance (warm, default)\n"
+                " 10 → far from source (cool, ~10% intensity)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, colour experiment, and takeaway box."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Radiation: Heat Transfer Without Any Medium",
+            "description": (
+                "Radiation transmits heat energy through empty space as electromagnetic "
+                "waves. No medium (no air, no water, no solid) is needed — the Sun heats "
+                "Earth across the vacuum of space entirely by radiation."
+            ),
+            "key_insight": (
+                "No medium needed = radiation. The Sun is 150 million km away in vacuum, "
+                "yet its radiation warms every surface it touches. "
+                "This distinguishes radiation from conduction (needs solid) and "
+                "convection (needs fluid)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Intensity Decreases With Distance",
+            "description": (
+                "The intensity of radiated heat decreases as the receiver moves farther "
+                "from the source. Moving the slider from 1 to 10 shows the receiver "
+                "cooling from HOT! to Cool as intensity drops."
+            ),
+            "key_insight": (
+                "Radiation intensity follows an inverse-square law: double the distance "
+                "→ quarter the intensity. This is why standing close to a fire is much "
+                "hotter than standing far away, even though the same energy is emitted."
+            ),
+            "related_params": ["initialState", "distance"]
+        },
+        {
+            "id": 3,
+            "title": "Dark Colours Absorb More Radiation Than Light Colours",
+            "description": (
+                "Dark / black surfaces absorb radiation energy and become hotter. "
+                "Light / shiny surfaces reflect radiation and stay cooler. "
+                "This explains why dark clothes feel hot in sunlight."
+            ),
+            "key_insight": (
+                "Black absorbs → hotter. White reflects → cooler. "
+                "In summer, wear light colours (reflect sun) to stay cool. "
+                "In winter, wear dark colours (absorb sun) to stay warm. "
+                "Same radiation source, different material response."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["radiation_kn"] = [
+    {
+        "id": "radiation_kn_q1",
+        "challenge": (
+            "Show heat radiation from the SUN source. Demonstrate how the Sun "
+            "transfers heat to Earth through the vacuum of space with no medium.\n\n"
+            "(ಸೂರ್ಯ ವಿಕಿರಣ ಮೂಲ ಆಯ್ಕೆ ಮಾಡಿ — ಮಾಧ್ಯಮ ಇಲ್ಲದೆ ಉಷ್ಣ ಭೂಮಿ ತಲುಪುವ ಪ್ರಕ್ರಿಯೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "sun"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'sun' as the Simulation State. Radiation waves appear between "
+                "the Sun and Earth — no medium at all in the vacuum of space!"
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'sun'. The Sun–Earth example is the most dramatic "
+                "proof that radiation needs no medium (space is a near-perfect vacuum)."
+            ),
+            "attempt_3": (
+                "Choose 'sun': solar radiation travels 150 million km through vacuum to "
+                "warm the Earth. Neither conduction nor convection can bridge a vacuum."
+            )
+        },
+        "concept_reminder": (
+            "Radiation is the ONLY heat-transfer mode that works across a vacuum. "
+            "Sun → Earth: 150 million km of empty space, yet solar radiation keeps Earth warm. "
+            "Neither conduction (needs solid) nor convection (needs fluid) can do this. "
+            "(ವಿಕಿರಣಕ್ಕೆ ಮಾಧ್ಯಮ ಬೇಡ — ಖಾಲಿ ಜಾಗದಲ್ಲೂ ಹರಡುತ್ತದೆ!)"
+        )
+    },
+    {
+        "id": "radiation_kn_q2",
+        "challenge": (
+            "Show radiation from a HOT PAN (cooking pan). This demonstrates radiation "
+            "from an everyday kitchen object. Observe the receiver (hand) positioned nearby.\n\n"
+            "(ಬಿಸಿ ಪಾತ್ರೆ ವಿಕಿರಣ ಮೂಲ ಆಯ್ಕೆ ಮಾಡಿ — ಅಡುಗೆ ಅಟ್ಟಿ ಬಳಿ ಉಷ್ಣ ಅನುಭವ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "pan"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'pan' as the Simulation State. The hot pan radiates heat to a "
+                "nearby hand — the same warmth felt standing near a hot stove without touching it."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'pan'. Even a cooking pan below boiling "
+                "radiates heat to nearby objects without direct contact."
+            ),
+            "attempt_3": (
+                "Choose 'pan': hot pan radiates to the hand. Conduction would require "
+                "touching the pan; radiation reaches without any contact."
+            )
+        },
+        "concept_reminder": (
+            "A hot pan radiates heat to nearby hands/faces WITHOUT direct contact. "
+            "This is radiation — not conduction (no touch) and not convection "
+            "(the hand is not in the hot air stream). "
+            "Standing near a stove = feeling radiant heat. "
+            "(ಬಿಸಿ ಪಾತ್ರೆ → ಸ್ಪರ್ಶ ಇಲ್ಲದೆ ಕೈಗೆ ಉಷ್ಣ = ವಿಕಿರಣ!)"
+        )
+    },
+    {
+        "id": "radiation_kn_q3",
+        "challenge": (
+            "Show a FIRE source. Explain how distance affects radiant heat intensity "
+            "— what happens to the intensity as you move further from the fire?\n\n"
+            "(ಅಗ್ನಿಕುಂಡ ತೋರಿಸಿ — ದೂರ ಹೆಚ್ಚಾದಂತೆ ವಿಕಿರಣ ತೀವ್ರತೆ ಹೇಗೆ ಬದಲಾಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "fire"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'fire'. Then move the distance slider from 1 (HOT!) to 10 "
+                "(Cool) to see how intensity drops rapidly with distance."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'fire'. Distance = 1 shows intensity near 100%; "
+                "distance = 10 shows ~10%. Radiation spreads outward in all directions."
+            ),
+            "attempt_3": (
+                "Choose 'fire': campfire radiates intensely at close range; intensity "
+                "drops because the same energy now covers a larger spherical area."
+            )
+        },
+        "concept_reminder": (
+            "Radiation intensity decreases with distance from the source. "
+            "Close to fire → high intensity (HOT!). Far from fire → low intensity (Cool). "
+            "Radiated energy spreads outward in all directions — the same energy covers "
+            "a larger area at greater distance → less energy per unit area. "
+            "(ದೂರ ಹೆಚ್ಚಾದಂತೆ ತೀವ್ರತೆ ಕಡಿಮೆ: ವಿಕಿರಣ ಎಲ್ಲ ದಿಕ್ಕಿನಲ್ಲಿ ಹರಡುತ್ತದೆ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# COMBINED HEAT TRANSFER SIMULATION (Chapter 7, sim7)
+# ಸಂಯೋಜಿತ ಉಷ್ಣ ವರ್ಗಾವಣೆ – ಮೂರು ವಿಧಾನಗಳು ಒಟ್ಟಿಗೆ
+# =============================================================================
+SIMULATIONS_KN["combined_heat_transfer_kn"] = {
+    "title": "ಸಂಯೋಜಿತ ಉಷ್ಣ ವರ್ಗಾವಣೆ (Combined Heat Transfer)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter7_simulation7_combined_heat_transfer_kn.html",
+
+    "description": (
+        "Kannada simulation showing all three heat-transfer modes (conduction, "
+        "convection, radiation) occurring simultaneously in one cooking scenario. "
+        "A pot of water on a stove illustrates: conduction (flame → metal pan), "
+        "convection (hot water rises, cool water falls), radiation (heat felt by a "
+        "person standing nearby). Students tap the three highlight tabs for a "
+        "detailed explanation of each mode."
+    ),
+
+    "cannot_demonstrate": [
+        "Quantitative comparison of the relative amounts of each transfer mode",
+        "Heat transfer in a single-mode isolated system",
+        "Effect of pan material on conduction rate"
+    ],
+
+    "initial_params": {"initialState": "conduction", "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Heat Transfer Mode",
+            "range": "conduction, convection, radiation",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which explanation tab is active when the simulation loads.\n"
+                "  'conduction' → shows conduction: flame → pan → water bottom (default)\n"
+                "  'convection' → shows convection: hot water rises, cool water sinks\n"
+                "  'radiation'  → shows radiation: heat felt by person standing nearby"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept summary card at the top."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Conduction: Flame → Metal Pan → Water at the Bottom",
+            "description": (
+                "Heat from the flame passes to the metal pan by conduction: metal "
+                "atoms in the pan vibrate faster when heated and pass vibration "
+                "energy to neighbouring atoms, conducting heat through the pan base."
+            ),
+            "key_insight": (
+                "Conduction = particle-to-particle energy transfer in solids. "
+                "Flame contacts pan → metal atoms vibrate → adjacent atoms vibrate "
+                "→ heat spreads. Metals are good conductors because free electrons "
+                "also carry thermal energy rapidly."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Convection: Hot Water Rises, Cool Water Falls — Circular Currents",
+            "description": (
+                "Inside the pan, convection drives uniform heating of all the water. "
+                "The heated bottom water becomes less dense and rises; cooler surface "
+                "water, being denser, sinks. This creates continuous circular convection "
+                "currents visible as rising bubbles."
+            ),
+            "key_insight": (
+                "Convection = fluid movement transfers heat. Hot fluid (less dense) "
+                "rises; cool fluid (more dense) sinks. Circular current ensures ALL "
+                "the water heats uniformly — without convection only the bottom would heat."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Radiation: Feeling Heat Near the Stove Without Touching It",
+            "description": (
+                "The hot pan and flame radiate infrared waves outward in all directions. "
+                "A person standing to the side feels warmth without touching the pan or "
+                "being in the rising hot-air stream — that is radiation in action."
+            ),
+            "key_insight": (
+                "Radiation needs no medium. Hot stove radiates to your face even if you "
+                "stand to the side, away from rising air. All three modes work "
+                "SIMULTANEOUSLY in one cooking scene. Real life never uses only one mode!"
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["combined_heat_transfer_kn"] = [
+    {
+        "id": "combined_ht_kn_q1",
+        "challenge": (
+            "Select the CONDUCTION tab. In the pan-on-stove scenario, which part of "
+            "the heat flow is caused by conduction and why?\n\n"
+            "(ವಾಹಕತೆ ಟ್ಯಾಬ್ ಆಯ್ಕೆ ಮಾಡಿ — ಈ ದೃಶ್ಯದಲ್ಲಿ ವಾಹಕತೆ ಎಲ್ಲಿ ಸಂಭವಿಸುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "conduction"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'conduction'. The label 'ವಾಹಕತೆ: ಜ್ವಾಲೆ → ಪಾತ್ರೆ' "
+                "shows where conduction occurs — direct flame-to-metal contact."
+            ),
+            "attempt_2": (
+                "Choose 'conduction': direct contact between flame and metal pan → "
+                "metal atoms vibrate → vibration travels through solid metal → pan heats up."
+            ),
+            "attempt_3": (
+                "Set 'initialState=conduction': Conduction = particle vibration in solids. "
+                "Flame touching pan base → metal gets hot. "
+                "Metals are used for pans precisely because of their conductivity."
+            )
+        },
+        "concept_reminder": (
+            "Conduction in cooking: Heat flows FLAME → PAN → WATER BOTTOM. "
+            "Mechanism: flame heats pan atoms → they vibrate → pass vibration to neighbours. "
+            "Metals are good conductors because their FREE electrons carry thermal energy rapidly. "
+            "This is why metal pans efficiently transfer heat from stove to food. "
+            "(ನೇರ ಸಂಪರ್ಕ + ಕಣ ಕಂಪನ = ವಾಹಕತೆ!)"
+        )
+    },
+    {
+        "id": "combined_ht_kn_q2",
+        "challenge": (
+            "Show the CONVECTION tab. Explain the circular water movement inside the "
+            "pan and why it is essential for heating all the water, not just the bottom.\n\n"
+            "(ಸಂವಹನ ಟ್ಯಾಬ್ ಆಯ್ಕೆ ಮಾಡಿ — ನೀರು ಪಾತ್ರೆಯೊಳಗೆ ಯಾಕೆ ಸುತ್ತುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "convection"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'convection'. Watch the bubbles rise — hot water "
+                "at the bottom is less dense, so it rises; cool water from the top sinks."
+            ),
+            "attempt_2": (
+                "Choose 'convection': density difference drives the cycle. Hot water "
+                "(bottom) → low density → rises. Cool water (top) → high density → sinks. "
+                "Circular current forms!"
+            ),
+            "attempt_3": (
+                "Set 'initialState=convection': without convection only the bottom layer "
+                "heats. Convection mixes water, ensuring even heating throughout the pot."
+            )
+        },
+        "concept_reminder": (
+            "Convection in the pan: HOT water at bottom → low density → RISES. "
+            "COOL water at top → high density → SINKS. "
+            "Circular current → mixes water → UNIFORM heating. "
+            "Convection only works in FLUIDS (liquids and gases) — not in solids! "
+            "Rising bubbles you see = evidence of convection currents in action. "
+            "(ಬಿಸಿ ನೀರು ಏರುತ್ತದೆ, ತಂಪು ಇಳಿಯುತ್ತದೆ = ಸಂವಹನ ಪ್ರವಾಹ!)"
+        )
+    },
+    {
+        "id": "combined_ht_kn_q3",
+        "challenge": (
+            "Show the RADIATION tab. Which part of the heat transfer in the scene is "
+            "radiation and how does it differ from conduction and convection?\n\n"
+            "(ವಿಕಿರಣ ಟ್ಯಾಬ್ ಆಯ್ಕೆ ಮಾಡಿ — ಈ ದೃಶ್ಯದಲ್ಲಿ ವಿಕಿರಣ ಎಲ್ಲಿ ಆಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "radiation"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState' to 'radiation'. The person on the right feels warm "
+                "without touching anything and without being in the rising hot-air stream. "
+                "That warmth is radiation."
+            ),
+            "attempt_2": (
+                "Choose 'radiation': orange waves from the pan show heat radiating outward. "
+                "The person absorbs these infrared waves without any medium."
+            ),
+            "attempt_3": (
+                "Set 'initialState=radiation': KEY difference — radiation travels through "
+                "AIR and even vacuum. Conduction needs solid contact; convection needs fluid."
+            )
+        },
+        "concept_reminder": (
+            "Radiation in cooking: hot pan and flame radiate heat outward in all directions. "
+            "Person nearby (not touching, not in direct hot-air stream) feels warm = RADIATION. "
+            "COMPARISON: Conduction = solid contact needed. Convection = fluid medium needed. "
+            "Radiation = NO medium needed — goes through air and even vacuum. "
+            "All three happen simultaneously in one cooking scenario! "
+            "(ಮಾಧ್ಯಮ ಇಲ್ಲದೆ ಉಷ್ಣ ತರಂಗ = ವಿಕಿರಣ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# WATER CYCLE SIMULATION (Chapter 7, sim8)
+# ಜಲ ಚಕ್ರ – ಸೂರ್ಯ ಚಾಲಿತ ನೀರಿನ ಚಕ್ರ
+# =============================================================================
+SIMULATIONS_KN["water_cycle_kn"] = {
+    "title": "ಜಲ ಚಕ್ರ (Water Cycle)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter7_simulation8_water_cycle_kn.html",
+
+    "description": (
+        "Interactive Kannada water cycle simulation. Students tap stage labels "
+        "(evaporation, condensation, precipitation, runoff, collection) or use "
+        "Play / Step-by-Step buttons to explore each phase. The Sun drives the "
+        "entire cycle; the simulation animates each stage with visual cues and "
+        "a pop-up explanation for every stage."
+    ),
+
+    "cannot_demonstrate": [
+        "Transpiration separately from evaporation",
+        "Glaciers and polar ice as part of the cycle",
+        "Quantitative water volume or flow rates"
+    ],
+
+    "initial_params": {"initialState": "initial", "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Cycle Stage",
+            "range": "initial, playing, evaporation, condensation, precipitation, runoff, collection",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which stage is shown and highlighted on load.\n"
+                "  'initial'       → default view with instruction overlay (no stage)\n"
+                "  'playing'       → auto-clicks Play All — all animations run continuously\n"
+                "  'evaporation'   → highlights sun + evaporation arrows, shows info popup\n"
+                "  'condensation'  → highlights clouds, shows condensation info popup\n"
+                "  'precipitation' → activates rain cloud and raindrops, shows info popup\n"
+                "  'runoff'        → activates runoff arrow, shows info popup\n"
+                "  'collection'    → highlights ocean label, shows info popup"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept summary card at the top."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "The Sun Drives the Water Cycle via Evaporation",
+            "description": (
+                "The Sun's heat converts liquid water from oceans, rivers, and lakes into "
+                "invisible water vapour (evaporation). Without the Sun's energy input, "
+                "evaporation stops and the entire water cycle ceases."
+            ),
+            "key_insight": (
+                "Sun = the engine of the water cycle. Solar energy converts liquid water "
+                "to gas (evaporation). Remove the sun → no evaporation → no clouds → "
+                "no rain → all water stays on the ground. "
+                "Plants also contribute water vapour via transpiration."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Condensation Forms Clouds; Precipitation Returns Water to Earth",
+            "description": (
+                "Rising water vapour cools at altitude. Cool air cannot hold as much "
+                "vapour → vapour condenses into tiny water droplets → clouds form. "
+                "When droplets grow heavy enough, they fall as precipitation "
+                "(rain, snow, or hail depending on temperature)."
+            ),
+            "key_insight": (
+                "Condensation = vapour → liquid droplets (clouds). "
+                "Precipitation = cloud droplets too heavy → fall to Earth. "
+                "Rain is the water the Sun evaporated, returned to Earth. "
+                "Temperature determines form: above 0°C = rain; below = snow."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Runoff, Collection, and the Perpetual Cycle",
+            "description": (
+                "Fallen water runs off land into rivers (runoff) or seeps into the ground "
+                "(infiltration). All water eventually collects in oceans, lakes, and rivers "
+                "— ready to evaporate again. The cycle repeats without end."
+            ),
+            "key_insight": (
+                "The water cycle never stops because the Sun continuously supplies energy. "
+                "The same water molecules cycle repeatedly — the water you drink today "
+                "may have been ocean water, vapour, rain, and river water across millions of years."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["water_cycle_kn"] = [
+    {
+        "id": "water_cycle_kn_q1",
+        "challenge": (
+            "Show the EVAPORATION stage of the water cycle. Explain why evaporation "
+            "is called the first step and what energy source drives it.\n\n"
+            "(ಆವಿಯಾಗುವಿಕೆ ಹಂತ ತೋರಿಸಿ — ಇದನ್ನು ಮೊದಲ ಹಂತ ಯಾಕೆ ಕರೆಯಲಾಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "evaporation"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'evaporation'. The sun glows actively and orange upward-arrows "
+                "rise from the ocean toward the clouds."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'evaporation'. Evaporation starts the cycle — "
+                "Sun's heat converts ocean/river water into invisible water vapour."
+            ),
+            "attempt_3": (
+                "Choose 'evaporation': Sun energy → liquid water → water vapour (invisible gas) "
+                "rising. This first step determines how much rain will eventually fall."
+            )
+        },
+        "concept_reminder": (
+            "Evaporation = liquid water → water vapour, driven by SUN's heat energy. "
+            "Sources: oceans (70%), rivers, lakes, wet soil. Plants also release vapour (transpiration). "
+            "Water vapour is INVISIBLE — clouds form only when it condenses into droplets. "
+            "Without evaporation, there is no precipitation — the cycle starts here. "
+            "(ಸೂರ್ಯ + ಸಮುದ್ರ → ಆವಿ → ಮೇಲೇರುತ್ತದೆ = ಆವಿಯಾಗುವಿಕೆ!)"
+        )
+    },
+    {
+        "id": "water_cycle_kn_q2",
+        "challenge": (
+            "Demonstrate the PRECIPITATION stage. Show how water falls from clouds "
+            "and explain what determines whether it is rain, snow, or hail.\n\n"
+            "(ಅವಕ್ಷೇಪಣ ಹಂತ ತೋರಿಸಿ — ಮಳೆ ಅಥವಾ ಹಿಮ ಎಂಬ ರೂಪ ಯಾವುದು ನಿರ್ಧರಿಸುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "precipitation"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'precipitation'. The dark rain cloud activates and "
+                "raindrops fall from it. The 🌧️ label pulses to show the active stage."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'precipitation'. When cloud droplets grow too "
+                "heavy, gravity pulls them down as precipitation."
+            ),
+            "attempt_3": (
+                "Choose 'precipitation': cloud droplets coalesce → too heavy → fall. "
+                "TEMPERATURE determines form: above 0°C = rain; near 0°C = sleet; below = snow."
+            )
+        },
+        "concept_reminder": (
+            "Precipitation = condensed cloud droplets coalesce until too heavy → FALL. "
+            "Forms: RAIN (above 0°C all the way down), SNOW (below 0°C), HAIL (frozen in updrafts). "
+            "India receives most rainfall June–September as southwest monsoon precipitation. "
+            "The water cycle exists to move water from oceans back to land as precipitation. "
+            "(ಮೋಡ ತುಂಬಿ ಭಾರವಾದಾಗ → ಮಳೆ/ಹಿಮ/ಆಲಿಕಲ್ಲಾಗಿ ಬೀಳುತ್ತದೆ = ಅವಕ್ಷೇಪಣ!)"
+        )
+    },
+    {
+        "id": "water_cycle_kn_q3",
+        "challenge": (
+            "Show the COLLECTION stage. Where does rain water eventually go before "
+            "evaporation can restart the cycle?\n\n"
+            "(ಸಂಗ್ರಹ ಹಂತ ತೋರಿಸಿ — ಮಳೆ ನೀರು ಕೊನೆಯಲ್ಲಿ ಎಲ್ಲಿ ಸೇರುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "collection"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'collection'. The ocean label activates — water from precipitation "
+                "and runoff collects in oceans, lakes, rivers, and groundwater."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'collection'. After runoff and infiltration, "
+                "water reaches the ocean → ready to evaporate again."
+            ),
+            "attempt_3": (
+                "Choose 'collection': the ocean (covering 70% of Earth) is the main collector. "
+                "From here the sun evaporates water again → cycle restarts."
+            )
+        },
+        "concept_reminder": (
+            "Collection = final stage where water gathers in: "
+            "OCEANS (primary reservoir, ~97%), rivers, lakes, glaciers, groundwater (aquifers). "
+            "From the ocean, Sun's heat triggers evaporation → cycle restarts. "
+            "The same water molecules have been cycling for billions of years! "
+            "Conservation of water: Earth's total water amount stays roughly constant. "
+            "(ಸಮುದ್ರ + ನದಿ + ಸರೋವರ = ಸಂಗ್ರಹ → ಚಕ್ರ ಮತ್ತೆ ಪ್ರಾರಂಭ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# INFILTRATION SIMULATION (Chapter 7, sim9)
+# ಅಂತರ್ಸೇಚನ ಓಟ – ಯಾವ ಮಣ್ಣು ನೀರನ್ನು ವೇಗವಾಗಿ ಹೀರಿಕೊಳ್ಳುತ್ತದೆ?
+# =============================================================================
+SIMULATIONS_KN["infiltration_kn"] = {
+    "title": "ಅಂತರ್ಸೇಚನ ಓಟ (Infiltration Race — Soil Types)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter7_simulation9_infiltration_kn.html",
+
+    "description": (
+        "Kannada infiltration race simulation. Three soil columns (gravel, sand, clay) "
+        "race to show which allows water to seep through fastest. Students start the "
+        "race by clicking 'Make It Rain'. Gravel wins (largest particles, biggest gaps); "
+        "clay finishes last (tiny particles, almost no gaps). A results table shows all "
+        "three finish times. Teaches how particle size determines infiltration rate and "
+        "why clay soils and concrete surfaces cause flooding."
+    ),
+
+    "cannot_demonstrate": [
+        "Mixed soil compositions such as loam",
+        "Runoff vs infiltration split on impermeable hard surfaces",
+        "Effect of soil compaction on infiltration rate"
+    ],
+
+    "initial_params": {"initialState": "initial", "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Race State",
+            "range": "initial, raining",
+            "url_key": "initialState",
+            "effect": (
+                "Controls whether the infiltration race has been started.\n"
+                "  'initial' → waiting state, soil columns visible, race not started (default)\n"
+                "  'raining' → auto-clicks 'Make It Rain' after 800 ms to start the race"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept summary card at the top."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Infiltration Rate Depends on Particle Size (Gravel > Sand > Clay)",
+            "description": (
+                "Gravel particles are large, leaving large gaps — water passes quickly. "
+                "Sand has medium particles with moderate gaps — medium speed. "
+                "Clay particles are tiny and pack tightly — almost no gaps, very slow infiltration."
+            ),
+            "key_insight": (
+                "Large particles → large gaps → fast infiltration (gravel wins). "
+                "Tiny particles → tiny gaps → slow infiltration (clay loses). "
+                "This relationship defines a soil's permeability."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Sandy / Gravelly Soil: Good Drainage and Groundwater Recharge",
+            "description": (
+                "Sandy and gravelly soils allow rain to infiltrate rapidly, reducing "
+                "surface flooding and recharging underground aquifers (groundwater). "
+                "Gravel is used in drainage systems precisely for this reason."
+            ),
+            "key_insight": (
+                "Fast infiltration (gravel/sand): less flood risk, more groundwater recharge. "
+                "Gardens and sports fields use sandy / gravelly material to avoid waterlogging. "
+                "Gravel-lined drains exploit fast infiltration to clear water quickly."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Clay Soil and Concrete: Flood Risk and Groundwater Depletion",
+            "description": (
+                "Clay soils and impermeable surfaces like concrete prevent infiltration. "
+                "Rain on clay or concrete cannot enter the ground and flows as surface "
+                "runoff — increasing flood risk and depleting groundwater reserves."
+            ),
+            "key_insight": (
+                "Clay + concrete cities = near-zero infiltration = all rain becomes runoff "
+                "= floods AND groundwater not recharged = future water shortage. "
+                "This is why urban planners now build permeable pavements and parks."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["infiltration_kn"] = [
+    {
+        "id": "infiltration_kn_q1",
+        "challenge": (
+            "Start the infiltration race (RAINING state). Observe which soil allows "
+            "water to pass through fastest and explain why.\n\n"
+            "(ಮಳೆ ಪ್ರಾರಂಭ ಮಾಡಿ — ಯಾವ ಮಣ್ಣು ನೀರನ್ನು ವೇಗವಾಗಿ ಒಳಕ್ಕೆ ಬಿಡುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "raining"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'raining'. Rain animation starts and water drops appear in all "
+                "three columns. Watch which one reaches the aquifer first."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'raining'. Race result: gravel (⚡ FAST!), "
+                "sand (💧 Medium), clay (🐢 Slow)."
+            ),
+            "attempt_3": (
+                "Choose 'raining': gravel wins because large particles leave large gaps "
+                "for water to flow through quickly."
+            )
+        },
+        "concept_reminder": (
+            "Infiltration race result: GRAVEL (1st) → SAND (2nd) → CLAY (3rd). "
+            "Gravel wins: large particles = large pores = fast water flow path. "
+            "Same physics as wide pipe vs narrow pipe — bigger opening = faster flow. "
+            "Clay loses: tiny particles pack together → almost no pores → water barely seeps. "
+            "(ದೊಡ್ಡ ಕಣ = ದೊಡ್ಡ ಅಂತರ = ನೀರು ವೇಗ → ಜಲ್ಲಿ ಗೆಲ್ಲುತ್ತದೆ!)"
+        )
+    },
+    {
+        "id": "infiltration_kn_q2",
+        "challenge": (
+            "Show the INITIAL state (before rain). Just by looking at the three soil "
+            "columns, predict which will be fastest and explain your reasoning.\n\n"
+            "(ಮಳೆ ಮೊದಲಿನ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಮೂರು ಮಣ್ಣಿನ ಸ್ತಂಭ ನೋಡಿ ಮುಂಚಿತವಾಗಿ ಊಹಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' to see the soil columns before rain. Observe particle "
+                "sizes — gravel has large visible stones; sand has tiny dots; clay is very fine."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'initial'. Bigger particles = bigger gaps between them "
+                "= more space for water to flow. Gravel should win (prediction)."
+            ),
+            "attempt_3": (
+                "Choose 'initial': the initial view lets you predict from visual reasoning. "
+                "This is scientific method — predict then observe to confirm."
+            )
+        },
+        "concept_reminder": (
+            "Before the race, use visual reasoning: "
+            "Gravel column → large round stones with clear visible gaps → FAST. "
+            "Sand column → many tiny grains, moderate gaps → MEDIUM. "
+            "Clay column → so many fine particles that gaps are almost invisible → SLOW. "
+            "PREDICTION → OBSERVATION → CONFIRMATION = the scientific method in action. "
+            "(ಕಣ ಗಾತ್ರ ನೋಡಿ ಊಹಿಸು, ಮಳೆ ಅಳಿದ ಮೇಲೆ ದೃಢೀಕರಿಸು!)"
+        )
+    },
+    {
+        "id": "infiltration_kn_q3",
+        "challenge": (
+            "Run the infiltration race (RAINING state). Explain the real-world "
+            "consequence: why do clay soils cause flooding while gravel reduces it?\n\n"
+            "(ಮಳೆ ಓಟ ತೋರಿಸಿ — ಮಣ್ಣಿನ ಅಂತರ್ಸೇಚನ ದರ ಪ್ರಾಕೃತಿಕ ಮತ್ತು ನಗರ ಪ್ರಭಾವ ವಿವರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "raining"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'raining'. Watch clay — water barely infiltrates. When rain falls "
+                "faster than clay can absorb it, the excess flows on the surface = flooding."
+            ),
+            "attempt_2": (
+                "Set 'initialState=raining'. Clay near-zero infiltration → runoff → floods. "
+                "Gravel → rain soaks in immediately → no runoff → no flood."
+            ),
+            "attempt_3": (
+                "Choose 'raining': the takeaway section explains real impacts. "
+                "Gravel-lined drains = fast drainage. Concrete cities = clay-like = flood-prone."
+            )
+        },
+        "concept_reminder": (
+            "Real-world infiltration impact: "
+            "HIGH infiltration (gravel/sand): rain soaks into ground → no surface runoff "
+            "→ no flood → groundwater recharged → long-term water availability. "
+            "LOW infiltration (clay/concrete): rain stays on surface → runoff → FLOODS "
+            "→ groundwater NOT recharged → water shortage later. "
+            "City solution: permeable pavements, parks, and gravel paths allow infiltration. "
+            "(ಹೆಚ್ಚು ಅಂತರ್ಸೇಚನ = ಪ್ರವಾಹ ಕಡಿಮೆ + ಭೂಜಲ ಹೆಚ್ಚು!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# SPEEDOMETER SIMULATION (Chapter 8, sim10)
+# ಸ್ಪೀಡೋಮೀಟರ್ ಮತ್ತು ಓಡೋಮೀಟರ್ – ತ್ವರಿತ ವೇಗ vs ಒಟ್ಟು ಅಂತರ
+# =============================================================================
+SIMULATIONS_KN["speedometer_kn"] = {
+    "title": "ಸ್ಪೀಡೋಮೀಟರ್ ಮತ್ತು ಓಡೋಮೀಟರ್ (Speedometer and Odometer)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter8_simulation10_speedometer_kn.html",
+
+    "description": (
+        "Interactive Kannada vehicle dashboard simulation. Students press and hold "
+        "the gas pedal to accelerate (0–240 km/h) and brake to decelerate. The "
+        "speedometer needle rotates, the digital speed display changes colour by zone "
+        "(green / yellow / red), and the odometer accumulates total distance. A trip "
+        "meter can be reset. Teaches the difference between instantaneous speed "
+        "(speedometer) and total distance (odometer)."
+    ),
+
+    "cannot_demonstrate": [
+        "Calculating travel time from speed and distance",
+        "Average speed vs instantaneous speed distinction quantitatively",
+        "Velocity (direction + magnitude) vs speed (magnitude only)"
+    ],
+
+    "initial_params": {"initialState": "stopped", "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Speed State",
+            "range": "stopped, slow, medium, fast",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the initial speed shown on the speedometer on load.\n"
+                "  'stopped' → 0 km/h, needle at far left (default)\n"
+                "  'slow'    → 40 km/h, needle in green safe zone\n"
+                "  'medium'  → 100 km/h, needle at yellow zone (highway speed)\n"
+                "  'fast'    → 200 km/h, needle at red danger zone"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and fun-fact panel."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Speedometer Shows Instantaneous Speed",
+            "description": (
+                "The speedometer displays how fast the vehicle is moving at THIS EXACT "
+                "MOMENT — the instantaneous speed in km/h. It changes continuously as "
+                "the driver accelerates or brakes."
+            ),
+            "key_insight": (
+                "Speedometer = INSTANTANEOUS SPEED. Push gas → needle rises immediately. "
+                "Press brake → needle falls immediately. Speed limits on road signs are "
+                "checked against the speedometer — not average speed."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Odometer Records Total Distance Travelled",
+            "description": (
+                "The odometer is a cumulative counter that adds up ALL the distance the "
+                "vehicle has ever travelled. It never decreases unless manually reset. "
+                "The trip meter (sub-odometer) can be reset for individual journeys."
+            ),
+            "key_insight": (
+                "Odometer = TOTAL DISTANCE (accumulated). Speedometer = speed right now. "
+                "Buying a second-hand car: check odometer to know total usage. "
+                "Service is due every 5,000 km — tracked by odometer, not calendar."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Speed and Distance: Speed = Distance ÷ Time",
+            "description": (
+                "Speedometer and odometer together let us apply: Speed = Distance ÷ Time. "
+                "If you travel 100 km (odometer) in 2 hours, your average speed was 50 km/h. "
+                "The two instruments measure different but mathematically linked quantities."
+            ),
+            "key_insight": (
+                "v = d / t. Speedometer gives instantaneous v; odometer gives cumulative d. "
+                "Average speed = total distance (odometer) ÷ total travel time. "
+                "Display colour zones give safety feedback: green (safe) → yellow (caution) → red (danger)."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["speedometer_kn"] = [
+    {
+        "id": "speedometer_kn_q1",
+        "challenge": (
+            "Set the simulation to SLOW speed (40 km/h). Explain what the speedometer "
+            "reading tells us and why speed is described as 'instantaneous'.\n\n"
+            "(ನಿಧಾನ ವೇಗ ತೋರಿಸಿ — ಸ್ಪೀಡೋಮೀಟರ್ ಏನು ಅಳೆಯುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "slow"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'slow'. The needle points to ~40 km/h in the green safe zone. "
+                "This is typical city driving speed."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'slow'. 40 km/h = instantaneous speed: the vehicle "
+                "covers 40 km if it maintains this speed for one hour."
+            ),
+            "attempt_3": (
+                "Choose 'slow': the speedometer updates continuously as speed changes — "
+                "it always shows 'right now' speed. Press gas → needle jumps immediately."
+            )
+        },
+        "concept_reminder": (
+            "Speedometer shows INSTANTANEOUS speed = your speed at this exact second. "
+            "40 km/h means: if you maintained this speed for 1 hour, you would cover 40 km. "
+            "Speed is NOT constant during a journey — it rises and falls. "
+            "That is why speedometer reading and average speed are DIFFERENT concepts. "
+            "Speed limit signs are checked against the speedometer reading. "
+            "(ಸ್ಪೀಡೋಮೀಟರ್ = ಈ ಕ್ಷಣದ ತ್ವರಿತ ವೇಗ!)"
+        )
+    },
+    {
+        "id": "speedometer_kn_q2",
+        "challenge": (
+            "Set the simulation to FAST speed (200 km/h). What happens to the display "
+            "colour and what is the real-world safety implication of such speed?\n\n"
+            "(ತೀವ್ರ ವೇಗ ತೋರಿಸಿ — ಸೂಚಕ ಬಣ್ಣ ಏನಾಗುತ್ತದೆ, ಸುರಕ್ಷತೆ ಬಗ್ಗೆ ಏನು?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "fast"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'fast'. The needle swings far right to 200 km/h and the "
+                "digital display turns RED. This is the danger zone."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'fast'. At 200 km/h the display goes red — "
+                "alerting that this speed far exceeds safe road limits."
+            ),
+            "attempt_3": (
+                "Choose 'fast': at 200 km/h braking distance is around 4× longer "
+                "than at 100 km/h, dramatically increasing crash severity."
+            )
+        },
+        "concept_reminder": (
+            "At 200 km/h: digital display turns RED = danger zone. "
+            "Why dangerous: braking distance at 200 km/h is ~4× longer than at 100 km/h. "
+            "High speed also magnifies the effect of driver errors. "
+            "India highway speed limit: 120 km/h; city: 50 km/h. "
+            "Colour zones: green (safe) → yellow (highway caution) → RED (dangerous, slow down). "
+            "(200 km/h = ಅಪಾಯ ವಲಯ = ಕೆಂಪು ಬಣ್ಣ = ವೇಗ ಕಡಿಮೆ ಮಾಡಿ!)"
+        )
+    },
+    {
+        "id": "speedometer_kn_q3",
+        "challenge": (
+            "Show the STOPPED state (0 km/h). The odometer still shows accumulated "
+            "distance. Explain the key difference between the speedometer (zero) and "
+            "the odometer (non-zero) readings.\n\n"
+            "(ನಿಂತ ಸ್ಥಿತಿ ತೋರಿಸಿ — ಸ್ಪೀಡೋಮೀಟರ್ ಶೂನ್ಯ ಆದರೆ ಓಡೋಮೀಟರ್ ಶೂನ್ಯ ಅಲ್ಲ — ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "stopped"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'stopped'. Needle at 0, but odometer shows total accumulated "
+                "distance from previous travel. Speed can be 0 while past distance persists."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'stopped'. Speedometer = current instantaneous "
+                "speed (now 0). Odometer = TOTAL distance ever driven — never auto-resets."
+            ),
+            "attempt_3": (
+                "Choose 'stopped': the car is not moving (speed = 0) but it previously "
+                "covered some distance (odometer > 0). These are two different measurements."
+            )
+        },
+        "concept_reminder": (
+            "KEY DISTINCTION: "
+            "SPEEDOMETER = current instantaneous speed. Zero = not moving right now. "
+            "ODOMETER = total accumulated distance (all past journeys added). "
+            "Odometer never goes to 0 automatically — only manual reset. "
+            "Analogy: speedometer = your running speed THIS second. "
+            "Odometer = total steps you have ever walked in your life. "
+            "(ಸ್ಪೀಡೋಮೀಟರ್ = ಈಗಿನ ವೇಗ | ಓಡೋಮೀಟರ್ = ಒಟ್ಟು ಅಂತರ = ಎರಡು ಭಿನ್ನ ಅಳತೆಗಳು!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
