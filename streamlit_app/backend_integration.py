@@ -387,7 +387,7 @@ def build_sim_url(params: Dict[str, Any], autostart: bool = True) -> str:
         return build_simulation_url(params, autostart)
     
     # Fallback URL building
-    base_url = "https://imhvs0609.github.io/simulation_to_concept_version3_github_modified/simulations/simple_pendulum.html"
+    base_url = "https://imhv0609.github.io/simulation_to_concept_version3_github_modified/simulations/simple_pendulum.html"
     url = f"{base_url}?length={params.get('length', 5)}&oscillations={params.get('number_of_oscillations', 10)}"
     if autostart:
         url += "&autoStart=true"

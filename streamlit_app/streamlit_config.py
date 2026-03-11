@@ -8,7 +8,7 @@ Easy to add new simulations here.
 # =============================================================================
 # GITHUB PAGES BASE URL
 # =============================================================================
-GITHUB_PAGES_BASE = "https://imhvs0609.github.io/simulation_to_concept_version3_github_modified/simulations"
+GITHUB_PAGES_BASE = "https://imhv0609.github.io/simulation_to_concept_version3_github_modified/simulations"
 
 # =============================================================================
 # SIMULATION CONFIGURATIONS
@@ -529,7 +529,7 @@ SIMULATIONS = {
 # =============================================================================
 # GitHub Pages base URL for the Kannada simulations folder
 GITHUB_PAGES_BASE_KN = (
-    "https://imhvs0609.github.io/simulation_to_concept_version3_github_modified"
+    "https://imhv0609.github.io/simulation_to_concept_version3_github_modified"
     "/simulations_kannada"
 )
 
@@ -572,6 +572,221 @@ SIMULATIONS["industrial_waste_treatment_kn"] = {
             "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
             "default": True,
             # bool options → Streamlit checkbox
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# TURMERIC INDICATOR SIMULATION (Kannada)
+# ಹಲ್ದಿ ಸೂಚಕ – ಭಾಗಶಃ ಸೂಚಕ (ಕ್ಷಾರ ಮಾತ್ರ ಕೆಂಪಾಗಿಸುತ್ತದೆ)
+# =============================================================================
+SIMULATIONS["turmeric_indicator_kn"] = {
+    "name": "ಹಲ್ದಿ ಸೂಚಕ (Turmeric Indicator)",
+    "language": "kannada",
+    "description": (
+        "ಹಲ್ದಿ ಕಾಗದ ಬಳಸಿ ದ್ರಾವಣಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ — ಕ್ಷಾರ ಮಾತ್ರ ಕೆಂಪು-ಕಂದು ಬಣ್ಣ ನೀಡುತ್ತದೆ.\n"
+        "Test solutions with turmeric paper — only bases turn it red/brown (partial indicator)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation5_turmeric_indicator_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
+            "default": "basic",
+            "options": ["acidic", "basic", "neutral"],
+            "option_labels": [
+                "ಆಮ್ಲ (Acidic — lemon juice, stays yellow)",
+                "ಕ್ಷಾರ (Basic — soap, turns red/brown)",
+                "ತಟಸ್ಥ (Neutral — tap water, stays yellow)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# RED ROSE INDICATOR SIMULATION (Kannada)
+# ಕೆಂಪು ಗುಲಾಬಿ ಸೂಚಕ – ಪೂರ್ಣ ಸೂಚಕ (ಕೆಂಪು/ಹಸಿರು/ಗುಲಾಬಿ ಬಣ್ಣ)
+# =============================================================================
+SIMULATIONS["red_rose_indicator_kn"] = {
+    "name": "ಕೆಂಪು ಗುಲಾಬಿ ಸೂಚಕ (Red Rose Indicator)",
+    "language": "kannada",
+    "description": (
+        "ಗುಲಾಬಿ ಸಾರ ಬಳಸಿ ದ್ರಾವಣ ಪರೀಕ್ಷಿಸಿ — ಕೆಂಪು=ಆಮ್ಲ, ಹಸಿರು=ಕ್ಷಾರ, ಗುಲಾಬಿ=ತಟಸ್ಥ.\n"
+        "Test solutions with rose petal extract — red=acid, green=base, pink=neutral (complete indicator)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation4_red_rose_indicator_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
+            "default": "acidic",
+            "options": ["acidic", "basic", "neutral"],
+            "option_labels": [
+                "ಆಮ್ಲ (Acidic — lemon juice, turns red)",
+                "ಕ್ಷಾರ (Basic — soap, turns green)",
+                "ತಟಸ್ಥ (Neutral — tap water, stays pink)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# PROPERTIES OF ACIDS AND BASES SIMULATION (Kannada)
+# ಆಮ್ಲ ಮತ್ತು ಕ್ಷಾರ ಗುಣಗಳ ಹೋಲಿಕೆ
+# =============================================================================
+SIMULATIONS["properties_acids_bases_kn"] = {
+    "name": "ಆಮ್ಲ ಮತ್ತು ಕ್ಷಾರ ಗುಣಗಳು (Properties of Acids & Bases)",
+    "language": "kannada",
+    "description": (
+        "ಆಮ್ಲ ಮತ್ತು ಕ್ಷಾರ ಗುಣಗಳನ್ನು ಟ್ಯಾಬ್ ಮೂಲಕ ಹೋಲಿಸಿ — ರುಚಿ, ಸ್ಪರ್ಶ, ಲಿಟ್ಮಸ್ ಕ್ರಿಯೆ.\n"
+        "Compare acid vs base properties using tabs — taste, touch, litmus reaction, examples."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation3_properties_acids_bases_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ಯಾನಲ್ ಆಯ್ಕೆ / Panel Selection",
+            "default": "initial",
+            "options": ["initial", "acids", "bases"],
+            "option_labels": [
+                "ಪ್ರಾರಂಭ (Initial — acids tab default)",
+                "ಆಮ್ಲ (Acids — sour, blue litmus → red)",
+                "ಕ್ಷಾರ (Bases — bitter/slippery, red litmus → blue)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# LITMUS INDICATOR SIMULATION (Kannada)
+# ಲಿಟ್ಮಸ್ ಕಾಗದ ಪರೀಕ್ಷೆ – ಶಾಸ್ತ್ರೀಯ ಪೂರ್ಣ ಸೂಚಕ
+# =============================================================================
+SIMULATIONS["litmus_indicator_kn"] = {
+    "name": "ಲಿಟ್ಮಸ್ ಕಾಗದ ಪರೀಕ್ಷೆ (Litmus Paper Test)",
+    "language": "kannada",
+    "description": (
+        "ಲಿಟ್ಮಸ್ ಕಾಗದ ಮುಳುಗಿಸಿ ಪರೀಕ್ಷಿಸಿ — ನೀಲಿ→ಕೆಂಪು=ಆಮ್ಲ, ಕೆಂಪು→ನೀಲಿ=ಕ್ಷಾರ, ಬದಲಾವಣೆ ಇಲ್ಲ=ತಟಸ್ಥ.\n"
+        "Dip litmus papers — blue→red=acid, red→blue=base, no change=neutral (complete indicator)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation2_litmus_indicator_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
+            "default": "acidic",
+            "options": ["acidic", "basic", "neutral"],
+            "option_labels": [
+                "ಆಮ್ಲ (Acidic — lemon juice, blue→red)",
+                "ಕ್ಷಾರ (Basic — soap, red→blue)",
+                "ತಟಸ್ಥ (Neutral — tap water, no change)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# HIDDEN MESSAGE SIMULATION (Kannada)
+# ಗುಪ್ತ ಸಂದೇಶ ಬಹಿರಂಗ – ಸೂಚಕ ಪರಿಚಯ
+# =============================================================================
+SIMULATIONS["hidden_message_kn"] = {
+    "name": "ಗುಪ್ತ ಸಂದೇಶ ಬಹಿರಂಗ (Hidden Message Reveal)",
+    "language": "kannada",
+    "description": (
+        "ಸೂಚಕ ಸಿಂಪಡಿಸಿ ಅದೃಶ್ಯ ಸಂದೇಶ ಬಹಿರಂಗ ಮಾಡಿ — ಕ್ಷಾರ ಶಾಯಿ + ಸೂಚಕ = ಬಣ್ಣ ಬದಲಾವಣೆ.\n"
+        "Spray indicator to reveal hidden base ink message — introduction to indicator chemistry."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation1_hidden_message_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಬಹಿರಂಗ ಸ್ಥಿತಿ / Reveal State",
+            "default": "hidden",
+            "options": ["hidden", "revealing", "revealed"],
+            "option_labels": [
+                "ಅದೃಶ್ಯ (Hidden — blank paper, 0 sprays)",
+                "ಬಹಿರಂಗಗೊಳ್ಳುತ್ತಿದೆ (Revealing — 1 spray, partial)",
+                "ಬಹಿರಂಗ (Revealed — 3 sprays, fully visible)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
             "options": [True, False],
             "url_param": "showHints"
         }
