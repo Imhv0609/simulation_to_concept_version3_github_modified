@@ -797,6 +797,219 @@ SIMULATIONS["hidden_message_kn"] = {
 
 
 # =============================================================================
+# OLFACTORY INDICATOR SIMULATION (Kannada)
+# ಘ್ರಾಣ ಸೂಚಕ – ಈರುಳ್ಳಿ ವಾಸನೆಯಿಂದ ಆಮ್ಲ/ಕ್ಷಾರ ಗುರುತಿಸಿ
+# =============================================================================
+SIMULATIONS["olfactory_indicator_kn"] = {
+    "name": "ಘ್ರಾಣ ಸೂಚಕ (Olfactory Indicator)",
+    "language": "kannada",
+    "description": (
+        "ಈರುಳ್ಳಿ ಬಳಸಿ ಆಮ್ಲ/ಕ್ಷಾರ ಗುರುತಿಸಿ — ಆಮ್ಲ: ವಾಸನೆ ಉಳಿಯುತ್ತದೆ, ಕ್ಷಾರ: ಅದೃಶ್ಯ.\n"
+        "Test with cut onion — acid keeps the smell, base neutralises it (olfactory indicator)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation6_olfactory_indicator_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
+            "default": "basic",
+            "options": ["acidic", "basic"],
+            "option_labels": [
+                "ಆಮ್ಲ (Acidic — tamarind, smell stays)",
+                "ಕ್ಷಾರ (Basic — baking soda, smell disappears)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# NEUTRALISATION REACTION SIMULATION (Kannada)
+# ತಟಸ್ಥೀಕರಣ ಪ್ರತಿಕ್ರಿಯೆ – ಆಮ್ಲ + ಕ್ಷಾರ = ಉಪ್ಪು + ನೀರು
+# =============================================================================
+SIMULATIONS["neutralisation_reaction_kn"] = {
+    "name": "ತಟಸ್ಥೀಕರಣ ಪ್ರತಿಕ್ರಿಯೆ (Neutralisation Reaction)",
+    "language": "kannada",
+    "description": (
+        "ಆಮ್ಲ-ಕ್ಷಾರ ಅನುಪಾತ ಸರಿಹೊಂದಿಸಿ pH ಬದಲಾವಣೆ ಗಮನಿಸಿ — pH 7 ತಟಸ್ಥ ಸ್ಥಿತಿ.\n"
+        "Adjust acid-base ratio with slider and observe pH — perfect mix gives pH 7 (salt + water + heat)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation7_neutralisation_reaction_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪ್ರತಿಕ್ರಿಯೆ ಫಲಿತಾಂಶ / Reaction Outcome",
+            "default": "neutral",
+            "options": ["acidic", "neutral", "basic"],
+            "option_labels": [
+                "ಆಮ್ಲೀಯ (Acidic — excess acid, pH ~3)",
+                "ತಟಸ್ಥ (Neutral — equal parts, pH 7)",
+                "ಕ್ಷಾರೀಯ (Basic — excess base, pH ~11)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# ANT BITE TREATMENT SIMULATION (Kannada)
+# ಇರುವೆ ಕಚ್ಚುವಿಕೆ ಚಿಕಿತ್ಸೆ – ದೈನಂದಿನ ತಟಸ್ಥೀಕರಣ
+# =============================================================================
+SIMULATIONS["ant_bite_treatment_kn"] = {
+    "name": "ಇರುವೆ ಕಚ್ಚುವಿಕೆ ಚಿಕಿತ್ಸೆ (Ant Bite Treatment)",
+    "language": "kannada",
+    "description": (
+        "ಇರುವೆ ಫಾರ್ಮಿಕ್ ಆಮ್ಲ ಚುಚ್ಚುತ್ತದೆ — ಬೇಕಿಂಗ್ ಸೋಡಾ ತಟಸ್ಥೀಕರಣ ನೋವು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ.\n"
+        "Ant injects formic acid — baking soda (base) neutralises it, relieving pain and redness."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation8_ant_bite_treatment_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಸ್ಥಿತಿ / Scenario State",
+            "default": "normal",
+            "options": ["normal", "bitten", "treated"],
+            "option_labels": [
+                "ಸಾಮಾನ್ಯ (Normal — healthy skin, no bite)",
+                "ಕಚ್ಚಿದ (Bitten — formic acid injected, pain)",
+                "ಚಿಕಿತ್ಸೆ (Treated — baking soda applied, relief)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# SOIL TREATMENT SIMULATION (Kannada)
+# ಮಣ್ಣಿನ ಚಿಕಿತ್ಸೆ – ಕೃಷಿಯಲ್ಲಿ ತಟಸ್ಥೀಕರಣ
+# =============================================================================
+SIMULATIONS["soil_treatment_kn"] = {
+    "name": "ಮಣ್ಣಿನ ಚಿಕಿತ್ಸೆ (Soil Treatment — Agriculture)",
+    "language": "kannada",
+    "description": (
+        "ಆಮ್ಲ/ಕ್ಷಾರ ಮಣ್ಣಿಗೆ ಸರಿಯಾದ ಚಿಕಿತ್ಸೆ ಆರಿಸಿ — ಸಸ್ಯ ಚೇತರಿಸಿ pH 7 ಆಗಲಿ.\n"
+        "Select acidic or alkaline soil and apply the correct treatment — plant recovers to pH 7."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter2_simulation9_soil_treatment_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಮಣ್ಣಿನ ಸ್ಥಿತಿ / Soil Scenario",
+            "default": "acidic",
+            "options": ["acidic", "basic", "treated"],
+            "option_labels": [
+                "ಆಮ್ಲೀಯ (Acidic soil — pH 4-5, lime needed)",
+                "ಕ್ಷಾರೀಯ (Alkaline soil — pH 9-10, compost needed)",
+                "ಚಿಕಿತ್ಸೆ (Treated — lime applied, pH 7, plant healthy)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Acids, Bases and Salts (ಆಮ್ಲಗಳು, ಕ್ಷಾರಗಳು ಮತ್ತು ಲವಣಗಳು)"
+}
+
+
+# =============================================================================
+# CONDUCTORS AND INSULATORS SIMULATION (Kannada — Chapter 3)
+# ವಾಹಕಗಳು ಮತ್ತು ಅವಾಹಕಗಳು – ವಿದ್ಯುತ್ ಪರೀಕ್ಷೆ
+# =============================================================================
+SIMULATIONS["conductors_insulators_kn"] = {
+    "name": "ವಾಹಕ ಮತ್ತು ಅವಾಹಕ (Conductors and Insulators)",
+    "language": "kannada",
+    "description": (
+        "8 ವಸ್ತುಗಳನ್ನು ಸರ್ಕ್ಯೂಟ್‌ನಲ್ಲಿ ಪರೀಕ್ಷಿಸಿ — ಬಲ್ಬ್ ಬೆಳಗಿದರೆ ವಾಹಕ, ಇಲ್ಲದಿದ್ದರೆ ಅವಾಹಕ.\n"
+        "Test 8 materials in a virtual circuit — bulb ON = conductor (metal), OFF = insulator (plastic/rubber)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter3_simulation10_conductors_insulators_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಪರೀಕ್ಷಾ ಪದಾರ್ಥ / Test Material",
+            "default": "conductor",
+            "options": ["conductor", "insulator"],
+            "option_labels": [
+                "ವಾಹಕ (Conductor — metal spoon, bulb lights up)",
+                "ಅವಾಹಕ (Insulator — plastic scale, bulb stays off)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಪರಿಕಲ್ಪನಾ ಕಾರ್ಡ್ ತೋರಿಸಿ (Show Concept Card)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Electricity (ವಿದ್ಯುತ್)"
+}
+
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

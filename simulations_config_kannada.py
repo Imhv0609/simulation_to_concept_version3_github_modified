@@ -1114,6 +1114,806 @@ QUIZ_QUESTIONS_KN["hidden_message_kn"] = [
 ]
 
 
+# =============================================================================
+# OLFACTORY INDICATOR SIMULATION (sim6)
+# ಘ್ರಾಣ ಸೂಚಕ – ಈರುಳ್ಳಿ ವಾಸನೆಯಿಂದ ಆಮ್ಲ/ಕ್ಷಾರ ಗುರುತಿಸಿ
+# =============================================================================
+SIMULATIONS_KN["olfactory_indicator_kn"] = {
+    "title": "ಘ್ರಾಣ ಸೂಚಕ (Olfactory Indicator)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter2_simulation6_olfactory_indicator_kn.html",
+    "description": (
+        "Kannada simulation: students mix household solutions with cut onion and observe "
+        "whether the pungent smell remains (acid) or disappears (base). Onion's sulfur "
+        "compounds are neutralised by bases but not by acids — making onion a natural "
+        "olfactory indicator."
+    ),
+    "cannot_demonstrate": [
+        "Neutral substance — neither preserves nor eliminates smell distinctly",
+        "Quantitative measurement of smell intensity"
+    ],
+    "initial_params": {"initialState": "basic", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Solution Type",
+            "range": "acidic, basic",
+            "url_key": "initialState",
+            "effect": (
+                "Selects a solution and auto-runs the mixing test.\n"
+                "  'acidic' → tamarind water — smell stays strong (acid confirmed)\n"
+                "  'basic'  → baking soda — smell disappears (base confirmed)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the key insight box."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "ಘ್ರಾಣ ಸೂಚಕ: ಆಮ್ಲ ವಾಸನೆ ಉಳಿಸುತ್ತದೆ (Acids Preserve Onion Smell)",
+            "description": (
+                "Acids do NOT react with onion's sulfur compounds. When an acid solution "
+                "is mixed with cut onion the pungent smell remains unchanged."
+            ),
+            "key_insight": (
+                "Acid + Onion → Strong smell persists. Lemon, vinegar, tamarind — "
+                "all leave onion smell intact. This is how onion detects an acid."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "ಘ್ರಾಣ ಸೂಚಕ: ಕ್ಷಾರ ವಾಸನೆ ನಾಶ ಮಾಡುತ್ತದೆ (Bases Destroy Onion Smell)",
+            "description": (
+                "Bases neutralise onion's allyl sulfide compounds. When a base is mixed "
+                "with cut onion the smell disappears within seconds."
+            ),
+            "key_insight": (
+                "Base + Onion → Smell vanishes. Baking soda, soap — all eliminate the "
+                "pungent odour via neutralisation. Confirmed base!"
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "ಪ್ರತ್ಯಕ್ಷ ಉದಾಹರಣೆ: ಬೇಕಿಂಗ್ ಸೋಡಾದೊಂದಿಗೆ ಈರುಳ್ಳಿ ಬೇಯಿಸುವುದು",
+            "description": (
+                "Cooking onion with baking soda (alkaline) reduces its pungency. "
+                "The same neutralisation reaction seen in the simulation occurs in the kitchen."
+            ),
+            "key_insight": (
+                "Real-world chemistry: alkaline baking soda neutralises onion sulfur compounds "
+                "reducing sharpness. Acid-base indicators exist beyond the lab — they are in "
+                "your kitchen too!"
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["olfactory_indicator_kn"] = [
+    {
+        "id": "olfactory_q1",
+        "challenge": (
+            "Show what happens when an ACID is mixed with cut onion using the olfactory "
+            "indicator simulation. Does the smell remain or disappear?\n\n"
+            "(ಆಮ್ಲ ಈರುಳ್ಳಿಯೊಂದಿಗೆ ಮಿಶ್ರಣ ಮಾಡಿದಾಗ ವಾಸನೆ ಉಳಿಯುತ್ತದೆಯೇ ಅಥವಾ ಅದೃಶ್ಯವಾಗುತ್ತದೆಯೇ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "acidic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'acidic' as the Simulation State — tamarind water mixed with onion. Watch whether the smell icon keeps showing.",
+            "attempt_2": "Set 'initialState' to 'acidic'. Acids do NOT neutralise sulfur compounds so the smell stays strong.",
+            "attempt_3": "Choose 'acidic': acid + onion → smell remains. This is how we know it is an acid!"
+        },
+        "concept_reminder": (
+            "Acids preserve onion smell. Tamarind, vinegar, lemon juice — none react "
+            "with sulfur compounds. Smell stays = acid. "
+            "(ಆಮ್ಲ + ಈರುಳ್ಳಿ → ವಾಸನೆ ಉಳಿಯುತ್ತದೆ!)"
+        )
+    },
+    {
+        "id": "olfactory_q2",
+        "challenge": (
+            "Show what happens when a BASE is mixed with cut onion. Demonstrate why "
+            "onion is called an olfactory indicator.\n\n"
+            "(ಕ್ಷಾರ ಈರುಳ್ಳಿಯೊಂದಿಗೆ ಮಿಶ್ರಣ ಮಾಡಿದಾಗ ಏನಾಗುತ್ತದೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "basic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'basic' — baking soda mixed with onion. The pungent smell disappears completely.",
+            "attempt_2": "Set 'initialState' to 'basic'. Bases neutralise sulfur compounds → smell vanishes.",
+            "attempt_3": "Choose 'basic': base + onion → smell disappears. A base is confirmed!"
+        },
+        "concept_reminder": (
+            "Bases destroy onion smell via neutralisation. Baking soda, soap — "
+            "all eliminate the pungent odour. No smell = base. "
+            "(ಕ್ಷಾರ + ಈರುಳ್ಳಿ → ವಾಸನೆ ಅದೃಶ್ಯ!)"
+        )
+    },
+    {
+        "id": "olfactory_q3",
+        "challenge": (
+            "Show the acid test again and explain: why is onion called a PARTIAL olfactory "
+            "indicator (not a complete one)?\n\n"
+            "(ಘ್ರಾಣ ಸೂಚಕ ಭಾಗಶಃ ಯಾಕೆ — ಪೂರ್ಣ ಸೂಚಕ ಅಲ್ಲ ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "acidic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'acidic' — observe that smell stays strong. Onion can identify acids (smell stays) and bases (smell goes), but NOT neutral substances.",
+            "attempt_2": "Set 'initialState' to 'acidic'. Since onion stays smelly with acid AND neutral substances, it cannot distinguish between them.",
+            "attempt_3": "Choose 'acidic': smell stays with acid. But neutral water also keeps the smell — so onion is partial, not complete."
+        },
+        "concept_reminder": (
+            "Onion is a PARTIAL olfactory indicator: identifies bases (smell gone) but "
+            "cannot distinguish acid from neutral (both keep the smell). "
+            "Compare: litmus is complete — gives 3 distinct results. "
+            "(ಘ್ರಾಣ ಸೂಚಕ: ಕ್ಷಾರ ಮಾತ್ರ ಖಚಿತಪಡಿಸಬಲ್ಲದು!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# NEUTRALISATION REACTION SIMULATION (sim7)
+# ತಟಸ್ಥೀಕರಣ ಪ್ರತಿಕ್ರಿಯೆ – ಆಮ್ಲ + ಕ್ಷಾರ = ಉಪ್ಪು + ನೀರು
+# =============================================================================
+SIMULATIONS_KN["neutralisation_reaction_kn"] = {
+    "title": "ತಟಸ್ಥೀಕರಣ ಪ್ರತಿಕ್ರಿಯೆ (Neutralisation Reaction)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter2_simulation7_neutralisation_reaction_kn.html",
+    "description": (
+        "Kannada slider simulation: students adjust the acid-base ratio and observe "
+        "the resulting pH. At equal proportions (slider ~50%) full neutralisation "
+        "produces salt + water + heat at pH 7. Too much acid → acidic product; "
+        "too much base → basic product. pH pointer, product indicators, and color-coded "
+        "beakers make the stoichiometry visual."
+    ),
+    "cannot_demonstrate": [
+        "Specific chemical equations (e.g. HCl + NaOH)",
+        "Heat measurement in joules",
+        "Effect of concentration on reaction rate"
+    ],
+    "initial_params": {"initialState": "neutral", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Reaction Outcome",
+            "range": "acidic, neutral, basic",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the slider position and auto-runs the mixing reaction.\n"
+                "  'acidic'  → slider at 20% (excess acid) — acidic product, pH ~3\n"
+                "  'neutral' → slider at 50% (equal parts) — neutral, pH 7\n"
+                "  'basic'   → slider at 80% (excess base) — basic product, pH ~11"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the key insight box."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "ತಟಸ್ಥೀಕರಣ: ಆಮ್ಲ + ಕ್ಷಾರ → ಉಪ್ಪು + ನೀರು + ಶಾಖ",
+            "description": (
+                "When acid and base react in equal amounts they completely neutralise "
+                "each other producing salt, water AND heat (exothermic reaction). "
+                "The result is pH 7 — neutral."
+            ),
+            "key_insight": (
+                "Equal acid + base = complete neutralisation → salt + water + heat. "
+                "pH goes from acidic/basic extremes to exactly 7. "
+                "Real example: antacid (base) neutralises excess stomach acid (HCl)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "ಅಸಮ ಅನುಪಾತ: ಹೆಚ್ಚು ಆಮ್ಲ ಅಥವಾ ಕ್ಷಾರ",
+            "description": (
+                "When acid is in excess the product is still acidic (pH < 7). "
+                "When base is in excess the product is still basic (pH > 7). "
+                "Only exact equal amounts give pH 7."
+            ),
+            "key_insight": (
+                "Ratio matters! Excess acid → acidic product. Excess base → basic product. "
+                "Perfect neutralisation requires stoichiometric equivalence."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "ವಾಸ್ತವ ಬಳಕೆ: ಆಮ್ಲನಿರೋಧಕಗಳು (Real-world: Antacids)",
+            "description": (
+                "Antacid tablets contain base (Mg(OH)₂) that neutralises excess stomach "
+                "acid (HCl) using the same acid-base neutralisation chemistry demonstrated here."
+            ),
+            "key_insight": (
+                "Stomach acid (HCl) + Antacid base → salt + water → relief. "
+                "The same neutralisation equation applies: acid + base → salt + water. "
+                "This is neutralisation chemistry in daily life."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["neutralisation_reaction_kn"] = [
+    {
+        "id": "neutralisation_q1",
+        "challenge": (
+            "Show the COMPLETE neutralisation scenario — the ideal case where acid and "
+            "base fully cancel each other producing salt, water, and a neutral pH.\n\n"
+            "(ಸಂಪೂರ್ಣ ತಟಸ್ಥೀಕರಣ ತೋರಿಸಿ — pH 7 ಆಗುವ ಅದರ್ಶ ಸ್ಥಿತಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "neutral"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'neutral' — slider goes to 50%, equal acid and base mix, pH pointer reaches exactly 7.",
+            "attempt_2": "Set 'initialState' to 'neutral'. Equal proportions → complete neutralisation → salt + water + heat at pH 7.",
+            "attempt_3": "Choose 'neutral': 50% base + 50% acid → perfect neutral result, all three products appear."
+        },
+        "concept_reminder": (
+            "Complete neutralisation: Acid + Base (equal parts) → Salt + Water + Heat, pH = 7. "
+            "The salt and water products light up. This is the ideal outcome. "
+            "(ಸಮ ಭಾಗ ಆಮ್ಲ + ಕ್ಷಾರ → pH 7, ಸಂಪೂರ್ಣ ತಟಸ್ಥೀಕರಣ!)"
+        )
+    },
+    {
+        "id": "neutralisation_q2",
+        "challenge": (
+            "Show what happens when there is EXCESS ACID in the mixture — "
+            "demonstrate that incomplete neutralisation still leaves an acidic product.\n\n"
+            "(ಆಮ್ಲ ಹೆಚ್ಚಾದಾಗ ಏನಾಗುತ್ತದೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "acidic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'acidic' — slider moves to 20%, excess acid remains after base is exhausted, product pH ~3.",
+            "attempt_2": "Set 'initialState' to 'acidic'. Not enough base to neutralise all acid → still acidic product.",
+            "attempt_3": "Choose 'acidic': slider at 20% means very little base, lots of acid leftover. Result beaker stays orangey-red."
+        },
+        "concept_reminder": (
+            "Excess acid → product is still acidic (pH < 7). Not enough base to neutralise everything. "
+            "The remaining H⁺ ions keep the solution acidic. "
+            "(ಆಮ್ಲ ಹೆಚ್ಚಾದರೆ ಫಲಿತಾಂಶ ಇನ್ನೂ ಆಮ್ಲೀಯ!)"
+        )
+    },
+    {
+        "id": "neutralisation_q3",
+        "challenge": (
+            "Show what happens when there is EXCESS BASE — demonstrate that too much "
+            "base also prevents complete neutralisation.\n\n"
+            "(ಕ್ಷಾರ ಹೆಚ್ಚಾದಾಗ ಏನಾಗುತ್ತದೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "basic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'basic' — slider moves to 80%, excess base remains, product pH ~11.",
+            "attempt_2": "Set 'initialState' to 'basic'. Too much base means leftover OH⁻ ions → basic product.",
+            "attempt_3": "Choose 'basic': 80% base means excess alkali. Result beaker turns blue and pH > 9."
+        },
+        "concept_reminder": (
+            "Excess base → product is still basic (pH > 7). Leftover OH⁻ ions keep it alkaline. "
+            "Perfect neutralisation needs EXACT stoichiometric ratio. "
+            "(ಕ್ಷಾರ ಹೆಚ್ಚಾದರೆ ಫಲಿತಾಂಶ ಇನ್ನೂ ಕ್ಷಾರೀಯ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# ANT BITE TREATMENT SIMULATION (sim8)
+# ಇರುವೆ ಕಚ್ಚುವಿಕೆ ಚಿಕಿತ್ಸೆ – ದೈನಂದಿನ ಜೀವನದಲ್ಲಿ ತಟಸ್ಥೀಕರಣ
+# =============================================================================
+SIMULATIONS_KN["ant_bite_treatment_kn"] = {
+    "title": "ಇರುವೆ ಕಚ್ಚುವಿಕೆ ಚಿಕಿತ್ಸೆ (Ant Bite Treatment)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter2_simulation8_ant_bite_treatment_kn.html",
+    "description": (
+        "Kannada sequential simulation: students observe an ant bite inject formic acid "
+        "(HCOOH) into the skin, causing redness and pain. Applying baking soda (base) "
+        "neutralises the acid, eliminating pain and healing the skin. A real-world "
+        "demonstration of neutralisation as first aid."
+    ),
+    "cannot_demonstrate": [
+        "Chemical equation with actual molecular symbols in interactive form",
+        "Other ant-bite remedies beyond baking soda",
+        "Difference between red-ant and black-ant venom"
+    ],
+    "initial_params": {"initialState": "normal", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Scenario State",
+            "range": "normal, bitten, treated",
+            "url_key": "initialState",
+            "effect": (
+                "Controls the sequential treatment scenario auto-played on load.\n"
+                "  'normal'  → healthy skin, no bite (default)\n"
+                "  'bitten'  → ant bites, formic acid injected, skin turns red (1 click)\n"
+                "  'treated' → baking soda applied, neutralisation, pain relief (2 clicks)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the insight and science explanation boxes."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "ಇರುವೆ ಚುಚ್ಚುವ ಆಮ್ಲ: ಫಾರ್ಮಿಕ್ ಆಮ್ಲ (HCOOH)",
+            "description": (
+                "Ant venom contains formic acid (HCOOH). When an ant bites, it injects "
+                "this acid into the skin, causing a burning sensation, redness, "
+                "and localised pain."
+            ),
+            "key_insight": (
+                "Formic acid (HCOOH) = ant venom. Acidic substance causes inflammation. "
+                "To relieve pain we need to NEUTRALISE the acid — apply a base."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "ಚಿಕಿತ್ಸೆ: ಬೇಕಿಂಗ್ ಸೋಡಾ ತಟಸ್ಥೀಕರಣ (Baking Soda Neutralises the Acid)",
+            "description": (
+                "Baking soda (NaHCO₃) is a base. Applied to the ant bite it reacts with "
+                "formic acid and neutralises it: Formic acid + Baking soda → Salt + Water. "
+                "Pain and inflammation disappear."
+            ),
+            "key_insight": (
+                "Baking soda (base) + Formic acid → salt + water + relief. "
+                "The same neutralisation formula applies: acid + base → harmless products. "
+                "This is the chemistry behind a simple first aid remedy."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "ವಾಸ್ತವ ಅನ್ವಯ: ಚರ್ಮ pH ಮರಳಿ ತಟಸ್ಥ",
+            "description": (
+                "After treatment the skin's pH returns to normal (~7). "
+                "The neutralisation converts the acidic sting into harmless salt and water, "
+                "stopping the chemical damage to skin cells."
+            ),
+            "key_insight": (
+                "Neutralisation has real medical uses. Bee stings (also acid) → baking soda. "
+                "Wasp stings (alkaline) → vinegar (acid). Match the treatment to the venom type. "
+                "Acid venom → base treatment; alkaline venom → acid treatment."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["ant_bite_treatment_kn"] = [
+    {
+        "id": "antbite_q1",
+        "challenge": (
+            "Show just the ANT BITE — the moment formic acid is injected into the skin "
+            "causing pain and redness. Do NOT apply treatment yet.\n\n"
+            "(ಇರುವೆ ಕಚ್ಚುವ ಕ್ಷಣ ತೋರಿಸಿ — ಚಿಕಿತ್ಸೆ ಇಲ್ಲದೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "bitten"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'bitten' — the simulation auto-clicks the bite button showing formic acid injection and redness.",
+            "attempt_2": "Set 'initialState' to 'bitten'. The skin turns red, pain shows HIGH, pH drops to ~4 (acidic).",
+            "attempt_3": "Choose 'bitten': just the bite, no treatment. This shows formic acid (HCOOH) causing the problem."
+        },
+        "concept_reminder": (
+            "Ant venom = formic acid (HCOOH). Injection makes skin acidic (~pH 4). "
+            "Pain, redness, burning = acid damage to skin cells. Treatment needed! "
+            "(ಇರುವೆ ಕಚ್ಚಿದಾಗ ಫಾರ್ಮಿಕ್ ಆಮ್ಲ ಚುಚ್ಚುತ್ತದೆ — ನೋವು ಮತ್ತು ಕೆಂಪು!)"
+        )
+    },
+    {
+        "id": "antbite_q2",
+        "challenge": (
+            "Show the COMPLETE treatment — bite followed by baking soda application. "
+            "Demonstrate how neutralisation provides relief.\n\n"
+            "(ಇರುವೆ ಕಚ್ಚಿದ ನಂತರ ಬೇಕಿಂಗ್ ಸೋಡಾ ಲೇಪಿಸಿ ತಟಸ್ಥೀಕರಣ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "treated"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'treated' — both buttons are auto-clicked: bite (800ms) then treatment (1800ms later). Shows full neutralisation.",
+            "attempt_2": "Set 'initialState' to 'treated'. Redness disappears, pH returns to ~7, pain becomes 'ಇಲ್ಲ ✅'.",
+            "attempt_3": "Choose 'treated': complete scenario — bite → baking soda → neutralisation → relief."
+        },
+        "concept_reminder": (
+            "Baking soda (base) + Formic acid → salt + water. Skin pH returns to 7. "
+            "Neutralisation reverses the damage — pain disappears. "
+            "(ಬೇಕಿಂಗ್ ಸೋಡಾ ಫಾರ್ಮಿಕ್ ಆಮ್ಲ ತಟಸ್ಥೀಕರಿಸಿ ನೋವು ದೂರ ಮಾಡುತ್ತದೆ!)"
+        )
+    },
+    {
+        "id": "antbite_q3",
+        "challenge": (
+            "Show the HEALTHY initial state — before any bite. "
+            "This is the baseline for comparing the effect of acid injection.\n\n"
+            "(ಕಚ್ಚುವ ಮೊದಲು ಆರೋಗ್ಯಕರ ಚರ್ಮದ ಪ್ರಾರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "normal"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'normal' — the default state with healthy skin and pH ~7 before any ant bite.",
+            "attempt_2": "Set 'initialState' to 'normal'. This is the unaffected baseline — no acid, no pain, no treatment needed.",
+            "attempt_3": "Choose 'normal': healthy skin, pH ~7. Compare this to 'bitten' (pH ~4) to see the acid's effect."
+        },
+        "concept_reminder": (
+            "Normal skin pH is ~7 (neutral). After ant bite it drops to ~4 (acidic). "
+            "After baking soda treatment it returns to ~7. "
+            "This three-state comparison shows neutralisation in action. "
+            "(ಸಾಮಾನ್ಯ ಚರ್ಮ pH 7 → ಕಚ್ಚಿದ ಮೇಲೆ pH 4 → ಚಿಕಿತ್ಸೆ ನಂತರ pH 7 ಮರಳಿ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# SOIL TREATMENT SIMULATION (sim9)
+# ಮಣ್ಣಿನ ಚಿಕಿತ್ಸೆ – ಕೃಷಿಯಲ್ಲಿ ತಟಸ್ಥೀಕರಣ
+# =============================================================================
+SIMULATIONS_KN["soil_treatment_kn"] = {
+    "title": "ಮಣ್ಣಿನ ಚಿಕಿತ್ಸೆ (Soil Treatment — Agriculture)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter2_simulation9_soil_treatment_kn.html",
+    "description": (
+        "Kannada two-step soil simulation. Students select acidic soil (pH 4–5) or "
+        "alkaline soil (pH 9–10), then apply the correct neutralising agent: lime (base) "
+        "for acidic soil, compost (releases acids) for alkaline soil. The wilted plant "
+        "recovers to show pH-7 healthy soil. Demonstrates agricultural neutralisation."
+    ),
+    "cannot_demonstrate": [
+        "Quantitative lime dosage calculations",
+        "Different types of lime or compost products",
+        "Long-term soil pH management over seasons"
+    ],
+    "initial_params": {"initialState": "acidic", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Soil Scenario",
+            "range": "acidic, basic, treated",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which soil problem is selected and whether treatment is applied.\n"
+                "  'acidic'  → acidic soil selected (pH 4-5), plant wilted, lime shown\n"
+                "  'basic'   → alkaline soil selected (pH 9-10), plant wilted, compost shown\n"
+                "  'treated' → acidic soil selected then lime applied → pH returns to 7"
+            )
+        },
+        "showHints": {
+            "label": "Show Concept Card",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept summary card at the top."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "ಆಮ್ಲೀಯ ಮಣ್ಣಿಗೆ ಚಿಕಿತ್ಸೆ: ಸುಣ್ಣ (ಕ್ಷಾರ) ಸೇರಿಸಿ",
+            "description": (
+                "When soil is too acidic (pH < 6) plants cannot absorb nutrients properly. "
+                "Farmers add lime (calcium carbonate, a base) to neutralise excess soil acid "
+                "and raise pH to the optimal neutral range."
+            ),
+            "key_insight": (
+                "Acidic soil → add lime (base) → neutralisation → pH 7 → healthy plants. "
+                "Soil acid + lime base → calcium salt + water. Same neutralisation equation."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "ಕ್ಷಾರೀಯ ಮಣ್ಣಿಗೆ ಚಿಕಿತ್ಸೆ: ಕಂಪೋಸ್ಟ್ (ಆಮ್ಲ ಬಿಡುಗಡೆ) ಸೇರಿಸಿ",
+            "description": (
+                "When soil is too alkaline (pH > 8) plants cannot absorb iron properly. "
+                "Farmers add organic compost which releases acids as it decomposes, "
+                "neutralising the excess alkali and bringing pH down to 7."
+            ),
+            "key_insight": (
+                "Alkaline soil → add compost (acid-releasing) → neutralisation → pH 7. "
+                "Compost acids + soil base → harmless salts + water. Same chemistry."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "pH 7: ಸಸ್ಯಗಳಿಗೆ ಆದರ್ಶ ಸ್ಥಿತಿ",
+            "description": (
+                "Plants grow best in neutral or near-neutral soil (pH 6.5–7.5). "
+                "At this pH, all essential nutrients are maximally available and soluble. "
+                "Too acidic or too alkaline blocks nutrient uptake mechanisms."
+            ),
+            "key_insight": (
+                "Neutralisation → pH 7 → plant recovers from wilted to healthy. "
+                "This is why farmers test soil pH and apply lime or compost every season. "
+                "Chemistry knowledge directly improves agricultural yield."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["soil_treatment_kn"] = [
+    {
+        "id": "soil_q1",
+        "challenge": (
+            "Show the ACIDIC SOIL problem — select the acidic soil scenario to demonstrate "
+            "why excess acid in soil prevents healthy plant growth.\n\n"
+            "(ಆಮ್ಲೀಯ ಮಣ್ಣಿನ ಸಮಸ್ಯೆ ತೋರಿಸಿ — ಸಸ್ಯ ಯಾಕೆ ಮ್ಲಾನವಾಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "acidic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'acidic' — the simulation shows acidic soil (pH 4-5), wilted plant, and lime bag highlighted as the solution.",
+            "attempt_2": "Set 'initialState' to 'acidic'. Acidic soil blocks nutrient absorption — the plant cannot grow.",
+            "attempt_3": "Choose 'acidic': see pH 4-5 soil, wilted plant emoji 🥀, and lime bag shown as the required treatment."
+        },
+        "concept_reminder": (
+            "Acidic soil (pH 4-5) blocks nutrient absorption → plant wilts. "
+            "Solution: add lime (base) to neutralise acid → pH reaches 7 → plant recovers. "
+            "(ಆಮ್ಲೀಯ ಮಣ್ಣು: pH 4-5, ಸಸ್ಯ ಮ್ಲಾನ. ಸುಣ್ಣ ಹಾಕಿ ತಟಸ್ಥ ಮಾಡಿ!)"
+        )
+    },
+    {
+        "id": "soil_q2",
+        "challenge": (
+            "Show the ALKALINE SOIL problem — demonstrate the opposite case where "
+            "excess base in soil also harms plant growth.\n\n"
+            "(ಕ್ಷಾರೀಯ ಮಣ್ಣಿನ ಸಮಸ್ಯೆ ತೋರಿಸಿ — ಅಧಿಕ ಕ್ಷಾರ ಸಸ್ಯಕ್ಕೆ ಹಾಗೂ ಹಾನಿ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "basic"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'basic' — alkaline soil (pH 9-10), plant remains wilted, compost bag highlighted.",
+            "attempt_2": "Set 'initialState' to 'basic'. Alkaline soil blocks iron absorption — add compost (acid-releasing) to neutralise.",
+            "attempt_3": "Choose 'basic': pH 9-10, wilted 🥀 plant, compost shown as treatment. Both extremes harm plants!"
+        },
+        "concept_reminder": (
+            "Alkaline soil (pH 9-10) blocks iron absorption → plant wilts. "
+            "Solution: add compost (releases acids) to neutralise excess alkali → pH 7. "
+            "Both acidic AND alkaline soil need treatment. "
+            "(ಕ್ಷಾರೀಯ ಮಣ್ಣು: pH 9-10, ಸಸ್ಯ ಮ್ಲಾನ. ಕಂಪೋಸ್ಟ್ ಹಾಕಿ ತಟಸ್ಥ ಮಾಡಿ!)"
+        )
+    },
+    {
+        "id": "soil_q3",
+        "challenge": (
+            "Show the COMPLETE TREATMENT — acidic soil selected AND lime applied, "
+            "demonstrating full agricultural neutralisation restoring healthy plant growth.\n\n"
+            "(ಸಂಪೂರ್ಣ ಚಿಕಿತ್ಸೆ ತೋರಿಸಿ — ಆಮ್ಲೀಯ ಮಣ್ಣಿಗೆ ಸುಣ್ಣ ಹಾಕಿ ಸಸ್ಯ ಚೇತರಿಸಿದ್ದು)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "treated"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'treated' — simulation auto-selects acidic soil (800ms) then applies lime treatment (1800ms). Plant changes from 🥀 to 🌿.",
+            "attempt_2": "Set 'initialState' to 'treated'. Full neutralisation: soil acid + lime base → pH 7, plant recovers.",
+            "attempt_3": "Choose 'treated': watch the plant go from wilted to healthy! Neutralisation is complete."
+        },
+        "concept_reminder": (
+            "Acidic soil + Lime (base) → neutralisation → pH 7 → healthy plant 🌿. "
+            "Same neutralisation equation: acid + base → salt + water. "
+            "This is real agricultural chemistry — farmers do this every season! "
+            "(ಸುಣ್ಣ ಹಾಕಿ ತಟಸ್ಥೀಕರಣ: ಆಮ್ಲ + ಕ್ಷಾರ → ಉಪ್ಪು + ನೀರು → ಸಸ್ಯ ಆರೋಗ್ಯ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# CONDUCTORS AND INSULATORS SIMULATION (sim10 — Chapter 3)
+# ವಾಹಕಗಳು ಮತ್ತು ಅವಾಹಕಗಳು – ವಿದ್ಯುತ್ ಪರೀಕ್ಷೆ
+# =============================================================================
+SIMULATIONS_KN["conductors_insulators_kn"] = {
+    "title": "ವಾಹಕ ಮತ್ತು ಅವಾಹಕ (Conductors and Insulators)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter3_simulation10_conductors_insulators_kn.html",
+    "description": (
+        "Kannada Chapter 3 simulation: students test 8 common materials in a virtual "
+        "circuit. Metals (spoon, key, coin, foil) light the bulb — confirmed conductors. "
+        "Non-metals (plastic, rubber, wood, glass) keep the bulb off — confirmed insulators. "
+        "Score panel tracks conductors vs insulators found. Includes safety rules for "
+        "handling electricity."
+    ),
+    "cannot_demonstrate": [
+        "Semiconductors or partial conductors",
+        "Effect of temperature on conductivity",
+        "Measurement of resistance in ohms"
+    ],
+    "initial_params": {"initialState": "conductor", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Test Material",
+            "range": "conductor, insulator",
+            "url_key": "initialState",
+            "effect": (
+                "Auto-tests a material in the circuit on load.\n"
+                "  'conductor' → tests metal spoon (🥄) — bulb lights up, circuit complete\n"
+                "  'insulator' → tests plastic scale (📏) — bulb stays off, circuit broken"
+            )
+        },
+        "showHints": {
+            "label": "Show Concept Card",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept summary card at the top."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "ವಾಹಕಗಳು: ಲೋಹಗಳು ವಿದ್ಯುತ್ ಹರಿಸುತ್ತವೆ (Metals Conduct Electricity)",
+            "description": (
+                "Conductors allow electric current to flow freely. Metals like copper, "
+                "iron, and aluminium have free electrons that can move through the material "
+                "carrying the current. The bulb lights up when a conductor completes the circuit."
+            ),
+            "key_insight": (
+                "Conductors = metals = free electrons = current flows = bulb ON. "
+                "Spoon, key, coin, foil all light the bulb. This is why electrical wires "
+                "are made of copper inside."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "ಅವಾಹಕಗಳು: ಲೋಹೇತರ ವಸ್ತುಗಳು ವಿದ್ಯುತ್ ತಡೆಯುತ್ತವೆ",
+            "description": (
+                "Insulators prevent electric current from flowing. Plastic, rubber, wood, "
+                "and glass hold their electrons tightly in chemical bonds — no free electrons "
+                "to carry the current. The bulb stays off when an insulator is in the circuit."
+            ),
+            "key_insight": (
+                "Insulators = non-metals = tightly-bound electrons = no current = bulb OFF. "
+                "Plastic, rubber, wood, glass all keep the bulb off. This is why wires "
+                "are coated with plastic insulation for safety."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "ಭದ್ರತೆ: ಮಾನವ ದೇಹ ವಾಹಕ (Human Body is a Conductor)",
+            "description": (
+                "The human body conducts electricity (contains ions in body fluids). "
+                "Never touch live wires with bare hands, wet hands, or metallic tools. "
+                "Rubber gloves and wooden handles are safe insulating materials used by electricians."
+            ),
+            "key_insight": (
+                "Safety: body = conductor → electric shock risk. "
+                "Always use insulating materials (rubber, plastic, dry wood) near electricity. "
+                "Never use metallic tools near live wires."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["conductors_insulators_kn"] = [
+    {
+        "id": "conductor_q1",
+        "challenge": (
+            "Show a CONDUCTOR being tested in the circuit. Demonstrate that metals "
+            "allow current to flow and light the bulb.\n\n"
+            "(ವಾಹಕ ಪದಾರ್ಥ ಪರೀಕ್ಷಿಸಿ — ಬಲ್ಬ್ ಬೆಳಗುವುದನ್ನು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "conductor"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'conductor' — the metal spoon is auto-tested. Circuit completes, bulb lights yellow.",
+            "attempt_2": "Set 'initialState' to 'conductor'. Metal has free electrons — current flows — bulb ON.",
+            "attempt_3": "Choose 'conductor': spoon (metal) tested → bulb glows → circuit complete → confirmed conductor."
+        },
+        "concept_reminder": (
+            "Conductors (metals) have FREE electrons that carry current. "
+            "Spoon, key, coin, foil → all light the bulb. Bulb ON = conductor. "
+            "(ವಾಹಕ + ಸರ್ಕ್ಯೂಟ್ → ಬಲ್ಬ್ ಬೆಳಗುತ್ತದೆ! ಮುಕ್ತ ಇಲೆಕ್ಟ್ರಾನ್‌ಗಳು!)"
+        )
+    },
+    {
+        "id": "conductor_q2",
+        "challenge": (
+            "Show an INSULATOR being tested in the circuit. Demonstrate that non-metal "
+            "materials break the circuit and the bulb stays off.\n\n"
+            "(ಅವಾಹಕ ಪದಾರ್ಥ ಪರೀಕ್ಷಿಸಿ — ಬಲ್ಬ್ ಆಫ್ ಆಗಿ ಉಳಿಯುವುದನ್ನು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "insulator"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'insulator' — the plastic scale is auto-tested. No current flows, bulb stays dim/off.",
+            "attempt_2": "Set 'initialState' to 'insulator'. Non-metals hold electrons tightly — no current — bulb OFF.",
+            "attempt_3": "Choose 'insulator': plastic scale tested → bulb stays dark → circuit broken → confirmed insulator."
+        },
+        "concept_reminder": (
+            "Insulators (non-metals) hold electrons tightly — NO free electrons to carry current. "
+            "Plastic, rubber, wood, glass → all keep the bulb off. Bulb OFF = insulator. "
+            "(ಅವಾಹಕ + ಸರ್ಕ್ಯೂಟ್ → ಬಲ್ಬ್ ಆಫ್! ಇಲೆಕ್ಟ್ರಾನ್‌ಗಳು ಚಲಿಸಲಾರವು!)"
+        )
+    },
+    {
+        "id": "conductor_q3",
+        "challenge": (
+            "Show a conductor test again and explain — why do electrical wires have "
+            "METAL INSIDE and PLASTIC OUTSIDE?\n\n"
+            "(ವಿದ್ಯುತ್ ತಂತಿಯಲ್ಲಿ ಒಳಗೆ ತಾಮ್ರ, ಹೊರಗೆ ಪ್ಲಾಸ್ಟಿಕ್ ಯಾಕಿದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [{"parameter": "initialState", "operator": "==", "value": "conductor"}],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": "Select 'conductor' — watch the metal carry current. Metal inside = conducts; plastic outside = insulates & protects.",
+            "attempt_2": "Set 'initialState' to 'conductor'. The metal (conductor) carries the electricity; plastic (insulator) prevents accidental shocks.",
+            "attempt_3": "Choose 'conductor': metal spoon lights the bulb. In a wire: copper (metal) = current pathway, plastic = safety barrier."
+        },
+        "concept_reminder": (
+            "Wire design = conductor + insulator working together. "
+            "Copper/metal inside → carries current (conductor). "
+            "Plastic/rubber outside → blocks accidental current leakage (insulator). "
+            "Both are essential! "
+            "(ತಂತಿ = ತಾಮ್ರ (ವಾಹಕ) + ಪ್ಲಾಸ್ಟಿಕ್ ಆವರಣ (ಅವಾಹಕ) = ಸುರಕ್ಷಿತ ವಿದ್ಯುತ್!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
