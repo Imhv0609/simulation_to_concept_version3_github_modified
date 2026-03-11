@@ -2730,6 +2730,205 @@ SIMULATIONS["water_conservation_kn"] = {
 }
 
 
+SIMULATIONS["heat_sources_kn"] = {
+    "name": "ಉಷ್ಣದ ಮೂಲಗಳು (Heat Sources – Regional Differences)",
+    "language": "kannada",
+    "description": (
+        "Interactive simulation showing how the Sun creates different temperature "
+        "conditions across India's regions based on latitude, altitude, and coastal "
+        "proximity: Kerala (tropical coastal, 25-32°C), Delhi (continental extreme, "
+        "5-45°C), and Sikkim (high-altitude Himalayan, 5-20°C). "
+        "Students explore how geographic factors modulate solar heating."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter7_simulation1_heat_sources_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Region / ಪ್ರದೇಶ",
+            "default": "kerala",
+            "options": ["kerala", "delhi", "sikkim"],
+            "option_labels": [
+                "🌴 ಕೇರಳ (Kerala — tropical coastal, 25-32°C, near equator) [default]",
+                "🌆 ದೆಹಲಿ (Delhi — continental interior, 5-45°C extreme variation)",
+                "🏔️ ಸಿಕ್ಕಿಂ (Sikkim — high altitude Himalayan, 5-20°C, cold)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+SIMULATIONS["conduction_experiment_kn"] = {
+    "name": "ಉಷ್ಣ ವಾಹಕತೆ ಪ್ರಯೋಗ (Heat Conduction Experiment)",
+    "language": "kannada",
+    "description": (
+        "Interactive wax-pin conduction experiment: 4 pins at 3/6/9/12 cm from a flame "
+        "on a metal strip; pins drop in sequence as heat conducts along the strip. "
+        "Three flame intensities (low/medium/high) demonstrate how temperature gradient "
+        "affects conduction rate. Particle view shows molecular vibration mechanism."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter7_simulation2_conduction_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Flame Intensity / ಜ್ವಾಲೆ ತೀವ್ರತೆ",
+            "default": "medium",
+            "options": ["low", "medium", "high"],
+            "option_labels": [
+                "🔥 ಕಡಿಮೆ (Low — pins drop at 4, 6, 8, 10 seconds)",
+                "🔥🔥 ಮಧ್ಯಮ (Medium — pins drop at 2, 3.5, 5, 6.5 seconds) [default]",
+                "🔥🔥🔥 ಅಧಿಕ (High — pins drop at 1, 2, 3, 4 seconds)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+SIMULATIONS["thermal_conductors_kn"] = {
+    "name": "ಉಷ್ಣ ವಾಹಕಗಳು ಮತ್ತು ಅವಾಹಕಗಳು (Thermal Conductors and Insulators)",
+    "language": "kannada",
+    "description": (
+        "Heat race simulation: metal, wood, glass, and plastic compete to see which "
+        "conducts heat fastest. Metal wins by a huge margin (free electrons). "
+        "Race mode shows simultaneous competition; compare mode allows individual analysis. "
+        "Click each material to understand the atomic-level reason for its conductivity."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter7_simulation3_conductors_insulators_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Mode / ಮೋಡ್",
+            "default": "race",
+            "options": ["race", "compare"],
+            "option_labels": [
+                "🏁 ಓಟ (Race — all 4 materials compete simultaneously, auto-starts) [default]",
+                "📊 ಹೋಲಿಕೆ (Compare — side-by-side analysis of each material)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+SIMULATIONS["convection_kn"] = {
+    "name": "ಸಂವಹನ ಪ್ರವಾಹಗಳು (Convection Currents)",
+    "language": "kannada",
+    "description": (
+        "Interactive convection simulation with water beaker (6 animated particles "
+        "rising and falling in circular loops) and room air mode (heater with warm air "
+        "rising, cool air circulating). Toggle heat on/off, track individual particles, "
+        "show current arrows, adjust temperature slider."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter7_simulation4_convection_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Medium / ಮಾಧ್ಯಮ",
+            "default": "water",
+            "options": ["water", "air"],
+            "option_labels": [
+                "💧 ನೀರು (Water — beaker with particles, flame heating base) [default]",
+                "💨 ಗಾಳಿ (Air — room with heater, warm air rising and circulating)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+SIMULATIONS["land_sea_breeze_kn"] = {
+    "name": "ಭೂ ಮತ್ತು ಸಮುದ್ರ ಗಾಳಿ (Land and Sea Breeze)",
+    "language": "kannada",
+    "description": (
+        "Day/night coastal wind pattern simulation: daytime sea breeze (sea→land, "
+        "land hotter) and night-time land breeze (land→sea, sea warmer). "
+        "Visual shows sun/moon, wind direction arrows, temperature indicators, and "
+        "detailed explanation of the specific heat capacity difference driving the pattern."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter7_simulation5_land_sea_breeze_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Time of Day / ಸಮಯ",
+            "default": "day",
+            "options": ["day", "night"],
+            "option_labels": [
+                "☀️ ಹಗಲು (Day — sea breeze →: land hot, sea cool, wind sea→land) [default]",
+                "🌙 ರಾತ್ರಿ (Night — land breeze ←: sea warm, land cool, wind land→sea)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Heat (ಉಷ್ಣ)"
+}
+
+
 # =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================

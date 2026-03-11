@@ -10605,6 +10605,1482 @@ QUIZ_QUESTIONS_KN["water_conservation_kn"] = [
 ]
 
 
+SIMULATIONS_KN["heat_sources_kn"] = {
+    "title": "ಉಷ್ಣದ ಮೂಲಗಳು (Heat Sources – Regional Differences)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter7_simulation1_heat_sources_kn.html",
+    "description": """
+An interactive Kannada-language simulation exploring how the Sun as Earth's primary
+heat source creates different temperature conditions across India's regions:
+
+1. Kerala (ಕೇರಳ): Tropical coastal region near the equator — hot and humid year-round
+   with temperatures 25–32°C; short direct sunlight path, high sea moisture.
+
+2. Delhi (ದೆಹಲಿ): Continental interior region — extreme temperature variation 5–45°C;
+   far from moderating sea influence, clear dry air for rapid heating/cooling.
+
+3. Sikkim (ಸಿಕ್ಕಿಂ): High Himalayan altitude region — cool temperatures 5–20°C;
+   elevation reduces atmospheric heating, lower oxygen density.
+
+The simulation teaches:
+- Sun is the ultimate source of all heat energy on Earth
+- Distance from equator (latitude) affects solar angle and heating intensity
+- Altitude: every 1000m rise reduces temperature by ~6°C (lapse rate)
+- Proximity to sea: moderates temperature extremes (high specific heat of water)
+
+State is exposed via URL so the agent can demonstrate each region.
+""",
+    "cannot_demonstrate": [
+        "Precise meteorological calculations or seasonal forecast data",
+        "Historical climate data or temperature records",
+        "Atmospheric pressure differences between regions",
+        "Ocean current effects on coastal temperatures"
+    ],
+    "initial_params": {
+        "initialState": "kerala",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Region / ಪ್ರದೇಶ",
+            "range": "kerala, delhi, sikkim",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which Indian region's temperature profile is shown.\n"
+                "  'kerala' → tropical coastal (25-32°C, near equator, high humidity) [default]\n"
+                "  'delhi'  → continental interior (5-45°C, extreme variation, dry)\n"
+                "  'sikkim' → high altitude Himalayan (5-20°C, cold mountain climate)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Sun as Earth's Primary Heat Source",
+            "description": (
+                "Understanding that solar radiation is the ultimate driver of all "
+                "temperature differences observed on Earth's surface."
+            ),
+            "key_insight": (
+                "The Sun radiates energy as electromagnetic waves (light and infrared). "
+                "Earth's surface absorbs this and re-radiates as heat. The amount absorbed "
+                "depends on: (1) angle of sunlight — perpendicular rays carry more energy "
+                "per unit area; (2) duration of daylight; (3) surface type (land vs water). "
+                "Kerala near the equator receives nearly perpendicular sun rays year-round, "
+                "making it consistently hot. Sikkim's high altitude means the atmosphere is "
+                "thinner, absorbing less heat even though it receives similar solar radiation."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Latitude, Altitude and Coastal Proximity",
+            "description": (
+                "How three geographic factors — latitude, altitude, and distance from "
+                "the sea — explain India's extreme regional temperature differences."
+            ),
+            "key_insight": (
+                "Latitude (distance from equator): Near the equator, Sun is overhead → "
+                "heating is intense and direct. Farther north/south, Sun's rays hit at "
+                "an angle → same energy spread over larger area → less intense heating. "
+                "Altitude: Atmosphere is thinner at height → less air to trap heat → "
+                "temperature drops ~6°C per 1000m rise (environmental lapse rate). "
+                "Coastal proximity: Water has high specific heat capacity — it heats and "
+                "cools slowly. Coastal areas like Kerala have moderate temperatures; "
+                "continental interiors like Delhi have extreme hot summers and cold winters."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Delhi's Extreme Temperature Variation",
+            "description": (
+                "Why landlocked continental interiors experience extreme seasonal "
+                "temperature swings compared to coastal or high-altitude regions."
+            ),
+            "key_insight": (
+                "Delhi's temperature extremes (5°C in winter, 45°C in summer) result from "
+                "its continental location: no nearby ocean to moderate temperatures, "
+                "dry air heats and cools rapidly, clear skies allow maximum solar gain "
+                "in summer and maximum heat loss at night in winter. "
+                "Compare: Mumbai (coastal, near Delhi's latitude) has 19-33°C year-round. "
+                "The same latitude, but the Arabian Sea moderates Mumbai's temperature. "
+                "This shows coastal proximity is as important as latitude for daily "
+                "and seasonal temperature patterns."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["conduction_experiment_kn"] = {
+    "title": "ಉಷ್ಣ ವಾಹಕತೆ ಪ್ರಯೋಗ (Heat Conduction Experiment)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter7_simulation2_conduction_kn.html",
+    "description": """
+An interactive Kannada-language simulation demonstrating heat conduction through
+a metal strip with wax-pinned pins at measured distances from a flame:
+
+The experiment shows 4 pins held by wax at increasing distances (3, 6, 9, 12 cm)
+from a heat source. As heat travels along the metal strip by conduction, pins
+closer to the flame drop first, recording their fall times.
+
+Three heat intensity levels are available:
+- Low flame: pins drop slowly over 4–10 seconds
+- Medium flame: pins drop at moderate rate over 2–6.5 seconds (default)
+- High flame: pins drop rapidly over 1–4 seconds
+
+A particle view shows molecular vibration: hot particles vibrate faster and
+transfer energy to neighboring cooler particles without moving themselves.
+
+The simulation teaches:
+- Conduction transfers heat through solids from hot to cold end
+- Rate of conduction increases with higher temperature difference
+- Particles vibrate in place (do not move) — only energy is transferred
+- Closer pins fall first — demonstrating the direction of heat flow
+
+State is exposed via URL so the agent can demonstrate different heat intensities.
+""",
+    "cannot_demonstrate": [
+        "Specific thermal conductivity values (k) for different materials",
+        "Fourier's law calculations or quantitative heat transfer",
+        "Effects of cross-sectional area on conduction rate",
+        "Conduction through non-metal materials (wood, plastic comparison)"
+    ],
+    "initial_params": {
+        "initialState": "medium",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Flame Intensity / ಜ್ವಾಲೆ ತೀವ್ರತೆ",
+            "range": "low, medium, high",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the flame intensity before auto-starting the experiment.\n"
+                "  'low'    → slow heat (pins drop at 4, 6, 8, 10 seconds)\n"
+                "  'medium' → moderate heat (pins drop at 2, 3.5, 5, 6.5 seconds) [default]\n"
+                "  'high'   → intense heat (pins drop at 1, 2, 3, 4 seconds)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Conduction: Energy Transfer Through Particle Vibration",
+            "description": (
+                "Understanding the molecular mechanism of heat conduction in solids "
+                "and why particles vibrate but do not migrate during this process."
+            ),
+            "key_insight": (
+                "In conduction, heat energy is transferred through a solid by particle "
+                "vibration. When the metal strip's atoms near the flame receive heat energy, "
+                "they vibrate faster (higher kinetic energy). These vibrating atoms collide "
+                "with adjacent atoms, transferring kinetic energy to them. Those atoms then "
+                "vibrate faster and transfer energy to their neighbors. "
+                "Crucially: the atoms themselves do NOT move — only energy passes along. "
+                "This is why metals are good conductors (tightly packed, strongly bonded "
+                "atoms) while gases are poor conductors (atoms too far apart to collide often). "
+                "This is also why a metal spoon in hot tea burns your hand quickly!"
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Direction of Heat Flow: Hot to Cold",
+            "description": (
+                "Why heat always spontaneously flows from higher to lower temperature "
+                "regions, and how the pin drop sequence demonstrates this."
+            ),
+            "key_insight": (
+                "Heat always flows from high temperature to low temperature — never the "
+                "reverse (second law of thermodynamics). In the experiment, pin 1 (3 cm "
+                "from flame) drops first because it reaches the wax melting temperature "
+                "before pins further away. Pin 4 (12 cm) drops last because heat must "
+                "travel the greatest distance. The time difference between pin drops "
+                "shows that heat conduction takes time — it is not instantaneous. "
+                "Higher flame intensity (higher temperature difference) means faster "
+                "heat flow — demonstrating that temperature gradient drives conduction rate."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Effect of Temperature on Conduction Rate",
+            "description": (
+                "How increasing the temperature difference between heat source and "
+                "material affects the speed of heat conduction."
+            ),
+            "key_insight": (
+                "Compare pin drop times at low vs high flame: High flame makes ALL pins "
+                "fall faster, showing that greater temperature difference (ΔT) drives "
+                "faster conduction. This is Fourier's Law in action: heat flow rate is "
+                "proportional to the temperature gradient. "
+                "Real-world application: cooking on high heat vs low heat, industrial "
+                "heat treatment of metals, why insulation reduces heat flow (reduces ΔT "
+                "across the insulating material). "
+                "The metal strip in this experiment simulates materials like metal cooking "
+                "utensils, radiators, and heat sinks in electronics."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["thermal_conductors_kn"] = {
+    "title": "ಉಷ್ಣ ವಾಹಕಗಳು ಮತ್ತು ಅವಾಹಕಗಳು (Thermal Conductors and Insulators)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter7_simulation3_conductors_insulators_kn.html",
+    "description": """
+An interactive Kannada-language simulation comparing heat conduction rates across
+four materials using a visual race where heat progresses as a coloured bar:
+
+Materials in the race:
+- Metal (ಲೋಹ): Very fast conductor, speed factor 5x — wins every race
+- Wood (ಮರ): Poor conductor, speed 0.8x — slow heat transfer
+- Glass (ಗಾಜು): Poor conductor, speed 1.0x — slightly better than wood
+- Plastic (ಪ್ಲಾಸ್ಟಿಕ್): Very poor conductor, speed 0.6x — slowest of all
+
+Two modes available:
+- Race Mode: All four materials race simultaneously; badges awarded 1st–4th
+- Compare Mode: Side-by-side comparison view for analysis
+
+Each material can be tapped/clicked to see an explanation of why it conducts
+well or poorly (free electrons in metals vs air pockets in wood/plastic).
+
+The simulation teaches:
+- Metals are excellent thermal conductors (free electrons transfer energy)
+- Non-metals (wood, plastic, glass) are thermal insulators
+- This is why cooking pots are metal but handles are plastic or wood
+- Insulators slow heat flow — used in building insulation, clothing, thermos flasks
+
+State is exposed via URL so the agent can demonstrate race vs compare mode.
+""",
+    "cannot_demonstrate": [
+        "Precise thermal conductivity values (W/m·K) for materials",
+        "Fourier's law quantitative calculations",
+        "Effect of material thickness on insulation",
+        "Comparison of different metals (copper vs iron vs aluminium)"
+    ],
+    "initial_params": {
+        "initialState": "race",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Mode / ಮೋಡ್",
+            "range": "race, compare",
+            "url_key": "initialState",
+            "effect": (
+                "Selects the display mode for the conductors/insulators comparison.\n"
+                "  'race'    → race mode — all materials compete simultaneously [default]\n"
+                "  'compare' → compare mode — side-by-side analysis view"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Why Metals are Good Thermal Conductors",
+            "description": (
+                "Understanding the atomic structure of metals that makes them "
+                "exceptional heat conductors compared to non-metals."
+            ),
+            "key_insight": (
+                "Metals have a unique atomic structure: their outermost electrons are "
+                "loosely bound and can move freely throughout the metal (called 'free electrons' "
+                "or 'sea of electrons'). When one end of a metal is heated, these free electrons "
+                "gain kinetic energy and move rapidly through the metal, transferring their "
+                "energy to cold regions almost instantly. Metal atoms also vibrate and pass "
+                "energy, but the free electron mechanism makes metals far superior conductors "
+                "than non-metals. This explains why copper, aluminium, and iron heat up quickly "
+                "and why metal handles on cooking pots become dangerously hot."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Why Wood, Glass and Plastic are Insulators",
+            "description": (
+                "How the molecular structure of non-metals traps air and blocks "
+                "the electron-flow mechanisms that make metals good conductors."
+            ),
+            "key_insight": (
+                "Non-metals lack free electrons — their electrons are tightly bound to "
+                "individual atoms. Heat can only transfer through atomic vibration, which "
+                "is slow. Wood is especially poor because it has microscopic air pockets "
+                "in its cellular structure (air is among the worst conductors — it has "
+                "no free electrons and molecules are too far apart for efficient vibration "
+                "transfer). Plastic polymers have long hydrocarbon chains that vibrate "
+                "slowly. Glass conducts slightly better than wood but still far slower "
+                "than any metal. This is why: cooking pot bodies = metal (conducts heat "
+                "to food); handles = plastic/wood (insulates hand from heat)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Real-World Applications of Conductors and Insulators",
+            "description": (
+                "Applying knowledge of thermal conductors and insulators to understand "
+                "everyday objects and engineering designs."
+            ),
+            "key_insight": (
+                "Engineers choose materials based on whether they WANT heat to flow or not. "
+                "WANT heat flow: cooking pots (metal for even heating), car engine blocks "
+                "(metal for heat dissipation), heat sinks in electronics (metal fins). "
+                "WANT to block heat: building insulation (glass wool, hollow bricks with "
+                "trapped air), thermos flask (vacuum — no medium for conduction), oven mitts "
+                "(thick cotton/silicone with air pockets), winter clothing (wool traps air). "
+                "The race shows metal wins by a huge margin — important for cooking and "
+                "electronics, but we also need insulators to control where heat goes."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["convection_kn"] = {
+    "title": "ಸಂವಹನ ಪ್ರವಾಹಗಳು (Convection Currents)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter7_simulation4_convection_kn.html",
+    "description": """
+An interactive Kannada-language simulation demonstrating convection currents in
+both water (liquid) and air (gas) modes:
+
+Water Mode (💧 ನೀರು):
+- A beaker with 6 colored particles showing rising (hot) and falling (cool) movement
+- Flame heats the bottom; particles near heat turn red/orange and rise
+- Cool blue particles at top sink to replace them
+- Current arrows show the circular convection loop
+- Temperature slider animates heating from 0-100°C
+
+Air Mode (💨 ಗಾಳಿ):
+- Room with heater showing warm air rising, cool air filling in from sides
+- Air particles animate in rising/falling paths
+
+Interactive features:
+- Toggle heat on/off to start/stop convection
+- Tap individual particles to track their path and state
+- Show/hide circulation arrows
+- Switch between water and air modes
+
+The simulation teaches:
+- Convection occurs in fluids (liquids and gases) — NOT in solids
+- Hot fluid expands → becomes less dense → rises
+- Cool fluid is denser → sinks to replace rising hot fluid
+- Creates continuous circular convection currents
+
+State is exposed via URL so the agent can demonstrate water vs air convection.
+""",
+    "cannot_demonstrate": [
+        "Quantitative convection coefficient calculations",
+        "Turbulent vs laminar flow distinctions",
+        "Natural vs forced convection differences",
+        "Convection in space (microgravity — why it does not occur)"
+    ],
+    "initial_params": {
+        "initialState": "water",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Medium / ಮಾಧ್ಯಮ",
+            "range": "water, air",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which fluid medium demonstrates convection.\n"
+                "  'water' → water beaker with particle animation, flame heating base [default]\n"
+                "  'air'   → room with heater, warm air rising and cool air circulating"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Convection: Heat Transfer Through Fluid Movement",
+            "description": (
+                "Understanding how convection differs from conduction by involving "
+                "actual movement of the heated matter itself."
+            ),
+            "key_insight": (
+                "Convection transfers heat through the physical movement of a fluid (liquid "
+                "or gas). Unlike conduction (where particles vibrate in place), in convection "
+                "the heated particles themselves move, carrying their kinetic energy with them. "
+                "When water at the bottom of the beaker is heated: molecules gain energy → "
+                "move faster → spread apart → become less dense → buoyancy force pushes them "
+                "upward. The cooler, denser water above sinks to replace them. This creates a "
+                "continuous circular current called a convection current. "
+                "Key difference from conduction: in conduction, energy moves through stationary "
+                "matter; in convection, the matter itself moves and carries energy."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Density Change Drives Convection",
+            "description": (
+                "How temperature-induced density changes create the buoyancy forces "
+                "that drive convection currents in fluids."
+            ),
+            "key_insight": (
+                "The driving force of convection is density difference caused by temperature. "
+                "Density = mass / volume. When you heat a fluid: mass stays the same, but "
+                "volume increases (thermal expansion) → density decreases. "
+                "Less dense (hot) fluid floats on denser (cool) fluid — the same principle "
+                "as why oil floats on water or hot air balloons rise. "
+                "As hot fluid rises, it moves away from heat source and cools → becomes denser "
+                "→ sinks. This creates the convection loop seen in the simulation. "
+                "Important: Convection requires gravity to separate denser and less dense fluid. "
+                "In space (weightlessness), convection does not occur — astronauts cannot use "
+                "convection ovens and food heats unevenly."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Convection in Air: Room Heating and Weather",
+            "description": (
+                "Applying convection principles to explain how room heaters work "
+                "and how large-scale atmospheric convection drives weather patterns."
+            ),
+            "key_insight": (
+                "Room heater: heater warms nearby air → warm air rises (lighter) → "
+                "spreads across ceiling → cools → sinks along opposite wall → flows "
+                "back to heater along floor → heated again. This convection loop gradually "
+                "warms the entire room. Placing the heater at floor level maximises this "
+                "circulation (if placed at ceiling, hot air just stays at top). "
+                "Atmospheric scale: the Sun heats equatorial air more than polar air. "
+                "Warm equatorial air rises → flows toward poles → cools → descends → "
+                "flows back along surface toward equator. These giant atmospheric convection "
+                "cells (Hadley cells) create Earth's major wind belts, monsoons, and weather "
+                "patterns — convection drives our entire climate system."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+SIMULATIONS_KN["land_sea_breeze_kn"] = {
+    "title": "ಭೂ ಮತ್ತು ಸಮುದ್ರ ಗಾಳಿ (Land and Sea Breeze)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter7_simulation5_land_sea_breeze_kn.html",
+    "description": """
+An interactive Kannada-language simulation demonstrating the day-night cycle of
+coastal wind patterns driven by differential heating of land and sea:
+
+Day Mode (☀️ ಹಗಲು — Sea Breeze / ಸಮುದ್ರ ಗಾಳಿ):
+- Sun visible, bright blue sky
+- Land heats faster than sea (lower specific heat capacity)
+- Hot air over land rises → low pressure over land
+- Cool sea air flows inland to fill the gap → sea breeze (→)
+- Temperature indicators: Land = 🔥 (hot), Sea = 🌊 (cool)
+
+Night Mode (🌙 ರಾತ್ರಿ — Land Breeze / ಭೂ ಗಾಳಿ):
+- Moon visible, dark starry sky
+- Land cools faster than sea → sea is now relatively warmer
+- Warm air over sea rises → low pressure over sea
+- Cool land air flows toward sea → land breeze (←)
+- Temperature indicators: Sea = 🔥 (warm), Land = ❄️ (cool)
+
+The simulation teaches:
+- Land has lower specific heat capacity than water → heats/cools faster
+- Temperature difference between land and sea creates pressure gradient
+- Air flows from high pressure to low pressure (from cool to warm area)
+- This reversal pattern repeats daily at coastal areas
+
+State is exposed via URL so the agent can demonstrate day vs night breezes.
+""",
+    "cannot_demonstrate": [
+        "Quantitative specific heat capacity values for land and water",
+        "Wind speed measurements or Beaufort scale",
+        "Seasonal monsoon patterns (larger scale than daily breezes)",
+        "Three-dimensional wind circulation at multiple altitudes"
+    ],
+    "initial_params": {
+        "initialState": "day",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Time of Day / ಸಮಯ",
+            "range": "day, night",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which breeze pattern is displayed.\n"
+                "  'day'   → daytime sea breeze (→): land hot, sea cool, wind blows sea→land [default]\n"
+                "  'night' → night-time land breeze (←): sea warm, land cool, wind blows land→sea"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Specific Heat Capacity: Why Land Heats Faster than Sea",
+            "description": (
+                "Understanding the physical property that explains why land and water "
+                "respond differently to the same amount of solar heating."
+            ),
+            "key_insight": (
+                "Specific heat capacity is the amount of heat energy needed to raise 1 kg "
+                "of a material by 1°C. Water's specific heat capacity (~4200 J/kg°C) is "
+                "about 5× higher than dry land (~840 J/kg°C). "
+                "This means: for the same amount of solar energy absorbed, land heats up "
+                "5× more than the same mass of water. Land also loses heat 5× faster at "
+                "night. So during the day, land quickly becomes much hotter than the sea; "
+                "at night, land quickly becomes much cooler. "
+                "This daily temperature swing (large for land, small for sea) is the "
+                "engine that drives sea and land breezes."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Sea Breeze: Daytime Coastal Wind Pattern",
+            "description": (
+                "How differential daytime heating creates a low-pressure zone over "
+                "land that draws cool sea air inland as the sea breeze."
+            ),
+            "key_insight": (
+                "Daytime sequence: Sun heats land strongly → hot air over land rises "
+                "(convection) → surface air pressure over land drops (fewer air molecules "
+                "at surface level) → creates pressure gradient between cool sea (high "
+                "pressure) and hot land (low pressure) → air flows from high to low "
+                "pressure → cool sea air blows inland = sea breeze. "
+                "Effect: coastal areas receive refreshing cool sea breeze in the afternoon, "
+                "making coastal cities like Mumbai, Chennai, and Kochi more bearable in "
+                "summer afternoons despite high temperatures. The sea breeze can extend "
+                "20-50 km inland and reach speeds of 15-25 km/h."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Land Breeze: Night-Time Reversal",
+            "description": (
+                "How the temperature differential reverses at night, creating the "
+                "opposite wind pattern blowing from land toward sea."
+            ),
+            "key_insight": (
+                "At night, land cools rapidly (low specific heat capacity releases "
+                "heat quickly) while the sea retains its warmth (high specific heat "
+                "capacity). Now the sea is relatively warmer than land. "
+                "Night sequence: Sea surface is warmer → warm air over sea rises → "
+                "pressure drops over sea → pressure is now higher over cool land → "
+                "cool land air flows toward sea = land breeze (opposite of daytime). "
+                "This reversal happens predictably each day at coastal areas. "
+                "Fishermen have traditionally used this pattern: go to sea at night "
+                "on the land breeze, return in the afternoon on the sea breeze — "
+                "free wind power aligned with their fishing schedule!"
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["heat_sources_kn"] = [
+
+    {
+        "id": "heat_sources_kn_q1",
+        "challenge": (
+            "Show the Kerala region to explain why coastal tropical areas near the "
+            "equator remain consistently hot and humid throughout the year.\n\n"
+            "(ಕೇರಳ ಪ್ರದೇಶ ತೋರಿಸಿ — ಉಷ್ಣವಲಯ ಕರಾವಳಿ ಹವಾಮಾನ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "kerala"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'kerala' as the Region. This shows Kerala's temperature profile: "
+                "25-32°C year-round, near the equator, high humidity. The panel explains "
+                "why sunlight hits almost perpendicularly here, maximizing heating."
+            ),
+            "attempt_2": (
+                "Set 'initialState=kerala'. Kerala sits close to the equator (8-12°N latitude), "
+                "so the Sun is nearly overhead most of the year — rays strike at 90° or close "
+                "to it, concentrating solar energy per unit area. The Arabian Sea and Bay of "
+                "Bengal provide moisture, making it hot AND humid."
+            ),
+            "attempt_3": (
+                "Choose 'kerala'. The key factors: (1) low latitude = perpendicular sun rays = "
+                "intense heating, (2) coastal location = sea moisture = high humidity, "
+                "(3) no extreme seasonal variation because equatorial sun angle changes little "
+                "across the year. Compare this with Delhi and Sikkim to see the contrast."
+            )
+        },
+        "concept_reminder": (
+            "Kerala's climate (hot and humid year-round) results from two factors: "
+            "1. LATITUDE: Kerala lies between 8-12°N — close to the equator. At low latitudes, "
+            "the Sun is nearly overhead throughout the year. Perpendicular sun rays concentrate "
+            "maximum solar energy per unit area of ground (same energy over smallest area). "
+            "Farther from equator, rays hit at an angle, spreading energy over a larger area "
+            "and providing less heating per square metre. "
+            "2. COASTAL POSITION: Water has high specific heat — the surrounding seas moderate "
+            "temperature extremes and contribute moisture to the air. "
+            "Result: consistently high temperatures (25-32°C) with little seasonal variation. "
+            "(ಸೂರ್ಯ = ಭೂಮಿಯ ಉಷ್ಣ ಮೂಲ; ಅಕ್ಷಾಂಶ = ತಾಪಮಾನ ಮೊದಲ ನಿರ್ಣಾಯಕ!)"
+        )
+    },
+
+    {
+        "id": "heat_sources_kn_q2",
+        "challenge": (
+            "Show the Delhi region to demonstrate why continental interior regions "
+            "far from the sea experience extreme temperature variation between seasons.\n\n"
+            "(ದೆಹಲಿ ಪ್ರದೇಶ ತೋರಿಸಿ — ಭೂಖಂಡ ಹಿಂಭಾಗ ಹವಾಮಾನ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "delhi"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'delhi' as the Region. This shows Delhi's extreme temperature range: "
+                "5°C in winter to 45°C in summer. The panel explains the continental location "
+                "with no sea to moderate temperatures."
+            ),
+            "attempt_2": (
+                "Set 'initialState=delhi'. Delhi is at ~28°N latitude, similar to some "
+                "coastal Mediterranean cities with mild climates. But landlocked Delhi has "
+                "no ocean nearby to moderate its temperatures — it heats intensely in summer "
+                "and loses heat rapidly in winter."
+            ),
+            "attempt_3": (
+                "Choose 'delhi'. Compare Delhi with Mumbai (also around 19°N but coastal): "
+                "Mumbai range is 19-33°C; Delhi is 5-45°C. The huge difference shows how "
+                "coastal proximity moderates temperatures while continental interiors experience "
+                "extremes. Water's high specific heat absorbs and releases heat slowly."
+            )
+        },
+        "concept_reminder": (
+            "Delhi's extreme temperature variation (5°C winter to 45°C summer) results from "
+            "its continental interior location: no large water body nearby to moderate temperatures. "
+            "LAND heats up and cools down rapidly (low specific heat capacity: ~840 J/kg°C). "
+            "WATER heats up and cools down slowly (high specific heat capacity: ~4200 J/kg°C). "
+            "So coastal cities experience moderate temperatures year-round because nearby oceans "
+            "absorb summer heat and release stored warmth in winter. "
+            "Continental interiors like Delhi have no such moderating influence: "
+            "Dry air heats rapidly in summer (intense solar radiation, low humidity). "
+            "Clear skies allow rapid radiative cooling in winter nights. "
+            "Result: 40°C temperature swing between summer and winter — five times more than "
+            "coastal cities at similar latitudes! "
+            "(ಸಮುದ್ರ = ತಾಪಮಾನ ನಿಯಂತ್ರಕ; ದೆಹಲಿ = ಭೂಖಂಡ ತೀವ್ರತೆ!)"
+        )
+    },
+
+    {
+        "id": "heat_sources_kn_q3",
+        "challenge": (
+            "Show the Sikkim region to explain why high-altitude Himalayan areas "
+            "remain cold even though they receive the same solar radiation as plains.\n\n"
+            "(ಸಿಕ್ಕಿಂ ಪ್ರದೇಶ ತೋರಿಸಿ — ಎತ್ತರದ ಪರ್ವತ ಹವಾಮಾನ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "sikkim"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'sikkim' as the Region. This shows Sikkim's cool temperature profile: "
+                "5-20°C despite receiving similar solar radiation to the plains. The panel "
+                "explains the altitude effect on temperature."
+            ),
+            "attempt_2": (
+                "Set 'initialState=sikkim'. Sikkim sits at altitudes of 300-8600m (most "
+                "inhabited areas 1500-4000m). At high altitudes, the atmosphere is thinner — "
+                "less air to absorb and retain heat from the Sun. Temperature drops "
+                "approximately 6°C for every 1000m rise in altitude."
+            ),
+            "attempt_3": (
+                "Choose 'sikkim'. Gangtok (capital of Sikkim) at ~1650m altitude averages "
+                "12-22°C. At the same latitude but near sea level (like Kolkata), temperatures "
+                "are 20-36°C. The 1650m altitude accounts for ~10°C cooler temperatures. "
+                "This is the environmental lapse rate: atmosphere thins with altitude, "
+                "retaining less heat."
+            )
+        },
+        "concept_reminder": (
+            "Sikkim is cold because of ALTITUDE despite its latitude (27°N, similar to Delhi). "
+            "The environmental lapse rate: temperature decreases by ~6°C per 1000m of altitude. "
+            "WHY? Atmosphere is thinner at high altitude: "
+            "1. Fewer air molecules to absorb solar radiation and retain heat. "
+            "2. Lower atmospheric pressure → air expands → expansion causes cooling "
+            "   (adiabatic cooling — same principle as aerosol cans feeling cold when emptied). "
+            "3. Distance from the warm ground surface (which absorbs most solar radiation). "
+            "The Sun reaches high altitudes just as intensely (UV radiation is actually "
+            "MORE intense at altitude), but the thin air cannot hold the heat. "
+            "Comparing all three: Kerala (hot, low latitude, coastal), Delhi (extreme, "
+            "low altitude, continental), Sikkim (cold, high altitude) — all show "
+            "different faces of HOW the Sun's heat reaches and affects Earth's surface. "
+            "(ಎತ್ತರ ಹೆಚ್ಚಿದಂತೆ = ತಾಪಮಾನ ಕಡಿಮೆ; ಪ್ರತಿ 1000 ಮೀ = 6°C ಕಡಿಮೆ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["conduction_experiment_kn"] = [
+
+    {
+        "id": "conduction_exp_kn_q1",
+        "challenge": (
+            "Set the flame to medium intensity and run the conduction experiment to "
+            "show how heat travels along a metal strip, dropping closer pins first.\n\n"
+            "(ಮಧ್ಯಮ ಜ್ವಾಲೆ ಹೊಂದಿಸಿ ಉಷ್ಣ ವಾಹಕತೆ ಪ್ರಯೋಗ ನಡೆಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "medium"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'medium' as the Flame Intensity. The simulation auto-starts "
+                "with medium heat (🔥🔥), showing pins 1-4 dropping in sequence at "
+                "approximately 2.0s, 3.5s, 5.0s, 6.5s from closest to furthest."
+            ),
+            "attempt_2": (
+                "Set 'initialState=medium'. Watch the heat gradient bar extend along "
+                "the metal strip from left to right, and the particle view shows "
+                "particles changing from cold (grey) → warm (orange) → hot (red) "
+                "as heat conducts from pin 1 to pin 4."
+            ),
+            "attempt_3": (
+                "Choose 'medium'. The result panel shows pin drop times for all 4 pins. "
+                "Pin 1 (3 cm from flame) falls first, Pin 4 (12 cm) falls last — "
+                "demonstrating that heat travels from the heat source outward, and "
+                "conduction takes time proportional to distance."
+            )
+        },
+        "concept_reminder": (
+            "Heat conduction in solids: heat energy travels from the hot end to the cold end "
+            "through particle vibration. The metal strip's atoms near the flame vibrate faster "
+            "(higher temperature = higher kinetic energy). These fast-vibrating atoms collide "
+            "with adjacent slower-vibrating atoms, gradually transferring kinetic energy along "
+            "the strip. Critical point: atoms VIBRATE in place — they do NOT move from their "
+            "positions. Only energy is transferred, not matter itself. "
+            "This is why: "
+            "- Pin 1 (closest, 3 cm) drops first — heat arrives there soonest. "
+            "- Pin 4 (furthest, 12 cm) drops last — heat must travel 12 cm. "
+            "- Higher flame = faster conduction (greater temperature difference = faster transfer). "
+            "The wax on each pin melts at ~40-50°C. When heat traveling along the strip "
+            "reaches a pin location, it melts the wax → pin falls. This is the classic "
+            "school experiment to PROVE that conduction travels from one end to the other. "
+            "(ಉಷ್ಣ ಹರಿವು = ಬಿಸಿ ಪ್ರದೇಶ → ತಂಪು ಪ್ರದೇಶ; ಕಣಗಳು ಕಂಪಿಸುತ್ತವೆ, ಚಲಿಸುವುದಿಲ್ಲ!)"
+        )
+    },
+
+    {
+        "id": "conduction_exp_kn_q2",
+        "challenge": (
+            "Set the flame to high intensity to show how increased heat accelerates "
+            "conduction, dropping all pins much faster than medium flame.\n\n"
+            "(ಅಧಿಕ ಜ್ವಾಲೆ ಹೊಂದಿಸಿ — ಹೆಚ್ಚು ಉಷ್ಣ = ವೇಗವಾಗಿ ವಾಹಕತೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "high"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'high' as the Flame Intensity. The simulation auto-starts with "
+                "maximum heat (🔥🔥🔥), dropping all 4 pins within 4 seconds — "
+                "compare with medium (6.5s for pin 4) to see the 40% speed increase."
+            ),
+            "attempt_2": (
+                "Set 'initialState=high'. The high flame creates a larger temperature "
+                "difference between the flame end and each pin. Greater ΔT (temperature "
+                "gradient) drives faster conduction — this is Fourier's Law."
+            ),
+            "attempt_3": (
+                "Choose 'high'. Pin drop times with high flame: ~1s, ~2s, ~3s, ~4s. "
+                "Compare with medium: ~2s, ~3.5s, ~5s, ~6.5s. High flame is roughly "
+                "1.5-2× faster, showing that temperature difference directly drives "
+                "the rate of heat transfer."
+            )
+        },
+        "concept_reminder": (
+            "Fourier's Law of Heat Conduction: heat flow rate (Q/t) is proportional to "
+            "the temperature gradient (ΔT/L) and the material's thermal conductivity (k). "
+            "Formula: Q/t = k × A × ΔT/L "
+            "where A = cross-sectional area, L = length of conductor. "
+            "When flame intensity increases: "
+            "- Temperature at hot end increases → ΔT (temperature difference) increases "
+            "- Larger ΔT → stronger driving force → faster conduction → pins drop sooner. "
+            "This is why: cooking on high heat is faster, iron heating elements get hotter "
+            "faster when powered more, industrial furnaces use intense heat. "
+            "The relationship is LINEAR: doubling the temperature difference roughly "
+            "doubles the rate of heat transfer through the same material. "
+            "This simulation demonstrates this by showing high flame pins fall roughly "
+            "twice as fast as low flame pins. "
+            "(ΔT ಹೆಚ್ಚು = ವಾಹಕತೆ ವೇಗ ಹೆಚ್ಚು — ಫ್ಯೂರಿಯರ್ ನಿಯಮ!)"
+        )
+    },
+
+    {
+        "id": "conduction_exp_kn_q3",
+        "challenge": (
+            "Set the flame to low intensity to show that reduced heat slows conduction "
+            "significantly, demonstrating that temperature gradient controls the rate.\n\n"
+            "(ಕಡಿಮೆ ಜ್ವಾಲೆ ಹೊಂದಿಸಿ — ಕಡಿಮೆ ಉಷ್ಣ = ನಿಧಾನ ವಾಹಕತೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "low"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'low' as the Flame Intensity. The simulation auto-starts with "
+                "the weakest flame (🔥), dropping pins at ~4s, ~6s, ~8s, ~10s — "
+                "the last pin takes 10 seconds with low heat vs 4 seconds with high heat."
+            ),
+            "attempt_2": (
+                "Set 'initialState=low'. Low flame = small temperature difference between "
+                "flame and metal. The smaller the driving force (ΔT), the slower the "
+                "conduction. Particles near the flame gain energy slowly and "
+                "transfer it slowly to their neighbors."
+            ),
+            "attempt_3": (
+                "Choose 'low'. The particle view shows particles changing color more slowly "
+                "from cold grey to hot red. Pin 4 takes 10 seconds — 2.5× longer than "
+                "with high flame (4 seconds). This comparison across all three flame levels "
+                "demonstrates the proportional relationship between ΔT and conduction rate."
+            )
+        },
+        "concept_reminder": (
+            "At low flame intensity, the temperature at the hot end is lower, shrinking "
+            "the temperature difference (ΔT) across the metal strip. Per Fourier's Law, "
+            "smaller ΔT → slower heat flow → pins take longer to drop. "
+            "Real-world implications: "
+            "- Insulation works by reducing ΔT across a barrier — walls, clothing, and "
+            "  thermos flasks create a temperature gradient spread over thick material, "
+            "  reducing heat flow per unit time. "
+            "- This is why a metal utensil on a very low flame barely heats the handle "
+            "  (small ΔT, slow conduction), while on full heat the handle quickly becomes "
+            "  dangerously hot (large ΔT, fast conduction). "
+            "- Body temperature regulation: the body maintains core temperature of 37°C; "
+            "  skin may be 32°C; a slight ΔT ensures steady (not rapid) heat loss to air. "
+            "The experiment across three flame levels proves that temperature gradient "
+            "is the key variable controlling conduction rate in a given material. "
+            "(ಕಡಿಮೆ ΔT = ನಿಧಾನ ವಾಹಕತೆ; ಅವಾಹಕ = ΔT ಕಡಿಮೆ ಮಾಡುವ ಸಾಧನ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["thermal_conductors_kn"] = [
+
+    {
+        "id": "thermal_conductors_kn_q1",
+        "challenge": (
+            "Run the heat race in race mode to visually demonstrate that metal is "
+            "a far superior thermal conductor compared to wood, glass, and plastic.\n\n"
+            "(ಉಷ್ಣ ಓಟ ನಡೆಸಿ — ಲೋಹ ಉತ್ತಮ ವಾಹಕ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "race"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'race' as the Mode. The simulation auto-starts the race, "
+                "showing heat progressing along 4 material tracks simultaneously. "
+                "Metal finishes first (🥇), followed by glass (🥈), wood (🥉), plastic (4th)."
+            ),
+            "attempt_2": (
+                "Set 'initialState=race'. The race mode shows heat bars extending from "
+                "left to right for each material at different speeds. Metal's bar extends "
+                "5× faster than wood's, demonstrating the huge difference between "
+                "metallic and non-metallic conductors."
+            ),
+            "attempt_3": (
+                "Choose 'race'. The results panel shows finish times: metal finishes "
+                "in about 1-2 seconds while plastic may take 15-20 seconds. "
+                "This visual comparison makes the relative conductivity differences "
+                "immediately obvious — metals are dramatically better conductors."
+            )
+        },
+        "concept_reminder": (
+            "Why metals win every thermal race: "
+            "Metals have FREE ELECTRONS — valence electrons loosely bound to atoms that "
+            "move freely throughout the metal lattice (the 'sea of electrons model'). "
+            "When heat is applied: free electrons gain kinetic energy → zip through the "
+            "metal rapidly → transfer energy to cooler regions → very fast conduction. "
+            "Non-metals (wood, glass, plastic): NO free electrons. Heat can only "
+            "transfer through slow atomic vibration chains. Air pockets in wood further "
+            "slow conduction. Result: 5-10× slower than metal. "
+            "Conductivity ranking (W/m·K): Copper ~400, Aluminium ~237, Iron ~80, "
+            "Glass ~1.0, Wood ~0.1-0.3, Plastic ~0.1-0.5. "
+            "Ratio: copper is 1000-4000× better conductor than wood! "
+            "Practical design: frying pan = iron/steel (conducts heat to food); "
+            "handle = bakelite/plastic (insulates hand). Both properties needed together. "
+            "(ಲೋಹ = ಉತ್ತಮ ವಾಹಕ; ಮರ/ಪ್ಲಾಸ್ಟಿಕ್ = ಉತ್ತಮ ಅವಾಹಕ!)"
+        )
+    },
+
+    {
+        "id": "thermal_conductors_kn_q2",
+        "challenge": (
+            "Switch to compare mode to examine each material's properties individually "
+            "and explain why metals and non-metals differ so dramatically in heat conduction.\n\n"
+            "(ಹೋಲಿಕೆ ಮೋಡ್ ತೋರಿಸಿ — ವ್ಯತ್ಯಾಸ ವಿಶ್ಲೇಷಣೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "compare"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'compare' as the Mode. This switches to compare mode where each "
+                "material is displayed separately for individual analysis. "
+                "Tap on each material track to see detailed information about why "
+                "it conducts or insulates."
+            ),
+            "attempt_2": (
+                "Set 'initialState=compare'. The compare mode is useful when you want "
+                "to focus on one material at a time and explain the atomic-level reason "
+                "for its thermal behaviour — free electrons in metals, air pockets in wood."
+            ),
+            "attempt_3": (
+                "Choose 'compare'. In compare mode, clicking the metal track shows: "
+                "'ಲೋಹ ಉತ್ತಮ ವಾಹಕ! ಉಷ್ಣ ಅದರ ಮೂಲಕ ಬಹು ವೇಗವಾಗಿ ಹರಿಯುತ್ತದೆ.' "
+                "Clicking wood shows: 'ಮರ ಅವಾಹಕ. ಗಾಳಿ ಜಾಗಗಳು ಉಷ್ಣ ವರ್ಗಾವಣೆ ನಿಧಾನಗೊಳಿಸುತ್ತವೆ.'"
+            )
+        },
+        "concept_reminder": (
+            "Why materials differ in thermal conductivity: "
+            "METALS (ಲೋಹಗಳು): 'Sea of electrons' model — outer electrons not bound to any "
+            "single atom but free to roam. Heat → free electrons gain KE → move fast → "
+            "instantly carry energy to cooler end + atom vibration also contributes. "
+            "WOOD (ಮರ): Organic polymer (cellulose, lignin). No free electrons. Tightly "
+            "bound electrons. Cellular structure has many microscopic air spaces — air "
+            "is an excellent insulator (molecules too far apart, no free electrons). "
+            "GLASS (ಗಾಜು): Amorphous silica network — no free electrons, but denser than "
+            "wood so slightly better conduction through atomic vibration. "
+            "PLASTIC (ಪ್ಲಾಸ್ಟಿಕ್): Long hydrocarbon polymer chains. No free electrons. "
+            "Flexible chains absorb rather than transmit vibration energy. Excellent insulator. "
+            "ENGINEERING USE: Products designed using BOTH — body = metal (fast conduction "
+            "for intended function), contact surface = insulator (protection from burns). "
+            "(ಮುಕ್ತ ಎಲೆಕ್ಟ್ರಾನ್ = ಉಷ್ಣ ವಾಹಕ; ಮುಕ್ತ ಎಲೆಕ್ಟ್ರಾನ್ ಇಲ್ಲ = ಅವಾಹಕ!)"
+        )
+    },
+
+    {
+        "id": "thermal_conductors_kn_q3",
+        "challenge": (
+            "Return to race mode and observe which material finishes last to identify "
+            "the best thermal insulator and explain where it is used in daily life.\n\n"
+            "(ಓಟ ಮೋಡ್‌ಗೆ ಹಿಂತಿರುಗಿ — ಅತ್ಯುತ್ತಮ ಅವಾಹಕ ಗುರುತಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "race"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'race' as the Mode again. Watch the race to its end — the last "
+                "material to finish (receive 4th badge) is plastic, the worst thermal "
+                "conductor and therefore the best insulator in this set of materials."
+            ),
+            "attempt_2": (
+                "Set 'initialState=race'. Plastic (speed 0.6x) finishes last — even "
+                "behind wood (0.8x) and glass (1.0x). Plastic polymer chains are "
+                "extremely poor heat conductors. This makes plastic the material of "
+                "choice for kitchen handles, electrical insulation, and packaging."
+            ),
+            "attempt_3": (
+                "Choose 'race'. Compare finish times: metal finishes ~3-4× faster than "
+                "plastic. This huge gap explains why: kitchen utensil handles are "
+                "plastic/teflon-coated (not metal), electrical wires are plastic-insulated, "
+                "styrofoam (expanded plastic) keeps coffee hot and ice cream cold."
+            )
+        },
+        "concept_reminder": (
+            "Best insulator in the race: PLASTIC (last to finish). "
+            "Thermal insulators are as important as conductors in engineering: "
+            "1. KITCHEN SAFETY: Plastic and rubber handles on pots, pans, and appliances "
+            "   prevent burns. The metal pot conducts heat to food; the plastic handle "
+            "   conducts almost no heat to your hand. "
+            "2. BUILDING INSULATION: Fiberglass, mineral wool, expanded polystyrene (EPS) "
+            "   in walls and roofs reduce heat loss in winter and heat gain in summer "
+            "   → saves energy, reduces heating/cooling costs. "
+            "3. THERMOS FLASK: Vacuum (no material at all) is the ultimate insulator "
+            "   between inner and outer walls. The glass/plastic walls add extra insulation. "
+            "4. ELECTRICAL SAFETY: Copper wire (conductor) surrounded by PVC plastic "
+            "   (insulator) — conducts electricity where needed, prevents leakage elsewhere. "
+            "5. WINTER CLOTHING: Wool and down feathers trap air pockets in their fiber "
+            "   structure — air is extremely poor conductor (0.025 W/m·K vs iron 80 W/m·K). "
+            "The race's 'loser' (plastic) wins in real-life insulation applications! "
+            "(ಅವಾಹಕ = ಉಷ್ಣ ತಡೆಯುವ ವಸ್ತು; ಪ್ಲಾಸ್ಟಿಕ್ = ನಿಜ ಜೀವನದ ವಿಜೇತ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["convection_kn"] = [
+
+    {
+        "id": "convection_kn_q1",
+        "challenge": (
+            "Show water convection with heat turned on to demonstrate circular "
+            "convection currents where hot particles rise and cool particles sink.\n\n"
+            "(ನೀರಿನ ಸಂವಹನ ತೋರಿಸಿ — ಬಿಸಿ ನೀರು ಏರುತ್ತದೆ, ತಂಪು ಇಳಿಯುತ್ತದೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "water"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'water' as the Medium. The simulation auto-activates heat, "
+                "showing the beaker with 6 numbered particles. Bottom particles turn "
+                "red/orange (hot) and rise; top particles remain blue/cool and sink. "
+                "The circular convection current forms."
+            ),
+            "attempt_2": (
+                "Set 'initialState=water'. Watch particle 1, 2, 3 near the flame — "
+                "they gain the 'hot' (red) class and animate along the 'rise-path'. "
+                "Particles 4, 5, 6 near the top stay cool (blue) and animate along "
+                "the 'fall-path'. Together they form the convection loop."
+            ),
+            "attempt_3": (
+                "Choose 'water'. The explanation panel states: hot water near the "
+                "bottom expands (becomes less dense) → rises. Cool water at top "
+                "sinks to replace it → creates continuous circular flow (convection "
+                "current). You can click individual particles to track their path."
+            )
+        },
+        "concept_reminder": (
+            "Convection in liquids: heat transfers through actual movement of the fluid. "
+            "MECHANISM: "
+            "1. Flame heats water at the bottom of beaker. "
+            "2. Hot water molecules gain KE → move faster → volume increases (expansion). "
+            "3. Density = mass/volume. Same mass, more volume → LESS DENSE. "
+            "4. Less dense hot water is buoyed upward (Archimedes' principle — less dense "
+            "   fluid rises in denser surroundings). "
+            "5. Hot water rises to top → moves sideways → loses heat to surroundings → "
+            "   becomes denser → sinks back toward heat source. "
+            "6. Complete loop = CONVECTION CURRENT. "
+            "KEY CONTRAST with conduction: in conduction, particles VIBRATE in place; "
+            "in convection, particles PHYSICALLY MOVE, carrying their heat energy along. "
+            "This is why convection is faster and more efficient for heat distribution "
+            "in fluids than conduction. "
+            "(ಸಂವಹನ = ದ್ರವ ಚಲನೆ; ಬಿಸಿ ದ್ರವ ಏರುತ್ತದೆ, ತಂಪು ದ್ರವ ಇಳಿಯುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "convection_kn_q2",
+        "challenge": (
+            "Switch to air mode to show how convection in air (gas) works in a room "
+            "with a heater — explaining how the entire room eventually warms up.\n\n"
+            "(ಗಾಳಿ ಮೋಡ್ ತೋರಿಸಿ — ಕೋಣೆಯ ಉಷ್ಣ ಸಂವಹನ ವಿವರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "air"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'air' as the Medium. The simulation switches to air mode showing "
+                "a room with a heater (🔥) at bottom left. Air particles near the heater "
+                "animate upward (air-rising), while other particles animate downward "
+                "(air-falling) in the circular convection pattern."
+            ),
+            "attempt_2": (
+                "Set 'initialState=air'. The explanation panel for air mode reads: "
+                "'ಕೋಣೆಯ ಹೀಟರ್ ಹತ್ತಿರದ ಗಾಳಿಯನ್ನು ಬಿಸಿ ಮಾಡುತ್ತದೆ. ಬಿಸಿ ಗಾಳಿ ಮೇಲಕ್ಕೆ ಏರುತ್ತದೆ' — "
+                "showing the same convection principle as water but in air (a gas)."
+            ),
+            "attempt_3": (
+                "Choose 'air'. The room convection loop: heater (bottom left) → warm air "
+                "rises → spreads across ceiling → cools → sinks along opposite wall → "
+                "flows back along floor → reheated at heater. This gradual circulation "
+                "warms the entire room, not just the area near the heater."
+            )
+        },
+        "concept_reminder": (
+            "Convection in air (gas) works by the same density-difference mechanism as water: "
+            "Room heater heats nearby air → hot air expands → less dense → rises to ceiling → "
+            "spreads across → cools at ceiling and walls → becomes denser → sinks down → "
+            "flows across floor back to heater → heated again → loops continuously. "
+            "This convection loop gradually transfers heat throughout the entire room. "
+            "PLACEMENT MATTERS: Heater at floor level → most effective (hot air naturally "
+            "rises from floor, circulating whole room). Heater at ceiling → inefficient "
+            "(hot air stays near ceiling, floor remains cold — wrong direction). "
+            "Air conditioners are placed HIGH on the wall — cold air is denser and sinks "
+            "naturally, cooling the whole room from top down. "
+            "This is the same circulation principle on much larger scales: "
+            "Sun heats equatorial air → rises → flows toward poles → cools → descends → "
+            "flows back = atmospheric circulation cells (Hadley cells) driving global weather. "
+            "(ಕೋಣೆ ಹೀಟರ್ = ಸಣ್ಣ ಪ್ರಮಾಣದ ಸಂವಹನ; ವಾತಾವರಣ ಪರಿಚಲನೆ = ದೊಡ್ಡ ಪ್ರಮಾಣ!)"
+        )
+    },
+
+    {
+        "id": "convection_kn_q3",
+        "challenge": (
+            "Show water convection mode to explain why convection only occurs in "
+            "fluids (liquids and gases) but NOT in solids.\n\n"
+            "(ನೀರಿನ ಸಂವಹನ ತೋರಿಸಿ — ಸಂವಹನ ಏಕೆ ಘನದಲ್ಲಿ ಸಂಭವಿಸುವುದಿಲ್ಲ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "water"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'water' as the Medium. The simulation shows convection as "
+                "particles physically moving in circular paths. This physical movement "
+                "is only possible in fluids — in solids, particles are locked in fixed "
+                "positions by strong bonds and cannot move to create currents."
+            ),
+            "attempt_2": (
+                "Set 'initialState=water'. The key observation: particles move along "
+                "paths (rise-path and fall-path animations). In a solid, particles can "
+                "only VIBRATE around fixed positions — they cannot flow or change relative "
+                "positions. No flow = no convection current possible."
+            ),
+            "attempt_3": (
+                "Choose 'water'. The informational text says: 'ಸಂವಹನ ದ್ರವಗಳಲ್ಲಿ "
+                "ಸಂಭವಿಸುತ್ತದೆ (ದ್ರವಗಳು ಮತ್ತು ಅನಿಲಗಳು)' — confirming convection occurs "
+                "in fluids (liquids and gases). Solids can only conduct heat; "
+                "they cannot convect because their particles cannot migrate."
+            )
+        },
+        "concept_reminder": (
+            "Why convection is IMPOSSIBLE in solids: "
+            "Convection requires physical movement of matter from hot to cool regions. "
+            "In solids, particles (atoms or molecules) are held in fixed positions by "
+            "strong intermolecular bonds in a crystal lattice or rigid structure. "
+            "They can only VIBRATE around fixed positions — they CANNOT move from one "
+            "place to another. Without particle migration, there can be no bulk flow, "
+            "and without flow, there is no convection. "
+            "Solids can only transfer heat by CONDUCTION (vibration energy passed "
+            "from particle to particle). "
+            "Summary of heat transfer modes and where they occur: "
+            "• CONDUCTION: solids (and liquids/gases, but poorly) — NO particle movement "
+            "• CONVECTION: fluids only (liquids + gases) — requires particle movement "
+            "• RADIATION: anywhere including vacuum — no medium needed at all "
+            "A metal rod conducts (can't convect). Water in a beaker can do both "
+            "(conduct a little, convect a lot). Sun heats Earth through radiation "
+            "across the vacuum of space. "
+            "(ಘನ = ಕೇವಲ ವಾಹಕತೆ; ದ್ರವ = ವಾಹಕತೆ + ಸಂವಹನ; ವಿಕಿರಣ = ಮಾಧ್ಯಮ ಬೇಡ!)"
+        )
+    }
+]
+
+QUIZ_QUESTIONS_KN["land_sea_breeze_kn"] = [
+
+    {
+        "id": "land_sea_breeze_kn_q1",
+        "challenge": (
+            "Show the daytime sea breeze to explain why coastal areas receive cool "
+            "wind from the sea during hot afternoons.\n\n"
+            "(ಹಗಲಿನ ಸಮುದ್ರ ಗಾಳಿ ತೋರಿಸಿ — ಸಮುದ್ರ ತೀರದಲ್ಲಿ ತಂಪು ಮಧ್ಯಾಹ್ನ ಗಾಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "day"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'day' as the Time of Day. The simulation shows: bright sky, "
+                "sun visible, land glowing hot (🔥) and sea cool (🌊). Wind arrows "
+                "point right (sea → land). The breeze name shows '🌬️ ಸಮುದ್ರ ಗಾಳಿ'."
+            ),
+            "attempt_2": (
+                "Set 'initialState=day'. The explanation reads: 'ಹಗಲು, ಭೂಮಿ ಸಮುದ್ರಕ್ಕಿಂತ "
+                "ಬೇಗ ಬಿಸಿಯಾಗುತ್ತದೆ. ಭೂಮಿ ಮೇಲಿನ ಬಿಸಿ ಗಾಳಿ ಏರುತ್ತದೆ. ಸಮುದ್ರದಿಂದ ತಂಪು ಗಾಳಿ "
+                "ಅದರ ಸ್ಥಾನ ತುಂಬಲು ಒಳನುಗ್ಗುತ್ತದೆ. ಸಮುದ್ರದಿಂದ ಭೂಮಿಗೆ ಈ ತಂಪು ಗಾಳಿಯೇ ಸಮುದ್ರ ಗಾಳಿ.'"
+            ),
+            "attempt_3": (
+                "Choose 'day'. The mechanism: Sun heats land → hot air rises over land "
+                "(convection) → low pressure over land → high pressure over sea "
+                "(relatively cooler) → air flows from high to low pressure → "
+                "cool sea breeze blows inland. This is why coastal cities in India "
+                "(Mumbai, Chennai, Kochi) feel refreshed in afternoon sea breezes."
+            )
+        },
+        "concept_reminder": (
+            "Sea breeze (ಸಮುದ್ರ ಗಾಳಿ) — the daytime coastal wind: "
+            "ROOT CAUSE: Land has LOWER specific heat capacity (~840 J/kg°C) than water "
+            "(~4200 J/kg°C). So for the same solar energy received: land heats up 5× faster. "
+            "MECHANISM (convection-driven): "
+            "1. Morning: land and sea start at similar temperatures. "
+            "2. As Sun rises: land heats rapidly → hot air above land rises (low density) → "
+            "   low air pressure zone forms over land. "
+            "3. Sea heats slowly → stays cool → relatively high pressure over sea. "
+            "4. Air flows from high pressure (sea) to low pressure (land) = SEA BREEZE. "
+            "5. Sea breeze is typically strongest in early afternoon (peak land heating). "
+            "EFFECT: Coastal areas receive refreshing cool, moist air from the sea during "
+            "the hottest part of the day. Sea breeze can penetrate 20-50 km inland and "
+            "reach speeds of 15-25 km/h. "
+            "This is why coastal cities like Mumbai and Kochi are more bearable in summer "
+            "than inland cities at similar latitudes. "
+            "(ಹಗಲು = ಭೂಮಿ ಬಿಸಿ → ಗಾಳಿ ಏರುತ್ತದೆ → ಸಮುದ್ರ ಗಾಳಿ ಒಳನುಗ್ಗುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "land_sea_breeze_kn_q2",
+        "challenge": (
+            "Show the night-time land breeze to demonstrate how the wind pattern "
+            "reverses at night when land cools faster than the sea.\n\n"
+            "(ರಾತ್ರಿ ಭೂ ಗಾಳಿ ತೋರಿಸಿ — ರಾತ್ರಿ ವಿರುದ್ಧ ದಿಕ್ಕಿನಲ್ಲಿ ಗಾಳಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "night"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'night' as the Time of Day. The simulation switches to: dark sky "
+                "with moon and stars, sea indicators show 🔥 (warm), land shows ❄️ (cool). "
+                "Wind arrows now point LEFT (land → sea). The breeze name shows '🌬️ ಭೂ ಗಾಳಿ'."
+            ),
+            "attempt_2": (
+                "Set 'initialState=night'. The explanation: 'ರಾತ್ರಿಯಲ್ಲಿ, ಭೂಮಿ ಸಮುದ್ರಕ್ಕಿಂತ "
+                "ವೇಗವಾಗಿ ತಂಪಾಗುತ್ತದೆ. ಸಮುದ್ರ ತುಲನಾತ್ಮಕವಾಗಿ ಬೆಚ್ಚನೆಯಾಗಿ ಉಳಿಯುತ್ತದೆ.' "
+                "The situation is now reversed: sea is relatively warmer, creating rising "
+                "air over sea and flow from land toward sea."
+            ),
+            "attempt_3": (
+                "Choose 'night'. Notice the complete reversal: arrows go LEFT instead "
+                "of right, temperature indicators swap (land cold, sea warm). "
+                "At night, land loses heat rapidly; sea retains warmth from the day. "
+                "This reversal happens predictably every 24 hours at coastal areas."
+            )
+        },
+        "concept_reminder": (
+            "Land breeze (ಭೂ ಗಾಳಿ) — the night-time coastal wind: "
+            "After sunset, the heat reversal begins: "
+            "- Land (low specific heat): rapidly radiates stored heat back to sky → cools fast. "
+            "- Sea (high specific heat): releases stored heat slowly → stays warm for hours. "
+            "MECHANISM: "
+            "1. By evening/night: land has cooled below sea surface temperature. "
+            "2. Sea is now relatively warmer → warm moist air rises over sea → "
+            "   low pressure over sea. "
+            "3. Cool dense land air moves toward sea (high pressure to low pressure) = LAND BREEZE. "
+            "4. Land breeze is typically weaker than sea breeze (smaller temperature difference). "
+            "TRADITIONAL USE: Fishermen in Kerala, Tamil Nadu, and other coastal states have "
+            "used this pattern for centuries — sail OUT to sea at midnight on the land breeze, "
+            "fish till dawn, return to shore in afternoon on the sea breeze. "
+            "No engine needed — just knowledge of this daily wind reversal! "
+            "This perfectly illustrates how traditional communities observed and applied "
+            "natural weather patterns before formal scientific understanding. "
+            "(ರಾತ್ರಿ = ಭೂಮಿ ತಂಪು → ಗಾಳಿ ಸಮುದ್ರದ ಕಡೆ → ಭೂ ಗಾಳಿ!)"
+        )
+    },
+
+    {
+        "id": "land_sea_breeze_kn_q3",
+        "challenge": (
+            "Show the daytime sea breeze again and explain the connection between "
+            "land-sea breezes and the large-scale monsoon winds affecting all of India.\n\n"
+            "(ಸಮುದ್ರ ಗಾಳಿ ತೋರಿಸಿ — ಮಾನ್ಸೂನ್ ಮತ್ತು ಸಮುದ್ರ ಗಾಳಿ ಸಂಬಂಧ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "day"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'day' to show the sea breeze mechanism. The sea breeze is "
+                "essentially a small-scale, local version of the same process that "
+                "drives the Indian summer monsoon — land heating faster than sea, "
+                "creating a pressure gradient that draws in moist ocean air."
+            ),
+            "attempt_2": (
+                "Set 'initialState=day'. The sea breeze operates on a daily cycle "
+                "(hours). The monsoon operates on a seasonal cycle (months). "
+                "Both involve: land heats more than ocean → hot air rises over land → "
+                "low pressure draws in moist ocean air. Same physics, different scales."
+            ),
+            "attempt_3": (
+                "Choose 'day'. The key connection: India's summer monsoon (June-September) "
+                "happens because the Indian subcontinent heats intensely in summer, "
+                "creating low pressure that draws in moist southwest winds from the "
+                "Indian Ocean — a giant, season-long 'sea breeze' for all of India."
+            )
+        },
+        "concept_reminder": (
+            "Sea breeze and monsoon — same physics, different scales: "
+            "DAILY SEA BREEZE (12-24 hour cycle): "
+            "- Affects coastal strip ~50 km inland "
+            "- Triggered by daytime land heating, reversed at night "
+            "- Wind speed: 15-25 km/h "
+            "- Carries moist sea air a short distance inland "
+            "INDIAN SUMMER MONSOON (3-4 month seasonal reverse): "
+            "Same mechanism, continental scale: "
+            "- April-May: whole Indian subcontinent heats intensely under summer sun "
+            "  (large land mass, low specific heat) → enormous low pressure zone forms. "
+            "- Indian Ocean stays cooler (high specific heat) → high pressure over ocean. "
+            "- Giant 'sea breeze' draws moisture-laden southwest winds across the ocean "
+            "  from the Arabian Sea and Bay of Bengal onto the Indian subcontinent. "
+            "- These winds carry enormous moisture → condense as they hit Western Ghats "
+            "  and Himalayan foothills → torrential monsoon rain (June-September). "
+            "- After monsoon: land cools faster than ocean in October → winds reverse → "
+            "  northeast monsoon (weaker, drier) in Tamil Nadu and Sri Lanka. "
+            "The simulation's little arrows (→ during day) scale up to the monsoon's "
+            "massive southwest winds that bring 80% of India's annual rainfall! "
+            "(ಸಮುದ್ರ ಗಾಳಿ = ದೈನಂದಿನ ಮಾನ್ಸೂನ್; ದೊಡ್ಡ ಮಾನ್ಸೂನ್ = ಋತುಮಾನ ಸಮುದ್ರ ಗಾಳಿ!)"
+        )
+    }
+]
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
