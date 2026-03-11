@@ -8039,6 +8039,1187 @@ QUIZ_QUESTIONS_KN["say_no_kn"] = [
 ]
 
 
+# =============================================================================
+# LIFE STAGES OF HUMANS SIMULATION
+# ಮಾನವ ಜೀವನದ ಹಂತಗಳು – ಶಿಶು ಅವಧಿಯಿಂದ ವೃದ್ಧಾಪ್ಯದವರೆಗೆ
+# Science Chapter 6 – Growing Up
+# =============================================================================
+SIMULATIONS_KN["life_stages_kn"] = {
+    "title": "ಮಾನವ ಜೀವನದ ಹಂತಗಳು (Human Life Stages)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation1_life_stages_kn.html",
+    "description": (
+        "Kannada interactive timeline simulation showing the five stages of human life: "
+        "infancy (0-2 yrs), childhood (3-9 yrs), adolescence (10-19 yrs), adulthood (20-60 yrs), "
+        "and old age (60+ yrs). Clicking any stage on the vertical timeline updates a detail "
+        "panel with that stage's key physical, cognitive, social and emotional characteristics. "
+        "The adolescence stage is specially highlighted as the central 'you are here' stage. "
+        "A comparison panel draws analogies to plant growth (seed→sprout→flower→mature tree), "
+        "reinforcing that growth patterns are universal across nature."
+    ),
+    "cannot_demonstrate": [
+        "Individual variation in onset of life stages",
+        "Numerical comparisons of developmental milestones",
+        "Neurological or biological details of each stage",
+        "Interactive progression from one stage to the next"
+    ],
+    "initial_params": {"initialState": "adolescence", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Life Stage",
+            "range": "infant, childhood, adolescence, adulthood, old_age",
+            "url_key": "initialState",
+            "effect": (
+                "Selects and highlights the specified life stage on the timeline:\n"
+                "  'infant'      → Infancy (0-2 yrs): rapid growth, learning to walk & speak\n"
+                "  'childhood'   → Childhood (3-9 yrs): learning, play, social skills\n"
+                "  'adolescence' → Adolescence (10-19 yrs): puberty, identity, transition (default)\n"
+                "  'adulthood'   → Adulthood (20-60 yrs): independence, career, family\n"
+                "  'old_age'     → Old Age (60+ yrs): wisdom, experience, guidance"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, nature comparison box, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Human Life Progresses Through Five Distinct Stages",
+            "description": (
+                "Human life is divided into five sequential stages, each characterised by "
+                "unique patterns of physical, cognitive, social and emotional development. "
+                "Understanding these stages helps us appreciate changes happening in our own bodies."
+            ),
+            "key_insight": (
+                "The five stages — infancy → childhood → adolescence → adulthood → old age — "
+                "are universal to all humans, though the exact timing varies between individuals. "
+                "Each stage builds on the previous one, preparing the person for the next."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Adolescence Is the Critical Transitional Stage",
+            "description": (
+                "Adolescence (10-19 years) is the bridge between childhood and adulthood. "
+                "It is marked by rapid physical growth, emotional changes, identity formation, "
+                "and the beginning of reproductive maturity (puberty)."
+            ),
+            "key_insight": (
+                "Adolescence is specially highlighted in the simulation because it is the period "
+                "students are currently living through. The rapid changes — physical, emotional, "
+                "social — are all normal and expected parts of development. "
+                "Recognising adolescence as a stage helps students understand their own experience."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Growth Patterns Are Universal Across Nature",
+            "description": (
+                "Just as humans pass through predictable life stages, plants also grow through "
+                "sequential phases: seed → sprout → flowering → mature tree. "
+                "This pattern of staged development is a universal biological principle."
+            ),
+            "key_insight": (
+                "The plant analogy (seed = infancy, sprout = childhood, flowering = adolescence, "
+                "mature tree = adulthood) helps students see that staged growth is not unique to "
+                "humans — it is a fundamental feature of all living organisms. "
+                "Each organism grows to reach its reproductive potential."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# GROWTH CHART DURING ADOLESCENCE SIMULATION
+# ಕೌಮಾರದಲ್ಲಿ ಬೆಳವಣಿಗೆ – ಎತ್ತರ ಮತ್ತು ತೂಕ ಬದಲಾವಣೆ
+# Science Chapter 6 – Growing Up
+# =============================================================================
+SIMULATIONS_KN["growth_chart_kn"] = {
+    "title": "ಕೌಮಾರದಲ್ಲಿ ಬೆಳವಣಿಗೆ ಚಾರ್ಟ್ (Growth Chart During Adolescence)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation2_growth_chart_kn.html",
+    "description": (
+        "Kannada interactive growth chart simulation using an age slider (5-20 years) "
+        "to visualise how height and weight change across childhood and adolescence. "
+        "Dragging the slider updates: an animated person figure (height), displayed stats "
+        "(average height in cm, average weight in kg), annual growth rate indicators "
+        "(showing the growth spurt with a 'rocket' icon when annual gain ≥ 6 cm), "
+        "and a descriptive info panel explaining what is happening at each age. "
+        "The adolescent period (10-18) is highlighted in orange, showing the growth spurt. "
+        "Facts about gender differences in growth timing are also displayed."
+    ),
+    "cannot_demonstrate": [
+        "Individual variation — these are population averages only",
+        "Exact genetic contribution to final height",
+        "Weight-for-height (BMI) calculations",
+        "Nutrition or sleep effects on growth rate"
+    ],
+    "initial_params": {"initialState": "age_12", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Age to Display",
+            "range": "age_8, age_10, age_12, age_13, age_14, age_15, age_16, age_18, age_20",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the age slider to the given age value and updates all growth stats:\n"
+                "  'age_8'  → pre-puberty (128 cm, 26 kg, steady growth)\n"
+                "  'age_10' → pre-adolescence (138 cm, 32 kg, puberty approaching)\n"
+                "  'age_12' → early adolescence (149 cm, 40 kg, growth spurt beginning) [default]\n"
+                "  'age_13' → puberty peak (156 cm, 45 kg, rocket icon growth)\n"
+                "  'age_14' → continued rapid growth (162 cm, 50 kg)\n"
+                "  'age_15' → mid-adolescence (167 cm, 55 kg, growth slowing)\n"
+                "  'age_16' → nearing adult height (170 cm, 58 kg)\n"
+                "  'age_18' → near-adult (173 cm, 62 kg, final stages)\n"
+                "  'age_20' → adult height reached (175 cm, 65 kg)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, puberty highlight fact box, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "The Growth Spurt: Rapid Height and Weight Increase in Adolescence",
+            "description": (
+                "During adolescence, the body experiences a dramatic increase in growth "
+                "rate called the 'growth spurt'. Adolescents can grow 8-12 cm in a single year, "
+                "compared to the steady 5-6 cm/year in childhood."
+            ),
+            "key_insight": (
+                "The growth spurt is driven by a surge in growth hormones (GH) and sex hormones "
+                "(testosterone in boys, oestrogen in girls). "
+                "The simulation shows this visually: the height gain per year jumps dramatically "
+                "at ages 12-15, with the rocket icon appearing when annual gain ≥ 6 cm."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Girls and Boys Experience Growth Spurts at Different Ages",
+            "description": (
+                "Girls typically reach their growth spurt earlier (ages 10-14) than boys (ages 12-16). "
+                "This is why girls are often taller than boys in early adolescence, "
+                "but boys eventually become taller as adults on average."
+            ),
+            "key_insight": (
+                "The simulation shows average data (combined), but the fact box explains gender "
+                "differences in timing. Girls' earlier growth spurt is linked to earlier puberty: "
+                "female sex hormones (oestrogen) are released sooner than male (testosterone). "
+                "By age 16-17, most boys have caught up and typically exceed girls in height."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Every Person Grows at Their Own Pace — All Variation Is Normal",
+            "description": (
+                "The growth data shown represents population averages. Individual adolescents "
+                "may reach their growth spurt earlier or later, and reach different final heights, "
+                "all of which is completely normal and determined mainly by genetics."
+            ),
+            "key_insight": (
+                "Good nutrition (especially calcium, protein), adequate sleep (8-9 hours when growth "
+                "hormone is primarily released), and regular exercise all support reaching one's "
+                "genetic height potential. Not maturing at the exact 'average' age is not a "
+                "medical concern."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# PHYSICAL CHANGES DURING PUBERTY SIMULATION
+# ಯೌವನದಲ್ಲಿ ಭೌತಿಕ ಬದಲಾವಣೆಗಳು – ಸಾಮಾನ್ಯ, ಹುಡುಗರು, ಹುಡುಗಿಯರು
+# Science Chapter 6 – Growing Up
+# =============================================================================
+SIMULATIONS_KN["puberty_physical_changes_kn"] = {
+    "title": "ಯೌವನದಲ್ಲಿ ಭೌತಿಕ ಬದಲಾವಣೆಗಳು (Physical Changes in Puberty)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation3_physical_changes_kn.html",
+    "description": (
+        "Kannada three-tab simulation cataloguing physical changes during puberty, "
+        "organised into three categories: "
+        "Common Changes (all genders): growth spurt, body hair, increased sweating, skin/acne. "
+        "Boys-specific: voice deepening, broader shoulders, facial hair. "
+        "Girls-specific: wider hips, breast development, onset of menstruation. "
+        "Tapping any item in the list opens a detailed explanation panel showing what causes the "
+        "change, what it looks/feels like, and a green badge confirming it is completely normal. "
+        "A secondary information panel explains the term 'secondary sexual characteristics'."
+    ),
+    "cannot_demonstrate": [
+        "Exact hormonal mechanisms causing each change",
+        "Timeline or sequencing of changes in a single individual",
+        "Emotional and psychological changes (covered in the life stages sim)",
+        "Gender-diverse or intersex puberty experiences"
+    ],
+    "initial_params": {"initialState": "common", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Change Category",
+            "range": "common, boys, girls",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which category of puberty changes to display:\n"
+                "  'common' → changes in all genders: growth spurt, body hair, sweat, acne [default]\n"
+                "  'boys'   → boys-specific changes: voice deepening, broad shoulders, facial hair\n"
+                "  'girls'  → girls-specific changes: wider hips, breast development, menstruation"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, secondary sexual characteristics panel, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "All Puberty Changes Are Normal and Hormone-Driven",
+            "description": (
+                "Every physical change during puberty — from acne to body hair to growth spurts "
+                "— is caused by hormones released by the body. These changes are universal, "
+                "completely normal, and happen to everyone."
+            ),
+            "key_insight": (
+                "The green 'normal' badge in the simulation reinforces that no puberty change is "
+                "a cause for shame or concern. Hormones (testosterone, oestrogen, growth hormone) "
+                "trigger all these changes as the body prepares for adulthood and reproduction."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Secondary Sexual Characteristics Differentiate Male and Female Bodies",
+            "description": (
+                "Puberty-specific changes that differ between males and females are called "
+                "'secondary sexual characteristics'. These include voice depth, body fat distribution, "
+                "facial hair, and breast development — distinguishing adult male and female bodies."
+            ),
+            "key_insight": (
+                "Secondary sexual characteristics are features caused by sex hormones that appear "
+                "during puberty but are not the primary reproductive organs themselves. "
+                "They are 'secondary' because they appear after primary sexual characteristics "
+                "(genitalia) which are present from birth."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Some Changes Are Shared, Some Are Gender-Specific",
+            "description": (
+                "While some puberty changes occur in all adolescents (growth spurt, body hair, "
+                "acne), others are specific to one sex (voice cracking in boys, breast development "
+                "in girls). This is because the hormones driving these changes differ."
+            ),
+            "key_insight": (
+                "Boys' testes produce testosterone → deeper voice, facial hair, broader shoulders. "
+                "Girls' ovaries produce oestrogen/progesterone → breast development, wider hips, "
+                "start of menstrual cycle. Common changes are driven by adrenal androgens "
+                "present in all genders."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# VOICE CHANGES DURING PUBERTY SIMULATION
+# ಯೌವನದಲ್ಲಿ ಧ್ವನಿ ಬದಲಾವಣೆಗಳು – ಸ್ವರಪೆಟ್ಟಿಗೆ ಬೆಳವಣಿಗೆ
+# Science Chapter 6 – Growing Up
+# =============================================================================
+SIMULATIONS_KN["voice_changes_kn"] = {
+    "title": "ಯೌವನದಲ್ಲಿ ಧ್ವನಿ ಬದಲಾವಣೆಗಳು (Voice Changes in Puberty)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation4_voice_changes_kn.html",
+    "description": (
+        "Kannada interactive simulation using an SVG diagram of the larynx (voice box) "
+        "to show how the larynx grows during puberty, causing voice changes. "
+        "Two gender tabs (boys/girls) × three stage buttons (before/during/after puberty) "
+        "give 6 explorable states. Each state updates: the SVG larynx diagram size, vocal cord "
+        "positions, presence of the Adam's apple, animated sound-wave bars visualising pitch, "
+        "and a text panel explaining the biological change. "
+        "A comparison panel shows boys' voices deepen ~1 octave while girls' change only ~3 semitones. "
+        "The voice-cracking phenomenon is explained as muscles adapting to the rapidly growing larynx."
+    ),
+    "cannot_demonstrate": [
+        "Actual audio demonstration of voice pitch",
+        "Detailed vocal cord anatomy beyond simplified SVG",
+        "Hormonal dosage driving larynx growth",
+        "Non-binary or intersex voice change patterns"
+    ],
+    "initial_params": {"initialState": "boys_before", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Gender × Puberty Stage",
+            "range": "boys_before, boys_during, boys_after, girls_before, girls_during, girls_after",
+            "url_key": "initialState",
+            "effect": (
+                "Selects gender AND puberty stage to show the larynx and voice state:\n"
+                "  'boys_before'  → boys, pre-puberty: small larynx, high pitch (default)\n"
+                "  'boys_during'  → boys, mid-puberty: larynx growing, voice cracking\n"
+                "  'boys_after'   → boys, post-puberty: large larynx, deep adult voice, Adam's apple\n"
+                "  'girls_before' → girls, pre-puberty: small larynx, high pitch\n"
+                "  'girls_during' → girls, mid-puberty: slight larynx growth, subtle change\n"
+                "  'girls_after'  → girls, post-puberty: modest change, mature female voice"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and fun facts takeaway panel."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "The Larynx Grows During Puberty, Changing the Voice",
+            "description": (
+                "The larynx (voice box) contains vocal cords that vibrate to produce sound. "
+                "During puberty, sex hormones cause the larynx to grow larger. "
+                "Longer, thicker vocal cords vibrate more slowly, producing a lower-pitched sound."
+            ),
+            "key_insight": (
+                "Before puberty: small larynx → short vocal cords → fast vibration → high pitch. "
+                "After puberty in boys: larynx grows ~60% larger → long thick cords → slow vibration "
+                "→ deep voice (~1 octave drop). The Adam's apple is simply the larger larynx "
+                "visible through the skin of the neck."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Voice Cracking Is Temporary — Muscles Adjusting to Rapid Larynx Growth",
+            "description": (
+                "During peak growth, the larynx enlarges so rapidly that the muscles controlling "
+                "the vocal cords temporarily lose their coordination, causing the voice to "
+                "crack or squeak unpredictably. This is completely normal and temporary."
+            ),
+            "key_insight": (
+                "Voice cracking only occurs because the muscles cannot immediately adjust to the "
+                "rapidly growing larynx. Once growth stabilises, the muscles re-coordinate and "
+                "the voice settles into its new deeper range, typically by age 16-17 in boys."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Voice Change Is Much Greater in Boys Than in Girls",
+            "description": (
+                "Boys' voices deepen by approximately one full octave during puberty, "
+                "while girls' voices deepen by only ~3 semitones. "
+                "This is because testosterone drives much greater larynx growth than oestrogen."
+            ),
+            "key_insight": (
+                "The difference in voice change magnitude directly reflects the difference in "
+                "sex hormone effects: testosterone in boys drives ~60% larynx growth; "
+                "oestrogen in girls drives only ~30% growth. "
+                "This is why adult male voices are typically much deeper than adult female voices, "
+                "even though children of both sexes have similar voice pitches."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# MENSTRUAL CYCLE SIMULATION
+# ಋತುಚಕ್ರ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು – ನಾಲ್ಕು ಹಂತಗಳ ಚಕ್ರ
+# Science Chapter 6 – Growing Up
+# =============================================================================
+SIMULATIONS_KN["menstrual_cycle_kn"] = {
+    "title": "ಋತುಚಕ್ರ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು (Understanding the Menstrual Cycle)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation5_menstrual_cycle_kn.html",
+    "description": (
+        "Kannada interactive simulation with a circular 28-day cycle diagram and a day slider "
+        "to explore the four phases of the menstrual cycle: "
+        "Menstruation (days 1-5): uterine lining shedding. "
+        "Follicular phase (days 6-13): uterine lining rebuilding, body preparing. "
+        "Ovulation (day 14): egg released from ovary. "
+        "Luteal phase (days 15-28): body waiting for potential fertilisation; if none, cycle restarts. "
+        "Dragging the slider or clicking legend items jumps to each phase, updating the ring diagram "
+        "center, phase title, and educational description. "
+        "A myth-buster panel challenges common misconceptions (periods are not impure; exercise is safe). "
+        "The takeaway covers cycle length variation, menopause, and when to talk to a doctor."
+    ),
+    "cannot_demonstrate": [
+        "Hormonal levels (FSH, LH, oestrogen, progesterone) across the cycle",
+        "What happens if fertilisation occurs",
+        "Pregnancy or foetal development",
+        "Contraception or reproductive health beyond cycle education",
+        "Cycle irregularity causes or medical conditions"
+    ],
+    "initial_params": {"initialState": "menstruation", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Cycle Phase",
+            "range": "menstruation, follicular, ovulation, luteal",
+            "url_key": "initialState",
+            "effect": (
+                "Jumps the cycle diagram to the specified phase:\n"
+                "  'menstruation' → days 1-5: uterine lining sheds, pink/red phase [default]\n"
+                "  'follicular'   → days 6-13: lining rebuilds, orange phase\n"
+                "  'ovulation'    → day 14: egg released, green phase\n"
+                "  'luteal'       → days 15-28: waiting period, blue phase"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card, myth-buster panel, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "The Menstrual Cycle Is a Natural Monthly Biological Process",
+            "description": (
+                "The menstrual cycle is the monthly cycle by which the uterine lining builds up "
+                "to prepare for a possible pregnancy, and then sheds if no fertilisation occurs. "
+                "It begins during puberty (typically ages 10-15) and is a sign of reproductive health."
+            ),
+            "key_insight": (
+                "The cycle is driven by hormones (FSH, LH, oestrogen, progesterone) in a carefully "
+                "co-ordinated sequence. The average cycle is 28 days but 21-35 days is normal. "
+                "The menstrual cycle is not a disease or a weakness — it is a sign that the "
+                "reproductive system is functioning correctly."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "The Four Phases and What Happens in Each",
+            "description": (
+                "Phase 1 — Menstruation (d.1-5): uterine lining sheds → bleeding. "
+                "Phase 2 — Follicular (d.6-13): lining regrows, egg matures in ovary. "
+                "Phase 3 — Ovulation (d.14): mature egg released from ovary. "
+                "Phase 4 — Luteal (d.15-28): body prepares for implantation; if no fertilisation, "
+                "hormone levels drop → cycle restarts."
+            ),
+            "key_insight": (
+                "The four phases form a continuous, repeating cycle. "
+                "Ovulation (day 14) is the pivotal event — when pregnancy can occur. "
+                "If no pregnancy: progesterone drops → uterine lining sheds → day 1 of next cycle. "
+                "This continuous preparation-and-shed cycle repeats monthly from puberty to menopause."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Menstruation Is Normal — Myths Must Be Challenged",
+            "description": (
+                "Many harmful cultural myths surround menstruation — that menstruating girls are "
+                "impure, should be isolated, or should not exercise. All of these are false. "
+                "Menstruation is a completely natural biological process with no spiritual or "
+                "hygiene implications beyond normal sanitary management."
+            ),
+            "key_insight": (
+                "The myth-buster panel in the simulation directly addresses two common myths: "
+                "(1) isolation/impurity myths — false; menstruation is biologically normal. "
+                "(2) exercise restriction — false; light exercise can actually reduce cramps and "
+                "improve mood by releasing endorphins. Education is the tool to dismantle these myths."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# QUIZ QUESTIONS — LIFE STAGES OF HUMANS (Kannada)
+# 3 questions: adolescence (key stage) → contrast childhood vs old_age → infant
+# =============================================================================
+QUIZ_QUESTIONS_KN["life_stages_kn"] = [
+
+    {
+        "id": "life_kn_q1",
+        "challenge": (
+            "Show the ADOLESCENCE stage on the life-stages timeline. "
+            "Demonstrate why adolescence is the central and most significant stage "
+            "in terms of biological transformation.\n\n"
+            "(ಕೌಮಾರ ಹಂತ ತೋರಿಸಿ — ಏಕೆ ಇದು ಅತ್ಯಂತ ಮಹತ್ವದ ಹಂತ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "adolescence"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'adolescence' as the initialState. "
+                "The timeline will highlight the ⭐ adolescence stage (10-19 years) with "
+                "its orange emphasis, showing it as the transitional stage between childhood and adulthood."
+            ),
+            "attempt_2": (
+                "Set 'initialState=adolescence'. The detail panel will show: rapid physical growth, "
+                "puberty changes, emotional development, identity formation, and cognitive growth. "
+                "Adolescence is highlighted because students are currently in this stage."
+            ),
+            "attempt_3": (
+                "Choose 'adolescence'. The stage is specially marked with a ⭐ symbol because "
+                "it is the bridge stage: childhood (dependent, learning) → adolescence (changing, "
+                "growing reproductive capability) → adulthood (independent, responsible)."
+            )
+        },
+        "concept_reminder": (
+            "Adolescence (10-19 years) is the transitional stage between childhood and adulthood. "
+            "Key changes: rapid physical growth, puberty, emotional changes, identity formation. "
+            "It is highlighted specially because all students studying this topic are currently "
+            "experiencing this stage. The orange colour in the simulation marks it as the 'current' stage. "
+            "(ಕೌಮಾರ = ಬಾಲ್ಯ ಮತ್ತು ಪ್ರೌಢಾವಸ್ಥೆಯ ನಡುವಿನ ಪರಿವರ್ತನಾ ಹಂತ!)"
+        )
+    },
+
+    {
+        "id": "life_kn_q2",
+        "challenge": (
+            "Show the INFANT stage. Compare infancy with adolescence — "
+            "what makes infancy the stage of maximum physical growth rate "
+            "even faster than the adolescent growth spurt?\n\n"
+            "(ಶಿಶು ಅವಧಿ ತೋರಿಸಿ — ಬೆಳವಣಿಗೆ ದರ ಹೋಲಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "infant"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'infant' as the initialState. "
+                "The timeline will show infancy (0-2 years): the stage of the fastest physical "
+                "growth in human life, when birth weight triples and the first words are spoken."
+            ),
+            "attempt_2": (
+                "Set 'initialState=infant'. The detail panel explains: rapid physical growth, "
+                "learning to walk, first words, complete dependence on parents. "
+                "Height growth in the first year is faster than in the adolescent growth spurt."
+            ),
+            "attempt_3": (
+                "Choose 'infant'. The 👶 stage (0-2 years) shows sensory-motor learning: "
+                "infants learn about the world through their senses (touching, tasting, seeing). "
+                "Weight triples in year 1. This is actually the highest absolute growth rate "
+                "per year in the entire human lifespan."
+            )
+        },
+        "concept_reminder": (
+            "Infancy (0-2 years): the 👶 stage. Key features: "
+            "birth weight triples in year 1 (fastest physical growth in life), "
+            "motor skills develop (rolling → sitting → standing → walking), "
+            "first words spoken, complete parental dependence. "
+            "Though adolescence has a notable growth spurt, a baby's first-year growth "
+            "rate is actually faster in absolute terms. "
+            "(ಶಿಶು ಅವಧಿ = ಜೀವನದ ಅತ್ಯಂತ ವೇಗದ ಬೆಳವಣಿಗೆ ಹಂತ!)"
+        )
+    },
+
+    {
+        "id": "life_kn_q3",
+        "challenge": (
+            "Show the OLD AGE stage. What makes old age valuable despite the "
+            "physical slowing of the body?\n\n"
+            "(ವೃದ್ಧಾವಸ್ಥೆ ತೋರಿಸಿ — ಭೌತಿಕ ನಿಧಾನ, ಆದರೆ ಜ್ಞಾನ ಅಮೂಲ್ಯ!)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "old_age"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'old_age' as the initialState. "
+                "The timeline shows old age (60+ years): physical slowing but accumulation of "
+                "wisdom and life experience."
+            ),
+            "attempt_2": (
+                "Set 'initialState=old_age'. The detail panel shows: gradual physical slowing, "
+                "mental wisdom and knowledge from life experience, grandparent role as mentor to "
+                "younger generations, sharing of knowledge and stories."
+            ),
+            "attempt_3": (
+                "Choose 'old_age'. The 👴 stage: body slows but knowledge and experience grow. "
+                "Elders serve as guides and mentors (grandparents, teachers). "
+                "They are a 'treasure of experience and wisdom' as the simulation states."
+            )
+        },
+        "concept_reminder": (
+            "Old age (60+ years): the 👴 stage. Key features: "
+            "gradual physical slowing (reduced speed and strength), "
+            "accumulated wisdom and life experience, "
+            "social role as guide/mentor/grandparent, "
+            "continued learning and reflection. "
+            "Each life stage has its own unique value — old age contributes wisdom and intergenerational knowledge. "
+            "(ವೃದ್ಧಾವಸ್ಥೆ = ಜ್ಞಾನ ಮತ್ತು ಅನುಭವದ ನಿಧಿ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — GROWTH CHART DURING ADOLESCENCE (Kannada)
+# 3 questions: peak growth spurt age → pre-puberty → adult
+# =============================================================================
+QUIZ_QUESTIONS_KN["growth_chart_kn"] = [
+
+    {
+        "id": "growth_kn_q1",
+        "challenge": (
+            "Show the AGE 13 growth data — the peak of the adolescent growth spurt. "
+            "Demonstrate that this is when the rocket-icon appears, indicating the fastest "
+            "growth rate in the adolescent period.\n\n"
+            "(ವಯಸ್ಸು 13 ತೋರಿಸಿ — ಬೆಳವಣಿಗೆ ಉಲ್ಬಣದ ಉತ್ಕರ್ಷ!)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "age_13"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'age_13' as the initialState. "
+                "The slider jumps to age 13 (156 cm, 45 kg) and displays the 🚀 growth-spurt icon "
+                "showing +7 cm gained in this year — the fastest annual growth in the simulation."
+            ),
+            "attempt_2": (
+                "Set 'initialState=age_13'. At 13, the growth rate indicator shows maximum growth "
+                "(7 cm/year), the orange 'adolescence' highlight is active, and the info panel "
+                "shows 'Many people's peak growth. Body is changing rapidly.'"
+            ),
+            "attempt_3": (
+                "Choose 'age_13'. The visual figure shows a rapidly growing person, the height "
+                "stat shows +7 cm/year (the rocket icon), and the weight increased by +5 kg. "
+                "This confirms age 13 as the growth-spurt peak in the simulation data."
+            )
+        },
+        "concept_reminder": (
+            "The adolescent growth spurt typically peaks around age 12-14. "
+            "At age 13 in the simulation: height = 156 cm (up 7 cm from age 12), weight = 45 kg "
+            "(up 5 kg). This 7 cm/year rate triggers the 🚀 icon — faster than typical childhood "
+            "growth of ~5 cm/year. Growth hormone and sex hormones drive this rapid acceleration. "
+            "(ಬೆಳವಣಿಗೆ ಉಲ್ಬಣ: ವರ್ಷಕ್ಕೆ 8-12 ಸೆ.ಮೀ ಬೆಳೆಯಬಹುದು!)"
+        )
+    },
+
+    {
+        "id": "growth_kn_q2",
+        "challenge": (
+            "Show AGE 8 — the pre-puberty baseline. Compare this steady childhood "
+            "growth with the adolescent growth spurt you just saw.\n\n"
+            "(ವಯಸ್ಸು 8 ತೋರಿಸಿ — ಯೌವನ ಪೂರ್ವ ಸ್ಥಿರ ಬೆಳವಣಿಗೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "age_8"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'age_8' as the initialState. "
+                "The slider shows age 8 (128 cm, 26 kg) with a '📊 ಸ್ಥಿರ ಬೆಳವಣಿಗೆ' (steady growth) "
+                "indicator — no growth spurt icon, just calm, consistent growth."
+            ),
+            "attempt_2": (
+                "Set 'initialState=age_8'. The growth rate indicator shows +6 cm from age 7 — "
+                "steady but not spectacular. The info panel says 'Consistent steady growth, "
+                "physical ability developing.' The purple/teal highlight is absent (not yet adolescence)."
+            ),
+            "attempt_3": (
+                "Choose 'age_8'. At 8 years, growth is regular and predictable — about 5-6 cm/year. "
+                "Compare with age 13 (+7 cm/year): the spurt is visually obvious. "
+                "This contrast shows why adolescence is recognised as a special growth period."
+            )
+        },
+        "concept_reminder": (
+            "Pre-puberty growth (age 5-10): steady at approximately 5-6 cm per year. "
+            "At age 8: 128 cm, 26 kg. Growth is consistent but not dramatically fast. "
+            "This steady childhood pattern contrasts sharply with the adolescent growth spurt "
+            "(8-12 cm/year at peak). The difference in growth rate is what defines the 'spurt'. "
+            "(ಬಾಲ್ಯ ಬೆಳವಣಿಗೆ: ಸ್ಥಿರ ಮತ್ತು ಮಿತ — ಕೌಮಾರ ಏರಿಕೆಗಿಂತ ನಿಧಾನ!)"
+        )
+    },
+
+    {
+        "id": "growth_kn_q3",
+        "challenge": (
+            "Show AGE 20 — the point where adult height is essentially reached. "
+            "Demonstrate that growth slows dramatically after the adolescent spurt.\n\n"
+            "(ವಯಸ್ಸು 20 ತೋರಿಸಿ — ಪ್ರೌಢ ಎತ್ತರ ತಲುಪಿದಾಗ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "age_20"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'age_20' as the initialState. "
+                "The slider shows age 20 (175 cm, 65 kg), with growth slowing to only +1 cm "
+                "from age 19. The info panel says 'Generally adult height reached'."
+            ),
+            "attempt_2": (
+                "Set 'initialState=age_20'. At 20, only +1 cm gained from age 19 — near zero growth. "
+                "Compare with age 13 (+7 cm/year): the growth rate has dropped dramatically after "
+                "the spurt. Growth plates (epiphyseal plates) close at the end of adolescence."
+            ),
+            "attempt_3": (
+                "Choose 'age_20'. The 175 cm final height contrasts with 128 cm at age 8 — a "
+                "47 cm total gain over 12 years, mostly in the adolescent spurt between ages 10-17. "
+                "After the growth plates close, no more height gain is possible."
+            )
+        },
+        "concept_reminder": (
+            "Adult height is typically reached by age 17-20. "
+            "At age 20: 175 cm (average), +1 cm from age 19 — near-zero growth rate. "
+            "Growth stops because sex hormones cause the growth plates (epiphyseal plates at "
+            "the ends of long bones) to close. Once closed, the bones cannot lengthen further. "
+            "This is why proper nutrition during the growth spurt (ages 10-17) is critical. "
+            "(ಬೆಳವಣಿಗೆ ಫಲಕಗಳು ಮುಚ್ಚಿದ ನಂತರ ಎತ್ತರ ಹೆಚ್ಚಾಗುವುದಿಲ್ಲ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — PHYSICAL CHANGES IN PUBERTY (Kannada)
+# 3 questions: common changes → boys-specific → girls-specific
+# =============================================================================
+QUIZ_QUESTIONS_KN["puberty_physical_changes_kn"] = [
+
+    {
+        "id": "phys_kn_q1",
+        "challenge": (
+            "Show the COMMON changes tab — physical changes that occur in ALL adolescents "
+            "regardless of gender. Identify what causes these changes.\n\n"
+            "(ಎಲ್ಲರಲ್ಲೂ ಕಾಣುವ ಸಾಮಾನ್ಯ ಬದಲಾವಣೆಗಳು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "common"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'common' as the initialState. "
+                "The '🔄 ಸಾಮಾನ್ಯ ಬದಲಾವಣೆಗಳು' tab is selected, showing changes that happen "
+                "in both boys and girls: growth spurt, body hair, increased sweating, acne."
+            ),
+            "attempt_2": (
+                "Set 'initialState=common'. Four changes are listed: 📏 growth spurt, "
+                "🌿 body hair (underarms, pubic area), 😓 increased sweat/body odour, "
+                "🔴 skin changes (acne). All are caused by adrenal androgens present in all genders."
+            ),
+            "attempt_3": (
+                "Choose 'common'. These changes happen in all adolescents because adrenal glands "
+                "(present in everyone) release androgens during puberty. Tap any item to see "
+                "detailed explanation — all items have a green 'completely normal' badge."
+            )
+        },
+        "concept_reminder": (
+            "Common puberty changes (all genders): "
+            "1. Growth spurt (8-12 cm/year peak) — growth hormone surge. "
+            "2. Body hair in underarms and pubic area — adrenal androgens. "
+            "3. Increased sweating and body odour — sweat gland activation. "
+            "4. Acne — sebaceous glands produce more oil under hormone influence. "
+            "All are 100% normal and happen to everyone. Good hygiene (bathing, deodorant) "
+            "helps manage sweating and acne. "
+            "(ಎಲ್ಲಾ ಬದಲಾವಣೆಗಳು ಸಾಮಾನ್ಯ — ಭಯ ಬೇಡ!)"
+        )
+    },
+
+    {
+        "id": "phys_kn_q2",
+        "challenge": (
+            "Show the BOYS-specific changes tab. What physical changes are unique to "
+            "boys during puberty and what hormone drives them?\n\n"
+            "(ಹುಡುಗರಲ್ಲಿ ಮಾತ್ರ ಕಾಣುವ ಬದಲಾವಣೆಗಳು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "boys"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'boys' as the initialState. "
+                "The '👦 ಹುಡುಗರಲ್ಲಿ' tab appears with boys-specific changes: "
+                "🎤 voice deepening, 💪 broader shoulders, 🧔 facial hair."
+            ),
+            "attempt_2": (
+                "Set 'initialState=boys'. The three boys-specific changes show: "
+                "voice cracking then deepening (larynx growth), broader chest and shoulders "
+                "(testosterone effects on muscle and bone), "
+                "upper lip/chin/cheek hair appearing."
+            ),
+            "attempt_3": (
+                "Choose 'boys'. The key driver is testosterone — produced by the testes from "
+                "puberty onset. Testosterone causes all three: larynx growth (voice), "
+                "muscle/bone broadening (shoulders), and hair follicle stimulation (facial hair). "
+                "Tap 'ಸ್ವರ ಆಳ' to see the voice change detail at the simulation level."
+            )
+        },
+        "concept_reminder": (
+            "Boys-specific puberty changes driven by testosterone: "
+            "1. 🎤 Voice deepening: larynx (voice box) grows larger → vocal cords lengthen → voice drops ~1 octave. "
+            "Temporary voice 'cracking' occurs as muscles adjust to the rapid larynx growth. "
+            "2. 💪 Broader shoulders: testosterone stimulates bone and muscle growth, widening the chest. "
+            "3. 🧔 Facial hair: testosterone activates facial hair follicles; appears first on upper lip. "
+            "All driven by testosterone from the testes. "
+            "(ಟೆಸ್ಟೋಸ್ಟೆರಾನ್ = ಹುಡುಗರ ಬದಲಾವಣೆಗಳ ಮೂಲ ಕಾರಣ!)"
+        )
+    },
+
+    {
+        "id": "phys_kn_q3",
+        "challenge": (
+            "Show the GIRLS-specific changes tab. What physical changes are unique to "
+            "girls during puberty and which change is the first sign of puberty in girls?\n\n"
+            "(ಹುಡುಗಿಯರಲ್ಲಿ ಮಾತ್ರ ಕಾಣುವ ಬದಲಾವಣೆಗಳು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "girls"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'girls' as the initialState. "
+                "The '👧 ಹುಡುಗಿಯರಲ್ಲಿ' tab shows girls-specific changes: "
+                "📐 wider hips, 🌸 breast development, 🔄 onset of menstruation."
+            ),
+            "attempt_2": (
+                "Set 'initialState=girls'. Three changes appear: "
+                "wider hips (body preparing for potential future childbirth), "
+                "breast development (usually the FIRST sign of puberty in girls), "
+                "and menstrual cycle beginning 2-3 years after breast development starts."
+            ),
+            "attempt_3": (
+                "Choose 'girls'. Tap '🌸 ಸ್ತನ ವಿಕಾಸ' — the detail shows this is the FIRST sign "
+                "of puberty in girls. Menstruation (🔄) starts 2-3 years later. "
+                "All driven by oestrogen and progesterone from the ovaries."
+            )
+        },
+        "concept_reminder": (
+            "Girls-specific puberty changes driven by oestrogen/progesterone: "
+            "1. 🌸 Breast development: the FIRST sign of puberty in girls, starts as 'breast buds'. "
+            "2. 📐 Wider hips: pelvis broadens under oestrogen influence. "
+            "3. 🔄 Menstruation begins: typically 2-3 years after breast development; "
+            "the uterine lining begins its monthly cycle. "
+            "First menstruation (menarche) usually occurs between ages 11-14. "
+            "(ಸ್ತನ ವಿಕಾಸ = ಹುಡುಗಿಯರ ಯೌವನದ ಮೊದಲ ಸಂಕೇತ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — VOICE CHANGES IN PUBERTY (Kannada)
+# 3 questions: boys_after (dramatic change) → boys_during (voice cracking) → girls_after
+# =============================================================================
+QUIZ_QUESTIONS_KN["voice_changes_kn"] = [
+
+    {
+        "id": "voice_kn_q1",
+        "challenge": (
+            "Show BOYS AFTER PUBERTY — demonstrate the fully developed adult male voice "
+            "and larynx. Show how much the larynx has grown and why the Adam's apple is now visible.\n\n"
+            "(ಯೌವನದ ನಂತರ ಹುಡುಗರ ಸ್ವರ ತೋರಿಸಿ — ಆಡಮ್‌ಸ್ ಆಪಲ್ ಮತ್ತು ಆಳ ಸ್ವರ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "boys_after"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'boys_after' as the initialState. "
+                "The SVG shows the largest larynx size with long vocal cords, the Adam's apple "
+                "is visible, and the voice wave bars are taller (deeper frequency)."
+            ),
+            "attempt_2": (
+                "Set 'initialState=boys_after'. The voice pitch shows 'Deep' (adult male). "
+                "The info panel explains: larynx has grown about 60% larger, vocal cords are "
+                "longer and thicker, producing a deep voice about one octave below the childhood pitch."
+            ),
+            "attempt_3": (
+                "Choose 'boys_after'. The SVG larynx box is now 90×70 (vs 60×50 before puberty). "
+                "The Adam's apple triangle is visible. Wave bars are at maximum height (deep bass). "
+                "This confirms: bigger larynx → longer cords → slower vibration → deeper voice."
+            )
+        },
+        "concept_reminder": (
+            "After puberty (boys): larynx grows ~60% larger (from 60 to 90 units wide). "
+            "Vocal cords: longer and thicker → vibrate more slowly → lower frequency → deep voice. "
+            "Adam's apple: the enlarged larynx angled forward, visible through the neck skin. "
+            "Voice drops approximately one full octave (e.g., from C5 to C4). "
+            "Voice change is complete by approximately age 16-17. "
+            "(ಆಡಮ್‌ಸ್ ಆಪಲ್ = ಚರ್ಮದ ಮೂಲಕ ಕಾಣುವ ದೊಡ್ಡ ಸ್ವರಪೆಟ್ಟಿಗೆ!)"
+        )
+    },
+
+    {
+        "id": "voice_kn_q2",
+        "challenge": (
+            "Show BOYS DURING PUBERTY — demonstrate voice cracking. "
+            "Explain why the voice unpredictably cracks or squeaks at this stage.\n\n"
+            "(ಯೌವನದ ಸಮಯದಲ್ಲಿ ಹುಡುಗರ ಸ್ವರ ಒಡೆಯುವಿಕೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "boys_during"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'boys_during' as the initialState. "
+                "The SVG shows an intermediate larynx size with the Adam's apple just appearing. "
+                "The voice pitch shows 'Changing' with the description 'Voice may crack!'"
+            ),
+            "attempt_2": (
+                "Set 'initialState=boys_during'. The wave bars are uneven (irregular heights), "
+                "representing the unpredictable voice cracking. "
+                "The info panel explains: larynx growing so rapidly that muscles haven't adjusted yet."
+            ),
+            "attempt_3": (
+                "Choose 'boys_during'. The intermediate larynx (75×60) is between childhood (60×50) "
+                "and adult (90×70). Voice cracking happens because vocal cord muscles haven't "
+                "learned to coordinate with the rapidly changing larynx size. This is temporary."
+            )
+        },
+        "concept_reminder": (
+            "Voice cracking during puberty: a temporary phenomenon. "
+            "Cause: the larynx grows so rapidly that the muscles controlling the vocal cords "
+            "temporarily lose their coordination — sometimes the cords vibrate too loosely "
+            "(squeak) or too tightly (crack). "
+            "This is 100% normal and temporary — muscles gradually adjust over 6-18 months. "
+            "By age 16-17, the voice settles into its new deeper range. "
+            "(ಸ್ವರ ಒಡೆಯುವಿಕೆ ತಾತ್ಕಾಲಿಕ — ನಿಲ್ಲುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "voice_kn_q3",
+        "challenge": (
+            "Show GIRLS AFTER PUBERTY — compare the girls' voice change with boys'. "
+            "Why is the voice change so much less dramatic in girls?\n\n"
+            "(ಯೌವನದ ನಂತರ ಹುಡುಗಿಯರ ಸ್ವರ ತೋರಿಸಿ — ಹುಡುಗರ ಬದಲಾವಣೆಯೊಂದಿಗೆ ಹೋಲಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "girls_after"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'girls_after' as the initialState. "
+                "The SVG shows a modestly larger larynx (70×55 vs 60×50 before) with no Adam's apple. "
+                "Voice pitch shows 'Mature' — a subtle, adult female voice."
+            ),
+            "attempt_2": (
+                "Set 'initialState=girls_after'. The info panel explains: girls' larynx grows ~30% "
+                "(vs boys' 60%), so the voice deepens only ~3 semitones (vs boys' ~12 semitones = 1 octave). "
+                "The change is gradual and usually not very noticeable."
+            ),
+            "attempt_3": (
+                "Choose 'girls_after'. Compare the wave bars with boys_after: girls' bars are shorter "
+                "(higher pitch). The larynx box is smaller: 70×55 for girls vs 90×70 for boys. "
+                "The difference in larynx growth is directly caused by the difference in hormones: "
+                "oestrogen vs testosterone."
+            )
+        },
+        "concept_reminder": (
+            "Girls' voice change after puberty: subtle and gradual. "
+            "Girls' larynx grows ~30% (oestrogen effect) vs boys' ~60% (testosterone effect). "
+            "Result: girls' voice deepens by only ~3 semitones (~a minor third) vs boys' ~12 semitones (1 octave). "
+            "No Adam's apple appears in girls (the larynx doesn't tilt forward enough to show). "
+            "Adult female voices are typically higher than adult male voices for this anatomical reason. "
+            "(ಹೆಣ್ಣಿನ ಸ್ವರ ಬದಲಾವಣೆ ಕಡಿಮೆ — ಟೆಸ್ಟೋಸ್ಟೆರಾನ್ ಇಲ್ಲ, ಸ್ವರಪೆಟ್ಟಿಗೆ ಚಿಕ್ಕದು!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — MENSTRUAL CYCLE (Kannada)
+# 3 questions: menstruation (start) → ovulation (pivotal event) → luteal (completion)
+# =============================================================================
+QUIZ_QUESTIONS_KN["menstrual_cycle_kn"] = [
+
+    {
+        "id": "menses_kn_q1",
+        "challenge": (
+            "Show the MENSTRUATION phase (days 1-5). "
+            "Explain what happens in the uterus during this phase and why it is the START "
+            "of a new cycle, not the end.\n\n"
+            "(ಋತುಚಕ್ರ ಹಂತ ತೋರಿಸಿ — ಇದು ಮುಕ್ತಾಯ ಅಲ್ಲ, ಹೊಸ ಆರಂಭ!)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "menstruation"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'menstruation' as the initialState. "
+                "The cycle diagram jumps to days 1-5 (pink ring segment), the center shows 'Day 1 / ಋತುಚಕ್ರ', "
+                "and the phase info explains uterine lining shedding."
+            ),
+            "attempt_2": (
+                "Set 'initialState=menstruation'. Days 1-5 are highlighted in the ring. "
+                "The phase text explains: uterine lining sheds because no pregnancy occurred "
+                "in the previous cycle. Sanitary products are used for comfort and hygiene."
+            ),
+            "attempt_3": (
+                "Choose 'menstruation'. The ring diagram shows menstruation as the pink/red quadrant "
+                "at the 'top' of the circular diagram — day 1 of the cycle. "
+                "It is designated 'Day 1' because it is the most visible, trackable event "
+                "that marks where the cycle is counted from."
+            )
+        },
+        "concept_reminder": (
+            "Menstruation phase (days 1-5): uterine lining (endometrium) sheds → bleeding lasting 3-7 days. "
+            "Why day 1? Because it is the most visible event, used to count the cycle start. "
+            "The shedding occurs because progesterone dropped (no pregnancy from previous cycle), "
+            "triggering the uterine lining to release. "
+            "Sanitary pads, tampons or cups manage the flow hygienically. "
+            "Menstruation is not impure — it is a biological resetting process. "
+            "(ಋತುಚಕ್ರ = ಹೊಸ ಚಕ್ರದ ಆರಂಭ, ಶುದ್ಧ ಜೈವಿಕ ಪ್ರಕ್ರಿಯೆ!)"
+        )
+    },
+
+    {
+        "id": "menses_kn_q2",
+        "challenge": (
+            "Show the OVULATION phase (day 14). "
+            "Explain why this is the most pivotal event in the entire menstrual cycle.\n\n"
+            "(ಅಂಡೋತ್ಸರ್ಜನ ಹಂತ ತೋರಿಸಿ — ಇದೇ ಚಕ್ರದ ಅತಿ ಮುಖ್ಯ ಘಟನೆ!)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "ovulation"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'ovulation' as the initialState. "
+                "The cycle diagram jumps to day 14 (green segment), the center shows 'Day 14 / Ovulation', "
+                "and the phase text explains egg release from the ovary."
+            ),
+            "attempt_2": (
+                "Set 'initialState=ovulation'. Day 14 is the single most significant day. "
+                "The phase explains: a mature egg is released from the ovary. "
+                "This is when pregnancy can occur if the egg is fertilised. The egg survives ~24 hours."
+            ),
+            "attempt_3": (
+                "Choose 'ovulation'. The green dot in the legend and the ring confirm day 14 "
+                "as the pivotal event. The phase info notes: some may feel mild discomfort "
+                "(Mittelschmerz). The entire follicular phase (days 6-13) was building toward "
+                "this event — egg maturation in the ovary."
+            )
+        },
+        "concept_reminder": (
+            "Ovulation (day 14): LH surge triggers release of a mature egg from the ovary. "
+            "The egg travels down the fallopian tube. It is viable for approximately 24 hours. "
+            "This is the ONLY time in the cycle that fertilisation can occur. "
+            "The entire cycle revolves around this event: "
+            "before it (days 1-13): preparation; after it (days 15-28): waiting for fertilisation. "
+            "At the school level, the key fact is: ovulation = egg released = potential start of pregnancy. "
+            "(ಅಂಡೋತ್ಪತ್ತಿ = ಚಕ್ರದ ಕೇಂದ್ರ ಘಟನೆ!)"
+        )
+    },
+
+    {
+        "id": "menses_kn_q3",
+        "challenge": (
+            "Show the LUTEAL phase (days 15-28). "
+            "Explain what happens at the end of the luteal phase that causes the "
+            "next menstruation to begin, restarting the whole cycle.\n\n"
+            "(ಲ್ಯೂಟಿಯಲ್ ಹಂತ ತೋರಿಸಿ — ಚಕ್ರ ಮರಳಿ ಶುರುವಾಗಲು ಏನು ಆಗುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "luteal"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'luteal' as the initialState. "
+                "The diagram shows days 15-28 (blue segment), and the phase info explains: "
+                "the body prepares for potential pregnancy; if none, hormones drop."
+            ),
+            "attempt_2": (
+                "Set 'initialState=luteal'. The phase text explains: if no fertilisation, "
+                "progesterone and oestrogen levels fall at the end of day 28 — this hormone drop "
+                "triggers the uterine lining to shed, starting day 1 of the next cycle."
+            ),
+            "attempt_3": (
+                "Choose 'luteal'. All 14 days (15-28) are the largest phase of the cycle. "
+                "PMS symptoms may occur in the last few days (days 25-28) as hormones drop. "
+                "The key mechanism: progesterone drop → endometrium shedding → day 1 of new cycle. "
+                "This makes the luteal phase the 'closing bracket' of every cycle."
+            )
+        },
+        "concept_reminder": (
+            "Luteal phase (days 15-28): after ovulation, the empty follicle becomes the corpus luteum, "
+            "producing progesterone to prepare the uterine lining for implantation. "
+            "If NO fertilisation: corpus luteum degenerates → progesterone and oestrogen drop → "
+            "uterine lining sheds → day 1 of next cycle (menstruation restart). "
+            "If a fertilised egg implants: corpus luteum continues producing progesterone → "
+            "no menstruation (first sign of pregnancy). "
+            "The cycle: menstruation → follicular → ovulation → luteal → menstruation... repeats monthly. "
+            "(ಲ್ಯೂಟಿಯಲ್ ಕೊನೆ = ಗರ್ಭಧಾರಣೆ ಇಲ್ಲದಿದ್ದರೆ, ಮತ್ತೆ ಋತುಚಕ್ರ!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════

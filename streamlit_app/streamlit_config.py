@@ -2277,6 +2277,220 @@ SIMULATIONS["say_no_kn"] = {
 
 
 # =============================================================================
+# LIFE STAGES OF HUMANS SIMULATION (KANNADA) — Chapter 6 Sim 1
+# =============================================================================
+SIMULATIONS["life_stages_kn"] = {
+    "name": "ಮಾನವ ಜೀವನದ ಹಂತಗಳು (Human Life Stages)",
+    "language": "kannada",
+    "description": (
+        "Interactive timeline showing the five stages of human life: infancy, childhood, "
+        "adolescence, adulthood, and old age. Clicking each stage reveals its key characteristics. "
+        "Adolescence is highlighted as the central stage students are currently experiencing."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter6_simulation1_life_stages_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Life Stage / ಜೀವನ ಹಂತ",
+            "default": "adolescence",
+            "options": ["infant", "childhood", "adolescence", "adulthood", "old_age"],
+            "option_labels": [
+                "👶 ಶಿಶು ಅವಧಿ (Infancy — 0-2 yrs: rapid growth, first words)",
+                "🧒 ಬಾಲ್ಯ (Childhood — 3-9 yrs: learning, play, social skills)",
+                "⭐ ಕೌಮಾರ (Adolescence — 10-19 yrs: puberty, identity) [default]",
+                "👨 ಪ್ರೌಢಾವಸ್ಥೆ (Adulthood — 20-60 yrs: career, family)",
+                "👴 ವೃದ್ಧಾವಸ್ಥೆ (Old Age — 60+ yrs: wisdom, guidance)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# GROWTH CHART DURING ADOLESCENCE SIMULATION (KANNADA) — Chapter 6 Sim 2
+# =============================================================================
+SIMULATIONS["growth_chart_kn"] = {
+    "name": "ಕೌಮಾರದಲ್ಲಿ ಬೆಳವಣಿಗೆ ಚಾರ್ಟ್ (Growth Chart During Adolescence)",
+    "language": "kannada",
+    "description": (
+        "Age slider (5-20 years) showing average height and weight at each age, "
+        "with animated person figure and growth-rate indicators. "
+        "The rocket icon appears during the growth spurt (≥6 cm/year gain)."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter6_simulation2_growth_chart_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Age to Display / ತೋರಿಸಬೇಕಾದ ವಯಸ್ಸು",
+            "default": "age_12",
+            "options": ["age_8", "age_10", "age_12", "age_13", "age_14", "age_15", "age_16", "age_18", "age_20"],
+            "option_labels": [
+                "ವಯಸ್ಸು 8 (Age 8 — 128cm, 26kg, steady growth)",
+                "ವಯಸ್ಸು 10 (Age 10 — 138cm, 32kg, pre-puberty)",
+                "ವಯಸ್ಸು 12 (Age 12 — 149cm, 40kg, growth spurt begins) [default]",
+                "ವಯಸ್ಸು 13 (Age 13 — 156cm, 45kg, 🚀 peak spurt +7cm/yr)",
+                "ವಯಸ್ಸು 14 (Age 14 — 162cm, 50kg, rapid growth)",
+                "ವಯಸ್ಸು 15 (Age 15 — 167cm, 55kg, slowing)",
+                "ವಯಸ್ಸು 16 (Age 16 — 170cm, 58kg, near adult)",
+                "ವಯಸ್ಸು 18 (Age 18 — 173cm, 62kg, near-adult height)",
+                "ವಯಸ್ಸು 20 (Age 20 — 175cm, 65kg, adult height reached)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# PHYSICAL CHANGES IN PUBERTY SIMULATION (KANNADA) — Chapter 6 Sim 3
+# =============================================================================
+SIMULATIONS["puberty_physical_changes_kn"] = {
+    "name": "ಯೌವನದಲ್ಲಿ ಭೌತಿಕ ಬದಲಾವಣೆಗಳು (Physical Changes in Puberty)",
+    "language": "kannada",
+    "description": (
+        "Three-tab simulation: common changes (all genders), boys-specific, girls-specific. "
+        "Each tab lists puberty changes with tap-to-expand detail and a 'completely normal' badge. "
+        "Explains secondary sexual characteristics."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter6_simulation3_physical_changes_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Change Category / ಬದಲಾವಣೆ ವರ್ಗ",
+            "default": "common",
+            "options": ["common", "boys", "girls"],
+            "option_labels": [
+                "🔄 ಸಾಮಾನ್ಯ (Common — all genders: growth spurt, body hair, acne) [default]",
+                "👦 ಹುಡುಗರಲ್ಲಿ (Boys — voice deepening, broad shoulders, facial hair)",
+                "👧 ಹುಡುಗಿಯರಲ್ಲಿ (Girls — wider hips, breast development, menstruation)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# VOICE CHANGES IN PUBERTY SIMULATION (KANNADA) — Chapter 6 Sim 4
+# =============================================================================
+SIMULATIONS["voice_changes_kn"] = {
+    "name": "ಯೌವನದಲ್ಲಿ ಧ್ವನಿ ಬದಲಾವಣೆಗಳು (Voice Changes in Puberty)",
+    "language": "kannada",
+    "description": (
+        "SVG larynx diagram × gender (boys/girls) × puberty stage (before/during/after) "
+        "giving 6 explorable states. Shows larynx size, vocal cord positions, Adam's apple, "
+        "wave visualisation of voice pitch, and explanation of voice cracking. "
+        "Comparison panel: boys drop ~1 octave; girls only ~3 semitones."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter6_simulation4_voice_changes_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Gender × Stage / ಲಿಂಗ × ಹಂತ",
+            "default": "boys_before",
+            "options": ["boys_before", "boys_during", "boys_after", "girls_before", "girls_during", "girls_after"],
+            "option_labels": [
+                "👦 ಯೌವನ ಮೊದಲು (Boys before — small larynx, high pitch) [default]",
+                "👦 ಯೌವನ ಸಮಯ (Boys during — larynx growing, voice cracking)",
+                "👦 ಯೌವನ ನಂತರ (Boys after — large larynx, deep voice, Adam's apple)",
+                "👧 ಯೌವನ ಮೊದಲು (Girls before — small larynx, high pitch)",
+                "👧 ಯೌವನ ಸಮಯ (Girls during — slight growth, subtle change)",
+                "👧 ಯೌವನ ನಂತರ (Girls after — modest change, mature female voice)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# MENSTRUAL CYCLE SIMULATION (KANNADA) — Chapter 6 Sim 5
+# =============================================================================
+SIMULATIONS["menstrual_cycle_kn"] = {
+    "name": "ಋತುಚಕ್ರ ಅರ್ಥಮಾಡಿಕೊಳ್ಳುವುದು (Understanding the Menstrual Cycle)",
+    "language": "kannada",
+    "description": (
+        "28-day cycle ring diagram with day slider and 4-phase legend. "
+        "Clicking/dragging updates phase info for: Menstruation (d.1-5), "
+        "Follicular (d.6-13), Ovulation (d.14), Luteal (d.15-28). "
+        "Myth-buster panel challenges impurity/exercise misconceptions."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter6_simulation5_menstrual_cycle_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Cycle Phase / ಚಕ್ರ ಹಂತ",
+            "default": "menstruation",
+            "options": ["menstruation", "follicular", "ovulation", "luteal"],
+            "option_labels": [
+                "🔴 ಋತುಚಕ್ರ (Menstruation — days 1-5: uterine lining sheds) [default]",
+                "🟠 ಫಾಲಿಕ್ಯುಲರ್ (Follicular — days 6-13: lining rebuilds)",
+                "🟢 ಅಂಡೋತ್ಸರ್ಜನ (Ovulation — day 14: egg released)",
+                "🔵 ಲ್ಯೂಟಿಯಲ್ (Luteal — days 15-28: waiting period)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================
