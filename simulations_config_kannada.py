@@ -9220,6 +9220,1391 @@ QUIZ_QUESTIONS_KN["menstrual_cycle_kn"] = [
 ]
 
 
+
+# =============================================================================
+# EMOTIONAL CHANGES IN ADOLESCENCE SIMULATION
+# ಕೌಮಾರದಲ್ಲಿ ಭಾವನಾತ್ಮಕ ಬದಲಾವಣೆಗಳು
+# Science Chapter 6 – Growing Up (ಬೆಳೆಯುವಿಕೆ)
+# =============================================================================
+SIMULATIONS_KN["emotional_changes_kn"] = {
+    "title": "ಕೌಮಾರದಲ್ಲಿ ಭಾವನಾತ್ಮಕ ಬದಲಾವಣೆಗಳು (Emotional Changes in Adolescence)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation6_emotional_changes_kn.html",
+    "description": """
+An interactive Kannada-language simulation exploring emotional changes during
+adolescence through five real-life scenario-based exercises.
+
+Students are presented with common adolescent situations (friend drift, exam
+failure, puberty changes, parental rules, being teased) and asked to choose
+the emotion they would feel, receiving validating feedback for every answer.
+
+The simulation teaches:
+- All emotions felt during adolescence are valid and normal
+- Hormonal changes during puberty cause rapid mood swings
+- Healthy coping strategies for difficult emotions (music, journaling, talking)
+- Emotional intelligence: identifying and naming one's feelings
+- When to seek help from trusted adults
+
+The simulation UI, labels, and narrative are entirely in Kannada. State is
+exposed via URL query string so the teaching agent can set the scenario directly.
+""",
+    "cannot_demonstrate": [
+        "Specific neurological mechanisms behind hormonal mood changes",
+        "Quantitative measurement of hormone levels",
+        "Diagnosis or treatment of clinical mental health conditions",
+        "Gender-specific emotional differences in detail"
+    ],
+    "initial_params": {
+        "initialState": "scenario1",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Scenario State",
+            "range": "scenario1, scenario2, scenario3, scenario4, scenario5, completed",
+            "url_key": "initialState",
+            "effect": (
+                "Sets which scenario the simulation auto-loads into on page open.\n"
+                "  'scenario1' → friend drifting away (default starting scenario)\n"
+                "  'scenario2' → exam failure despite studying hard\n"
+                "  'scenario3' → body changing faster/slower than peers\n"
+                "  'scenario4' → parents' rules seem unfair vs friends\n"
+                "  'scenario5' → being teased about appearance\n"
+                "  'completed' → all scenarios explored, completion screen"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept explanation card (default)\n"
+                "  false → hide the concept card (cleaner view for focused observation)"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Emotional Turbulence Is Normal in Adolescence",
+            "description": (
+                "Understanding why adolescents experience intense and rapidly changing "
+                "emotions, and why these feelings are a normal part of growing up."
+            ),
+            "key_insight": (
+                "Hormones released during puberty (especially oestrogen and testosterone) "
+                "directly affect the brain's emotional centres. Feeling happy, sad, excited, "
+                "or confused all within a single day is completely normal and temporary. "
+                "These mood swings do not mean something is wrong with you."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Coping Strategies for Difficult Emotions",
+            "description": (
+                "Learning healthy, constructive ways to manage strong emotions such as "
+                "sadness, anger, jealousy, and anxiety during adolescence."
+            ),
+            "key_insight": (
+                "Healthy coping strategies include physical activity (sports, dance), "
+                "creative outlets (music, art, journaling), deep breathing, and talking "
+                "to a trusted person. Unhealthy responses like acting out or isolating "
+                "worsen emotional wellbeing. Channelling energy positively builds resilience."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Recognising When to Seek Help",
+            "description": (
+                "Understanding the difference between normal emotional fluctuation and "
+                "situations where adult support from parents, teachers, or counsellors is needed."
+            ),
+            "key_insight": (
+                "While mood swings are normal, persistent sadness lasting weeks, inability "
+                "to function, or feeling overwhelmed without relief are signals to reach out "
+                "to a trusted adult. Asking for help is a sign of strength, not weakness. "
+                "Parents, teachers, school counsellors, and doctors are appropriate sources of support."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# NUTRITION FOR ADOLESCENTS SIMULATION
+# ಕೌಮಾರ ವಯಸ್ಕರಿಗೆ ಪೋಷಣೆ
+# Science Chapter 6 – Growing Up (ಬೆಳೆಯುವಿಕೆ)
+# =============================================================================
+SIMULATIONS_KN["nutrition_adolescence_kn"] = {
+    "title": "ಕೌಮಾರ ವಯಸ್ಕರಿಗೆ ಪೋಷಣೆ (Nutrition for Adolescents)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation7_nutrition_kn.html",
+    "description": """
+An interactive Kannada-language simulation teaching the four major nutrient
+groups through a visual plate model: carbohydrates, proteins, vitamins &
+minerals, and healthy fats.
+
+Students tap plate sections or nutrient tabs to explore:
+- Carbohydrates: the primary energy source; complex carbs preferred over simple sugars
+- Proteins: muscle and tissue building blocks; extra demand during adolescent growth spurts
+- Vitamins & Minerals: body regulators; iron (especially for girls post-menstruation),
+  calcium for bone density, vitamin C for immunity
+- Healthy Fats: brain development and long-term energy
+
+A special panel highlights girls' additional nutritional needs (iron, B12, calcium).
+
+The simulation UI is in Kannada. States are exposed via URL query strings
+so the teaching agent can highlight specific nutrient groups.
+""",
+    "cannot_demonstrate": [
+        "Caloric calculations or quantitative dietary planning",
+        "Effects of malnutrition diseases in detail",
+        "Specific food allergy or intolerance management",
+        "Cooking methods and their effect on nutrient content"
+    ],
+    "initial_params": {
+        "initialState": "carbs",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Nutrient Group",
+            "range": "carbs, protein, veggies, fats",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which nutrient group is highlighted in the plate and info panel.\n"
+                "  'carbs'   → carbohydrates highlighted (default) — energy source\n"
+                "  'protein' → proteins highlighted — muscle and body building\n"
+                "  'veggies' → vitamins & minerals highlighted — body regulators\n"
+                "  'fats'    → healthy fats highlighted — brain development and energy"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Carbohydrates and Proteins: Energy and Growth",
+            "description": (
+                "Understanding how carbohydrates provide the primary fuel for adolescent "
+                "activity and study, while proteins provide building blocks for the rapid "
+                "muscle and organ growth that occurs during puberty."
+            ),
+            "key_insight": (
+                "Carbohydrates are rapidly converted to glucose — the brain's only fuel. "
+                "Complex carbs (whole grains, millets like ragi) release energy slowly, "
+                "sustaining both physical activity and concentration. Proteins supply the "
+                "amino acids needed to build and repair muscles and organs; adolescents "
+                "need significantly more protein than children due to their growth spurt."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Vitamins, Minerals, and Special Adolescent Needs",
+            "description": (
+                "Exploring the role of micronutrients in adolescent health, with particular "
+                "focus on iron (for girls), calcium (for bone strength), and vitamins."
+            ),
+            "key_insight": (
+                "Iron is critical for haemoglobin production; girls lose iron through "
+                "menstruation and must replenish it with spinach, dates, jaggery. "
+                "Calcium builds peak bone density in the teenage years — a window that "
+                "closes by age 20. Vitamin C from colourful vegetables enhances iron "
+                "absorption. Each colour of vegetable/fruit provides different nutrients."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Healthy Fats and Balanced Diet Principles",
+            "description": (
+                "Understanding that fats are essential for brain development and vitamin "
+                "absorption, and applying the principle of a balanced diet across all food groups."
+            ),
+            "key_insight": (
+                "Healthy fats (nuts, seeds, fish, olive oil) supply essential fatty acids "
+                "like omega-3 that are critical for brain development during adolescence. "
+                "Fat-soluble vitamins (A, D, E, K) can only be absorbed in the presence of "
+                "dietary fat. A balanced diet includes ALL four groups; skipping any group "
+                "(e.g., eliminating carbs) creates deficiencies during this high-demand growth phase."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# PERSONAL HYGIENE IN ADOLESCENCE SIMULATION
+# ಕೌಮಾರದಲ್ಲಿ ವೈಯಕ್ತಿಕ ಶುಚಿತ್ವ
+# Science Chapter 6 – Growing Up (ಬೆಳೆಯುವಿಕೆ)
+# =============================================================================
+SIMULATIONS_KN["personal_hygiene_kn"] = {
+    "title": "ಕೌಮಾರದಲ್ಲಿ ವೈಯಕ್ತಿಕ ಶುಚಿತ್ವ (Personal Hygiene in Adolescence)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation8_hygiene_kn.html",
+    "description": """
+An interactive Kannada-language simulation presenting a daily hygiene checklist
+of 7 essential practices for adolescents, with educational tips for each item.
+
+Students tap/check each hygiene item (daily bath, twice-daily brushing, clean
+clothing, deodorant, face washing, handwashing, nail trimming) to mark it done.
+Each check reveals a specific tip explaining WHY the practice matters.
+
+A menstrual hygiene panel (for girls) explains sanitary product options:
+disposable pads, reusable pads, and biodegradable options.
+
+The simulation teaches:
+- Why adolescents produce more sweat and oil than children (hormonal changes)
+- Which hygiene habits prevent body odour, acne, and infection
+- Correct techniques for each hygiene practice
+- Menstrual hygiene management and available product choices
+- That hygiene habits formed now persist throughout life
+
+State is exposed via URL so the agent can demonstrate different completion levels.
+""",
+    "cannot_demonstrate": [
+        "Specific dermatological treatment for severe acne",
+        "Medical menstrual disorders (dysmenorrhoea, PCOS)",
+        "Brand-specific product recommendations",
+        "Detailed technique animation for brushing or bathing"
+    ],
+    "initial_params": {
+        "initialState": "initial",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Checklist State",
+            "range": "initial, all_complete",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the state of the hygiene checklist on page load.\n"
+                "  'initial'      → empty checklist, 0/7 items done (default)\n"
+                "  'all_complete' → all 7 items auto-checked with staggered animation, "
+                "badge shows 'All Done!', final tip displayed"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Why Adolescents Need Increased Hygiene",
+            "description": (
+                "Understanding the biological reason why puberty dramatically increases "
+                "the need for daily hygiene practices compared to childhood."
+            ),
+            "key_insight": (
+                "Puberty hormones (androgens) dramatically increase the activity of sweat "
+                "glands and sebaceous (oil) glands. More sweat + skin bacteria = body odour; "
+                "more sebum = blocked pores = acne. These are not signs of uncleanliness — "
+                "they are normal physiological changes. Daily bathing and face washing "
+                "remove the bacterial substrate that causes odour and skin problems."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Daily Hygiene Checklist and Correct Practices",
+            "description": (
+                "Learning which hygiene habits are essential daily and understanding "
+                "the specific purpose and correct method for each practice."
+            ),
+            "key_insight": (
+                "The 7 core daily practices — bathing, brushing twice, clean clothes, "
+                "deodorant, face washing, handwashing, and nail trimming — together prevent "
+                "the three main hygiene-related problems of adolescence: body odour, acne, "
+                "and infectious disease spread. Handwashing alone prevents more disease "
+                "transmission than any other single hygiene measure."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Menstrual Hygiene Management",
+            "description": (
+                "Understanding the specific additional hygiene requirements during "
+                "menstruation and the available product options for management."
+            ),
+            "key_insight": (
+                "During menstruation, sanitary products must be changed every 4-6 hours "
+                "to prevent bacterial growth and infection. Three types are available: "
+                "disposable pads (most common, convenient), reusable cloth pads "
+                "(eco-friendly, washable), and biodegradable pads (environmentally safe "
+                "disposal). Government schemes provide free sanitary products in many schools. "
+                "Each change should include washing the area with clean water."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# HEALTHY HABITS FOR ADOLESCENTS SIMULATION
+# ಕೌಮಾರ ವಯಸ್ಕರಿಗೆ ಆರೋಗ್ಯಕರ ಅಭ್ಯಾಸಗಳು
+# Science Chapter 6 – Growing Up (ಬೆಳೆಯುವಿಕೆ)
+# =============================================================================
+SIMULATIONS_KN["healthy_habits_kn"] = {
+    "title": "ಕೌಮಾರ ವಯಸ್ಕರಿಗೆ ಆರೋಗ್ಯಕರ ಅಭ್ಯಾಸಗಳು (Healthy Habits for Adolescents)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter6_simulation9_healthy_habits_kn.html",
+    "description": """
+An interactive Kannada-language simulation presenting four essential healthy
+habit categories for adolescents through a tabbed interface: physical activity,
+sleep, social connections, and mental wellness.
+
+Each tab shows a large animated icon, a science-based explanation, and a
+four-point list of specific benefits of that habit during adolescence.
+
+An online safety panel teaches responsible internet use: keeping personal
+information private, avoiding strangers, respectful communication, and
+reporting cyberbullying.
+
+The simulation teaches:
+- Physical activity: 60 minutes/day strengthens bones, improves mood, boosts focus
+- Sleep: 8-10 hours/night supports growth hormone release and memory consolidation
+- Social wellbeing: positive relationships build communication skills and emotional support
+- Mental wellness: mindfulness, stress management, and knowing when to seek help
+- Safe online behaviour as a component of holistic adolescent health
+
+State is exposed via URL so the agent can demonstrate any of the four habit areas.
+""",
+    "cannot_demonstrate": [
+        "Clinical treatment for anxiety or depression disorders",
+        "Specific exercise or sleep schedules for individual students",
+        "Detailed cyberbullying reporting procedures for specific platforms",
+        "Quantitative measurement of mental health improvement"
+    ],
+    "initial_params": {
+        "initialState": "exercise",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Habit Category",
+            "range": "exercise, sleep, social, mental",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which healthy habit category is displayed in the info panel.\n"
+                "  'exercise' → physical activity tab (default) — 60 min/day, builds strength\n"
+                "  'sleep'    → quality sleep tab — 8-10 hrs/night, growth hormone release\n"
+                "  'social'   → social connections tab — family and friend relationships\n"
+                "  'mental'   → mental wellness tab — mindfulness and stress management"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Physical Activity and Sleep: The Foundation of Adolescent Health",
+            "description": (
+                "Understanding why regular exercise (minimum 60 min/day) and adequate "
+                "sleep (8-10 hrs/night) are non-negotiable requirements for healthy "
+                "adolescent development — not optional extras."
+            ),
+            "key_insight": (
+                "Exercise during adolescence increases peak bone density (a lifetime asset), "
+                "releases endorphins that reduce stress hormones, and improves concentration "
+                "by increasing blood flow to the prefrontal cortex. "
+                "Sleep is when the pituitary gland releases 70% of growth hormone; "
+                "chronic sleep deprivation directly stunts physical growth and impairs "
+                "memory consolidation — making late-night study counterproductive."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Social Connections and Communication Skills",
+            "description": (
+                "Exploring how positive social relationships with family and peers "
+                "contribute to emotional wellbeing, and how communication skills "
+                "developed during adolescence shape adult relationships."
+            ),
+            "key_insight": (
+                "The adolescent brain is in a critical period for social learning. "
+                "Positive peer interactions develop empathy, conflict resolution, and "
+                "cooperation — skills that predict adult success more reliably than "
+                "academic grades. Family connections provide the emotional safety net "
+                "that allows adolescents to explore independence without anxiety. "
+                "Quality over quantity: a few trusted relationships matter more than "
+                "large social networks."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Mental Wellness and Safe Online Behaviour",
+            "description": (
+                "Understanding mental wellness practices that build resilience, and "
+                "how responsible online behaviour protects adolescent mental health "
+                "in the digital environment."
+            ),
+            "key_insight": (
+                "Mental health is as important as physical health. Simple practices "
+                "(5-minute mindful breathing, journaling, gratitude) measurably reduce "
+                "cortisol (stress hormone) levels. Online safety is directly connected "
+                "to mental health: cyberbullying, social comparison, and excessive "
+                "screen time all elevate adolescent anxiety. Balanced screen time with "
+                "outdoor activity and face-to-face interaction protects mental wellbeing."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# WATER CONSERVATION SIMULATION
+# ಜಲ ಸಂರಕ್ಷಣೆ
+# Science Chapter 7 – Water: Our Lifeline (ನೀರು: ನಮ್ಮ ಜೀವನಾಡಿ)
+# =============================================================================
+SIMULATIONS_KN["water_conservation_kn"] = {
+    "title": "ಜಲ ಸಂರಕ್ಷಣೆ (Water Conservation)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter7_simulation10_water_conservation_kn.html",
+    "description": """
+An interactive Kannada-language simulation demonstrating three water conservation
+methods through animated visual models:
+
+1. Rainwater Harvesting (ವರ್ಷಾಧಾರ ಸಂಗ್ರಹಣೆ): Rooftop collection system animation
+   showing rain → gutters → pipes → storage tank, reducing dependence on groundwater.
+
+2. Recharge Pit (ರಿಚಾರ್ಜ್ ಗುಂಡಿ): Cross-sectional view of a gravel-and-sand pit
+   showing rainwater percolating downward through filter layers into the aquifer,
+   replenishing groundwater that concrete surfaces would otherwise block.
+
+3. Ice Stupa (ಐಸ್ ಸ್ತೂಪ): Ladakh's ingenious winter water storage — water sprayed
+   at night freezes into a cone-shaped artificial glacier that slowly melts in
+   summer, providing irrigation water precisely when needed.
+
+The simulation teaches:
+- Why groundwater is depleting (excess extraction, concrete blocking percolation)
+- How each conservation method addresses a different aspect of the water crisis
+- The connection between vegetation loss and reduced water retention
+- Traditional and modern solutions that communities and households can implement
+
+State is exposed via URL so the agent can demonstrate each conservation method.
+""",
+    "cannot_demonstrate": [
+        "Quantitative calculation of water saved per system",
+        "Detailed construction specifications for any system",
+        "Groundwater flow dynamics and aquifer recharge rates",
+        "Policy and legal frameworks for water conservation"
+    ],
+    "initial_params": {
+        "initialState": "rwh",
+        "showHints": True
+    },
+    "parameter_info": {
+        "initialState": {
+            "label": "Conservation Method",
+            "range": "rwh, pit, stupa",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which water conservation method is displayed.\n"
+                "  'rwh'   → rainwater harvesting animation (default) — roof → tank\n"
+                "  'pit'   → recharge pit cross-section — water seeping into aquifer\n"
+                "  'stupa' → ice stupa at night in Ladakh — artificial glacier formation"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the key concept card at the top.\n"
+                "  true  → show the 'ಮುಖ್ಯ ಪರಿಕಲ್ಪನೆ' concept card (default)\n"
+                "  false → hide the concept card for a cleaner view"
+            )
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Groundwater Depletion: The Problem",
+            "description": (
+                "Understanding why groundwater levels are falling across India and "
+                "what human activities prevent natural aquifer recharge."
+            ),
+            "key_insight": (
+                "Groundwater (stored in underground aquifers) is depleted by two forces: "
+                "over-extraction (pumps removing water faster than rainfall can replace it) "
+                "and blocked recharge (concrete, roads, and buildings prevent rainwater "
+                "from percolating into the ground). Deforestation removes tree roots that "
+                "previously held water in soil. The result: water tables falling 1-3 metres "
+                "per year in many Indian cities, threatening agriculture and drinking water supply."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Rainwater Harvesting and Recharge Pits",
+            "description": (
+                "How collecting and redirecting rainwater at roof level (harvesting) "
+                "and creating percolation pits (recharge) together address both supply "
+                "and aquifer replenishment."
+            ),
+            "key_insight": (
+                "Rainwater harvesting captures roof runoff before it flows away, "
+                "storing it for direct use (gardening, washing) or filtered drinking water. "
+                "A 100 m² roof in a region with 600 mm annual rainfall can collect ~60,000 litres/year. "
+                "Recharge pits bypass impermeable concrete by channelling water through "
+                "gravel and sand filters directly into the aquifer — the same mechanism "
+                "that vegetation and open soil provide naturally."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Ice Stupas: Traditional Innovation for Water Security",
+            "description": (
+                "Exploring how Ladakh's ice stupa technique exemplifies traditional "
+                "ecological knowledge solving a modern water scarcity problem."
+            ),
+            "key_insight": (
+                "Ice stupas are artificial glaciers built in winter by spraying water "
+                "upward at night — the spray freezes in the cold air and accumulates "
+                "into a cone shape (like a Buddhist stupa) that can hold millions of litres. "
+                "The conical shape minimises the surface-area-to-volume ratio, slowing melt. "
+                "They release meltwater in spring and summer — exactly when farmers need "
+                "water for sowing — months after natural glaciers would normally melt. "
+                "This is traditional engineering adapted to modern climate challenges."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# EMOTIONAL CHANGES — QUIZ QUESTIONS
+# 3 questions: explore scenario → understand emotional response → coping strategy
+# =============================================================================
+QUIZ_QUESTIONS_KN["emotional_changes_kn"] = [
+
+    {
+        "id": "emotions_kn_q1",
+        "challenge": (
+            "Show the first scenario where a friend starts spending time with "
+            "others. Set the simulation to demonstrate the opening emotional "
+            "situation that students most commonly face in adolescence.\n\n"
+            "(ಮೊದಲ ಸನ್ನಿವೇಶ ತೋರಿಸಿ: ಸ್ನೇಹಿತ ದೂರವಾಗುತ್ತಾರೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "scenario1"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'scenario1' as the initialState. This loads the first scenario: "
+                "your best friend starts spending more time with others. Explore how "
+                "different emotions (sad, angry, jealous, confused) can arise in this situation."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'scenario1'. The simulation shows a common adolescent "
+                "experience — friendship changes. Notice that every emotion selected receives "
+                "a validating, non-judgmental response."
+            ),
+            "attempt_3": (
+                "Choose 'scenario1' from the Simulation State dropdown. "
+                "This is the foundational scenario demonstrating that emotional responses "
+                "to social change are completely normal during adolescence."
+            )
+        },
+        "concept_reminder": (
+            "Adolescence brings rapid changes in social relationships as friends develop "
+            "new interests. Feelings of sadness, jealousy, or confusion when friendships "
+            "shift are completely normal. Hormonal fluctuations mean emotions can feel "
+            "more intense than before puberty — this is biology, not a personal failing. "
+            "(ಎಲ್ಲ ಭಾವನೆಗಳು ಸಹಜ — ಕೌಮಾರ್ಯದಲ್ಲಿ ಮನಸ್ಥಿತಿ ಬದಲಾವಣೆ ಸಾಮಾನ್ಯ!)"
+        )
+    },
+
+    {
+        "id": "emotions_kn_q2",
+        "challenge": (
+            "Now navigate to the scenario about body changes during puberty. "
+            "Set the simulation to show the scenario where students compare "
+            "their physical development with their peers.\n\n"
+            "(ದೇಹ ಬದಲಾವಣೆ ಸನ್ನಿವೇಶ ತೋರಿಸಿ — ಸಹಪಾಠಿಗಳ ಜೊತೆ ಹೋಲಿಕೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "scenario3"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'scenario3' as the initialState. This is the scenario about body "
+                "changes happening faster or slower than friends. It directly relates to "
+                "the physical changes studied in the puberty topic."
+            ),
+            "attempt_2": (
+                "Set 'initialState=scenario3'. The scenario: 'Your body is changing faster "
+                "(or slower) than your friends.' Each emotion selected reveals the key message: "
+                "everyone develops at their own pace — this is completely normal."
+            ),
+            "attempt_3": (
+                "Choose 'scenario3'. This scenario teaches a critical message: puberty timing "
+                "varies by 4-6 years between individuals, and no timeline is 'wrong'. "
+                "Comparing oneself to peers' development pace often causes unnecessary anxiety."
+            )
+        },
+        "concept_reminder": (
+            "Puberty onset ranges from age 8 to 13 in girls and 9 to 14 in boys — a spread "
+            "of 4-6 years. Someone who develops 'early' or 'late' compared to classmates is "
+            "simply following their own genetic timeline. Every body has its own schedule. "
+            "Anxiety about being different from peers is one of the most common emotional "
+            "challenges of adolescence, but medically there is a very wide range of 'normal'. "
+            "(ಪ್ರತಿಯೊಬ್ಬರ ದೇಹ ತನ್ನದೇ ಸಮಯದಲ್ಲಿ ಬದಲಾಗುತ್ತದೆ — ಇದು ಸಹಜ!)"
+        )
+    },
+
+    {
+        "id": "emotions_kn_q3",
+        "challenge": (
+            "Navigate to the scenario about being teased or bullied. Set the "
+            "simulation to demonstrate how social humiliation affects adolescent "
+            "emotions and what the healthy response is.\n\n"
+            "(ಅಪಹಾಸ್ಯ ಸನ್ನಿವೇಶ ತೋರಿಸಿ — ಅನಾರೋಗ್ಯಕರ ಸಾಮಾಜಿಕ ಒತ್ತಡ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "scenario5"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'scenario5' as the initialState. This loads the scenario about "
+                "being teased or made fun of. It teaches that a teaser's behaviour "
+                "reflects their own insecurities, and that talking to a trusted adult "
+                "is the appropriate response."
+            ),
+            "attempt_2": (
+                "Set 'initialState=scenario5'. The scenario: 'Someone makes fun of how "
+                "you look or something you did.' Notice that anger, anxiety, and sadness "
+                "are all validated — but the advice consistently points to seeking support "
+                "from a trusted person."
+            ),
+            "attempt_3": (
+                "Choose 'scenario5'. This is the scenario that connects emotional health "
+                "to the concept of seeking adult help when needed. The simulation's "
+                "guidance: the teaser's behaviour is about their own problems, not your "
+                "worth. Always tell a trusted adult if teasing becomes persistent."
+            )
+        },
+        "concept_reminder": (
+            "Teasing and bullying trigger real emotional pain — sadness, anger, anxiety, "
+            "and confusion are all valid responses. Research shows that bullies often target "
+            "perceived differences related to puberty (height, weight, development). "
+            "The healthy response: walk away from the situation, tell a trusted adult, "
+            "and remember that what others say does not define your worth. "
+            "Persistent bullying that is not addressed can impact mental health long-term "
+            "and should always be reported to a teacher, parent, or counsellor. "
+            "(ಅಪಹಾಸ್ಯ ಸಹಿಸಬೇಡಿ — ಯಾರಾದರೂ ವಿಶ್ವಾಸಿ ವ್ಯಕ್ತಿಗೆ ಹೇಳಿ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# NUTRITION FOR ADOLESCENTS — QUIZ QUESTIONS
+# 3 questions: energy from carbs → growth from protein → micronutrients
+# =============================================================================
+QUIZ_QUESTIONS_KN["nutrition_adolescence_kn"] = [
+
+    {
+        "id": "nutrition_kn_q1",
+        "challenge": (
+            "Show the primary energy-giving nutrient group. Set the simulation "
+            "to highlight the carbohydrate section of the balanced plate and "
+            "demonstrate why energy foods are essential for adolescents.\n\n"
+            "(ಶಕ್ತಿ ಕೊಡುವ ಪೋಷಕಾಂಶ ತೋರಿಸಿ: ಕಾರ್ಬೋಹೈಡ್ರೇಟ್)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "carbs"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'carbs' as the Nutrient Group. This highlights carbohydrates on "
+                "the plate and shows the info panel explaining rice, roti, millets, and "
+                "other complex carbs as the body's primary fuel source."
+            ),
+            "attempt_2": (
+                "Set 'initialState=carbs'. Carbohydrates supply glucose — the only fuel "
+                "your brain can directly use. Adolescents doing sports, studying, and "
+                "growing need more carbohydrate energy than younger children or adults."
+            ),
+            "attempt_3": (
+                "Choose 'carbs' from the Nutrient Group dropdown. Note the emphasis on "
+                "COMPLEX carbohydrates (whole grains, millets like ragi) over simple sugars. "
+                "Complex carbs release energy slowly for sustained concentration and activity."
+            )
+        },
+        "concept_reminder": (
+            "Carbohydrates are the body's preferred and fastest energy source. "
+            "Glucose (broken down from carbs) is the sole fuel for the brain and the "
+            "primary fuel for muscles during exercise. Adolescents experiencing rapid "
+            "growth, active school days, and sports need substantially more carbohydrate "
+            "relative to body weight than adults. Complex carbs (whole grains, millets, "
+            "legumes) are vastly superior to refined sugars — they release energy slowly, "
+            "preventing blood sugar spikes that cause fatigue and poor concentration. "
+            "(ಕಾರ್ಬೋಹೈಡ್ರೇಟ್ = ದೇಹ ಮತ್ತು ಮೆದುಳಿಗೆ ಶಕ್ತಿ!)"
+        )
+    },
+
+    {
+        "id": "nutrition_kn_q2",
+        "challenge": (
+            "Demonstrate the body-building nutrient group. Set the simulation to "
+            "highlight proteins and explain why adolescents need extra protein "
+            "during their growth spurt.\n\n"
+            "(ದೇಹ ನಿರ್ಮಾಣ ಪೋಷಕಾಂಶ ತೋರಿಸಿ: ಪ್ರೊಟೀನ್)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "protein"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'protein' as the Nutrient Group. This activates the protein section "
+                "of the plate and shows the info panel about muscle building, tissue repair, "
+                "and hormone synthesis using amino acids from protein."
+            ),
+            "attempt_2": (
+                "Set 'initialState=protein'. During the adolescent growth spurt, the body "
+                "is literally manufacturing new muscle fibres, bone matrix proteins, and "
+                "organ tissue at a much higher rate than at any other time of life except infancy."
+            ),
+            "attempt_3": (
+                "Choose 'protein'. Note the range of protein sources: chicken and fish "
+                "(complete proteins), eggs and dairy (casein and whey), and plant sources "
+                "like dal, legumes, nuts, and soya. Vegetarians can meet all protein "
+                "requirements by combining different plant proteins."
+            )
+        },
+        "concept_reminder": (
+            "Proteins are made of amino acids — the actual building blocks of every cell. "
+            "During the adolescent growth spurt (peak: ~13 years), the body adds more "
+            "muscle and bone mass per year than at any later point in life. "
+            "Protein requirements jump from ~0.9 g/kg body weight in childhood to "
+            "~1.2-1.5 g/kg during the growth spurt. Protein also forms hormones like "
+            "insulin and growth hormone, and enzymes for digestion and metabolism. "
+            "A dal+rice combination provides all essential amino acids for vegetarians. "
+            "(ಪ್ರೊಟೀನ್ = ಬೆಳವಣಿಗೆಯ ಸಮಯ ಹೆಚ್ಚು ಅಗತ್ಯ!)"
+        )
+    },
+
+    {
+        "id": "nutrition_kn_q3",
+        "challenge": (
+            "Highlight the vitamins and minerals section to demonstrate why "
+            "micronutrients are especially critical for girls during adolescence, "
+            "particularly iron and calcium.\n\n"
+            "(ಹುಡುಗಿಯರ ವಿಶೇಷ ಪೋಷಕಾಂಶ ಅಗತ್ಯ ತೋರಿಸಿ: ಜೀವಸತ್ವ ಮತ್ತು ಖನಿಜ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "veggies"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'veggies' as the Nutrient Group. This activates the vitamins & "
+                "minerals section showing colourful vegetables and their specific nutrients: "
+                "spinach for iron, orange vegetables for vitamin A, citrus for vitamin C."
+            ),
+            "attempt_2": (
+                "Set 'initialState=veggies'. The info panel explains that each vegetable "
+                "colour provides different protective nutrients. The special needs panel "
+                "below explains iron (for girls post-menstruation), B12, and calcium needs."
+            ),
+            "attempt_3": (
+                "Choose 'veggies'. Look at both the info panel AND the special needs section "
+                "below the sim card. Iron from spinach, dates, and jaggery is critical for "
+                "girls once menstruation begins. Calcium from milk and green vegetables "
+                "builds bone density during the critical teenage window."
+            )
+        },
+        "concept_reminder": (
+            "Micronutrients regulate every body process despite being needed in tiny amounts. "
+            "Girls specifically need: "
+            "(1) Iron — lost during menstruation, needed for haemoglobin; deficiency causes anaemia "
+            "(fatigue, poor concentration). Sources: spinach, jaggery, dates, fortified cereals. "
+            "(2) Calcium — peak bone density is built by age 20; the teenage years are a "
+            "critical window. Sources: milk, yoghurt, paneer, green leafy vegetables. "
+            "(3) Vitamin B12 — essential for nerve function and red blood cells; at risk in "
+            "strict vegetarians. Sources: dairy, eggs, fortified foods. "
+            "Colourful vegetables (eat the rainbow!) provide different vitamins — no single "
+            "food supplies all micronutrients. "
+            "(ಕಬ್ಬಿಣ ಮತ್ತು ಕ್ಯಾಲ್ಸಿಯಂ ಹುಡುಗಿಯರಿಗೆ ಅತ್ಯಂತ ಮುಖ್ಯ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# PERSONAL HYGIENE — QUIZ QUESTIONS
+# 3 questions: reason for hygiene → daily practices → menstrual hygiene
+# =============================================================================
+QUIZ_QUESTIONS_KN["personal_hygiene_kn"] = [
+
+    {
+        "id": "hygiene_kn_q1",
+        "challenge": (
+            "Show the default empty hygiene checklist to demonstrate the "
+            "starting point — what a student's hygiene routine looks like "
+            "before any habits have been established.\n\n"
+            "(ಖಾಲಿ ಶುಚಿತ್ವ ಪಟ್ಟಿ ತೋರಿಸಿ — ಅಭ್ಯಾಸ ಇಲ್ಲದ ಆರಂಭಿಕ ಸ್ಥಿತಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "initial"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' as the Checklist State. This shows the empty checklist "
+                "(0/7 done) — all 7 hygiene items are unchecked, representing a student "
+                "who has not yet established these daily habits."
+            ),
+            "attempt_2": (
+                "Set 'initialState=initial'. Notice the 7 hygiene practices listed: daily bath, "
+                "brushing twice, clean clothes, deodorant, face wash, handwashing, nail trimming. "
+                "All are unchecked in this starting state."
+            ),
+            "attempt_3": (
+                "Choose 'initial'. This state sets up the contrast — compare it with "
+                "'all_complete' to see the full difference between having no hygiene habits "
+                "and following the complete daily routine."
+            )
+        },
+        "concept_reminder": (
+            "During childhood, body odour and skin oil production are minimal. "
+            "Puberty changes this: androgens (hormones) dramatically activate sweat glands "
+            "(apocrine glands under arms and groin) and sebaceous oil glands in skin. "
+            "Without daily hygiene practices, bacteria break down sweat molecules into "
+            "odorous compounds, and excess sebum blocks pores causing acne. "
+            "These are not signs of being 'dirty' — they are unavoidable physiological changes "
+            "that require a new, more active daily hygiene routine. "
+            "(ಕೌಮಾರ್ಯದಲ್ಲಿ ಹೆಚ್ಚು ಬೆವರು ಮತ್ತು ತೈಲ — ದೈನಂದಿನ ಶುಚಿತ್ವ ಅಗತ್ಯ!)"
+        )
+    },
+
+    {
+        "id": "hygiene_kn_q2",
+        "challenge": (
+            "Demonstrate the complete daily hygiene routine by setting the simulation "
+            "to show all 7 hygiene items checked off. This represents the ideal daily "
+            "practice that prevents adolescent health problems.\n\n"
+            "(ಎಲ್ಲ 7 ಶುಚಿತ್ವ ಅಭ್ಯಾಸ ಪೂರ್ಣ ತೋರಿಸಿ — ಸಂಪೂರ್ಣ ದೈನಂದಿನ ರೊಟೀನ್)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "all_complete"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'all_complete' as the Checklist State. This auto-checks all 7 "
+                "hygiene items with a staggered animation, showing the badge '🎉 All Done!' "
+                "and the final tip about nail hygiene."
+            ),
+            "attempt_2": (
+                "Set 'initialState=all_complete'. Watch all 7 items get checked in sequence: "
+                "bath → brushing → clean clothes → deodorant → face wash → handwashing → nails. "
+                "Each check represents a habit that prevents a specific adolescent health problem."
+            ),
+            "attempt_3": (
+                "Choose 'all_complete'. The 7 habits prevent: body odour, tooth decay and bad "
+                "breath, bacterial skin infections, sustained body odour protection, acne, "
+                "disease transmission, and nail-harboured dirt/bacteria respectively."
+            )
+        },
+        "concept_reminder": (
+            "Each of the 7 daily hygiene habits targets a specific problem: "
+            "(1) Daily bath: removes apocrine sweat bacteria → prevents body odour "
+            "(2) Brush ×2/day: removes plaque/bacteria → prevents cavities and bad breath "
+            "(3) Clean clothes: bacteria in fabric = persistent odour → fresh clothes break cycle "
+            "(4) Deodorant: neutralises odour compounds in underarm area "
+            "(5) Face wash ×2-3: removes excess sebum + dead skin → prevents blocked pores/acne "
+            "(6) Handwashing: single most effective disease-prevention measure known to medicine "
+            "(7) Short nails: removes the main reservoir for dirt and pathogenic bacteria. "
+            "Habits formed consistently in adolescence typically persist into adulthood. "
+            "(ದೈನಂದಿನ 7 ಅಭ್ಯಾಸ = ಆರೋಗ್ಯ, ಆತ್ಮವಿಶ್ವಾಸ ಮತ್ತು ಸ್ವಚ್ಛತೆ!)"
+        )
+    },
+
+    {
+        "id": "hygiene_kn_q3",
+        "challenge": (
+            "Reset to the initial state and focus on the menstrual hygiene panel "
+            "below the sim card. Set the simulation so that the menstrual hygiene "
+            "content is visible for discussion.\n\n"
+            "(ಋತುಕಾಲ ಶುಚಿತ್ವ ಮಾಹಿತಿ ತೋರಿಸಲು ಆರಂಭಿಕ ಸ್ಥಿತಿ ಹೊಂದಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "initial"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'initialState=initial'. In this state, the full page is visible including "
+                "the 'Menstrual Hygiene' panel below the checklist. This panel shows product "
+                "options: disposable pads, reusable pads, and biodegradable options."
+            ),
+            "attempt_2": (
+                "Choose 'initial'. The menstrual hygiene section is always visible; the "
+                "checklist state controls only the top interactive section. The panel below "
+                "covers changing frequency (every 4-6 hours), proper disposal, and spare "
+                "products when going out."
+            ),
+            "attempt_3": (
+                "Select 'initial' to view the complete page including the menstrual hygiene "
+                "panel. The key rules: change products every 4-6 hours, wash with clean water "
+                "at each change, wrap and dispose safely, carry extras when away from home."
+            )
+        },
+        "concept_reminder": (
+            "Menstrual hygiene management is an important component of adolescent health. "
+            "Key practices: "
+            "(1) Change sanitary products every 4-6 hours — longer intervals allow bacteria "
+            "to multiply causing infections (bacterial vaginosis, UTIs). "
+            "(2) Clean water wash at each change — reduces bacterial load. "
+            "(3) Safe disposal — wrap in paper/plastic to prevent spread of bloodborne pathogens. "
+            "(4) Three product types are available: disposable pads (most common), "
+            "reusable cloth pads (environmental benefit, washable), and biodegradable pads. "
+            "Government schemes provide free sanitary products in many Karnataka schools. "
+            "Girls should never feel ashamed to ask school management for sanitary supplies. "
+            "(ಋತುಕಾಲ ಶುಚಿತ್ವ — ಪ್ರತಿ 4-6 ಗಂಟೆಗೆ ಬದಲಾಯಿಸಿ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# HEALTHY HABITS — QUIZ QUESTIONS
+# 3 questions: physical activity → sleep → mental wellness/online safety
+# =============================================================================
+QUIZ_QUESTIONS_KN["healthy_habits_kn"] = [
+
+    {
+        "id": "habits_kn_q1",
+        "challenge": (
+            "Show the physical activity section to demonstrate why exercise is "
+            "foundational for adolescent health and academic performance.\n\n"
+            "(ಶಾರೀರಿಕ ಚಟುವಟಿಕೆ ತೋರಿಸಿ — ಕ್ರೀಡೆ ಮತ್ತು ವ್ಯಾಯಾಮದ ಪ್ರಾಮುಖ್ಯತೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "exercise"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'exercise' as the Habit Category. This shows the physical activity "
+                "section with the pulsing football icon and 4 benefits: strengthens muscles "
+                "and bones, improves mood and reduces stress, improves concentration and "
+                "memory, increases energy levels."
+            ),
+            "attempt_2": (
+                "Set 'initialState=exercise'. The WHO recommends 60 minutes of moderate-to-vigorous "
+                "physical activity daily for adolescents. This can include sports, cycling, "
+                "walking, dancing — anything that raises heart rate and breathing."
+            ),
+            "attempt_3": (
+                "Choose 'exercise'. Notice the connection between exercise and academics: "
+                "exercise increases blood flow to the prefrontal cortex (planning/concentration "
+                "centre) and triggers BDNF release — a protein that literally grows new brain "
+                "connections, improving learning capacity."
+            )
+        },
+        "concept_reminder": (
+            "Physical activity at 60 min/day during adolescence delivers multiple health benefits: "
+            "(1) Bone density: weight-bearing exercise (running, jumping) stimulates osteoblasts "
+            "to deposit calcium — building peak bone mass that protects against fractures/osteoporosis later. "
+            "(2) Mood regulation: exercise releases endorphins and reduces cortisol — the same "
+            "effect as antidepressant medication, without side effects. "
+            "(3) Academic performance: 20 minutes of aerobic exercise has been shown to improve "
+            "attention, working memory, and problem-solving for 2-3 hours afterward. "
+            "(4) Sleep quality: physically tired adolescents fall asleep faster and sleep more deeply. "
+            "(ದಿನಕ್ಕೆ 60 ನಿಮಿಷ ವ್ಯಾಯಾಮ — ದೇಹ, ಮನಸ್ಸು ಮತ್ತು ಓದಿಗೆ ಸಹಾಯ!)"
+        )
+    },
+
+    {
+        "id": "habits_kn_q2",
+        "challenge": (
+            "Set the simulation to show the sleep section. Demonstrate why "
+            "adolescents need 8-10 hours of sleep and what happens when they "
+            "consistently sleep less.\n\n"
+            "(ನಿದ್ರೆ ವಿಭಾಗ ತೋರಿಸಿ — ಕೌಮಾರ್ಯದಲ್ಲಿ ಸಾಕಷ್ಟು ನಿದ್ರೆ ಏಕೆ ಅಗತ್ಯ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "sleep"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'sleep' as the Habit Category. This shows the sleep section with "
+                "4 benefits: supports growth hormone release, improves learning and memory, "
+                "strengthens immune system, and provides better emotional control."
+            ),
+            "attempt_2": (
+                "Set 'initialState=sleep'. The recommended 8-10 hours for adolescents is "
+                "significantly more than the 7-8 hours adults need. The adolescent brain is "
+                "undergoing active structural remodelling that requires deep sleep to complete."
+            ),
+            "attempt_3": (
+                "Choose 'sleep'. The key scientific insight is that 70% of growth hormone "
+                "is released during the first hours of deep sleep. Consistently sleeping "
+                "6 hours instead of 8 effectively reduces growth hormone production — "
+                "directly impacting height and physical development."
+            )
+        },
+        "concept_reminder": (
+            "Adolescents need 8-10 hours of sleep — more than adults — for three critical reasons: "
+            "(1) Growth hormone: the pituitary gland releases ~70% of daily growth hormone "
+            "during the first 3 hours of deep sleep. Chronic sleep deprivation literally "
+            "stunts height and muscle development. "
+            "(2) Memory consolidation: during sleep, the hippocampus transfers learning from "
+            "short-term to long-term memory storage. Students who sleep 8 hours after studying "
+            "retain 30-40% more than those who stay up late. "
+            "(3) Emotional regulation: the prefrontal cortex (emotional control centre) resets "
+            "during sleep. Chronically sleep-deprived adolescents show increased aggression, "
+            "anxiety, and impulsive decision-making. "
+            "(8-10 ಗಂಟೆ ನಿದ್ರೆ = ಬೆಳವಣಿಗೆ + ಕಲಿಕೆ + ಭಾವನಾ ನಿಯಂತ್ರಣ!)"
+        )
+    },
+
+    {
+        "id": "habits_kn_q3",
+        "challenge": (
+            "Show the mental wellness section to demonstrate mindfulness practices "
+            "and connect mental health habits to better academic and social outcomes.\n\n"
+            "(ಮಾನಸಿಕ ಆರೋಗ್ಯ ವಿಭಾಗ ತೋರಿಸಿ — ಒತ್ತಡ ನಿರ್ವಹಣೆ ಮತ್ತು ಯೋಗಕ್ಷೇಮ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "mental"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'mental' as the Habit Category. This shows the mental wellness "
+                "section with benefits including stress/anxiety reduction, improved focus, "
+                "increased self-confidence, and better decision-making."
+            ),
+            "attempt_2": (
+                "Set 'initialState=mental'. Mental wellness practices include mindfulness, "
+                "gratitude journalling, deep breathing, and setting achievable daily goals. "
+                "These practices work by lowering cortisol (stress hormone) levels."
+            ),
+            "attempt_3": (
+                "Choose 'mental'. Look also at the online safety tips panel (below the "
+                "habit-info panel) — cyberbullying, social comparison on social media, and "
+                "excessive screen time are the main digital threats to adolescent mental health."
+            )
+        },
+        "concept_reminder": (
+            "Mental health is physical health — the brain is an organ that needs care. "
+            "Evidence-based mental wellness practices for adolescents: "
+            "(1) Mindful breathing (5 min/day): activates the parasympathetic nervous system, "
+            "measurably lowering heart rate and cortisol within minutes. "
+            "(2) Gratitude journalling: trains the brain to notice positive events, "
+            "counteracting the adolescent brain's natural negativity bias. "
+            "(3) Digital balance: social media use >3 hrs/day is linked to increased anxiety, "
+            "depression, and body image issues in adolescents. Setting screen time limits "
+            "and taking regular offline breaks protects mental wellbeing. "
+            "(4) Knowing when to seek help: persistent low mood, withdrawal from friends, "
+            "loss of interest in activities, or inability to concentrate for >2 weeks "
+            "are signs to talk to a trusted adult. "
+            "(ಮಾನಸಿಕ ಆರೋಗ್ಯ = ಶಾರೀರಿಕ ಆರೋಗ್ಯದಷ್ಟೇ ಮುಖ್ಯ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# WATER CONSERVATION — QUIZ QUESTIONS
+# 3 questions: problem (depletion) → solution 1 (RWH) → solution 2 (recharge pit)
+# =============================================================================
+QUIZ_QUESTIONS_KN["water_conservation_kn"] = [
+
+    {
+        "id": "water_kn_q1",
+        "challenge": (
+            "Show the rainwater harvesting animation to demonstrate how rooftop "
+            "collection systems capture and store rain that would otherwise be lost "
+            "as surface runoff.\n\n"
+            "(ಮಳೆನೀರು ಸಂಗ್ರಹಣೆ ತೋರಿಸಿ — ಛಾವಣಿ ಮೇಲಿನ ನೀರು ಸಂಗ್ರಹ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "rwh"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'rwh' as the Conservation Method. This shows the animated rainwater "
+                "harvesting system: rain falling on the roof, gutters collecting it, a pipe "
+                "directing it to a storage tank filling up. The info panel explains reducing "
+                "groundwater dependence."
+            ),
+            "attempt_2": (
+                "Set 'initialState=rwh'. The animation shows the complete sequence: "
+                "🌧️ rain → roof collection → gutter → downpipe → storage tank (ಭಂಡಾರ ಟ್ಯಾಂಕ್). "
+                "This water can be used for gardens, cleaning, or treated for drinking."
+            ),
+            "attempt_3": (
+                "Choose 'rwh'. The info panel mentions that harvested water reduces dependence "
+                "on groundwater. A 100 m² roof in a region receiving 600mm annual rainfall "
+                "can collect approximately 60,000 litres — enough for a family's non-drinking "
+                "needs for months."
+            )
+        },
+        "concept_reminder": (
+            "Rainwater harvesting (RWH) intercepts rain before it runs off as surface water. "
+            "The system components: roof (collection surface) → gutters (channelling) → "
+            "first-flush diverter (discards first dirty rain) → filter → storage tank. "
+            "Benefits: reduces groundwater extraction, lowers water bills, provides water "
+            "security during droughts, and reduces urban flooding by slowing runoff. "
+            "In India, many states (including Karnataka) now legally mandate RWH systems "
+            "in new buildings above a certain size. "
+            "The water can directly replace groundwater for irrigation, toilet flushing, "
+            "and washing — or be further treated for drinking. "
+            "(ಮಳೆನೀರು ಸಂಗ್ರಹಣೆ = ಭೂಜಲ ಉಳಿಸುವ ಮೊದಲ ಹೆಜ್ಜೆ!)"
+        )
+    },
+
+    {
+        "id": "water_kn_q2",
+        "challenge": (
+            "Demonstrate the recharge pit method to show how water is directed "
+            "back into the ground to replenish the aquifer — addressing groundwater "
+            "depletion at its source.\n\n"
+            "(ರಿಚಾರ್ಜ್ ಗುಂಡಿ ತೋರಿಸಿ — ಭೂಜಲ ಮರು ತುಂಬಿಸುವ ವಿಧಾನ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "pit"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'pit' as the Conservation Method. This shows the recharge pit "
+                "cross-section: rain from above, water entering the pit, percolating through "
+                "gravel and sand layers, seeping into the ground. Arrows show the downward "
+                "direction of water movement."
+            ),
+            "attempt_2": (
+                "Set 'initialState=pit'. The recharge pit cross-section shows three filtering "
+                "layers: water → gravel (coarse filter) → sand (fine filter) → aquifer. "
+                "The info panel explains that this bypasses impermeable concrete surfaces "
+                "that prevent natural percolation."
+            ),
+            "attempt_3": (
+                "Choose 'pit'. The key distinction from rainwater harvesting: RWH captures "
+                "water for use, while recharge pits return water TO the aquifer — addressing "
+                "the depletion problem directly by artificially replacing natural percolation "
+                "that concrete and buildings have blocked."
+            )
+        },
+        "concept_reminder": (
+            "A recharge pit solves the percolation problem created by urbanisation. "
+            "Normally, rain soaks into open soil and slowly percolates down to the water table. "
+            "When soil is covered by concrete (buildings, roads, pavements), this path is blocked — "
+            "rain becomes surface runoff into drains and eventually the sea, never reaching the aquifer. "
+            "A recharge pit creates an artificial pathway: a deep hole filled with alternating layers "
+            "of gravel (coarse: removes large particles) and sand (fine: removes smaller impurities) "
+            "acts as a biological plus mechanical filter. "
+            "Water percolating through emerges clean enough to enter the aquifer without contaminating "
+            "the groundwater table. This is the most direct method for replenishing depleted aquifers. "
+            "(ರಿಚಾರ್ಜ್ ಗುಂಡಿ = ಭೂಜಲ ಮರು ತುಂಬಿಸುವ ನೇರ ಮಾರ್ಗ!)"
+        )
+    },
+
+    {
+        "id": "water_kn_q3",
+        "challenge": (
+            "Show the ice stupa method to demonstrate the innovative traditional "
+            "solution used in Ladakh for water storage — an example of engineering "
+            "using natural processes without any machinery.\n\n"
+            "(ಐಸ್ ಸ್ತೂಪ ತೋರಿಸಿ — ಲಡಾಕ್‌ನ ಸಾಂಪ್ರದಾಯಿಕ ಜಲ ಸಂರಕ್ಷಣೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {
+                    "parameter": "initialState",
+                    "operator": "==",
+                    "value": "stupa"
+                }
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'stupa' as the Conservation Method. This shows the ice stupa scene: "
+                "a night sky (moon), a mountain backdrop, the conical ice formation, and a "
+                "spray of water at the base. The label reads '❄️ ಐಸ್ ಸ್ತೂಪ - Ladakh'."
+            ),
+            "attempt_2": (
+                "Set 'initialState=stupa'. The info panel explains: water is sprayed upward "
+                "at night in winter, freezing in the cold air to build a cone-shaped "
+                "artificial glacier. This slowly melts in summer to provide irrigation "
+                "water when farmers need it most."
+            ),
+            "attempt_3": (
+                "Choose 'stupa'. The genius of the cone shape: a cone has the lowest possible "
+                "surface-area-to-volume ratio among simple 3D shapes. Less exposed surface "
+                "means slower melting in sunlight — preserving the water store for longer. "
+                "This is traditional geometry applied to water conservation."
+            )
+        },
+        "concept_reminder": (
+            "Ice stupas are artificial glaciers — a traditional innovation adapted to modern "
+            "climate change challenges in Ladakh, developed by engineer Sonam Wangchuk. "
+            "Process: in winter, pipes carry glacial meltwater to lower altitudes; "
+            "a sprinkler sprays water upward at night; the spray freezes in sub-zero temperatures "
+            "and accumulates into a conical shape (stupa = Buddhist dome structure). "
+            "The cone shape (minimal surface area / volume ratio) slows solar melting. "
+            "A single ice stupa can hold 5-10 million litres, melting gradually through spring "
+            "and summer — providing water for sowing crops in April-June, months before "
+            "natural glacier melt water would normally be available. "
+            "This demonstrates that traditional ecological knowledge often contains elegant "
+            "engineering solutions that modern technology is now rediscovering. "
+            "(ಐಸ್ ಸ್ತೂಪ = ಸಾಂಪ್ರದಾಯಿಕ ವಿಜ್ಞಾನ × ಆಧುನಿಕ ಅಗತ್ಯ!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════

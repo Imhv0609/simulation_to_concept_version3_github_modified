@@ -2490,6 +2490,246 @@ SIMULATIONS["menstrual_cycle_kn"] = {
 }
 
 
+
+# =============================================================================
+# EMOTIONAL CHANGES IN ADOLESCENCE (KN) — Chapter 6 Sim 6
+# =============================================================================
+SIMULATIONS["emotional_changes_kn"] = {
+    "name": "ಕೌಮಾರದಲ್ಲಿ ಭಾವನಾತ್ಮಕ ಬದಲಾವಣೆಗಳು (Emotional Changes in Adolescence)",
+    "language": "kannada",
+    "description": (
+        "5-scenario emotion-recognition simulation: each scenario presents a common adolescent "
+        "situation (friend drift, exam failure, body changes, parental rules, being teased) "
+        "and validates all emotional responses with science-based explanations.\n"
+        "Teaches that mood swings, hormone-driven emotions, and social anxiety are all normal "
+        "during adolescence, and provides healthy coping strategies for each."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter6_simulation6_emotional_changes_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Scenario / ಸನ್ನಿವೇಶ",
+            "default": "scenario1",
+            "options": [
+                "scenario1", "scenario2", "scenario3",
+                "scenario4", "scenario5", "completed"
+            ],
+            "option_labels": [
+                "ಸ್ನೇಹಿತ ದೂರ (Scenario 1 — friend spends time with others) [default]",
+                "ಪರೀಕ್ಷೆ ವಿಫಲ (Scenario 2 — exam failure despite studying)",
+                "ದೇಹ ಬದಲಾವಣೆ (Scenario 3 — body changing faster/slower than peers)",
+                "ಪೋಷಕರ ನಿಯಮ (Scenario 4 — parents' rules seem unfair)",
+                "ಅಪಹಾಸ್ಯ (Scenario 5 — being teased about appearance/behaviour)",
+                "ಪೂರ್ಣ (Completed — all scenarios explored)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# NUTRITION FOR ADOLESCENTS (KN) — Chapter 6 Sim 7
+# =============================================================================
+SIMULATIONS["nutrition_adolescence_kn"] = {
+    "name": "ಕೌಮಾರ ವಯಸ್ಕರಿಗೆ ಪೋಷಣೆ (Nutrition for Adolescents)",
+    "language": "kannada",
+    "description": (
+        "Interactive plate model with 4 nutrient group tabs (carbohydrates, proteins, "
+        "vitamins & minerals, healthy fats). Tapping each section shows food examples "
+        "and the science behind why that nutrient is especially important during "
+        "adolescence. Special panel on girls' increased iron, calcium, and B12 needs.\n"
+        "Teaches balanced diet principles and the specific nutritional demands of the "
+        "adolescent growth spurt."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter6_simulation7_nutrition_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Nutrient Group / ಪೋಷಕಾಂಶ ಗುಂಪು",
+            "default": "carbs",
+            "options": ["carbs", "protein", "veggies", "fats"],
+            "option_labels": [
+                "🍚 ಕಾರ್ಬೋಹೈಡ್ರೇಟ್ (Carbs — energy source; rice, roti, millets) [default]",
+                "🍗 ಪ್ರೋಟೀನ್ (Protein — body building; dal, eggs, chicken, nuts)",
+                "🥦 ಜೀವಸತ್ವ ಮತ್ತು ಖನಿಜ (Vitamins & Minerals — regulators; colourful vegetables)",
+                "🥜 ಆರೋಗ್ಯಕರ ಕೊಬ್ಬು (Healthy Fats — brain & energy; nuts, fish, seeds)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# PERSONAL HYGIENE IN ADOLESCENCE (KN) — Chapter 6 Sim 8
+# =============================================================================
+SIMULATIONS["personal_hygiene_kn"] = {
+    "name": "ಕೌಮಾರದಲ್ಲಿ ವೈಯಕ್ತಿಕ ಶುಚಿತ್ವ (Personal Hygiene in Adolescence)",
+    "language": "kannada",
+    "description": (
+        "7-item daily hygiene checklist. Students tap each item to mark it done; "
+        "each check reveals a specific tip explaining the science behind that step. "
+        "Includes a menstrual hygiene panel (for girls) covering product types, "
+        "changing frequency, and safe disposal.\n"
+        "Teaches why puberty increases hygiene needs (more sweat and oil glands) and "
+        "which specific daily practices prevent body odour, acne, and infection."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter6_simulation8_hygiene_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Checklist State / ಪಟ್ಟಿ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "all_complete"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — empty checklist, 0/7 items done) [default]",
+                "ಎಲ್ಲ ಪೂರ್ಣ (All Complete — all 7 items auto-checked with tips)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# HEALTHY HABITS FOR ADOLESCENTS (KN) — Chapter 6 Sim 9
+# =============================================================================
+SIMULATIONS["healthy_habits_kn"] = {
+    "name": "ಕೌಮಾರ ವಯಸ್ಕರಿಗೆ ಆರೋಗ್ಯಕರ ಅಭ್ಯಾಸಗಳು (Healthy Habits for Adolescents)",
+    "language": "kannada",
+    "description": (
+        "4-tab simulation covering the pillars of adolescent health: physical activity "
+        "(60 min/day), sleep (8-10 hrs/night), healthy social life, and mental wellness. "
+        "Animated icons and 4-point benefit lists for each habit. Online safety tips "
+        "panel covers responsible internet use and cyberbullying response.\n"
+        "Teaches evidence-based health habits and how each specifically supports the "
+        "unique physiological and emotional needs of adolescence."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter6_simulation9_healthy_habits_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Habit Category / ಅಭ್ಯಾಸ ವಿಭಾಗ",
+            "default": "exercise",
+            "options": ["exercise", "sleep", "social", "mental"],
+            "option_labels": [
+                "⚽ ವ್ಯಾಯಾಮ (Exercise — 60 min/day; builds bones, mood, and focus) [default]",
+                "😴 ನಿದ್ರೆ (Sleep — 8-10 hrs/night; growth hormone + memory consolidation)",
+                "👥 ಸಾಮಾಜಿಕ (Social — healthy relationships; communication + emotional support)",
+                "🧘 ಮಾನಸಿಕ (Mental — mindfulness + stress management + online safety)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Growing Up (ಬೆಳೆಯುವಿಕೆ)"
+}
+
+
+# =============================================================================
+# WATER CONSERVATION (KN) — Chapter 7 Sim 10
+# =============================================================================
+SIMULATIONS["water_conservation_kn"] = {
+    "name": "ಜಲ ಸಂರಕ್ಷಣೆ (Water Conservation)",
+    "language": "kannada",
+    "description": (
+        "3-method animated simulation of water conservation techniques: "
+        "(1) Rainwater harvesting — roof → gutter → pipe → storage tank animation; "
+        "(2) Recharge pit — cross-section showing percolation through gravel + sand "
+        "     layers back into the aquifer; "
+        "(3) Ice Stupa (Ladakh) — night scene showing water spray freezing into an "
+        "     artificial conical glacier that melts in summer for irrigation.\n"
+        "Problem panel explains groundwater depletion: over-extraction and concrete "
+        "blocking natural percolation. Teaches how each method directly addresses "
+        "a different dimension of the water crisis."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter7_simulation10_water_conservation_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Conservation Method / ಸಂರಕ್ಷಣಾ ವಿಧಾನ",
+            "default": "rwh",
+            "options": ["rwh", "pit", "stupa"],
+            "option_labels": [
+                "🏠 ವರ್ಷಾಧಾರ ಸಂಗ್ರಹಣೆ (Rainwater Harvesting — roof collection → storage tank) [default]",
+                "🕳️ ರಿಚಾರ್ಜ್ ಗುಂಡಿ (Recharge Pit — water percolating into aquifer)",
+                "🏔️ ಐಸ್ ಸ್ತೂಪ (Ice Stupa — Ladakh artificial glacier, melts in summer)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Water: Our Lifeline (ನೀರು: ನಮ್ಮ ಜೀವನಾಡಿ)"
+}
+
+
 # =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
