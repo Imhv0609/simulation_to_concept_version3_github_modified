@@ -3130,6 +3130,218 @@ SIMULATIONS["speedometer_kn"] = {
 }
 
 # =============================================================================
+# HISTORICAL CLOCKS (Chapter 8, sim1) — Kannada
+# =============================================================================
+SIMULATIONS["historical_clocks_kn"] = {
+    "name": "ಸಮಯ ಮಾಪನದ ಇತಿಹಾಸ (Historical Clocks)",
+    "language": "kannada",
+    "description": (
+        "ಸೂರ್ಯ ಘಡಿಯಾರದಿಂದ ಕ್ವಾರ್ಟ್ಜ್ ಗಡಿಯಾರದವರೆಗೆ — ಸಮಯ ಮಾಪನದ ವಿಕಾಸ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter8_simulation1_historical_clocks_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಗಡಿಯಾರ ಪ್ರಕಾರ (Clock Type)",
+            "default": "sundial",
+            "options": ["sundial", "water", "hourglass", "candle", "pendulum", "quartz"],
+            "option_labels": [
+                "☀️ ಸೂರ್ಯ ಘಡಿಯಾರ (Sundial)",
+                "💧 ನೀರು ಗಡಿಯಾರ (Water Clock)",
+                "⏳ ಮರಳು ಗಡಿಯಾರ (Hourglass)",
+                "🕯️ ಮೇಣ ಗಡಿಯಾರ (Candle Clock)",
+                "🕰️ ಊಸರವಳಿ ಗಡಿಯಾರ (Pendulum Clock)",
+                "⌚ ಕ್ವಾರ್ಟ್ಜ್ ಗಡಿಯಾರ (Quartz Clock)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Time and Measurement (ಸಮಯ ಮಾಪನ)"
+}
+
+# =============================================================================
+# SUNDIAL (Chapter 8, sim2) — Kannada
+# =============================================================================
+SIMULATIONS["sundial_kn"] = {
+    "name": "ಸಂವಾದಾತ್ಮಕ ಸೂರ್ಯ ಘಡಿಯಾರ (Interactive Sundial)",
+    "language": "kannada",
+    "description": (
+        "ಸೂರ್ಯನ ಸ್ಥಾನ ಬದಲಾಯಿಸಿ — ನೆರಳು ಸಮಯ ಹೇಗೆ ಸೂಚಿಸುತ್ತದೆ ಎಂದು ನೋಡಿ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter8_simulation2_sundial_kn.html",
+    "parameters": [
+        {
+            "name": "hour",
+            "type": "slider",
+            "display_name": "ಸಮಯ (6 ಪೂರ್ವಾಹ್ನ – 6 ಅಪರಾಹ್ನ)",
+            "default": 12,
+            "min": 6,
+            "max": 18,
+            "step": 0.5,
+            "url_param": "hour"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Time and Measurement (ಸಮಯ ಮಾಪನ)"
+}
+
+# =============================================================================
+# SIMPLE PENDULUM (Chapter 8, sim3) — Kannada
+# =============================================================================
+SIMULATIONS["pendulum_kn"] = {
+    "name": "ಸರಳ ಲೋಲಕ (Simple Pendulum)",
+    "language": "kannada",
+    "description": (
+        "ಉದ್ದ ಮತ್ತು ದ್ರವ್ಯರಾಶಿ ಬದಲಾಯಿಸಿ — T = 2π√(L/g) ಸೂತ್ರ ಅನ್ವೇಷಿಸಿ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter8_simulation3_pendulum_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಊಘಾಟ ಸ್ಥಿತಿ (Swing State)",
+            "default": "stopped",
+            "options": ["stopped", "swinging"],
+            "option_labels": ["⏹️ ನಿಂತಿದೆ (Stopped)", "▶️ ಊಘಾಡುತ್ತಿದೆ (Swinging)"],
+            "url_param": "initialState"
+        },
+        {
+            "name": "length",
+            "type": "slider",
+            "display_name": "ದಾರದ ಉದ್ದ cm (String Length)",
+            "default": 100,
+            "min": 50,
+            "max": 200,
+            "step": 10,
+            "url_param": "length"
+        },
+        {
+            "name": "mass",
+            "type": "slider",
+            "display_name": "Bob ದ್ರವ್ಯರಾಶಿ g (Bob Mass)",
+            "default": 100,
+            "min": 50,
+            "max": 200,
+            "step": 10,
+            "url_param": "mass"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Time and Measurement (ಸಮಯ ಮಾಪನ)"
+}
+
+# =============================================================================
+# PENDULUM TIMING EXPERIMENT (Chapter 8, sim4) — Kannada
+# =============================================================================
+SIMULATIONS["pendulum_timing_kn"] = {
+    "name": "ಲೋಲಕ ಕಾಲಾವಧಿ ಪ್ರಯೋಗ (Pendulum Timing Experiment)",
+    "language": "kannada",
+    "description": (
+        "ಮೂರು ಉದ್ದದ ಲೋಲಕ ಹೋಲಿಸಿ — ಉದ್ದ ಹೆಚ್ಚಾದಂತೆ ಕಾಲಾವಧಿ ಏರಿಕೆ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter8_simulation4_pendulum_timing_kn.html",
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "ಲೋಲಕ ಆಯ್ಕೆ (Select Pendulum)",
+            "default": "short",
+            "options": ["short", "medium", "long"],
+            "option_labels": [
+                "🔴 ಕಿರಿದಾದ – 50 cm (Short)",
+                "🟢 ಮಧ್ಯಮ – 100 cm (Medium)",
+                "🔵 ಉದ್ದ – 150 cm (Long)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Time and Measurement (ಸಮಯ ಮಾಪನ)"
+}
+
+# =============================================================================
+# TIME UNITS CONVERTER (Chapter 8, sim5) — Kannada
+# =============================================================================
+SIMULATIONS["time_units_kn"] = {
+    "name": "ಸಮಯ ಘಟಕ ಪರಿವರ್ತಕ (Time Unit Converter)",
+    "language": "kannada",
+    "description": (
+        "ಗಂಟೆ, ನಿಮಿಷ, ಸೆಕೆಂಡ್, ಮಿಲಿಸೆಕೆಂಡ್ ನಡುವೆ ತ್ಡರಿತ ಪರಿವರ್ತನೆ — SI ಸಂಕೇತ ತಿಳಿಯಿರಿ."
+    ),
+    "base_url": f"{GITHUB_PAGES_BASE_KN}/science_chapter8_simulation5_time_units_kn.html",
+    "parameters": [
+        {
+            "name": "unit",
+            "type": "select",
+            "display_name": "ಘಟಕ (Input Unit)",
+            "default": "s",
+            "options": ["h", "min", "s", "ms"],
+            "option_labels": [
+                "h – ಗಂಟೆ (Hours)",
+                "min – ನಿಮಿಷ (Minutes)",
+                "s – ಸೆಕೆಂಡ್ (Seconds, SI base)",
+                "ms – ಮಿಲಿಸೆಕೆಂಡ್ (Milliseconds)"
+            ],
+            "url_param": "unit"
+        },
+        {
+            "name": "value",
+            "type": "slider",
+            "display_name": "ಮೌಲ್ಯ (Value)",
+            "default": 1,
+            "min": 1,
+            "max": 3600,
+            "step": 1,
+            "url_param": "value"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Time and Measurement (ಸಮಯ ಮಾಪನ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

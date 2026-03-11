@@ -13158,6 +13158,1123 @@ QUIZ_QUESTIONS_KN["speedometer_kn"] = [
 ]
 
 
+# =============================================================================
+# HISTORICAL CLOCKS SIMULATION (Chapter 8, sim1)
+# ಸಮಯ ಮಾಪನದ ಇತಿಹಾಸ – ಸೂರ್ಯ ಘಡಿಯಾರದಿಂದ ಅಣು ಗಡಿಯಾರದವರೆಗೆ
+# =============================================================================
+SIMULATIONS_KN["historical_clocks_kn"] = {
+    "title": "ಸಮಯ ಮಾಪನದ ಇತಿಹಾಸ (Historical Clocks — Evolution of Timekeeping)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter8_simulation1_historical_clocks_kn.html",
+
+    "description": (
+        "Kannada interactive timeline of six timekeeping devices: sundial, water clock "
+        "(clepsydra / ghatika-yantra), hourglass, candle clock, pendulum clock, and "
+        "quartz clock. Students tap each timeline item to see a live animation of that "
+        "device in action and read how it works. A precision chart shows the accuracy "
+        "improvement from ~30 minutes (sundial) to sub-microsecond (atomic clock)."
+    ),
+
+    "cannot_demonstrate": [
+        "Atomic clock / caesium standard in detail",
+        "Quantitative calculation of precision improvement",
+        "How different latitudes affect sundial accuracy",
+    ],
+
+    "initial_params": {"initialState": "sundial", "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Clock Type",
+            "range": "sundial, water, hourglass, candle, pendulum, quartz",
+            "url_key": "initialState",
+            "effect": (
+                "Selects which historical clock is active on the timeline on load.\n"
+                "  'sundial'   → shadow-based solar clock (~3500 BCE Egypt, default)\n"
+                "  'water'     → clepsydra / ghatika-yantra (~1500 BCE India)\n"
+                "  'hourglass' → sand glass (~8th century)\n"
+                "  'candle'    → marked candle clock (~9th century)\n"
+                "  'pendulum'  → Huygens pendulum clock (1656 CE)\n"
+                "  'quartz'    → crystal-oscillation clock (1927 CE)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and precision-evolution takeaway box."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "All Clocks Rely on a Regular, Repeating Process",
+            "description": (
+                "Every clock — from the sundial to the quartz watch — works by counting "
+                "the number of completed repetitions of some periodic process: "
+                "the shadow arc of the Sun, water drips, sand grains falling, "
+                "candle burning, pendulum swings, or crystal vibrations."
+            ),
+            "key_insight": (
+                "The key requirement for any clock: a REGULAR repeating event. "
+                "Fast + regular = accurate. Sundial period = 24 hours (too slow for minutes). "
+                "Quartz crystal = 32,768 oscillations per second (very regular = very accurate)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Pendulum Clock: Isochronism Gives the First Minute-Accurate Clock",
+            "description": (
+                "Galileo discovered that a pendulum of fixed length always takes the "
+                "same time for one swing — regardless of how wide the swing is "
+                "(isochronism). Huygens (1656) built the first pendulum clock, accurate "
+                "to about 15 seconds per day — 100× better than any previous clock."
+            ),
+            "key_insight": (
+                "Isochronism = equal time for each swing = reliable clock. "
+                "T = 2π√(L/g) — only length matters. "
+                "A 1-metre pendulum swings exactly once per second → called a 'seconds pendulum'. "
+                "This is WHY grandfather clocks have long pendulums."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Quartz Crystal: 32,768 Vibrations per Second for Mass-Market Accuracy",
+            "description": (
+                "Quartz crystals vibrate at exactly 32,768 Hz when an electric current "
+                "is applied (piezoelectric effect). Digital circuits count these vibrations. "
+                "Quartz watches are accurate to ~1 second per day and cost very little "
+                "to manufacture — replacing mechanical clocks globally after ~1969."
+            ),
+            "key_insight": (
+                "32,768 = 2^15 vibrations/second → dividing by 2 fifteen times gives exactly 1 Hz "
+                "(1 tick per second). Binary division is easy in digital circuits. "
+                "Modern atomic clocks go further: error of 1 second in 300 million years."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["historical_clocks_kn"] = [
+    {
+        "id": "hist_clocks_kn_q1",
+        "challenge": (
+            "Select the PENDULUM CLOCK on the timeline. Explain the key property of a "
+            "pendulum that makes it suitable for accurate timekeeping.\n\n"
+            "(ಊಸರವಳಿ ಗಡಿಯಾರ ಆಯ್ಕೆ ಮಾಡಿ — ಯಾವ ಗುಣ ಆಧಾರದಲ್ಲಿ ಇದು ನಿಖರ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "pendulum"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'pendulum' from the clock timeline. The animation shows a clock "
+                "with a swinging pendulum. The key word is 'isochronism'."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'pendulum'. Isochronism = every swing takes the "
+                "same time regardless of swing width. T = 2π√(L/g)."
+            ),
+            "attempt_3": (
+                "Choose 'pendulum': Huygens 1656 — accuracy jumped from ±30 min/day "
+                "(sundial) to ±15 sec/day using isochronism of the pendulum."
+            )
+        },
+        "concept_reminder": (
+            "Pendulum clock key property: ISOCHRONISM — every swing takes equal time. "
+            "T = 2π√(L/g): period depends only on length and gravity, not swing width. "
+            "1 metre pendulum → 1 second per swing = 'seconds pendulum' → grandfather clocks. "
+            "Huygens 1656: accuracy 15 sec/day (100× better than water/hour-glass clocks). "
+            "(ಊಸರವಳಿ: ಎಲ್ಲ ತೂಗಾಡುವಿಕೆ ಸಮಾನ ಸಮಯ = ಸಮಗಾಮಿತ್ವ!)"
+        )
+    },
+    {
+        "id": "hist_clocks_kn_q2",
+        "challenge": (
+            "Select the QUARTZ CLOCK. How does a quartz crystal measure time and "
+            "why is the number 32,768 significant?\n\n"
+            "(ಕ್ವಾರ್ಟ್ಜ್ ಗಡಿಯಾರ ಆಯ್ಕೆ ಮಾಡಿ — 32,768 ಸಂಖ್ಯೆ ಮಹತ್ವ ವಿವರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "quartz"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'quartz'. The label says '32,768 Hz'. "
+                "This number is a power of 2 — important for digital circuits."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'quartz'. The crystal vibrates 32,768 times/sec. "
+                "32,768 = 2^15. Divide by 2 fifteen times → 1 Hz = 1 tick per second."
+            ),
+            "attempt_3": (
+                "Choose 'quartz': piezoelectric crystal vibrates at constant 32,768 Hz "
+                "when current applied. Binary counter chip counts these vibrations."
+            )
+        },
+        "concept_reminder": (
+            "Quartz clock: crystal vibrates at 32,768 Hz (32,768 = 2^15 — binary power). "
+            "Circuit counts vibrations and divides by 2 fifteen times → 1 tick/second. "
+            "Accuracy: ~1 second/day — far better than pendulum (15 sec/day). "
+            "Piezoelectric effect: mechanical stress produces electric voltage and vice versa. "
+            "Result: cheap, accurate clocks available to everyone after ~1969. "
+            "(32,768 Hz = 2^15 → 15 ಬಾರಿ 2 ರಿಂದ ಭಾಗಿಸಿ = 1 Hz = 1 ಟಿಕ್!)"
+        )
+    },
+    {
+        "id": "hist_clocks_kn_q3",
+        "challenge": (
+            "Select the WATER CLOCK (Clepsydra). This was an important timekeeping device "
+            "in ancient India (ಘಟಿಕಾ-ಯಂತ್ರ). How does it measure time?\n\n"
+            "(ನೀರು ಗಡಿಯಾರ ಆಯ್ಕೆ ಮಾಡಿ — ಭಾರತದ ಘಟಿಕಾ-ಯಂತ್ರ ಹೇಗೆ ಕೆಲ್ಸ ಮಾಡುತ್ತದೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "water"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'water' to see the clepsydra animation. The water level drops "
+                "at a steady rate — marks on the side indicate how much time has passed."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'water'. "
+                "The ghatika-yantra (Indian version ~1500 BCE) used a small vessel with "
+                "a hole — it sinks in water after a fixed time interval."
+            ),
+            "attempt_3": (
+                "Choose 'water': water flows out at a constant rate from a small hole. "
+                "When the vessel is empty, one 'ghatika' (24 minutes) has passed."
+            )
+        },
+        "concept_reminder": (
+            "Water clock (Clepsydra): water drips out at a CONSTANT RATE from a small hole. "
+            "The falling water level (or time until full vessel sinks) measures elapsed time. "
+            "Indian ghatika-yantra (~1500 BCE): small copper vessel with hole sinks in 24 min = 1 ghatika. "
+            "Advantage over sundial: works at NIGHT and on cloudy days. "
+            "Limitation: water flow rate changes with temperature; vessel not perfectly cylindrical. "
+            "(ಸ್ಥಿರ ನೀರು ಹರಿವು → ಮಟ್ಟ ಇಳಿತ → ಸಮಯ ಮಾಪನ = ನೀರು ಗಡಿಯಾರ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# SUNDIAL SIMULATION (Chapter 8, sim2)
+# ಸಂವಾದಾತ್ಮಕ ಸೂರ್ಯ ಘಡಿಯಾರ – ಸೂರ್ಯ ಆಕಾಶದಲ್ಲಿ ಚಲಿಸಿದಂತೆ
+# =============================================================================
+SIMULATIONS_KN["sundial_kn"] = {
+    "title": "ಸಂವಾದಾತ್ಮಕ ಸೂರ್ಯ ಘಡಿಯಾರ (Interactive Sundial — Shadow & Rotation)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter8_simulation2_sundial_kn.html",
+
+    "description": (
+        "Interactive Kannada sundial simulation. Students drag a slider to move the "
+        "Sun across the sky arc from 6 AM to 6 PM. The gnomon shadow rotates in real "
+        "time, pointing to the corresponding hour mark on the dial face. The displayed "
+        "clock time updates continuously. Teaches Earth's rotation, shadow direction, "
+        "and the limitations of sundials (night, clouds, latitude correction)."
+    ),
+
+    "cannot_demonstrate": [
+        "Sundial accuracy variation by latitude",
+        "Equation of time (difference between solar and clock time)",
+        "Night-time timekeeping",
+    ],
+
+    "initial_params": {"hour": 12, "showHints": True},
+
+    "parameter_info": {
+        "hour": {
+            "label": "Time of Day",
+            "range": "6–18 (float, e.g. 6.0 = 6:00 AM, 13.5 = 1:30 PM)",
+            "url_key": "hour",
+            "effect": (
+                "Sets the Sun position on the arc and updates the shadow angle.\n"
+                "  6.0  → sunrise, shadow points hard right\n"
+                " 12.0  → noon, shadow points straight down (Sun overhead, default)\n"
+                " 18.0  → sunset, shadow points hard left"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and limitations panel."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Earth Rotates 15° per Hour — Causing the Sun's Apparent Movement",
+            "description": (
+                "The Sun appears to move from east to west across the sky because Earth "
+                "rotates eastward at 15° per hour (360° / 24 hours). The gnomon (vertical "
+                "rod) casts a shadow that sweeps the dial face by 15° every hour."
+            ),
+            "key_insight": (
+                "Earth rotates 360° in 24 hours = 15°/hour. "
+                "Shadow sweeps 15°/hour on the dial = one hour mark per 15°. "
+                "The Sun does NOT move — Earth moves. Shadow = Earth's rotation made visible."
+            ),
+            "related_params": ["hour"]
+        },
+        {
+            "id": 2,
+            "title": "Gnomon Shadow Points Opposite to the Sun",
+            "description": (
+                "When the Sun is in the east (morning), the shadow points west. "
+                "At noon, the Sun is (nearly) due south in the Northern Hemisphere, "
+                "so the shadow is at its shortest, pointing north. "
+                "In the evening, the shadow points east."
+            ),
+            "key_insight": (
+                "Shadow always points AWAY from the Sun. "
+                "Noon = shortest shadow (Sun highest). "
+                "Morning = long shadow pointing west. Evening = long shadow pointing east. "
+                "Longer shadow = lower Sun = greater angle from vertical."
+            ),
+            "related_params": ["hour"]
+        },
+        {
+            "id": 3,
+            "title": "Sundial Limitations: Night, Clouds, and Latitude",
+            "description": (
+                "Sundials fail completely at night (no Sun), fail on cloudy days "
+                "(shadow blocked), and must be recalibrated for different latitudes "
+                "because the Sun's arc across the sky changes with location. "
+                "Accuracy is only ~15–30 minutes."
+            ),
+            "key_insight": (
+                "Limits of sundial → need for other methods (water clock, candle, pendulum). "
+                "Each limitation drove a new invention. "
+                "No universal time until pendulum clock (1656) and later atomic clocks."
+            ),
+            "related_params": ["hour", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["sundial_kn"] = [
+    {
+        "id": "sundial_kn_q1",
+        "challenge": (
+            "Set the sundial to NOON (12:00 PM). Observe the shadow length and direction. "
+            "Why is the shadow at its shortest at noon?\n\n"
+            "(ಮಧ್ಯಾಹ್ನ 12 ಗಂಟೆಗೆ ಸ್ಲೈಡರ್ ಹೊಂದಿಸಿ — ನೆರಳು ಚಿಕ್ಕದಾಗಿರಲು ಕಾರಣ ಹೇಳಿ)"
+        ),
+        "target_parameters": ["hour"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "hour", "operator": "==", "value": "12"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set the 'hour' slider to 12. The Sun is at its highest point in the sky. "
+                "The shadow is shortest and points almost straight down."
+            ),
+            "attempt_2": (
+                "Set 'hour = 12'. At noon the Sun is due south (highest elevation). "
+                "The higher the Sun, the more vertical the rays, the shorter the shadow."
+            ),
+            "attempt_3": (
+                "Choose hour = 12: Sun highest → rays near vertical → gnomon shadow falls "
+                "straight down and is shortest. Sundial reads 12."
+            )
+        },
+        "concept_reminder": (
+            "At noon (12:00 PM): Sun is at its HIGHEST point in the sky. "
+            "High Sun = nearly vertical rays = SHORT shadow. "
+            "Short shadow points toward north (in Northern Hemisphere). "
+            "As Sun rises higher → shadow gets shorter; as Sun sets lower → shadow lengthens. "
+            "Longest shadows: early morning and late evening (Sun low on horizon). "
+            "(ಮಧ್ಯಾಹ್ನ = ಸೂರ್ಯ ಅತಿ ಮೇಲೆ = ನೆರಳು ಅತಿ ಚಿಕ್ಕದು!)"
+        )
+    },
+    {
+        "id": "sundial_kn_q2",
+        "challenge": (
+            "Move the slider to early morning (6:00 AM / hour = 6). Describe the shadow "
+            "direction and explain why it points the way it does.\n\n"
+            "(ಬೆಳಿಗ್ಗೆ 6 ಗಂಟೆಗೆ ಹೊಂದಿಸಿ — ನೆರಳು ಯಾವ ದಿಕ್ಕಿನಲ್ಲಿ ಇರುತ್ತದೆ ಮತ್ತು ಯಾಕೆ?)"
+        ),
+        "target_parameters": ["hour"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "hour", "operator": "==", "value": "6"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set the slider to hour = 6 (sunrise). Sun is on the eastern horizon. "
+                "Shadow points in the OPPOSITE direction — toward the west."
+            ),
+            "attempt_2": (
+                "hour = 6: Sun rises in the east → shadow cast toward the west. "
+                "Long shadow because Sun barely above horizon → nearly horizontal rays."
+            ),
+            "attempt_3": (
+                "Choose hour = 6: shadow angle is about +75° (far right on dial = pointing west). "
+                "Dial reads '6' because it is 6 AM."
+            )
+        },
+        "concept_reminder": (
+            "At sunrise (6 AM): Sun is on the eastern horizon. "
+            "Shadow always points OPPOSITE to the Sun. "
+            "Sun in east → shadow points WEST (long shadow, nearly horizontal). "
+            "Earth rotates eastward → Sun appears to rise in east. "
+            "Shadow sweeps 15° per hour across the dial as Earth rotates. "
+            "(ಸೂರ್ಯ ಪೂರ್ವದಲ್ಲಿ → ನೆರಳು ಪಶ್ಚಿಮಕ್ಕೆ — ಮತ್ತೆ ನೇರ ವಿರುದ್ಧ!)"
+        )
+    },
+    {
+        "id": "sundial_kn_q3",
+        "challenge": (
+            "Move the slider to evening (hour = 17 / 5:00 PM). Observe the shadow. "
+            "Now compare morning and evening shadows — what is the key difference?\n\n"
+            "(ಸಂಜೆ 5 ಗಂಟೆಗೆ ಹೊಂದಿಸಿ — ಬೆಳಿಗ್ಗೆ ಮತ್ತು ಸಂಜೆ ನೆರಳಿನ ವ್ಯತ್ಯಾಸ ಏನು?)"
+        ),
+        "target_parameters": ["hour"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "hour", "operator": "==", "value": "17"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set hour = 17. Evening sun is in the west → shadow now points east. "
+                "Compare with morning (hour = 6) where shadow pointed west."
+            ),
+            "attempt_2": (
+                "hour = 17: Sun has travelled from east (morning) to west (evening). "
+                "Shadow has swept from +75° (west) through 0° (noon) to -75° (east)."
+            ),
+            "attempt_3": (
+                "Morning shadow = points west; Evening shadow = points east. "
+                "Both are long (low Sun) but in OPPOSITE directions."
+            )
+        },
+        "concept_reminder": (
+            "Shadow direction comparison: "
+            "MORNING (6 AM): Sun in EAST → shadow points WEST (long). "
+            "NOON (12 PM): Sun overhead → shadow points straight down (shortest). "
+            "EVENING (5-6 PM): Sun in WEST → shadow points EAST (long). "
+            "Pattern: shadow sweeps from west → north → east across the dial as the day passes. "
+            "Earth rotates 360° / 24 hours = 15° per hour → shadow moves 15°/hour on dial. "
+            "(ಸೂರ್ಯ ಪೂರ್ವ→ಪಶ್ಚಿಮ, ನೆರಳು ಪಶ್ಚಿಮ→ಪೂರ್ವ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# SIMPLE PENDULUM SIMULATION (Chapter 8, sim3)
+# ಸರಳ ಲೋಲಕ – ಉದ್ದ ಮತ್ತು ದ್ರವ್ಯರಾಶಿ ಪ್ರಯೋಗ
+# =============================================================================
+SIMULATIONS_KN["pendulum_kn"] = {
+    "title": "ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter8_simulation3_pendulum_kn.html",
+
+    "description": (
+        "Interactive Kannada pendulum simulation with two independent sliders: "
+        "string length (50–200 cm) and bob mass (50–200 g). Students can start the "
+        "pendulum swinging and watch it count complete oscillations. The formula "
+        "T = 2π√(L/g) is displayed and updates live with the measurements panel "
+        "showing calculated period and frequency. Mass changes make the bob visually "
+        "larger/heavier but do NOT change the period."
+    ),
+
+    "cannot_demonstrate": [
+        "Effect of amplitude on period (small-angle approximation used)",
+        "Pendulum on different planets (fixed g = 9.8 m/s²)",
+        "Damping due to air resistance in detail",
+    ],
+
+    "initial_params": {"initialState": "stopped", "length": 100, "mass": 100, "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Swing State",
+            "range": "stopped, swinging",
+            "url_key": "initialState",
+            "effect": (
+                "Controls whether the pendulum starts swinging on load.\n"
+                "  'stopped'  → pendulum at rest at centre (default)\n"
+                "  'swinging' → auto-starts pendulum after 800 ms"
+            )
+        },
+        "length": {
+            "label": "String Length (cm)",
+            "range": "50–200 (integer, cm)",
+            "url_key": "length",
+            "effect": (
+                "Sets the pendulum string length slider.\n"
+                "  50  → short string → fast swing (~1.4 s period)\n"
+                " 100  → default length (~2.0 s period)\n"
+                " 200  → long string → slow swing (~2.8 s period)"
+            )
+        },
+        "mass": {
+            "label": "Bob Mass (g)",
+            "range": "50–200 (integer, grams)",
+            "url_key": "mass",
+            "effect": (
+                "Sets the bob mass slider. Large mass → visually heavier bob. "
+                "However, changing mass does NOT change the oscillation period "
+                "(demonstrates mass independence)."
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides concept card, formula box, and takeaway."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Pendulum Period Depends ONLY on String Length",
+            "description": (
+                "T = 2π√(L/g). The period (T) of a pendulum depends on string length (L) "
+                "and gravitational acceleration (g). It does NOT depend on the bob's mass "
+                "or the amplitude of swing (for small angles). This is Galileo's discovery."
+            ),
+            "key_insight": (
+                "Length makes a pendulum slower (longer string = longer period). "
+                "Double the length → period increases by √2 = 1.41× (not double). "
+                "Mass is completely irrelevant to period — change it and T stays the same."
+            ),
+            "related_params": ["length", "initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Mass Independence: Heavy and Light Bobs Swing at the Same Rate",
+            "description": (
+                "Students often expect a heavier bob to swing slower. In reality, "
+                "the restoring force (gravity component) and the inertia both scale "
+                "with mass, so they cancel out. A 50 g bob and a 200 g bob on the "
+                "same string complete each swing in identical time."
+            ),
+            "key_insight": (
+                "Mass independence is counterintuitive but experimentally verifiable. "
+                "This is related to the equivalence of gravitational and inertial mass "
+                "— the same principle that makes all objects fall at the same rate."
+            ),
+            "related_params": ["mass", "initialState"]
+        },
+        {
+            "id": 3,
+            "title": "The Pendulum as a Clock: Why Clocks Use Long Pendulums",
+            "description": (
+                "A 1-metre pendulum has a period of almost exactly 2 seconds (1 s each way). "
+                "Pendulum clocks exploit this to count seconds reliably. Grandfather clocks "
+                "use a 1-metre pendulum; the 'tick' and 'tock' are the two half-swings."
+            ),
+            "key_insight": (
+                "L = 1 m → T = 2π√(1/9.8) ≈ 2 s. "
+                "Each half-swing = 1 second = 1 tick on the clock mechanism. "
+                "Longer pendulum → ticks slower → clock runs slow. "
+                "This is how grandma would adjust her clock: shorten pendulum to speed up."
+            ),
+            "related_params": ["length", "initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["pendulum_kn"] = [
+    {
+        "id": "pendulum_kn_q1",
+        "challenge": (
+            "Set the pendulum to its MAXIMUM length (200 cm) and start it swinging. "
+            "Observe the period and explain how a longer pendulum relates to clock design.\n\n"
+            "(ಅತ್ಯಧಿಕ ಉದ್ದ 200 ಸೆಂ ಹೊಂದಿಸಿ, ಊಸರವಳಿ ಪ್ರಾರಂಭಿಸಿ — ಅವಧಿ ಮತ್ತು ಗಡಿಯಾರ ಸಂಬಂಧ)"
+        ),
+        "target_parameters": ["length", "initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "length", "operator": "==", "value": "200"},
+                {"parameter": "initialState", "operator": "==", "value": "swinging"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'length' to 200 and 'initialState' to 'swinging'. "
+                "Watch the slow swing — period > 2.8 seconds at 200 cm."
+            ),
+            "attempt_2": (
+                "length = 200, initialState = swinging: T = 2π√(2/9.8) ≈ 2.84 s. "
+                "Grandfather clocks use ~1 m pendulum for ~2 s period (1 tick = 1 s)."
+            ),
+            "attempt_3": (
+                "Long pendulum → long period → slow clock. "
+                "To speed a clock up: shorten the pendulum. To slow it down: lengthen it."
+            )
+        },
+        "concept_reminder": (
+            "T = 2π√(L/g). At L = 200 cm = 2 m: T = 2π√(2/9.8) ≈ 2.84 s. "
+            "Longer pendulum → longer period → clock ticks SLOWER. "
+            "1 m pendulum → T ≈ 2 s → 1 tick per second (grandfather clock standard). "
+            "Clock adjustment: lengthen pendulum → slower ticks → clock runs slow. "
+            "Shorten pendulum → faster ticks → clock speeds up. "
+            "(ಉದ್ದ ಊಸರವಳಿ = ನಿಧಾನ ಊಘಾಟ = ನಿಧಾನ ಗಡಿಯಾರ!)"
+        )
+    },
+    {
+        "id": "pendulum_kn_q2",
+        "challenge": (
+            "Set length to 100 cm and change the MASS from minimum (50 g) to maximum "
+            "(200 g) without starting the swing. Predict: will the period change?\n\n"
+            "(ಉದ್ದ 100 ಸೆಂ ಇಟ್ಟು ದ್ರವ್ಯರಾಶಿ 50 ರಿಂದ 200 ಗ್ರಾಂ ಬದಲಾಯಿಸಿ — ಅವಧಿ ಬದಲಾಗುತ್ತದೆಯೇ?)"
+        ),
+        "target_parameters": ["mass"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "mass", "operator": "==", "value": "200"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'mass' to 200. Notice the bob becomes larger and darker (Heavy). "
+                "But check the calculated period display — it stays the same as mass 50!"
+            ),
+            "attempt_2": (
+                "mass = 200: formula T = 2π√(L/g) — no 'm' in the formula. "
+                "Mass cancels out because gravitational force and inertia both scale with mass."
+            ),
+            "attempt_3": (
+                "Choose mass = 200: the displayed period at 100 cm is 2.01 s regardless "
+                "of whether mass=50 or mass=200. Mass independence confirmed."
+            )
+        },
+        "concept_reminder": (
+            "Mass independence of pendulum: T = 2π√(L/g) contains NO mass term. "
+            "Reason: gravitational pull ∝ mass (more pull) AND inertia ∝ mass (harder to accelerate). "
+            "These two effects CANCEL → mass disappears from the formula. "
+            "Same principle as Galileo's falling bodies: heavy and light objects fall at same rate. "
+            "Proves: period is determined by LENGTH only, not by what the bob is made of. "
+            "(ದ್ರವ್ಯರಾಶಿ ಅವಧಿ ಮೇಲೆ ಪರಿಣಾಮ ಬೀರುವುದಿಲ್ಲ — ಕೇವಲ ಉದ್ದ ಮಾತ್ರ!)"
+        )
+    },
+    {
+        "id": "pendulum_kn_q3",
+        "challenge": (
+            "Set length to 50 cm (shortest) and start SWINGING. Compare the fast "
+            "oscillations to what you see at length 200 cm — what is the connection "
+            "to the T = 2π√(L/g) formula?\n\n"
+            "(ಅತ್ಯಲ್ಪ ಉದ್ದ 50 ಸೆಂ + ಊಘಾಟ ಪ್ರಾರಂಭ — T = 2π√(L/g) ಸೂತ್ರ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["length", "initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "length", "operator": "==", "value": "50"},
+                {"parameter": "initialState", "operator": "==", "value": "swinging"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'length' to 50 and 'initialState' to 'swinging'. "
+                "Short 50 cm string → fast swings; period ≈ 1.42 s."
+            ),
+            "attempt_2": (
+                "length = 50, swinging: T = 2π√(0.5/9.8) ≈ 1.42 s vs 200 cm → 2.84 s. "
+                "Ratio: 1.42 : 2.84 ≈ 1 : 2 = √(50:200) = √4 = 2. Formula verified!"
+            ),
+            "attempt_3": (
+                "Short pendulum → high frequency (fast counting). "
+                "Long pendulum → low frequency. Clock-makers choose length to match desired tick rate."
+            )
+        },
+        "concept_reminder": (
+            "Short pendulum test: L = 50 cm → T = 2π√(0.5/9.8) ≈ 1.42 s. "
+            "Long pendulum test: L = 200 cm → T = 2π√(2.0/9.8) ≈ 2.84 s. "
+            "Ratio of periods: 2.84/1.42 ≈ 2.0. Ratio of lengths: 200/50 = 4. √4 = 2. ✓ "
+            "T ∝ √L: doubling length → period × √2 (not × 2). "
+            "Verifying formulas by experiment = the spirit of science. "
+            "(T ∝ √L: ಉದ್ದ 4 ಪಟ್ಟು → ಅವಧಿ 2 ಪಟ್ಟು. ಸೂತ್ರ ದೃಢೀಕರಿಸಿ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# PENDULUM TIMING EXPERIMENT (Chapter 8, sim4)
+# ಲೋಲಕ ಕಾಲಾವಧಿ ಪ್ರಯೋಗ – ಮೂರು ಉದ್ದಗಳ ಹೋಲಿಕೆ
+# =============================================================================
+SIMULATIONS_KN["pendulum_timing_kn"] = {
+    "title": "ಲೋಲಕ ಕಾಲಾವಧಿ ಪ್ರಯೋಗ (Pendulum Timing Experiment — Three Lengths)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter8_simulation4_pendulum_timing_kn.html",
+
+    "description": (
+        "Kannada experiment simulation that times three pendulums of lengths 50 cm "
+        "(short / red), 100 cm (medium / green), and 150 cm (long / blue) through "
+        "10 complete oscillations. Students select a pendulum, start the stopwatch, "
+        "and the simulation auto-completes after the calculated time. Results are "
+        "shown in a comparison table displaying time-for-10 oscillations and the "
+        "individual period (T). Once all three are done, a conclusion panel "
+        "confirms: longer pendulum = longer period."
+    ),
+
+    "cannot_demonstrate": [
+        "Effect of bob mass on timing (fixed equal masses used)",
+        "Timing by hand with a real stopwatch",
+        "Effect of amplitude on period",
+    ],
+
+    "initial_params": {"initialState": "short", "showHints": True},
+
+    "parameter_info": {
+        "initialState": {
+            "label": "Pendulum to Select",
+            "range": "short, medium, long",
+            "url_key": "initialState",
+            "effect": (
+                "Pre-selects which pendulum length is highlighted for the experiment.\n"
+                "  'short'  → 50 cm / red bob selected (default, T ≈ 1.42 s)\n"
+                "  'medium' → 100 cm / green bob selected (T ≈ 2.01 s)\n"
+                "  'long'   → 150 cm / blue bob selected (T ≈ 2.46 s)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and the takeaway observation box."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Experimental Method: Measuring Period by Timing 10 Oscillations",
+            "description": (
+                "One oscillation is very short to time accurately. Scientists measure "
+                "10 (or 20) oscillations and divide — this reduces the percentage error "
+                "in timing. The table shows 'Time for 10' and T = (time for 10) / 10."
+            ),
+            "key_insight": (
+                "Timing error stays roughly constant regardless of how many oscillations. "
+                "Timing 10 oscillations and dividing by 10 gives period 10× more accurately "
+                "than timing a single oscillation. This is standard experimental practice."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Longer Pendulum = Longer Period — Experimental Confirmation",
+            "description": (
+                "The experiment data confirms: short (50 cm) ≈ 1.42 s, medium (100 cm) "
+                "≈ 2.01 s, long (150 cm) ≈ 2.46 s. Increasing length by 3× (50→150 cm) "
+                "increases period by √3 ≈ 1.73× (not 3×)."
+            ),
+            "key_insight": (
+                "T ∝ √L. If L → 4L, then T → 2T. "
+                "Experimentally: T₁₅₀/T₅₀ = 2.46/1.42 ≈ 1.73 = √3. ✓ "
+                "Data matches the formula. Experiment confirms theory."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Why Grandfather Clocks Have Long Pendulums",
+            "description": (
+                "The results table shows that longer pendulums swing slower. "
+                "A 1-metre pendulum ticks every 2 seconds (half-swing = 1 second). "
+                "Clock designers choose pendulum length to achieve a specific tick rate. "
+                "Short pendulums tick too fast; long ones are more visible and adjustable."
+            ),
+            "key_insight": (
+                "Long pendulum → slow tick → easier to count mechanically. "
+                "Grandfather clock pendulum ≈ 1 m → T ≈ 2 s → 1 tick per second. "
+                "To speed clock: adjust (lower) the bob to effectively shorten pendulum. "
+                "To slow clock: raise the bob to lengthen pendulum."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["pendulum_timing_kn"] = [
+    {
+        "id": "pend_timing_kn_q1",
+        "challenge": (
+            "Select the LONG pendulum (150 cm / blue) for the experiment. "
+            "Before running it, predict its period using T = 2π√(L/g) and "
+            "explain how you would verify the formula.\n\n"
+            "(ಉದ್ದ ಲೋಲಕ (150 ಸೆಂ) ಆಯ್ಕೆ ಮಾಡಿ — ಪ್ರಾಯೋಗಿಕ ಮೌಲ್ಯ ಊಹಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "long"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'long' → blue bob is highlighted. "
+                "Predicted T = 2π√(1.5/9.8) = 2π × 0.391 ≈ 2.46 s."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'long'. Then run the experiment — "
+                "the result should be very close to 2.46 s ± small variation."
+            ),
+            "attempt_3": (
+                "Choose 'long': 10 oscillations take about 24.6 s → T = 24.6/10 = 2.46 s. "
+                "Compare this result from the formula. Do they match?"
+            )
+        },
+        "concept_reminder": (
+            "Prediction for long pendulum (L = 150 cm = 1.5 m): "
+            "T = 2π√(L/g) = 2π√(1.5/9.8) = 2π × 0.391 = 2.46 s. "
+            "Experiment verification: time 10 oscillations → divide by 10. "
+            "If result ≈ 2.46 s, the formula is confirmed! "
+            "Scientific method: PREDICT → EXPERIMENT → COMPARE → CONCLUDE. "
+            "(ಸೂತ್ರ ಭವಿಷ್ಯ + ಪ್ರಯೋಗ ಫಲಿತ = ವಿಜ್ಞಾನ ವಿಧಾನ!)"
+        )
+    },
+    {
+        "id": "pend_timing_kn_q2",
+        "challenge": (
+            "Select the SHORT pendulum (50 cm / red). Run it and record the period. "
+            "How does it compare to the long pendulum? Express the ratio.\n\n"
+            "(ಚಿಕ್ಕ ಲೋಲಕ (50 ಸೆಂ) ಆಯ್ಕೆ ಮಾಡಿ — ಉದ್ದ ಮತ್ತು ಚಿಕ್ಕ ಲೋಲಕ ಅವಧಿ ಹೋಲಿಕೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "short"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'short' → red bob is highlighted. Period ≈ 1.42 s. "
+                "Long pendulum period ≈ 2.46 s. Ratio ≈ 2.46/1.42 ≈ 1.73 ≈ √3."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'short'. L ratio = 150/50 = 3. "
+                "T ratio = √3 ≈ 1.73. Confirms T ∝ √L."
+            ),
+            "attempt_3": (
+                "Choose 'short': short red pendulum completes 10 oscillations fastest "
+                "(≈ 14.2 s). Long blue takes ≈ 24.6 s for 10. Both confirm T ∝ √L."
+            )
+        },
+        "concept_reminder": (
+            "Short (50 cm) vs Long (150 cm) comparison: "
+            "T_short = 2π√(0.5/9.8) ≈ 1.42 s. T_long = 2π√(1.5/9.8) ≈ 2.46 s. "
+            "Ratio T_long/T_short = 2.46/1.42 ≈ 1.73. "
+            "√(L_long/L_short) = √(150/50) = √3 ≈ 1.73. MATCH! ✓ "
+            "T ∝ √L confirmed experimentally. Triple the length → period × √3, not × 3. "
+            "(ಉದ್ದ 3 ಪಟ್ಟು → ಅವಧಿ √3 ≈ 1.73 ಪಟ್ಟು ‑ ಸೂತ್ರ ದೃಢ!)"
+        )
+    },
+    {
+        "id": "pend_timing_kn_q3",
+        "challenge": (
+            "Select the MEDIUM pendulum (100 cm). Why do scientists time 10 oscillations "
+            "instead of just 1? How does this reduce measurement error?\n\n"
+            "(ಮಧ್ಯಮ ಲೋಲಕ (100 ಸೆಂ) ಆಯ್ಕೆ ಮಾಡಿ — 10 ಆಂದೋಲನ ಏಕೆ ಅಳೆಯುತ್ತಾರೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "medium"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'medium'. The experiment times 10 oscillations (≈ 20 s). "
+                "If you timed just 1 swing (≈ 2 s), a 0.2 s error = 10% error."
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'medium'. Timing 10 oscillations: "
+                "a 0.2 s error on 20 s = only 1% error. Divide by 10 → T accurate to 0.1%."
+            ),
+            "attempt_3": (
+                "Choose 'medium': timing error is roughly constant regardless of count. "
+                "More oscillations timed → smaller % error in each period."
+            )
+        },
+        "concept_reminder": (
+            "Why time 10 oscillations? Reducing percentage error in timing. "
+            "Timing 1 oscillation (≈ 2 s): human reaction time error ≈ ±0.2 s = 10% error. "
+            "Timing 10 oscillations (≈ 20 s): same ±0.2 s error = only 1% error. "
+            "Dividing by 10: period error = 0.02 s = much more accurate. "
+            "General rule: more repetitions timed → better accuracy in each measurement. "
+            "(10 ಆಂದೋಲನ ಅಳತೆ → ± ದೋಷ 10 ಪಟ್ಟು ಕಡಿಮೆ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# TIME UNITS SIMULATION (Chapter 8, sim5)
+# ಸಮಯ ಘಟಕ ಪರಿವರ್ತಕ – ಸೆಕೆಂಡ್ SI ಘಟಕ
+# =============================================================================
+SIMULATIONS_KN["time_units_kn"] = {
+    "title": "ಸಮಯ ಘಟಕ ಪರಿವರ್ತಕ (Time Unit Converter — Second as SI Unit)",
+
+    "language": "kannada",
+
+    "file": "simulations_kannada/science_chapter8_simulation5_time_units_kn.html",
+
+    "description": (
+        "Kannada interactive time-unit converter. Students type any number and select "
+        "a unit (hours, minutes, seconds, milliseconds). The tool instantly shows the "
+        "equivalent values in all four units, with the selected unit highlighted. "
+        "A reference table shows key conversion factors. Additional panels explain "
+        "why milliseconds matter (sports, medicine, computers) and display the correct "
+        "SI notation (s, min, h, ms) vs common wrong forms (sec, hr, msec)."
+    ),
+
+    "cannot_demonstrate": [
+        "Microseconds, nanoseconds, or sub-millisecond units",
+        "Time calculations with start/end timestamps",
+        "Calendar time (days, weeks, months, years)",
+    ],
+
+    "initial_params": {"value": 1, "unit": "s", "showHints": True},
+
+    "parameter_info": {
+        "value": {
+            "label": "Time Value",
+            "range": "any positive number",
+            "url_key": "value",
+            "effect": (
+                "Sets the numeric input field. Combined with 'unit' to compute equivalents.\n"
+                "  Examples: value=1&unit=h → 1 hour\n"
+                "            value=90&unit=min → 90 minutes\n"
+                "            value=3600&unit=s → 3600 seconds (= 1 hour)"
+            )
+        },
+        "unit": {
+            "label": "Input Unit",
+            "range": "h, min, s, ms",
+            "url_key": "unit",
+            "effect": (
+                "Sets the unit dropdown on load, then triggers conversion.\n"
+                "  'h'   → hours\n"
+                "  'min' → minutes\n"
+                "  's'   → seconds (default, SI base unit)\n"
+                "  'ms'  → milliseconds"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides concept card, conversion factors, small-units, and notation panels."
+        }
+    },
+
+    "concepts": [
+        {
+            "id": 1,
+            "title": "The Second (s) is the SI Base Unit of Time",
+            "description": (
+                "The International System of Units (SI) defines the second as the base "
+                "unit of time. All other time units are defined relative to it: "
+                "1 minute = 60 s; 1 hour = 3600 s; 1 ms = 0.001 s. "
+                "In scientific writing, the symbol 's' must be used (not 'sec')."
+            ),
+            "key_insight": (
+                "SI base unit for time = SECOND (symbol: s, not sec). "
+                "Why 60 seconds in a minute? Ancient Babylonian base-60 (sexagesimal) counting. "
+                "Why 24 hours per day? Ancient Egyptians divided night/day into 12 hours each."
+            ),
+            "related_params": ["unit", "value"]
+        },
+        {
+            "id": 2,
+            "title": "Key Conversion Factors: 60 and 3600",
+            "description": (
+                "1 h = 60 min = 3600 s. 1 min = 60 s = 60,000 ms. "
+                "1 s = 1000 ms = 1,000,000 μs. "
+                "Students often confuse hours with minutes in calculations. "
+                "Converting to seconds first always prevents errors."
+            ),
+            "key_insight": (
+                "Memory trick: 1 hour = 60 min = 3600 s. "
+                "Converting to seconds first → then do arithmetic → convert back. "
+                "Example: 1.5 hours = 1.5 × 3600 = 5400 seconds."
+            ),
+            "related_params": ["value", "unit"]
+        },
+        {
+            "id": 3,
+            "title": "Correct SI Notation: s, min, h, ms (Not sec, secs, hr, hrs)",
+            "description": (
+                "SI notation for time uses: s (second), min (minute), h (hour), "
+                "ms (millisecond). Common incorrect forms — sec, secs, hr, hrs, msec — "
+                "should not be used in scientific work. SI symbols are always singular "
+                "and never have a period except at the end of a sentence."
+            ),
+            "key_insight": (
+                "Correct: '5 s', '2 min', '1 h', '500 ms'. "
+                "Incorrect: '5 sec', '2 mins', '1 hr', '500 msec'. "
+                "SI symbols are case-sensitive: 'ms' = millisecond; 'MS' means something else. "
+                "This matters in competitive exams and professional communication."
+            ),
+            "related_params": ["unit", "showHints"]
+        }
+    ]
+}
+
+QUIZ_QUESTIONS_KN["time_units_kn"] = [
+    {
+        "id": "time_units_kn_q1",
+        "challenge": (
+            "Set the unit to HOURS (h). Enter value = 1 (1 hour). "
+            "What is 1 hour in seconds? Show the conversion step-by-step.\n\n"
+            "(ಘಟಕ = ಗಂಟೆ (h), ಮೌಲ್ಯ = 1 ಹೊಂದಿಸಿ — 1 ಗಂಟೆ = ಎಷ್ಟು ಸೆಕೆಂಡ್?)"
+        ),
+        "target_parameters": ["unit"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "unit", "operator": "==", "value": "h"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'unit' to 'h' and value = 1. The results show: "
+                "1 h = 60 min = 3600 s = 3,600,000 ms."
+            ),
+            "attempt_2": (
+                "unit = h: 1 hour → 60 minutes → 60 × 60 = 3600 seconds. "
+                "Multiply by 1000 → 3,600,000 milliseconds."
+            ),
+            "attempt_3": (
+                "Choose unit = 'h': the key conversion is 1 h = 3600 s. "
+                "Memorise: 60 sec/min × 60 min/h = 3600 s/h."
+            )
+        },
+        "concept_reminder": (
+            "Time unit conversions starting from 1 HOUR: "
+            "1 h = 60 min (because 60 minutes in 1 hour). "
+            "1 h = 60 × 60 = 3,600 s (because 60 seconds in 1 minute). "
+            "1 h = 3,600 × 1,000 = 3,600,000 ms (because 1000 ms in 1 second). "
+            "Memory: h × 60 = min; min × 60 = s; s × 1000 = ms. "
+            "Going backward: ÷60 ÷60 ÷1000. "
+            "(1 ಗಂಟೆ = 60 ನಿಮಿ = 3600 ಸೆ = 36,00,000 ms!)"
+        )
+    },
+    {
+        "id": "time_units_kn_q2",
+        "challenge": (
+            "Set the unit to MILLISECONDS (ms) and value = 1000. "
+            "What is 1000 ms? Why are milliseconds important in sports and medicine?\n\n"
+            "(ಘಟಕ = ಮಿಲಿಸೆಕೆಂಡ್ (ms), ಮೌಲ್ಯ = 1000 — ms ಮಹತ್ವ ವಿವರಿಸಿ)"
+        ),
+        "target_parameters": ["unit"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "unit", "operator": "==", "value": "ms"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'unit' to 'ms' and value = 1000. Result: 1000 ms = 1 s exactly. "
+                "1 ms = 0.001 s → small but significant in speed events."
+            ),
+            "attempt_2": (
+                "unit = ms, value = 1000: 1000 ms = 1 s. "
+                "Olympic 100 m sprints are won/lost by 10–100 ms = hundredths of seconds."
+            ),
+            "attempt_3": (
+                "Choose unit = 'ms': 1 ms = 0.001 s. "
+                "ECG measures heartbeat timing to 1 ms accuracy; laptops process in nanoseconds."
+            )
+        },
+        "concept_reminder": (
+            "Milliseconds importance: 1 ms = 0.001 s = 1/1000 of a second. "
+            "SPORTS: Olympic results decided by 10–100 ms (photo-finish cameras). "
+            "MEDICINE: ECG/EEG tracks heart/brain signals to ±1 ms precision. "
+            "COMPUTERS: processors work in nanoseconds (1 ns = 0.000001 ms). "
+            "1000 ms = 1 s exactly. SI symbol: ms (NOT msec). "
+            "(1000 ms = 1 ಸೆ | ಕ್ರೀಡೆ, ಔಷಧ, ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ms ಮುಖ್ಯ!)"
+        )
+    },
+    {
+        "id": "time_units_kn_q3",
+        "challenge": (
+            "Set the unit to MINUTES (min) and value = 90. What is 90 minutes "
+            "expressed in hours AND in seconds? Show both conversions.\n\n"
+            "(ಘಟಕ = ನಿಮಿಷ (min), ಮೌಲ್ಯ = 90 — 90 ನಿಮಿ ಗಂಟೆ ಮತ್ತು ಸೆಕೆಂಡ್‌ನಲ್ಲಿ?)"
+        ),
+        "target_parameters": ["unit"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "unit", "operator": "==", "value": "min"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Set 'unit' to 'min' and value = 90. Results: "
+                "90 min = 1.5 h AND 90 × 60 = 5400 s."
+            ),
+            "attempt_2": (
+                "unit = min, value = 90: "
+                "90 min ÷ 60 = 1.5 h (one and a half hours). "
+                "90 min × 60 = 5400 s."
+            ),
+            "attempt_3": (
+                "Choose unit = 'min': the converter shows all equivalents simultaneously. "
+                "A school exam is often 90 min = 1 h 30 min = 5400 s."
+            )
+        },
+        "concept_reminder": (
+            "90 minutes in all units: "
+            "90 min ÷ 60 = 1.5 hours. "
+            "90 min × 60 = 5,400 seconds. "
+            "5,400 × 1000 = 5,400,000 milliseconds. "
+            "Common applications: 90-minute football match = 1.5 h = 5400 s. "
+            "SI notation reminder: min (NOT mins), h (NOT hr/hrs), s (NOT sec). "
+            "(90 ನಿಮಿ = 1.5 ಗಂ = 5400 ಸೆ — ಸರಿಯಾದ SI ಸಂಕೇತ ಬಳಸಿ!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
