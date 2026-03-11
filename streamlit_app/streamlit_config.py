@@ -1855,6 +1855,224 @@ SIMULATIONS["weathering_erosion_kn"] = {
     "topic": "Science – Earth & Landforms (ಭೂಮಿ ಮತ್ತು ಭೂರೂಪ)"
 }
 
+SIMULATIONS["physical_changes_kn"] = {
+    "name": "ಭೌತಿಕ ಬದಲಾವಣೆಗಳು (Physical Changes)",
+    "language": "kannada",
+    "description": (
+        "ಆರು ಉದಾಹರಣೆಗಳ ಮೂಲಕ ಭೌತಿಕ ಬದಲಾವಣೆ ಅಧ್ಯಯನ ಮಾಡಿ — ಹೊಸ ಪದಾರ್ಥ ರೂಪುಗೊಳ್ಳುವುದಿಲ್ಲ.\n"
+        "Explore physical changes through 6 examples — same substance, different form."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter5_simulation1_physical_changes_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Example to Show / ಉದಾಹರಣೆ ಆಯ್ಕೆ",
+            "default": "ice",
+            "options": ["initial", "paper", "chalk", "ice", "balloon", "rubber", "spring"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — no example selected)",
+                "ಕಾಗದ ಮಡಚಿ (Paper Folding — reversible)",
+                "ಸೀಮೆಸುಣ್ಣ ಚೂರ್ಣ (Chalk Crushing — irreversible)",
+                "ಬರ್ಫ ಕರಗಿಸಿ (Ice Melting — reversible state change)",
+                "ಬಲೂನ್ ಊದಿ (Balloon Inflating — reversible)",
+                "ಬ್ಯಾಂಡ್ ಚಾಚಿ (Rubber Stretching — reversible)",
+                "ಸ್ಪ್ರಿಂಗ್ ಒತ್ತಿ (Spring Compressing — reversible)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# CHEMICAL CHANGES SIMULATION (Kannada)
+# ರಾಸಾಯನಿಕ ಬದಲಾವಣೆಗಳು – ಹೊಸ ಪದಾರ್ಥಗಳು
+# =============================================================================
+SIMULATIONS["chemical_changes_kn"] = {
+    "name": "ರಾಸಾಯನಿಕ ಬದಲಾವಣೆಗಳು (Chemical Changes)",
+    "language": "kannada",
+    "description": (
+        "ವಿನಿಗರ್+ಬೇಕಿಂಗ್ ಸೋಡಾ ಮತ್ತು ಸುಣ್ಣದ ನೀರಿನ CO₂ ಪರೀಕ್ಷೆ ಮೂಲಕ ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ ಅಧ್ಯಯನ.\n"
+        "Observe chemical changes: vinegar+baking soda reaction and the CO₂ limewater test."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter5_simulation2_chemical_changes_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Experiment State / ಪ್ರಯೋಗ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "vinegar_reacted", "limewater", "limewater_reacted"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — vinegar + baking soda, unmixed)",
+                "ವಿನಿಗರ್ ಪ್ರತಿಕ್ರಿಯೆ (Vinegar Reacted — CO₂ bubbles visible)",
+                "ಸುಣ್ಣದ ನೀರು (Limewater — clear, before CO₂)",
+                "ಸುಣ್ಣದ ನೀರು ಹಾಲಿನಂತೆ (Limewater Reacted — milky white CaCO₃)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# REVERSIBLE & IRREVERSIBLE CHANGES SIMULATION (Kannada)
+# ಹಿಮ್ಮುಖ ಮತ್ತು ಅಹಿಮ್ಮುಖ ಬದಲಾವಣೆಗಳು
+# =============================================================================
+SIMULATIONS["reversible_irreversible_kn"] = {
+    "name": "ಹಿಮ್ಮುಖ ಮತ್ತು ಅಹಿಮ್ಮುಖ (Reversible & Irreversible Changes)",
+    "language": "kannada",
+    "description": (
+        "10 ದೈನಂದಿನ ಬದಲಾವಣೆಗಳನ್ನು ಹಿಮ್ಮುಖ ಅಥವಾ ಅಹಿಮ್ಮುಖ ಎಂದು ವರ್ಗೀಕರಿಸಿ.\n"
+        "Quiz: classify 10 everyday changes as reversible or irreversible."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter5_simulation3_reversible_irreversible_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Quiz State / ಕ್ವಿಜ್ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "show_reversible", "show_irreversible"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — first question: melting ice)",
+                "ಹಿಮ್ಮುಖ ತೋರಿಸಿ (Show Reversible — answer melting ice as reversible)",
+                "ಅಹಿಮ್ಮುಖ ತೋರಿಸಿ (Show Irreversible — jump to burning paper, answer irreversible)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# STATES OF MATTER SIMULATION (Kannada)
+# ದ್ರವ್ಯದ ಸ್ಥಿತಿಗಳು – ನೀರಿನ ಪರಿವರ್ತನೆಗಳು
+# =============================================================================
+SIMULATIONS["states_of_matter_kn"] = {
+    "name": "ದ್ರವ್ಯದ ಸ್ಥಿತಿಗಳು (States of Matter – Water)",
+    "language": "kannada",
+    "description": (
+        "ಉಷ್ಣತಾಮಾನ ಸ್ಲೈಡರ್ ಮೂಲಕ ನೀರಿನ ಮೂರು ಸ್ಥಿತಿಗಳು: ಘನ, ದ್ರವ ಮತ್ತು ಅನಿಲ ಅನ್ವೇಷಿಸಿ.\n"
+        "Slide the temperature to see water as solid (ice), liquid, or gas (steam)."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter5_simulation4_states_of_matter_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "State of Water / ನೀರಿನ ಸ್ಥಿತಿ",
+            "default": "liquid",
+            "options": ["solid", "liquid", "gas"],
+            "option_labels": [
+                "ಘನ (Solid — ice at −10°C)",
+                "ದ್ರವ (Liquid — water at 25°C)",
+                "ಅನಿಲ (Gas — steam at 110°C)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
+# =============================================================================
+# FIRE TRIANGLE SIMULATION (Kannada)
+# ಅಗ್ನಿ ತ್ರಿಕೋಣ – ದಹನಕ್ಕೆ ಅಗತ್ಯಗಳು
+# =============================================================================
+SIMULATIONS["fire_triangle_kn"] = {
+    "name": "ಅಗ್ನಿ ತ್ರಿಕೋಣ (Fire Triangle – Combustion Conditions)",
+    "language": "kannada",
+    "description": (
+        "ಇಂಧನ, ಆಮ್ಲಜನಕ ಮತ್ತು ಉಷ್ಣ — ಮೂರು ಅಂಶ ಒಟ್ಟಿಗೆ ಇದ್ದಾಗ ಮಾತ್ರ ಅಗ್ನಿ.\n"
+        "Toggle fuel, oxygen, and heat — fire lights only when all three are present."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_KN}"
+        "/science_chapter5_simulation5_fire_triangle_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "initialState",
+            "type": "select",
+            "display_name": "Fire Triangle State / ಅಗ್ನಿ ತ್ರಿಕೋಣ ಸ್ಥಿತಿ",
+            "default": "initial",
+            "options": ["initial", "fire", "no_fuel", "no_oxygen", "no_heat"],
+            "option_labels": [
+                "ಆರಂಭಿಕ (Initial — no elements, no fire)",
+                "ಅಗ್ನಿ (Fire — all three: fuel + oxygen + heat)",
+                "ಇಂಧನ ಇಲ್ಲ (No Fuel — oxygen + heat only, no fire)",
+                "ಆಮ್ಲಜನಕ ಇಲ್ಲ (No Oxygen — fuel + heat only, no fire)",
+                "ಉಷ್ಣ ಇಲ್ಲ (No Heat — fuel + oxygen only, no fire)"
+            ],
+            "url_param": "initialState"
+        },
+        {
+            "name": "showHints",
+            "type": "checkbox",
+            "display_name": "ಸೂಚನೆಗಳನ್ನು ತೋರಿಸಿ (Show Hints)",
+            "default": True,
+            "options": [True, False],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Science – Changes Around Us (ನಮ್ಮ ಸುತ್ತಲಿನ ಬದಲಾವಣೆಗಳು)"
+}
+
+
 # =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================

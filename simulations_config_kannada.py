@@ -5847,6 +5847,1076 @@ QUIZ_QUESTIONS_KN["weathering_erosion_kn"] = [
     }
 ]
 
+# =============================================================================
+# PHYSICAL CHANGES SIMULATION
+# ಭೌತಿಕ ಬದಲಾವಣೆಗಳು – ಹೊಸ ಪದಾರ್ಥ ಇಲ್ಲ
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["physical_changes_kn"] = {
+    "title": "ಭೌತಿಕ ಬದಲಾವಣೆಗಳು (Physical Changes)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation1_physical_changes_kn.html",
+    "description": (
+        "Kannada simulation where students select from six everyday examples "
+        "(paper folding, chalk crushing, ice melting, balloon inflating, rubber stretching, "
+        "spring compressing) and observe the 'before → after' transformation. "
+        "Each example visually demonstrates that the appearance changes but no new "
+        "substance is formed — the defining signature of a physical change. "
+        "Students also see whether the change is reversible or irreversible."
+    ),
+    "cannot_demonstrate": [
+        "Chemical changes or new substance formation",
+        "Quantitative measurement of mass conservation",
+        "Changes at the molecular/atomic level",
+        "Temperature-induced state changes (covered in simulation 4)"
+    ],
+    "initial_params": {"initialState": "ice", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Example to Demonstrate",
+            "range": "initial, paper, chalk, ice, balloon, rubber, spring",
+            "url_key": "initialState",
+            "effect": (
+                "Selects an example and auto-performs the physical change:\n"
+                "  'initial' → no example selected (default start)\n"
+                "  'paper'   → fold paper flat sheet → boat (reversible physical change)\n"
+                "  'chalk'   → crush chalk stick → powder (irreversible physical change)\n"
+                "  'ice'     → melt ice cube → water (reversible state change)\n"
+                "  'balloon' → inflate balloon (reversible physical change)\n"
+                "  'rubber'  → stretch rubber band (reversible physical change)\n"
+                "  'spring'  → compress spring (reversible physical change)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the learning panel and takeaway sections."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Physical Change Leaves the Substance Unchanged",
+            "description": (
+                "In a physical change, the appearance (shape, size, or state) of a "
+                "substance changes but the substance itself remains the same — no new "
+                "material is formed."
+            ),
+            "key_insight": (
+                "Folded paper is still paper. Crushed chalk is still calcium carbonate. "
+                "Melted ice is still H₂O. The chemical identity never changes in a "
+                "physical change."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Reversible vs Irreversible Physical Changes",
+            "description": (
+                "Some physical changes can be undone (reversible) while others cannot "
+                "(irreversible), even though both involve only a physical change."
+            ),
+            "key_insight": (
+                "Ice → water → ice again = reversible. Chalk stick → chalk powder = "
+                "irreversible (you cannot un-crush chalk). Both are physical changes "
+                "because no new substance forms."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Real-World Physical Changes Are Everywhere",
+            "description": (
+                "Physical changes occur constantly in daily life — bending a wire, "
+                "stretching a rubber band, inflating a tyre, melting butter, cutting "
+                "vegetables — all involve shape or state change without new substance."
+            ),
+            "key_insight": (
+                "The key test: ask 'Is the substance still the same?' If yes → physical "
+                "change. Ask 'Can it be reversed?' to determine reversibility."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# CHEMICAL CHANGES SIMULATION
+# ರಾಸಾಯನಿಕ ಬದಲಾವಣೆಗಳು – ಹೊಸ ಪದಾರ್ಥಗಳು
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["chemical_changes_kn"] = {
+    "title": "ರಾಸಾಯನಿಕ ಬದಲಾವಣೆಗಳು (Chemical Changes)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation2_chemical_changes_kn.html",
+    "description": (
+        "Kannada simulation demonstrating chemical changes through two classic experiments: "
+        "(1) Vinegar + baking soda → vigorous bubbling, CO₂ gas released, new substances "
+        "formed (sodium acetate, water, carbon dioxide). "
+        "(2) Exhaling CO₂ into limewater → milky white precipitate (CaCO₃) forms. "
+        "Students observe the hallmark signs of chemical change: bubble formation, "
+        "colour change, and irreversibility."
+    ),
+    "cannot_demonstrate": [
+        "Reversible chemical changes",
+        "Exothermic/endothermic energy changes (heat or cold produced)",
+        "Balanced stoichiometric calculations",
+        "Other types of chemical reactions beyond acid-base and precipitation"
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Experiment State",
+            "range": "initial, vinegar_reacted, limewater, limewater_reacted",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which experiment and reaction state is shown:\n"
+                "  'initial'          → vinegar + baking soda tab, before reaction\n"
+                "  'vinegar_reacted'  → vinegar poured onto baking soda, CO₂ bubbles visible\n"
+                "  'limewater'        → limewater tab selected, clear water in tube\n"
+                "  'limewater_reacted'→ CO₂ blown into limewater, water turned milky white"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the learning panel, takeaway, and equation box."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Chemical Change Creates New Substances",
+            "description": (
+                "In a chemical change, the original substances react to form entirely "
+                "new substances with different properties. The change is generally permanent."
+            ),
+            "key_insight": (
+                "Vinegar + baking soda → CO₂ gas + water + sodium acetate. "
+                "You cannot get the original vinegar and baking soda back — "
+                "this is the key distinction from physical change."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Observable Signs of Chemical Change",
+            "description": (
+                "Chemical changes produce observable evidence: gas bubble formation, "
+                "colour change, precipitate formation, heat or light production, "
+                "and new odours."
+            ),
+            "key_insight": (
+                "Vigorous bubbling in the vinegar-baking soda reaction = CO₂ gas forming. "
+                "Limewater turning milky = CaCO₃ precipitate forming. "
+                "Both are clear evidence that a chemical change has occurred."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Testing for CO₂ with Limewater",
+            "description": (
+                "Limewater (calcium hydroxide solution) is a standard chemical test for "
+                "the presence of carbon dioxide gas. CO₂ + Ca(OH)₂ → CaCO₃ (milky) + H₂O."
+            ),
+            "key_insight": (
+                "If limewater turns milky, CO₂ is present. This is a real lab technique "
+                "used in science experiments worldwide — a direct application of the "
+                "acid-base → salt + water reaction type."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# REVERSIBLE AND IRREVERSIBLE CHANGES SIMULATION
+# ಹಿಮ್ಮುಖ ಮತ್ತು ಅಹಿಮ್ಮುಖ ಬದಲಾವಣೆಗಳು
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["reversible_irreversible_kn"] = {
+    "title": "ಹಿಮ್ಮುಖ ಮತ್ತು ಅಹಿಮ್ಮುಖ ಬದಲಾವಣೆಗಳು (Reversible & Irreversible Changes)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation3_reversible_irreversible_kn.html",
+    "description": (
+        "Kannada quiz-style simulation where students classify 10 everyday changes as "
+        "reversible (can be undone) or irreversible (cannot be undone). Changes include: "
+        "melting ice, folding paper, burning paper, making curd, boiling water, cutting "
+        "vegetables, inflating a balloon, cooking an egg, melting butter, and rusting iron. "
+        "Immediate feedback explains the reasoning for each answer."
+    ),
+    "cannot_demonstrate": [
+        "Showing the reverse process visually (only classifying is shown)",
+        "Partial reversibility of changes",
+        "Chemical equations for the irreversible processes"
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Quiz State",
+            "range": "initial, show_reversible, show_irreversible",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which quiz question state to demonstrate:\n"
+                "  'initial'          → start of quiz, first question (melting ice) shown\n"
+                "  'show_reversible'  → auto-answers first question (melting ice) as reversible\n"
+                "  'show_irreversible'→ jumps to question 3 (burning paper) and answers irreversible"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the concept card and takeaway guide."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Reversible Changes Can Be Undone",
+            "description": (
+                "A reversible change is one where the original substance can be recovered. "
+                "The change is not permanent — the material can return to its prior form."
+            ),
+            "key_insight": (
+                "Melting ice → freeze it again = back to ice. "
+                "Inflating a balloon → deflate it = original balloon. "
+                "The substance identity and amount are preserved."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Irreversible Changes Are Permanent",
+            "description": (
+                "An irreversible change cannot be undone — the original substance is "
+                "permanently altered or destroyed. New substances are often formed."
+            ),
+            "key_insight": (
+                "Burning paper → ash (you cannot un-burn it). "
+                "Making curd from milk → curd cannot become milk again. "
+                "Cooking an egg → the protein structure is permanently changed."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Physical Changes Are Often Reversible; Chemical Often Irreversible",
+            "description": (
+                "There is a strong pattern: physical changes (shape, size, state) tend to "
+                "be reversible, while chemical changes (new substances formed) tend to be "
+                "irreversible. However, exceptions exist."
+            ),
+            "key_insight": (
+                "Exception: Cutting vegetables is a physical change but irreversible. "
+                "Most state changes (melting, boiling, freezing) are physical AND reversible. "
+                "Understanding this pattern helps classify most everyday changes correctly."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# STATES OF MATTER SIMULATION
+# ದ್ರವ್ಯದ ಸ್ಥಿತಿಗಳು – ನೀರಿನ ಪರಿವರ್ತನೆಗಳು
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["states_of_matter_kn"] = {
+    "title": "ದ್ರವ್ಯದ ಸ್ಥಿತಿಗಳು – ನೀರಿನ ಪರಿವರ್ತನೆಗಳು (States of Matter – Water)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation4_states_of_matter_kn.html",
+    "description": (
+        "Kannada temperature-slider simulation showing water (H₂O) existing in three "
+        "states: solid (ice, below 0°C), liquid (water, 0–100°C), and gas (steam, above 100°C). "
+        "A movable thermometer slider lets students set any temperature from -20°C to 120°C "
+        "and observe the corresponding state change visually. "
+        "Core message: the substance (H₂O) stays the same across all states — "
+        "only the energy level and arrangement of molecules change."
+    ),
+    "cannot_demonstrate": [
+        "Sublimation (solid → gas directly)",
+        "Intermediate temperature ranges near transition points",
+        "Molecular-level particle movement visualisation",
+        "Latent heat concept (energy absorbed/released during state change)"
+    ],
+    "initial_params": {"initialState": "liquid", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "State of Water",
+            "range": "solid, liquid, gas",
+            "url_key": "initialState",
+            "effect": (
+                "Sets the temperature slider to show the corresponding state:\n"
+                "  'solid'  → -10°C: ice cubes visible in container\n"
+                "  'liquid' → 25°C: liquid water in container (default)\n"
+                "  'gas'    → 110°C: steam/vapour rising from container"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the learning panel, concept card, and takeaway."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Same Substance, Three Different States",
+            "description": (
+                "Water (H₂O) is the same chemical substance whether it is ice, liquid "
+                "water, or steam. The state depends only on temperature — the chemical "
+                "identity never changes."
+            ),
+            "key_insight": (
+                "Ice, water, and steam are all H₂O. State changes are physical changes — "
+                "no new substance forms. This is why state changes are reversible: "
+                "freeze water → ice; heat ice → water; boil water → steam."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Key Transition Temperatures for Water",
+            "description": (
+                "Water changes state at two key temperatures: 0°C (melting/freezing point) "
+                "and 100°C (boiling/condensation point) at standard atmospheric pressure."
+            ),
+            "key_insight": (
+                "0°C = melting point (solid ↔ liquid transition). "
+                "100°C = boiling point (liquid ↔ gas transition). "
+                "Between 0°C and 100°C, water stays liquid — the range comfortable for life."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "State Changes Are Physical and Reversible",
+            "description": (
+                "All three state transitions of water (freezing, melting, boiling, "
+                "condensing) are physical changes because no new substance is formed "
+                "and all are reversible by adjusting temperature."
+            ),
+            "key_insight": (
+                "Ice → water (melting, heat absorbed). Water → steam (boiling, heat absorbed). "
+                "Steam → water (condensation, heat released). Water → ice (freezing, heat released). "
+                "Energy drives state changes; the substance H₂O is always conserved."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# FIRE TRIANGLE SIMULATION
+# ಅಗ್ನಿ ತ್ರಿಕೋಣ – ದಹನಕ್ಕೆ ಅಗತ್ಯಗಳು
+# Science Chapter 5 – Changes Around Us
+# =============================================================================
+SIMULATIONS_KN["fire_triangle_kn"] = {
+    "title": "ಅಗ್ನಿ ತ್ರಿಕೋಣ (Fire Triangle – Conditions for Combustion)",
+    "language": "kannada",
+    "file": "simulations_kannada/science_chapter5_simulation5_fire_triangle_kn.html",
+    "description": (
+        "Kannada fire-triangle simulation where students toggle the three conditions "
+        "for combustion — fuel, oxygen (O₂), and heat — on and off. "
+        "Fire appears only when ALL three are present simultaneously. "
+        "Removing any one element extinguishes the fire. "
+        "This teaches both the requirements for burning and the three methods of "
+        "fire extinguishing (remove fuel, remove oxygen, remove heat)."
+    ),
+    "cannot_demonstrate": [
+        "Specific chemical equations for combustion reactions",
+        "Different ignition temperatures for different fuels",
+        "Incomplete combustion or carbon monoxide formation",
+        "Fire extinguisher working mechanisms in detail"
+    ],
+    "initial_params": {"initialState": "initial", "showHints": True},
+    "parameter_info": {
+        "initialState": {
+            "label": "Fire Triangle State",
+            "range": "initial, fire, no_fuel, no_oxygen, no_heat",
+            "url_key": "initialState",
+            "effect": (
+                "Controls which elements of the fire triangle are activated:\n"
+                "  'initial'   → no elements active, no fire (default)\n"
+                "  'fire'      → all three active (fuel + oxygen + heat) → fire burns\n"
+                "  'no_fuel'   → oxygen + heat only → no fire (fuel missing)\n"
+                "  'no_oxygen' → fuel + heat only → no fire (oxygen missing)\n"
+                "  'no_heat'   → fuel + oxygen only → no fire (heat missing)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true/false",
+            "url_key": "showHints",
+            "effect": "Shows or hides the learning panel and takeaway sections."
+        }
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Fire Requires All Three: Fuel, Oxygen, and Heat",
+            "description": (
+                "Combustion (burning) is a chemical reaction that requires three "
+                "conditions simultaneously: a fuel (combustible material), oxygen "
+                "(from air), and sufficient heat (ignition temperature). Removing "
+                "any one stops the fire."
+            ),
+            "key_insight": (
+                "The fire triangle summarises: FUEL + OXYGEN + HEAT = FIRE. "
+                "All three must be present at the same time. This is why fire cannot "
+                "burn in a vacuum (no oxygen) or on a very wet surface (no ignition heat)."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 2,
+            "title": "Three Methods to Extinguish Fire",
+            "description": (
+                "Since fire needs all three elements, removing any one of them "
+                "extinguishes the fire: (1) remove fuel, (2) remove oxygen, "
+                "(3) cool below ignition temperature."
+            ),
+            "key_insight": (
+                "Water cools the fuel (removes heat). Blanket smothers a fire (removes oxygen). "
+                "CO₂ extinguishers displace oxygen (removes oxygen). "
+                "Letting wood burn out (removes fuel). Each method targets one triangle element."
+            ),
+            "related_params": ["initialState"]
+        },
+        {
+            "id": 3,
+            "title": "Combustion Is a Chemical Change",
+            "description": (
+                "Burning (combustion) is an example of a chemical change: fuel reacts "
+                "with oxygen to produce heat, light, carbon dioxide, and water vapour. "
+                "This is irreversible — ash and CO₂ cannot become wood again."
+            ),
+            "key_insight": (
+                "Fuel + O₂ → CO₂ + H₂O + heat + light. "
+                "New substances are formed (CO₂, water, ash), energy is released, "
+                "and the reaction cannot be reversed — definitive signs of a chemical change."
+            ),
+            "related_params": ["initialState", "showHints"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# QUIZ QUESTIONS — PHYSICAL CHANGES (Kannada)
+# 3 questions: demonstrate a state-change example, a shape-change example,
+#              then an irreversible physical change
+# =============================================================================
+QUIZ_QUESTIONS_KN["physical_changes_kn"] = [
+
+    {
+        "id": "phys_kn_q1",
+        "challenge": (
+            "Demonstrate that melting ice is a PHYSICAL change. Set the simulation "
+            "to show the ice melting into water and explain why this is a physical "
+            "change and not a chemical change.\n\n"
+            "(ಬರ್ಫ ಕರಗುವುದು ಭೌತಿಕ ಬದಲಾವಣೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "ice"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'ice' as the initialState. The simulation will show an ice cube "
+                "melting into water. Note: the substance is still H₂O — no new substance formed!"
+            ),
+            "attempt_2": (
+                "Set 'initialState' to 'ice'. The animation shows ice (solid) → water (liquid). "
+                "This is a state change — a type of physical change. The substance H₂O remains."
+            ),
+            "attempt_3": (
+                "Choose 'ice' from the dropdown. Ice melting is reversible — you can freeze "
+                "the water to get ice back — confirming it is a physical change."
+            )
+        },
+        "concept_reminder": (
+            "Melting ice is a PHYSICAL change: the substance H₂O remains unchanged; "
+            "only the state (solid → liquid) changes. No new substance is formed. "
+            "It is reversible — freeze the water to get ice back. "
+            "(ಬರ್ಫ ಕರಗುವುದು = ಭೌತಿಕ ಬದಲಾವಣೆ — H₂O ಅದೇ ಉಳಿಯುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "phys_kn_q2",
+        "challenge": (
+            "Show the paper folding example. Explain why folding a flat sheet of "
+            "paper into a paper boat is classified as a physical change.\n\n"
+            "(ಕಾಗದ ಮಡಚುವುದು ಭೌತಿಕ ಬದಲಾವಣೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "paper"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Choose 'paper' as the initialState to show the paper being folded into a boat. "
+                "The paper molecules remain the same — only the arrangement changes."
+            ),
+            "attempt_2": (
+                "Set 'initialState=paper'. You will see flat paper → paper boat. "
+                "The paper is still paper — unfolding restores the original sheet."
+            ),
+            "attempt_3": (
+                "Select 'paper'. After the animation: the paper boat is still made of paper. "
+                "You can unfold it to recover the flat sheet — reversible physical change."
+            )
+        },
+        "concept_reminder": (
+            "Paper folding = PHYSICAL change: the paper's shape changes but it is still paper. "
+            "The paper molecules are simply rearranged, not chemically altered. "
+            "This is reversible — unfolding the paper restores the original flat sheet. "
+            "(ಕಾಗದ ಇನ್ನೂ ಕಾಗದ — ಭೌತಿಕ ಬದಲಾವಣೆ!)"
+        )
+    },
+
+    {
+        "id": "phys_kn_q3",
+        "challenge": (
+            "Show the chalk crushing example. Explain why crushing chalk is a "
+            "physical change even though it CANNOT be easily reversed.\n\n"
+            "(ಸೀಮೆಸುಣ್ಣ ಚೂರ್ಣ ಮಾಡುವುದು ಭೌತಿಕ ಬದಲಾವಣೆ ಎಂದು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "chalk"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'chalk' as the initialState. The chalk stick is crushed into powder. "
+                "Even as powder, it is still calcium carbonate (CaCO₃) — the substance did not change."
+            ),
+            "attempt_2": (
+                "Set 'initialState=chalk'. Crushed chalk powder is still chalk (CaCO₃). "
+                "No new substance formed → physical change, even though it's irreversible."
+            ),
+            "attempt_3": (
+                "Choose 'chalk'. The simulation shows an irreversible physical change: "
+                "the shape changed but the chemical identity (CaCO₃) remains. "
+                "Physical changes do not always have to be reversible!"
+            )
+        },
+        "concept_reminder": (
+            "Crushing chalk = IRREVERSIBLE physical change: the chalk is smaller but "
+            "is still calcium carbonate (CaCO₃). No new substance formed. "
+            "Key insight: not all physical changes are reversible — "
+            "irreversibility alone does NOT make a change chemical. "
+            "(ಸೀಮೆಸುಣ್ಣ ಪುಡಿ ಇನ್ನೂ ಸೀಮೆಸುಣ್ಣ — ಅಹಿಮ್ಮುಖ ಭೌತಿಕ ಬದಲಾವಣೆ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — CHEMICAL CHANGES (Kannada)
+# 3 questions: show harmless initial state → vinegar reaction → limewater test
+# =============================================================================
+QUIZ_QUESTIONS_KN["chemical_changes_kn"] = [
+
+    {
+        "id": "chem_kn_q1",
+        "challenge": (
+            "Show the vinegar and baking soda reaction. Demonstrate the chemical "
+            "change by setting the simulation to show the reaction in progress with "
+            "bubbles and CO₂ gas visible.\n\n"
+            "(ವಿನಿಗರ್ + ಬೇಕಿಂಗ್ ಸೋಡಾ ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "vinegar_reacted"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'vinegar_reacted' as the initialState. "
+                "This pours vinegar onto baking soda and shows the fizzing CO₂ reaction."
+            ),
+            "attempt_2": (
+                "Set 'initialState=vinegar_reacted'. The simulation shows: "
+                "vinegar poured → vigorous bubbling → CO₂ gas rising. "
+                "New substances (CO₂, water, sodium acetate) have formed!"
+            ),
+            "attempt_3": (
+                "Choose 'vinegar_reacted'. The bubbling proves CO₂ was created — "
+                "a brand new substance. The original vinegar and baking soda are gone. "
+                "This is an irreversible chemical change."
+            )
+        },
+        "concept_reminder": (
+            "NaHCO₃ + CH₃COOH → CO₂↑ + H₂O + CH₃COONa. "
+            "Baking soda + vinegar creates NEW substances: CO₂ gas, water, sodium acetate. "
+            "The vigorous bubbling shows gas production — a classic sign of chemical change. "
+            "It is IRREVERSIBLE — you cannot recover the original reactants. "
+            "(ಬುರುಡೆಗಳು = CO₂ ಅನಿಲ — ಹೊಸ ಪದಾರ್ಥ — ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ!)"
+        )
+    },
+
+    {
+        "id": "chem_kn_q2",
+        "challenge": (
+            "Switch to the limewater experiment and show the CO₂ test. Demonstrate "
+            "how exhaling into limewater proves CO₂ is present by observing the "
+            "colour change.\n\n"
+            "(ಸುಣ್ಣದ ನೀರಿನ CO₂ ಪರೀಕ್ಷೆ ತೋರಿಸಿ — ಹಾಲಿನಂತಾಗುವಿಕೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "limewater_reacted"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'limewater_reacted' as the initialState. "
+                "The simulation blows CO₂ through limewater and shows it turning milky white."
+            ),
+            "attempt_2": (
+                "Set 'initialState=limewater_reacted'. The clear limewater turns milky — "
+                "this is CaCO₃ (calcium carbonate) precipitate forming: a new substance!"
+            ),
+            "attempt_3": (
+                "Choose 'limewater_reacted'. The milky colour proves that CO₂ reacted with "
+                "Ca(OH)₂ to form CaCO₃. This chemical change also serves as the standard "
+                "laboratory test for carbon dioxide."
+            )
+        },
+        "concept_reminder": (
+            "Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O. "
+            "Limewater + carbon dioxide → calcium carbonate (milky precipitate) + water. "
+            "The milky white colour indicates CaCO₃ has formed — a new solid substance. "
+            "This is a standard lab test: if limewater turns milky, CO₂ is present. "
+            "(ಸುಣ್ಣದ ನೀರು ಹಾಲಿನಂತಾದರೆ = CO₂ ಇದೆ — ರಾಸಾಯನಿಕ ಬದಲಾವಣೆ!)"
+        )
+    },
+
+    {
+        "id": "chem_kn_q3",
+        "challenge": (
+            "Show the initial unreacted state of the vinegar + baking soda experiment. "
+            "This represents the state BEFORE any chemical change has occurred — "
+            "the starting point for comparison.\n\n"
+            "(ಪ್ರತಿಕ್ರಿಯೆ ಮೊದಲಿನ ಆರಂಭಿಕ ಸ್ಥಿತಿ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' as the initialState. "
+                "This shows baking soda in the beaker and vinegar in the bottle, unmixed — "
+                "no reaction has occurred yet."
+            ),
+            "attempt_2": (
+                "Set 'initialState=initial'. The beaker shows white baking soda powder "
+                "and the green vinegar bottle is separate. Compare this to 'vinegar_reacted' "
+                "to see what a chemical change looks like before and after."
+            ),
+            "attempt_3": (
+                "Choose 'initial' to see the reactants before mixing. "
+                "This is the baseline — no bubbling, no new substances yet. "
+                "The chemical change only begins when the two are mixed."
+            )
+        },
+        "concept_reminder": (
+            "Before mixing, vinegar (CH₃COOH) and baking soda (NaHCO₃) are separate. "
+            "No reaction occurs until they contact each other. "
+            "This initial state is the reference point: compare it with 'vinegar_reacted' "
+            "to observe clearly what a chemical change produces. "
+            "(ಪ್ರತಿಕ್ರಿಯೆ ಮೊದಲು: ಎರಡೂ ಪದಾರ್ಥ ಪ್ರತ್ಯೇಕ — ಯಾವ ಬದಲಾವಣೆಯೂ ಇಲ್ಲ.)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — REVERSIBLE & IRREVERSIBLE CHANGES (Kannada)
+# 3 questions: initial state → demonstrate reversible → demonstrate irreversible
+# =============================================================================
+QUIZ_QUESTIONS_KN["reversible_irreversible_kn"] = [
+
+    {
+        "id": "rev_kn_q1",
+        "challenge": (
+            "Start the reversible vs irreversible quiz at the beginning. "
+            "Show the first question (melting ice) and identify which category it belongs to.\n\n"
+            "(ಮೊದಲ ಪ್ರಶ್ನೆ ತೋರಿಸಿ — ಕರಗುವ ಐಸ್ ಯಾವ ಬದಲಾವಣೆ?)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "initial"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'initial' as the initialState to begin the quiz with the first question "
+                "(melting ice). Ice melting is a reversible change — you can freeze water to get ice."
+            ),
+            "attempt_2": (
+                "Set 'initialState=initial'. The first change shown is melting ice → water. "
+                "This is reversible: cool the water back to 0°C and it becomes ice again."
+            ),
+            "attempt_3": (
+                "Choose 'initial'. Melting ice is both a physical change AND reversible. "
+                "The substance (H₂O) stays the same; only the state changes."
+            )
+        },
+        "concept_reminder": (
+            "Melting ice = REVERSIBLE change. Water and ice are both H₂O. "
+            "Cooling water below 0°C reverses the change completely. "
+            "Reversible changes are those where the original substance can be fully recovered. "
+            "(ಕರಗುವ ಐಸ್ = ಹಿಮ್ಮುಖ ಬದಲಾವಣೆ — ನೀರನ್ನು ಘನೀಕರಿಸಿ ಬರ್ಫ ಮರಳಿ ಪಡೆಯಬಹುದು!)"
+        )
+    },
+
+    {
+        "id": "rev_kn_q2",
+        "challenge": (
+            "Demonstrate a REVERSIBLE change example by auto-answering the first "
+            "question in the quiz. Show that melting ice is correctly identified as reversible.\n\n"
+            "(ಹಿಮ್ಮುಖ ಬದಲಾವಣೆ ಉದಾಹರಣೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "show_reversible"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'show_reversible' as the initialState. "
+                "The simulation auto-clicks the 'Reversible' answer for the ice melting question "
+                "and shows why that is correct."
+            ),
+            "attempt_2": (
+                "Set 'initialState=show_reversible'. Melting ice is classified correctly as "
+                "reversible — the feedback explains that water can be frozen again to recover ice."
+            ),
+            "attempt_3": (
+                "Choose 'show_reversible' to see the reversible answer confirmed with feedback. "
+                "State changes (melting, boiling, freezing) are almost always reversible."
+            )
+        },
+        "concept_reminder": (
+            "Reversible changes: the original substance can be recovered. "
+            "Examples: ice melting, butter melting, inflating a balloon, boiling water. "
+            "Pattern: most state changes and shape stretching are reversible. "
+            "Key question to ask: 'Can I get the original back?' "
+            "(ಮೂಲ ವಾಪಸ್ ಪಡೆಯಬಹುದೇ? ಹೌದು → ಹಿಮ್ಮುಖ!)"
+        )
+    },
+
+    {
+        "id": "rev_kn_q3",
+        "challenge": (
+            "Demonstrate an IRREVERSIBLE change example. Jump to the burning paper "
+            "question and show that burning is correctly identified as irreversible.\n\n"
+            "(ಅಹಿಮ್ಮುಖ ಬದಲಾವಣೆ ಉದಾಹರಣೆ ತೋರಿಸಿ — ಕಾಗದ ಉರಿಯುವಿಕೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "show_irreversible"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'show_irreversible' as the initialState. "
+                "The simulation jumps to the burning paper question and auto-answers 'Irreversible'."
+            ),
+            "attempt_2": (
+                "Set 'initialState=show_irreversible'. Burning paper → ash is irreversible "
+                "because you cannot un-burn the paper. The feedback confirms this."
+            ),
+            "attempt_3": (
+                "Choose 'show_irreversible' to see the irreversible answer with explanation. "
+                "Burning creates new substances (ash, CO₂, water vapour) that cannot "
+                "be converted back to paper."
+            )
+        },
+        "concept_reminder": (
+            "Burning paper = IRREVERSIBLE chemical change: ash, CO₂, and water vapour form. "
+            "You cannot turn ash back into paper. "
+            "Irreversible changes: the original cannot be recovered. "
+            "Examples: burning, cooking, rusting, making curd, growth of living things. "
+            "(ಕಾಗದ ಬೂದಿ → ಕಾಗದ ಆಗಲು ಸಾಧ್ಯವಿಲ್ಲ — ಅಹಿಮ್ಮುಖ ಬದಲಾವಣೆ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — STATES OF MATTER (Kannada)
+# 3 questions: solid state → gas state → liquid state
+# =============================================================================
+QUIZ_QUESTIONS_KN["states_of_matter_kn"] = [
+
+    {
+        "id": "states_kn_q1",
+        "challenge": (
+            "Show water in its SOLID state (ice). Set the simulation to a temperature "
+            "below 0°C and observe the ice cubes in the container.\n\n"
+            "(ನೀರನ್ನು ಘನ ಸ್ಥಿತಿ (ಬರ್ಫ) ಯಲ್ಲಿ ತೋರಿಸಿ — 0°C ಗಿಂತ ಕಡಿಮೆ ಉಷ್ಣತೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "solid"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'solid' as the initialState. The slider moves to -10°C showing ice "
+                "cubes in the container. Below 0°C, H₂O is in solid state."
+            ),
+            "attempt_2": (
+                "Set 'initialState=solid'. The thermometer shows -10°C and ice cubes appear. "
+                "Below 0°C (freezing point), water molecules slow down and lock into ice crystals."
+            ),
+            "attempt_3": (
+                "Choose 'solid'. The ice state shows H₂O below its freezing point (0°C). "
+                "The substance is still H₂O — only the energy level is low enough to stay solid."
+            )
+        },
+        "concept_reminder": (
+            "At temperatures below 0°C, water exists as solid ice. "
+            "Ice molecules are locked in a fixed crystalline structure with very low kinetic energy. "
+            "0°C is the melting/freezing point — the transition temperature between solid and liquid. "
+            "Ice, water, and steam are all still H₂O — just at different energy levels. "
+            "(0°C ಗಿಂತ ಕಡಿಮೆ = ಘನ (ಬರ್ಫ) — H₂O ಸ್ಥಿರ ರಚನೆಯಲ್ಲಿ ಇರುತ್ತದೆ!)"
+        )
+    },
+
+    {
+        "id": "states_kn_q2",
+        "challenge": (
+            "Show water in its GAS state (steam). Set the simulation to a temperature "
+            "above 100°C and observe the steam rising from the container.\n\n"
+            "(ನೀರನ್ನು ಅನಿಲ ಸ್ಥಿತಿ (ಆವಿ) ಯಲ್ಲಿ ತೋರಿಸಿ — 100°C ಗಿಂತ ಹೆಚ್ಚು ಉಷ್ಣತೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "gas"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'gas' as the initialState. The slider moves to 110°C showing "
+                "steam rising. Above 100°C, H₂O escapes as gas (water vapour)."
+            ),
+            "attempt_2": (
+                "Set 'initialState=gas'. The thermometer shows 110°C and steam particles "
+                "are visible rising. At 100°C (boiling point), liquid water converts to gas."
+            ),
+            "attempt_3": (
+                "Choose 'gas'. Above 100°C, water molecules have enough energy to break "
+                "free and spread out as steam. Compare with 'solid' and 'liquid' states."
+            )
+        },
+        "concept_reminder": (
+            "At temperatures above 100°C, water boils and becomes steam (gas/vapour). "
+            "Gas molecules move freely in all directions with very high kinetic energy. "
+            "100°C is the boiling/condensation point for water at atmospheric pressure. "
+            "Steam is still H₂O — condensing steam back gives liquid water (reversible!). "
+            "(100°C ಗಿಂತ ಹೆಚ್ಚು = ಆವಿ (ಅನಿಲ) — ಅಣುಗಳು ಸ್ವತಂತ್ರವಾಗಿ ಚಲಿಸುತ್ತವೆ!)"
+        )
+    },
+
+    {
+        "id": "states_kn_q3",
+        "challenge": (
+            "Show water in its LIQUID state. Set the simulation to room temperature "
+            "and observe liquid water in the container — the form we use every day.\n\n"
+            "(ನೀರನ್ನು ದ್ರವ ಸ್ಥಿತಿ ಯಲ್ಲಿ ತೋರಿಸಿ — 0°C ಮತ್ತು 100°C ನಡುವೆ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "liquid"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'liquid' as the initialState. The slider moves to 25°C (room temperature) "
+                "showing liquid water — the state between 0°C and 100°C."
+            ),
+            "attempt_2": (
+                "Set 'initialState=liquid'. Liquid water at 25°C is shown in the container. "
+                "Molecules move freely but stay together — the familiar state we drink and use."
+            ),
+            "attempt_3": (
+                "Choose 'liquid'. Between 0°C and 100°C, water is liquid. "
+                "This is the biologically vital state for all life — liquid water as a solvent."
+            )
+        },
+        "concept_reminder": (
+            "Between 0°C and 100°C, water is in liquid state. "
+            "Liquid molecules move freely but remain close enough to maintain a definite volume. "
+            "This is the most biologically important state of water — it is a universal solvent. "
+            "Comparison: solid (below 0°C) < liquid (0–100°C) < gas (above 100°C). "
+            "(0°C−100°C = ದ್ರವ ನೀರು — ಅಣುಗಳು ಮುಕ್ತವಾಗಿ ಆದರೆ ಒಟ್ಟಿಗೆ ಚಲಿಸುತ್ತವೆ!)"
+        )
+    }
+]
+
+
+# =============================================================================
+# QUIZ QUESTIONS — FIRE TRIANGLE (Kannada)
+# 3 questions: all 3 elements present (fire) → no oxygen → no fuel
+# =============================================================================
+QUIZ_QUESTIONS_KN["fire_triangle_kn"] = [
+
+    {
+        "id": "fire_kn_q1",
+        "challenge": (
+            "Show fire BURNING by providing all three elements of the fire triangle. "
+            "Demonstrate that fuel, oxygen, AND heat are all required simultaneously.\n\n"
+            "(ಮೂರು ಅಂಶಗಳ ಸಮ್ಮೇಳನದಿಂದ ಅಗ್ನಿ ಉರಿಯುವಂತೆ ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "fire"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'fire' as the initialState. All three buttons (fuel, oxygen, heat) "
+                "will be auto-clicked and fire will appear when all three are present."
+            ),
+            "attempt_2": (
+                "Set 'initialState=fire'. The simulation activates fuel + oxygen + heat "
+                "and shows a burning flame. All three conditions of the fire triangle are met."
+            ),
+            "attempt_3": (
+                "Choose 'fire'. The flame animation shows combustion in action — "
+                "fuel providing material, oxygen supporting burning, heat providing ignition energy."
+            )
+        },
+        "concept_reminder": (
+            "Fire Triangle: FUEL + OXYGEN + HEAT = FIRE. "
+            "All three must be present simultaneously for combustion to occur. "
+            "This is why fire cannot burn in a vacuum (no oxygen) or with wet fuel "
+            "(water absorbs heat, lowering temperature below ignition point). "
+            "(ಇಂಧನ + ಆಮ್ಲಜನಕ + ಉಷ್ಣ = ಅಗ್ನಿ — ಮೂರೂ ಇಲ್ಲದೆ ಅಗ್ನಿ ಸಾಧ್ಯವಿಲ್ಲ!)"
+        )
+    },
+
+    {
+        "id": "fire_kn_q2",
+        "challenge": (
+            "Show what happens when OXYGEN is removed from the fire. Demonstrate "
+            "how removing oxygen extinguishes the fire even when fuel and heat are present.\n\n"
+            "(ಆಮ್ಲಜನಕ ತೆಗೆದಾಗ ಅಗ್ನಿ ಆರುವುದನ್ನು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "no_oxygen"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'no_oxygen' as the initialState. Fuel and heat are present but "
+                "oxygen is missing — fire does not burn. This simulates smothering a fire."
+            ),
+            "attempt_2": (
+                "Set 'initialState=no_oxygen'. Without oxygen, combustion cannot proceed. "
+                "The simulation shows fire is impossible even with fuel and heat present."
+            ),
+            "attempt_3": (
+                "Choose 'no_oxygen' to see: fuel ✅ + heat ✅ + oxygen ❌ = NO FIRE. "
+                "This is the principle behind smothering fires with blankets or CO₂ extinguishers."
+            )
+        },
+        "concept_reminder": (
+            "Removing oxygen extinguishes fire. This is the principle of SMOTHERING. "
+            "Methods: blanket over a small fire, CO₂ fire extinguisher (displaces oxygen), "
+            "fire-proof cover, foam extinguisher (seals oxygen supply). "
+            "Oxygen is essential because combustion is oxidation — O₂ reacts with fuel molecules. "
+            "(ಆಮ್ಲಜನಕ ತೆಗೆ = ಅಗ್ನಿ ಆರಿ — ಹೊದಿಕೆ ಮುಚ್ಚಿ ಅಥವಾ CO₂ ಮೂಲಕ!)"
+        )
+    },
+
+    {
+        "id": "fire_kn_q3",
+        "challenge": (
+            "Show what happens when FUEL is removed. Demonstrate how removing the "
+            "combustible material stops the fire even when oxygen and heat are present.\n\n"
+            "(ಇಂಧನ ತೆಗೆದಾಗ ಅಗ್ನಿ ಆರುವುದನ್ನು ತೋರಿಸಿ)"
+        ),
+        "target_parameters": ["initialState"],
+        "success_rule": {
+            "conditions": [
+                {"parameter": "initialState", "operator": "==", "value": "no_fuel"}
+            ],
+            "scoring": {"perfect": 1.0, "partial": 0.5, "wrong": 0.2}
+        },
+        "hints": {
+            "attempt_1": (
+                "Select 'no_fuel' as the initialState. Oxygen and heat are present but "
+                "no fuel means nothing to burn — fire cannot start."
+            ),
+            "attempt_2": (
+                "Set 'initialState=no_fuel'. Without combustible material, there is nothing "
+                "for oxygen to react with. No fuel = no fire, even with oxygen and heat."
+            ),
+            "attempt_3": (
+                "Choose 'no_fuel'. Oxygen ✅ + heat ✅ + fuel ❌ = NO FIRE. "
+                "This is why firebreaks (cleared strips of land) stop forest fires from spreading."
+            )
+        },
+        "concept_reminder": (
+            "Removing fuel extinguishes fire. This is the principle of STARVATION. "
+            "Methods: firebreaks in forest fires (remove trees in a strip), "
+            "turning off a gas valve (removes gas fuel), letting a candle burn out (fuel consumed). "
+            "Without fuel, there is no material for the combustion reaction to proceed. "
+            "(ಇಂಧನ ತೆಗೆ = ಅಗ್ನಿ ಆರಿ — ಉರಿಯಲು ಏನೂ ಇಲ್ಲ!)"
+        )
+    }
+]
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # HELPER: list of Kannada simulation IDs for sidebar grouping
 # ═══════════════════════════════════════════════════════════════════════
