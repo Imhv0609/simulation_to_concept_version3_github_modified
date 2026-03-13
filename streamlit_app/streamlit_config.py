@@ -3795,6 +3795,274 @@ SIMULATIONS["expression_evaluator_kn"] = {
 }
 
 # =============================================================================
+# Maths Chapter 2 – Brackets & Sign Rules
+# ಆವರಣ ಮತ್ತು ಚಿಹ್ನೆ ನಿಯಮ – Brackets and Sign Rules
+# =============================================================================
+SIMULATIONS["brackets_signs_kn"] = {
+    "name": "ಆವರಣ ಮತ್ತು ಚಿಹ್ನೆ ನಿಯಮ (Brackets & Sign Rules)",
+    "language": "kannada_maths",
+    "description": (
+        "ಆವರಣ ತೆಗೆದಾಗ ಚಿಹ್ನೆ ಹೇಗೆ ಬದಲಾಗುತ್ತದೆ ಎಂದು ಕಲಿಯಿರಿ.\n"
+        "Learn how signs flip or stay when removing brackets."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter2_simulation2_brackets_signs_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಮೋಡ್ (Mode)",
+            "default": "learn",
+            "options": ["learn", "quiz"],
+            "url_param": "mode"
+        },
+        {
+            "name": "problemIndex",
+            "type": "number",
+            "display_name": "ಉದಾಹರಣೆ ಸೂಚ್ಯಂಕ (Problem Index)",
+            "default": 0,
+            "min": 0,
+            "max": 9,
+            "url_param": "problemIndex"
+        },
+        {
+            "name": "quizIndex",
+            "type": "number",
+            "display_name": "ರಸಪ್ರಶ್ನೆ ಸೂಚ್ಯಂಕ (Quiz Index)",
+            "default": 0,
+            "min": 0,
+            "max": 9,
+            "url_param": "quizIndex"
+        },
+        {
+            "name": "showHints",
+            "type": "select",
+            "display_name": "힌트 ತೋರಿಸಿ (Show Hints)",
+            "default": "true",
+            "options": ["true", "false"],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Whole Numbers (ಆವರಣ ಮತ್ತು ಚಿಹ್ನೆ ನಿಯಮ)"
+}
+
+# =============================================================================
+# Maths Chapter 2 – Distributive Property Visual Explorer
+# ವಿಭಾಜಕ ಗುಣ ದೃಶ್ಯ ಅನ್ವೇಷಕ – Distributive Property Explorer
+# =============================================================================
+SIMULATIONS["distributive_kn"] = {
+    "name": "ವಿಭಾಜಕ ಗುಣ ದೃಶ್ಯ ಅನ್ವೇಷಕ (Distributive Property Explorer)",
+    "language": "kannada_maths",
+    "description": (
+        "a×(b+c) = a×b + a×c ಅನ್ನು ಚುಕ್ಕೆ, ಆಯತ ಮತ್ತು ಮಾನಸಿಕ ಗಣಿತ ಮೂಲಕ ಅನ್ವೇಷಿಸಿ.\n"
+        "Explore the distributive property through dots, area model, and mental math."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter2_simulation3_distributive_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಮೋಡ್ (Mode)",
+            "default": "dots",
+            "options": ["dots", "area", "mental", "quiz"],
+            "url_param": "mode"
+        },
+        {
+            "name": "a",
+            "type": "number",
+            "display_name": "ಗುಣಕ a (Multiplier a)",
+            "default": 3,
+            "min": 1,
+            "max": 8,
+            "url_param": "a"
+        },
+        {
+            "name": "b",
+            "type": "number",
+            "display_name": "ನೀಲಿ ಕಾಲಂ b (Blue Columns b)",
+            "default": 4,
+            "min": 1,
+            "max": 10,
+            "url_param": "b"
+        },
+        {
+            "name": "c",
+            "type": "number",
+            "display_name": "ಹಸಿರು ಕಾಲಂ c (Green Columns c)",
+            "default": 6,
+            "min": 1,
+            "max": 10,
+            "url_param": "c"
+        },
+        {
+            "name": "mentalMathIndex",
+            "type": "number",
+            "display_name": "ಮಾನಸಿಕ ಗಣಿತ ಸೂಚ್ಯಂಕ (Mental Math Index)",
+            "default": 0,
+            "min": 0,
+            "max": 4,
+            "url_param": "mentalMathIndex"
+        },
+        {
+            "name": "showHints",
+            "type": "select",
+            "display_name": "힘힌트 ತೋರಿಸಿ (Show Hints)",
+            "default": "true",
+            "options": ["true", "false"],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Whole Numbers (ವಿಭಾಜಕ ಗುಣ)"
+}
+
+# =============================================================================
+# Maths Chapter 2 – Expression Comparison (Compare Without Computing)
+# ಸಮೀಕರಣ ಹೋಲಿಕೆ – Expression Comparison
+# =============================================================================
+SIMULATIONS["expression_compare_kn"] = {
+    "name": "ಸಮೀಕರಣ ಹೋಲಿಕೆ (Expression Comparison)",
+    "language": "kannada_maths",
+    "description": (
+        "ಎರಡು ಸಮೀಕರಣಗಳನ್ನು ಲೆಕ್ಕ ಮಾಡದೆ ಹೋಲಿಸಿ < / = / > ಆಯ್ಕೆ ಮಾಡಿ.\n"
+        "Compare two expressions using reasoning, not full computation."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter2_simulation4_expression_compare_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "questionIndex",
+            "type": "number",
+            "display_name": "ಪ್ರಶ್ನೆ ಸೂಚ್ಯಂಕ (Question Index)",
+            "default": 0,
+            "min": 0,
+            "max": 14,
+            "url_param": "questionIndex"
+        },
+        {
+            "name": "showHints",
+            "type": "select",
+            "display_name": "힌트 ತೋರಿಸಿ (Show Hints)",
+            "default": "true",
+            "options": ["true", "false"],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Whole Numbers (ಸಮೀಕರಣ ಹೋಲಿಕೆ)"
+}
+
+# =============================================================================
+# Maths Chapter 2 – Expression Engineer (Build Target Values)
+# ಸಮೀಕರಣ ಎಂಜಿನಿಯರ್ – Expression Engineer
+# =============================================================================
+SIMULATIONS["expression_engineer_kn"] = {
+    "name": "ಸಮೀಕರಣ ಎಂಜಿನಿಯರ್ (Expression Engineer)",
+    "language": "kannada_maths",
+    "description": (
+        "ನಿಗದಿತ ಅಂಕೆಗಳಿಂದ ಗುರಿ ಮೌಲ್ಯ ತಲುಪುವ ಸಮೀಕರಣ ನಿರ್ಮಿಸಿ.\n"
+        "Build expressions from fixed digits to reach target values using brackets and operators."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter2_simulation5_expression_engineer_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "challenge",
+            "type": "select",
+            "display_name": "ಸವಾಲು (Challenge)",
+            "default": "three3s",
+            "options": ["three3s", "four4s", "use235", "pay432"],
+            "url_param": "challenge"
+        },
+        {
+            "name": "showHints",
+            "type": "select",
+            "display_name": "힌트 ತೋರಿಸಿ (Show Hints)",
+            "default": "true",
+            "options": ["true", "false"],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Whole Numbers (ಸಮೀಕರಣ ಎಂಜಿನಿಯರ್)"
+}
+
+# =============================================================================
+# Maths Chapter 3 – Decimal Number Line (Zoom and Explore)
+# ದಶಮಾಂಶ ಸಂಖ್ಯಾರೇಖೆ – Decimal Number Line
+# =============================================================================
+SIMULATIONS["decimal_number_line_kn"] = {
+    "name": "ದಶಮಾಂಶ ಸಂಖ್ಯಾರೇಖೆ (Decimal Number Line)",
+    "language": "kannada_maths",
+    "description": (
+        "ದಶಮಾಂಶ ಸಂಖ್ಯೆಯ ಸ್ಥಾನ ಝೂಮ್ ಮೂಲಕ ಅನ್ವೇಷಿಸಿ, ಅನುಕ್ರಮ ಕಲಿಯಿರಿ, ರಸಪ್ರಶ್ನೆ ಆಡಿ.\n"
+        "Locate decimals on a number line via zoom, explore sequences, and take a quiz."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter3_simulation1_decimal_number_line_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಮೋಡ್ (Mode)",
+            "default": "explore",
+            "options": ["explore", "sequence", "quiz"],
+            "url_param": "mode"
+        },
+        {
+            "name": "num",
+            "type": "number",
+            "display_name": "ದಶಮಾಂಶ ಸಂಖ್ಯೆ (Decimal Number)",
+            "default": 4.185,
+            "min": 0.001,
+            "max": 9.999,
+            "step": 0.001,
+            "url_param": "num"
+        },
+        {
+            "name": "seqIndex",
+            "type": "number",
+            "display_name": "ಅನುಕ್ರಮ ಸೂಚ್ಯಂಕ (Sequence Index)",
+            "default": 0,
+            "min": 0,
+            "max": 6,
+            "url_param": "seqIndex"
+        },
+        {
+            "name": "quizIndex",
+            "type": "number",
+            "display_name": "ರಸಪ್ರಶ್ನೆ ಸೂಚ್ಯಂಕ (Quiz Index)",
+            "default": 0,
+            "min": 0,
+            "max": 9,
+            "url_param": "quizIndex"
+        },
+        {
+            "name": "showHints",
+            "type": "select",
+            "display_name": "힌트 ತೋರಿಸಿ (Show Hints)",
+            "default": "true",
+            "options": ["true", "false"],
+            "url_param": "showHints"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Decimal Numbers (ದಶಮಾಂಶ ಸಂಖ್ಯಾರೇಖೆ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

@@ -714,6 +714,694 @@ The simulation teaches:
 }
 
 
+# =============================================================================
+# BRACKETS & SIGN RULES SIMULATION
+# ಆವರಣ ಮತ್ತು ಚಿಹ್ನೆ ನಿಯಮ – Brackets and Sign Rules
+# Maths Chapter 2 – Whole Numbers (Brackets)
+# Student level: medium
+# =============================================================================
+SIMULATIONS_MATHS_KN["brackets_signs_kn"] = {
+    "title": "ಆವರಣ ಮತ್ತು ಚಿಹ್ನೆ ನಿಯಮ (Brackets & Sign Rules)",
+    "language": "kannada_maths",
+    "file": "maths_simulations_kannada/math_chapter2_simulation2_brackets_signs_kn.html",
+    "description": """
+An interactive Kannada-language simulation that teaches the two sign rules when removing
+brackets from arithmetic expressions.
+
+Two modes are available:
+- Learn Mode: shows 10 stepped examples, each with 'with brackets' → 'without brackets'
+  forms side by side, a colour-coded rule badge (flip / keep), three derivation steps,
+  and the final value for both forms. A slider and preset buttons let the agent load any
+  of the 10 examples directly.
+- Quiz Mode: presents an expression with brackets; students pick the correctly expanded
+  bracket-free form from 4 options. 10 questions cover a range of minus-before and
+  plus-before bracket scenarios, including negative numbers inside brackets.
+
+The simulation teaches:
+- MINUS before brackets → every sign inside FLIPS (+ becomes −, − becomes +)
+- PLUS before brackets → signs inside stay the same; only brackets are removed
+- Why: subtracting a sum a−(b+c) = a−b−c; subtracting a difference a−(b−c) = a−b+c
+""",
+    "cannot_demonstrate": [
+        "Nested brackets (more than one bracket level)",
+        "Algebraic expressions with variables",
+        "Multiplication outside brackets (only + and − outside)",
+        "Expressions with more than two terms inside brackets",
+        "Brackets in the middle of multi-step calculations",
+    ],
+    "initial_params": {
+        "mode": "learn",
+        "problemIndex": 0,
+        "showHints": "true",
+    },
+    "parameter_info": {
+        "mode": {
+            "label": "Simulation Mode",
+            "range": "learn, quiz",
+            "url_key": "mode",
+            "effect": (
+                "Selects the active tab on load.\n"
+                "  'learn' → step-by-step examples of bracket removal (default)\n"
+                "  'quiz'  → 10 multiple-choice questions on bracket expansion"
+            )
+        },
+        "problemIndex": {
+            "label": "Example Problem Index",
+            "range": "0-9 (integer)",
+            "url_key": "problemIndex",
+            "effect": (
+                "In learn mode, selects which of the 10 preset examples is shown.\n"
+                "  0 → 200 − (40 + 3)   = 200 − 40 − 3  = 157  (minus, flip)\n"
+                "  1 → 500 − (250 − 100) = 500 − 250 + 100 = 350 (minus, flip −100→+100)\n"
+                "  2 → 100 − (15 + 56)   = 100 − 15 − 56  = 29  (minus, flip)\n"
+                "  3 → 28 + (35 − 10)    = 28 + 35 − 10   = 53  (plus, keep)\n"
+                "  4 → 24 + (6 − 4)      = 24 + 6 − 4     = 26  (plus, keep)\n"
+                "  5 → 24 − (6 + 4)      = 24 − 6 − 4     = 14  (minus, flip)\n"
+                "  6 → 27 − (8 + 3)      = 27 − 8 − 3     = 16  (minus, flip)\n"
+                "  7 → 27 − (8 − 3)      = 27 − 8 + 3     = 22  (minus, flip −3→+3)\n"
+                "  8 → 14 − (12 − 10)    = 14 − 12 + 10   = 12  (minus, flip)\n"
+                "  9 → 14 − (−12 − 10)   = 14 + 12 + 10   = 36  (minus, flip both negative)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true, false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the sign-rule insight box at the bottom of the page.\n"
+                "  'true'  → insight box visible (default)\n"
+                "  'false' → insight box hidden (for unguided discovery)"
+            )
+        },
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Minus Before Brackets: Every Sign Inside Flips",
+            "description": (
+                "When a minus sign immediately precedes a bracket, removing the bracket "
+                "reverses every sign inside: + becomes − and − becomes +. "
+                "Example: 500 − (250 − 100) → 500 − 250 + 100 = 350."
+            ),
+            "key_insight": (
+                "Think of the minus as distributing to each term inside: "
+                "−(250 − 100) = (−1)×250 + (−1)×(−100) = −250 + 100. "
+                "The rule is a direct consequence of the distributive property with multiplier −1."
+            ),
+            "related_params": ["mode", "problemIndex"]
+        },
+        {
+            "id": 2,
+            "title": "Plus Before Brackets: Signs Stay the Same",
+            "description": (
+                "When a plus sign immediately precedes a bracket, removing the bracket "
+                "leaves all signs inside unchanged. "
+                "Example: 28 + (35 − 10) → 28 + 35 − 10 = 53."
+            ),
+            "key_insight": (
+                "A plus outside means +(35 − 10) = (+1)×35 + (+1)×(−10) = 35 − 10. "
+                "Nothing flips. Students often correctly flip for minus but wrongly flip for plus — "
+                "the simulation's colour badge (green for keep, yellow for flip) reinforces the contrast."
+            ),
+            "related_params": ["mode", "problemIndex"]
+        },
+        {
+            "id": 3,
+            "title": "Why the Rule Works: Subtracting a Difference",
+            "description": (
+                "Subtracting a difference, a − (b − c), gives a − b + c because you are "
+                "subtracting too much (b) and must add back what was over-subtracted (c). "
+                "This is a classic NCERT textbook insight."
+            ),
+            "key_insight": (
+                "14 − (12 − 10) = 14 − 12 + 10 = 12. "
+                "Without the rule: naively 14 − 12 − 10 = −8 (wrong!). "
+                "The expression 14 − (12 − 10) = 14 − 2 = 12. "
+                "When we 'subtract a difference', we must add back the subtracted part."
+            ),
+            "related_params": ["mode", "problemIndex"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# DISTRIBUTIVE PROPERTY SIMULATION
+# ವಿಭಾಜಕ ಗುಣ ದೃಶ್ಯ ಅನ್ವೇಷಕ – Distributive Property Visual Explorer
+# Maths Chapter 2 – Whole Numbers (Distributive Property)
+# Student level: medium
+# =============================================================================
+SIMULATIONS_MATHS_KN["distributive_kn"] = {
+    "title": "ವಿಭಾಜಕ ಗುಣ ದೃಶ್ಯ ಅನ್ವೇಷಕ (Distributive Property Explorer)",
+    "language": "kannada_maths",
+    "file": "maths_simulations_kannada/math_chapter2_simulation3_distributive_kn.html",
+    "description": """
+An interactive Kannada-language simulation that visualises the distributive property
+a × (b + c) = a × b + a × c through four complementary representations.
+
+Four tabs are available:
+- Dot Array (ಚುಕ್ಕೆ ಜಾಲ): a grid of a rows with b blue columns and c green columns.
+  Blue and green groups correspond to a×b and a×c respectively; separating and
+  combining them shows that both sides equal the same total.
+- Area Model (ವಿಸ್ತೀರ್ಣ ಮಾದರಿ): a rectangle of width (b+c) and height a, divided
+  by a dashed line. Grid lines make each unit square countable; the areas of the
+  two parts (blue = a×b, green = a×c) sum to the whole.
+- Mental Math (ಮಾನಸಿಕ ಗಣಿತ): 5 real-world examples (97×25, 95×8, 104×15, 49×50,
+  998×7) where re-expressing one factor as a sum or difference of a round number
+  makes multiplication easy using the distributive property.
+- Quiz (ರಸಪ್ರಶ್ನೆ): 10 fill-in-the-blank questions testing whether students can
+  identify the correct operator (+/−), the correct multiplier, or the correct
+  decomposition in a distributive equation.
+
+The simulation teaches:
+- The distributive property: a×(b+c) = a×b + a×c
+- Equivalent visual representations (dots, area) of the same algebraic fact
+- Multiplication shortcuts via decomposition (97 = 100 − 3 → 97×25 = 2500 − 75)
+""",
+    "cannot_demonstrate": [
+        "Division distribution (a÷(b+c) ≠ a÷b + a÷c)",
+        "Distributive property with more than two addends",
+        "Algebraic variables (only numerical examples)",
+        "Negative multipliers outside brackets",
+        "Decimal or fractional values of a, b, or c"
+    ],
+    "initial_params": {
+        "mode": "dots",
+        "a": 3,
+        "b": 4,
+        "c": 6,
+        "mentalMathIndex": 0,
+        "showHints": "true",
+    },
+    "parameter_info": {
+        "mode": {
+            "label": "Visualisation Tab",
+            "range": "dots, area, mental, quiz",
+            "url_key": "mode",
+            "effect": (
+                "Selects the active visualisation tab on load.\n"
+                "  'dots'   → dot-array grid (default)\n"
+                "  'area'   → area model rectangle\n"
+                "  'mental' → mental-math shortcut examples\n"
+                "  'quiz'   → 10 fill-in-the-blank practice questions"
+            )
+        },
+        "a": {
+            "label": "Rows / Multiplier (a)",
+            "range": "1-8 (integer)",
+            "url_key": "a",
+            "effect": (
+                "Sets the number of rows in the dot array and the height of the area rectangle.\n"
+                "Represents the multiplier outside the bracket in a×(b+c)."
+            )
+        },
+        "b": {
+            "label": "Blue Columns / First Addend (b)",
+            "range": "1-10 (integer)",
+            "url_key": "b",
+            "effect": (
+                "Sets the number of blue columns in the dot array and the width of the blue rectangle.\n"
+                "Represents the first addend inside the bracket."
+            )
+        },
+        "c": {
+            "label": "Green Columns / Second Addend (c)",
+            "range": "1-10 (integer)",
+            "url_key": "c",
+            "effect": (
+                "Sets the number of green columns in the dot array and the width of the green rectangle.\n"
+                "Represents the second addend inside the bracket."
+            )
+        },
+        "mentalMathIndex": {
+            "label": "Mental Math Example Index",
+            "range": "0-4 (integer)",
+            "url_key": "mentalMathIndex",
+            "effect": (
+                "In mental-math tab, selects which preset mental-math example is shown.\n"
+                "  0 → 97 × 25  = (100−3)×25 = 2500 − 75   = 2425\n"
+                "  1 → 95 × 8   = (100−5)×8  = 800  − 40   = 760\n"
+                "  2 → 104 × 15 = (100+4)×15 = 1500 + 60   = 1560\n"
+                "  3 → 49 × 50  = (50−1)×50  = 2500 − 50   = 2450\n"
+                "  4 → 998 × 7  = (1000−2)×7 = 7000 − 14   = 6986"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true, false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the distributive-property insight box at the bottom.\n"
+                "  'true'  → insight box visible (default)\n"
+                "  'false' → insight box hidden"
+            )
+        },
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "The Distributive Property: a × (b + c) = a × b + a × c",
+            "description": (
+                "Multiplying a number by a sum gives the same result as "
+                "multiplying that number by each addend separately and then adding. "
+                "This is the core distributive law for multiplication over addition."
+            ),
+            "key_insight": (
+                "3 × (4 + 6) = 3 × 10 = 30. Also, 3×4 + 3×6 = 12 + 18 = 30. "
+                "The dot array makes this visible: 3 rows of 10 can be split into "
+                "3 rows of 4 (blue) + 3 rows of 6 (green), yet the total count is the same."
+            ),
+            "related_params": ["mode", "a", "b", "c"]
+        },
+        {
+            "id": 2,
+            "title": "Area Model: Rectangle Split by a Dashed Line",
+            "description": (
+                "An a×(b+c) rectangle can be divided into two smaller rectangles: "
+                "a×b (blue) and a×c (green). The total area is the same whether "
+                "counted as one rectangle or as the sum of two parts."
+            ),
+            "key_insight": (
+                "The area model (dots or rectangles) is a geometric proof of the distributive property. "
+                "It shows that the property is not a rule to memorise but a visual fact: "
+                "splitting a rectangle vertically doesn't change its total area."
+            ),
+            "related_params": ["mode", "a", "b", "c"]
+        },
+        {
+            "id": 3,
+            "title": "Mental Math Shortcut: Decompose to a Round Number",
+            "description": (
+                "Hard multiplications like 97×25 become easy when one factor is "
+                "decomposed as a round number ± a small correction: "
+                "97 = 100 − 3, so 97×25 = 100×25 − 3×25 = 2500 − 75 = 2425."
+            ),
+            "key_insight": (
+                "The mental math tab shows that the distributive property is not just abstract algebra — "
+                "it is the engine behind every multiplication shortcut. "
+                "Students who learn to 'see' a hard number as a round number ± correction "
+                "can multiply any two-digit number mentally."
+            ),
+            "related_params": ["mode", "mentalMathIndex"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# EXPRESSION COMPARISON SIMULATION
+# ಸಮೀಕರಣ ಹೋಲಿಕೆ – Expression Comparison (Compare Without Computing)
+# Maths Chapter 2 – Whole Numbers (Expressions and Comparisons)
+# Student level: medium
+# =============================================================================
+SIMULATIONS_MATHS_KN["expression_compare_kn"] = {
+    "title": "ಸಮೀಕರಣ ಹೋಲಿಕೆ (Expression Comparison)",
+    "language": "kannada_maths",
+    "file": "maths_simulations_kannada/math_chapter2_simulation4_expression_compare_kn.html",
+    "description": """
+An interactive Kannada-language quiz simulation that trains students to compare two
+arithmetic expressions without computing both sides in full. Students see two expressions
+side by side with a '?' in the middle, then press <, =, or > as their answer.
+
+15 questions span four reasoning strategies:
+- Addition/subtraction change: 1023+125 vs 1022+128 → compare the net change
+- Cancellation: 273−145 vs 272−144 → identical change on both sides → equal
+- BODMAS order-of-operations: 15+9×18 vs (15+9)×18 → brackets vs no brackets
+- Distributive equality: (34−28)×42 vs 34×42−28×42 → both equal 6×42 = 252
+
+The questions are shuffled randomly on each page load. The agent can set questionIndex
+to start the student at a specific position in the shuffled deck, giving variety across
+quiz sessions. After each answer, a full explanation is shown.
+
+The simulation teaches:
+- Reasoning about relative size without full computation
+- Applying the distributive property to identify equalities
+- Understanding how BODMAS changes the value of an expression
+""",
+    "cannot_demonstrate": [
+        "Expressions with variables or unknowns",
+        "Inequality chains (a < b < c)",
+        "Comparison of more than two expressions",
+        "Fractional or decimal expressions",
+        "Ordering more than two values"
+    ],
+    "initial_params": {
+        "questionIndex": 0,
+        "showHints": "true",
+    },
+    "parameter_info": {
+        "questionIndex": {
+            "label": "Starting Question Index",
+            "range": "0-14 (integer)",
+            "url_key": "questionIndex",
+            "effect": (
+                "Sets the starting position in the shuffled question deck.\n"
+                "Since questions are randomly shuffled on each page load, this parameter "
+                "does not deterministically select a specific question, but allows the agent "
+                "to start the student at different points in the deck across sessions.\n"
+                "  0  → start from position 0 in shuffled deck (default)\n"
+                "  7  → start from position 7 (encounters BODMAS/bracket questions)\n"
+                "  9  → start from position 9 (encounters distributive equality questions)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true, false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the comparison-strategy insight box at the bottom.\n"
+                "  'true'  → insight box visible (default)\n"
+                "  'false' → insight box hidden (tests unguided reasoning)"
+            )
+        },
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Compare by Spotting What Changed",
+            "description": (
+                "Instead of computing both sides, look at what is different between the two expressions. "
+                "If one side gains more than it loses relative to the other, it is larger."
+            ),
+            "key_insight": (
+                "1023+125 vs 1022+128: left side decreases by 1 (1023→1022), right side increases by 3 (125→128). "
+                "Net: right side gains 2 more → left < right. "
+                "Never computed the totals directly!"
+            ),
+            "related_params": ["questionIndex"]
+        },
+        {
+            "id": 2,
+            "title": "Distributive Property Reveals Hidden Equality",
+            "description": (
+                "When (a−b)×c appears next to a×c − b×c, recognising the distributive law "
+                "shows both sides are equal without any calculation."
+            ),
+            "key_insight": (
+                "(34−28)×42 vs 34×42 − 28×42. Right side expands the left side by distribution: "
+                "(34−28)×42 = 34×42 − 28×42 (distributive law). Both = 6×42 = 252. "
+                "Recognising the pattern avoids all multiplication."
+            ),
+            "related_params": ["questionIndex"]
+        },
+        {
+            "id": 3,
+            "title": "BODMAS: Brackets Change the Computation Order",
+            "description": (
+                "Adding brackets around an addition before a multiplication "
+                "forces the addition to happen first, dramatically changing the result."
+            ),
+            "key_insight": (
+                "15 + 9×18 vs (15+9)×18: without brackets, only 9 is multiplied by 18 → 15 + 162 = 177. "
+                "With brackets, the whole sum (24) is multiplied by 18 → 432. "
+                "The bracketed form is more than twice as large."
+            ),
+            "related_params": ["questionIndex"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# EXPRESSION ENGINEER SIMULATION
+# ಸಮೀಕರಣ ಎಂಜಿನಿಯರ್ – Expression Engineer (Build Target Values)
+# Maths Chapter 2 – Whole Numbers (Expressions and Brackets)
+# Student level: medium
+# =============================================================================
+SIMULATIONS_MATHS_KN["expression_engineer_kn"] = {
+    "title": "ಸಮೀಕರಣ ಎಂಜಿನಿಯರ್ (Expression Engineer)",
+    "language": "kannada_maths",
+    "file": "maths_simulations_kannada/math_chapter2_simulation5_expression_engineer_kn.html",
+    "description": """
+An interactive Kannada-language puzzle simulation where students build arithmetic
+expressions from a fixed set of digits to match target values — exploring how
+operator choice and bracket placement change the result radically.
+
+Four challenges are available:
+- Three 3s (ಮೂರು 3ಗಳು): use exactly three 3s with +, −, ×, ÷ and brackets to make
+  each value in {0,1,2,3,...,12}.
+- Four 4s (ನಾಲ್ಕು 4ಗಳು): use exactly four 4s to make every integer from 1 to 20
+  (a famous NCERT textbook puzzle on page 45).
+- Use 2, 3, 5 (2, 3, 5 ಬಳಸಿ): use each of 2, 3, 5 exactly once to make
+  {−6, −4, 0, 1, 4, 6, 10}.
+- Pay ₹432 (₹432 ಪಾವತಿ): express ₹432 as a sum of products of currency denominations
+  (₹1, ₹5, ₹10, ₹20, ₹50, ₹100).
+
+A progress grid shows found / not-found / current target cells. Solutions are recorded
+for the current session. Hints are available for hard targets.
+
+The simulation teaches:
+- Operator precedence (BODMAS): multiplying before adding, brackets override all
+- How brackets change an expression's value radically
+- Flexible arithmetic thinking: multiple valid expressions per target
+- Real-world application: currency decomposition as a distributive product
+""",
+    "cannot_demonstrate": [
+        "Expressions requiring fractions (except where integer division is exact)",
+        "Using more or fewer digits than specified for each challenge",
+        "Building numbers outside each challenge's defined target set",
+        "Exponentiation or factorial operations",
+        "Multi-variable algebraic expressions"
+    ],
+    "initial_params": {
+        "challenge": "three3s",
+        "showHints": "true",
+    },
+    "parameter_info": {
+        "challenge": {
+            "label": "Challenge Type",
+            "range": "three3s, four4s, use235, pay432",
+            "url_key": "challenge",
+            "effect": (
+                "Selects which digit challenge opens on load.\n"
+                "  'three3s' → use exactly three 3s to make 0–12 (default)\n"
+                "  'four4s'  → use exactly four 4s to make 1–20 (NCERT pg 45 puzzle)\n"
+                "  'use235'  → use 2, 3, 5 each exactly once to make {−6,−4,0,1,4,6,10}\n"
+                "  'pay432'  → express ₹432 using currency denominations"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true, false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the insight box at the bottom.\n"
+                "  'true'  → insight box visible (default)\n"
+                "  'false' → insight box hidden"
+            )
+        },
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Same Digits, Different Operators → Different Results",
+            "description": (
+                "Changing the operators between the same set of digits can produce completely "
+                "different results. The expression 3+3−3, 3×3+3, 3×3−3, and (3+3)/3 "
+                "all use three 3s but give 3, 12, 6, and 2 respectively."
+            ),
+            "key_insight": (
+                "In the Three 3s challenge: try making 0 = (3−3)×3, then 6 = 3×3−3, then 12 = 3×3+3. "
+                "Each successive target requires a different operator combination with identical digits. "
+                "This shows that the OPERATOR, not just the digits, determines the value."
+            ),
+            "related_params": ["challenge"]
+        },
+        {
+            "id": 2,
+            "title": "Brackets Change Everything: BODMAS in Action",
+            "description": (
+                "Placing brackets around part of an expression forces that sub-expression "
+                "to be evaluated first, overriding the usual multiplication-before-addition order."
+            ),
+            "key_insight": (
+                "Four 4s: 4+4÷4+4 = 4+1+4 = 9 (without brackets, ÷ first). "
+                "(4+4)÷(4+4) = 8÷8 = 1 (with brackets, additions happen inside first). "
+                "Same digits, same operators, different bracket positions → completely different values. "
+                "This is the most direct demonstration of BODMAS rule."
+            ),
+            "related_params": ["challenge"]
+        },
+        {
+            "id": 3,
+            "title": "Currency as Sums of Products",
+            "description": (
+                "₹432 can be expressed as 4×100 + 1×20 + 1×10 + 2×1 or "
+                "as 8×50 + 1×10 + 4×5 + 2×1 — both are sums of denomination×count products. "
+                "This is the real-world meaning of the distributive property."
+            ),
+            "key_insight": (
+                "The ₹432 challenge mirrors how we physically make change: "
+                "choose how many of each denomination so the sum equals the target. "
+                "Mathematically, this is: amount = Σ (count × denomination), "
+                "a direct application of multiplication and addition."
+            ),
+            "related_params": ["challenge"]
+        }
+    ]
+}
+
+
+# =============================================================================
+# DECIMAL NUMBER LINE SIMULATION
+# ದಶಮಾಂಶ ಸಂಖ್ಯಾರೇಖೆ – Decimal Number Line (Zoom and Explore)
+# Maths Chapter 3 – Playing with Numbers (Decimals)
+# Student level: medium
+# =============================================================================
+SIMULATIONS_MATHS_KN["decimal_number_line_kn"] = {
+    "title": "ದಶಮಾಂಶ ಸಂಖ್ಯಾರೇಖೆ (Decimal Number Line)",
+    "language": "kannada_maths",
+    "file": "maths_simulations_kannada/math_chapter3_simulation1_decimal_number_line_kn.html",
+    "description": """
+An interactive Kannada-language simulation that helps students locate decimal numbers
+on a number line through progressive zoom, discover patterns in decimal sequences,
+and answer quiz questions about decimal place value.
+
+Three tabs are available:
+- Explore (ಅನ್ವೇಷಿಸಿ): a slider selects any decimal from 0.000 to 9.999. Three stacked
+  number lines (zoom levels 1, 2, 3) show the number's position between consecutive
+  whole numbers, between consecutive tenths, and between consecutive hundredths.
+  Pre-set buttons load notable examples (4.185, 0.274, 9.876, 0.407, 1.5, 0.05).
+- Sequence (ಅನುಕ್ರಮ): 7 preset arithmetic sequences with decimal step, each showing
+  known terms (white) and predicted next 3 terms (yellow). Students discover the
+  step size and verify their predictions.
+- Quiz (ರಸಪ್ರಶ್ನೆ): 10 multiple-choice questions covering position on number line,
+  comparing decimals, trailing zeros (0.2 = 0.20 ≠ 0.02), and converting tenths/hundredths.
+
+The simulation teaches:
+- Each decimal place divides the previous unit into 10 equal parts
+- Successive zoom reveals increasing precision: tenths → hundredths → thousandths
+- Trailing zeros (0.20) do not change value; position zeros (0.02) do
+- Comparing decimals column by column from the decimal point
+""",
+    "cannot_demonstrate": [
+        "Negative decimal numbers",
+        "Decimal arithmetic (addition/subtraction with carrying)",
+        "Decimals beyond the thousandths place",
+        "Converting fractions to decimals algorithmically",
+        "Irrational or recurring decimals"
+    ],
+    "initial_params": {
+        "mode": "explore",
+        "num": 4.185,
+        "seqIndex": 0,
+        "quizIndex": 0,
+        "showHints": "true",
+    },
+    "parameter_info": {
+        "mode": {
+            "label": "Simulation Tab",
+            "range": "explore, sequence, quiz",
+            "url_key": "mode",
+            "effect": (
+                "Selects the active tab on load.\n"
+                "  'explore'  → three zoom-level number lines (default)\n"
+                "  'sequence' → decimal arithmetic-sequence patterns\n"
+                "  'quiz'     → 10 multiple-choice decimal questions"
+            )
+        },
+        "num": {
+            "label": "Decimal Number",
+            "range": "0.001 – 9.999 (float, 3 decimal places)",
+            "url_key": "num",
+            "effect": (
+                "In explore mode, sets the decimal value shown on all three zoom-level number lines.\n"
+                "The purple marker moves to the exact position; the description below the display "
+                "lists the units, tenths, hundredths, and thousandths components."
+            )
+        },
+        "seqIndex": {
+            "label": "Sequence Preset Index",
+            "range": "0-6 (integer)",
+            "url_key": "seqIndex",
+            "effect": (
+                "In sequence tab, selects which preset arithmetic sequence is shown.\n"
+                "  0 → 4.4, 4.8, 5.2, 5.6  (step +0.4)  — gentle intro to decimal sequences\n"
+                "  1 → 4.4, 4.45, 4.5       (step +0.05) — hundredths-step pattern\n"
+                "  2 → 25.75, 26.25, 26.75  (step +0.5)  — half-step pattern\n"
+                "  3 → 10.56, 10.67, 10.78  (step +0.11) — hundredths step\n"
+                "  4 → 8.5, 9.4, 10.3       (step +0.9)  — tenths close to whole units\n"
+                "  5 → 5, 4.95, 4.90        (step −0.05) — decreasing hundredths\n"
+                "  6 → 12.45, 11.95, 11.45  (step −0.5)  — decreasing by 0.5"
+            )
+        },
+        "quizIndex": {
+            "label": "Starting Quiz Question",
+            "range": "0-9 (integer)",
+            "url_key": "quizIndex",
+            "effect": (
+                "In quiz tab, sets the starting question index.\n"
+                "  0 → 'Where is 1.4 on the number line?' (position)\n"
+                "  1 → 'Which is greater: 1.23 or 1.32?' (comparison)\n"
+                "  3 → 'Are 0.2 and 0.20 equal?' (trailing zeros)\n"
+                "  4 → 'Are 0.2 and 0.02 equal?' (position zeros)\n"
+                "  5 → 'Which is closest to 1: 0.9, 1.01, 1.1?' (proximity)\n"
+                "  8 → 'What is 234 tenths in decimal?' (conversion)"
+            )
+        },
+        "showHints": {
+            "label": "Show Hints",
+            "range": "true, false",
+            "url_key": "showHints",
+            "effect": (
+                "Controls visibility of the zoom-explanation insight box at the bottom.\n"
+                "  'true'  → insight box visible (default)\n"
+                "  'false' → insight box hidden"
+            )
+        },
+    },
+    "concepts": [
+        {
+            "id": 1,
+            "title": "Each Decimal Place is 10× More Precise",
+            "description": (
+                "The tenths place divides each whole unit into 10 equal parts. "
+                "The hundredths place divides each tenth into 10 equal parts (giving 100 per whole unit). "
+                "The thousandths place divides each hundredth into 10 (1000 per whole unit)."
+            ),
+            "key_insight": (
+                "Set num=4.185 in explore mode. Zoom level 1: marker between 4 and 5. "
+                "Zoom level 2: marker between 4.1 and 4.2. "
+                "Zoom level 3: marker between 4.18 and 4.19. "
+                "Each zoom level 'magnifies' one interval by 10×, showing increasing precision."
+            ),
+            "related_params": ["mode", "num"]
+        },
+        {
+            "id": 2,
+            "title": "Comparing Decimals: Column by Column From the Decimal Point",
+            "description": (
+                "To compare 1.23 and 1.32: both have 1 whole unit; "
+                "compare tenths (2 vs 3) — since 3 > 2, we know 1.32 > 1.23 "
+                "without looking at hundredths."
+            ),
+            "key_insight": (
+                "1.009 vs 1.090: same whole (1), same tenths (0 in both), "
+                "compare hundredths: 0 vs 9 → 1.090 > 1.009. "
+                "A digit in a higher place (hundredths) dominates digits in lower places. "
+                "The quiz question at index 2 tests this."
+            ),
+            "related_params": ["mode", "quizIndex"]
+        },
+        {
+            "id": 3,
+            "title": "Trailing Zeros vs Position Zeros",
+            "description": (
+                "0.2 = 0.20 = 0.200 (trailing zeros after the last non-zero digit do not change value). "
+                "But 0.2 ≠ 0.02 ≠ 0.002 (leading zeros after the decimal point DO change value — "
+                "these are 'position zeros' that shift the significant digit to a smaller place)."
+            ),
+            "key_insight": (
+                "0.2 = 2 tenths. 0.20 = 20 hundredths = 2 tenths. Same position, same value. "
+                "0.02 = 2 hundredths — the 2 is in a different (smaller) place! "
+                "Number line: 0.2 is far right; 0.02 is 10× closer to 0."
+            ),
+            "related_params": ["mode", "num", "quizIndex"]
+        }
+    ]
+}
+
+
 # ═══════════════════════════════════════════════════════════════════════
 # QUIZ QUESTIONS — KANNADA MATHS SIMULATIONS
 # ═══════════════════════════════════════════════════════════════════════
@@ -1566,6 +2254,319 @@ QUIZ_QUESTIONS_MATHS_KN["expression_evaluator_kn"] = [
         )
     }
 ]
+
+
+# ─────────────────────────────────────────────────────────────────────
+# brackets_signs_kn
+# ─────────────────────────────────────────────────────────────────────
+QUIZ_QUESTIONS_MATHS_KN["brackets_signs_kn_q1"] = {
+    "simulation": "brackets_signs_kn",
+    "question": (
+        "ಈ ಕೆಳಗಿನ ಸಮೀಕರಣವನ್ನು ನೋಡಿ: 200 − (40 + 3). "
+        "ಆವರಣ ತೆಗೆದ ನಂತರ ಚಿಹ್ನೆಗಳು ಹೇಗೆ ಬದಲಾಗುತ್ತವೆ? "
+        "Simulation ನಲ್ಲಿ Problem 0 ಅನ್ನು Learn ಮೋಡ್‌ನಲ್ಲಿ ತೆರೆದು ಪ್ರತಿ ಹಂತ ಗಮನಿಸಿ."
+    ),
+    "target_params": {"mode": "learn", "problemIndex": 0, "showHints": "true"},
+    "concept_tag": "Minus before brackets flips all signs",
+    "expected_insight": (
+        "200 − (40 + 3) = 200 − 40 − 3 = 157. "
+        "ಮೈನಸ್ ಚಿಹ್ನೆ ಆವರಣದ ಮುಂದೆ ಇದ್ದಾಗ, ಒಳಗಿನ ಪ್ರತಿ ಚಿಹ್ನೆ ಬದಲಾಯಿಸಿ: + ಆಗುತ್ತದೆ −."
+    ),
+    "success_rule": "mode == 'learn' and problemIndex == 0",
+    "question_kannada": (
+        "200 − (40 + 3) ಎಂಬ ಸಮೀಕರಣದಲ್ಲಿ ಆವರಣ ತೆಗೆದ ನಂತರ "
+        "40 ಮತ್ತು 3 ಎರಡರ ಮುಂದೆ ಯಾವ ಚಿಹ್ನೆ ಬರುತ್ತದೆ?"
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["brackets_signs_kn_q2"] = {
+    "simulation": "brackets_signs_kn",
+    "question": (
+        "ಸಮೀಕರಣ 500 − (250 − 100) ಅನ್ನು ನೋಡಿ. "
+        "ಇಲ್ಲಿ ಆವರಣದ ಮುಂದೆ ಮೈನಸ್ ಇದ್ದಾಗ, −100 ಆವರಣ ತೆಗೆದ ನಂತರ +100 ಆಗಬೇಕು ಏಕೆ? "
+        "Simulation ನಲ್ಲಿ Problem 1 ಅನ್ನು ತೆರೆದು ಮೂರು ಹಂತಗಳ ವಿವರಣೆ ಗಮನಿಸಿ."
+    ),
+    "target_params": {"mode": "learn", "problemIndex": 1, "showHints": "true"},
+    "concept_tag": "Minus before brackets flips minus-sign inside to plus",
+    "expected_insight": (
+        "500 − (250 − 100) = 500 − 250 + 100 = 350. "
+        "ಮೈನಸ್ ಚಿಹ್ನೆ ಒಳಗಿನ −100 ಅನ್ನು +100 ಮಾಡುತ್ತದೆ. "
+        "ಕಾರಣ: ನಾವು 'ಒಂದು ವ್ಯತ್ಯಾಸ'ವನ್ನು ಕಳೆಯುತ್ತೇವೆ, ಆಗ ಹೆಚ್ಚು ಕಳೆದದ್ದನ್ನು ಮರಳಿ ಕೂಡಿಸಬೇಕು."
+    ),
+    "success_rule": "mode == 'learn' and problemIndex == 1",
+    "question_kannada": (
+        "500 − (250 − 100) ರಲ್ಲಿ, ಆವರಣ ತೆಗೆದ ನಂತರ −100, +100 ಆಗುವುದು ಏಕೆ ಎಂದು ವಿವರಿಸಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["brackets_signs_kn_q3"] = {
+    "simulation": "brackets_signs_kn",
+    "question": (
+        "Quiz ಮೋಡ್‌ಗೆ ಹೋಗಿ. ಸಿಮ್ಯುಲೇಷನ್ ನೀಡುವ ಮೊದಲ ಪ್ರಶ್ನೆಯಲ್ಲಿ ಆವರಣ ಸರಿಯಾಗಿ ಬಿಡಿ ಮಾಡಿದ "
+        "ಉತ್ತರ ಆಯ್ಕೆ ಮಾಡಿ. ಮೈನಸ್ ಚಿಹ್ನೆ ಇದ್ದರೆ ಅಥವಾ ಪ್ಲಸ್ ಚಿಹ್ನೆ ಇದ್ದರೆ ಎರಡೂ ನಿಯಮ ನೆನಪಿಸಿಕೊಳ್ಳಿ."
+    ),
+    "target_params": {"mode": "quiz", "quizIndex": 0, "showHints": "true"},
+    "concept_tag": "Apply both sign rules in quiz context",
+    "expected_insight": (
+        "ಸಿಮ್ಯುಲೇಷನ್‌ನ Quiz ನಲ್ಲಿ: ಪ್ರತಿ ಆಯ್ಕೆ ನೋಡಿ ಯಾವ ಚಿಹ್ನೆ ಸರಿಯಾಗಿ ಬದಲಾಗಿದೆ / ಉಳಿದಿದೆ ಎಂದು ಪರಿಶೀಲಿಸಿ. "
+        "ಮೈನಸ್ → ಎಲ್ಲ ಚಿಹ್ನೆ ಬದಲು; ಪ್ಲಸ್ → ಎಲ್ಲ ಚಿಹ್ನೆ ಹಾಗೆಯೇ."
+    ),
+    "success_rule": "mode == 'quiz' and quizIndex == 0",
+    "question_kannada": (
+        "Quiz ಮೋಡ್‌ನಲ್ಲಿ, ಆವರಣ ತೆಗೆದ ನಂತರ ಸರಿಯಾದ ರೂಪ ಯಾವುದು ಎಂದು ಆಯ್ಕೆ ಮಾಡಿ."
+    ),
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# distributive_kn
+# ─────────────────────────────────────────────────────────────────────
+QUIZ_QUESTIONS_MATHS_KN["distributive_kn_q1"] = {
+    "simulation": "distributive_kn",
+    "question": (
+        "Simulation ನಲ್ಲಿ Dot Array ಮೋಡ್ ತೆರೆಯಿರಿ, a=2, b=3, c=5 ಇಟ್ಟು ನೋಡಿ. "
+        "ನೀಲಿ ಮತ್ತು ಹಸಿರು ಚುಕ್ಕೆಗಳ ಸಂಖ್ಯೆ ಎಣಿಸಿ. "
+        "2 × (3+5) = 2×3 + 2×5 ಎಂಬ ಸಂಬಂಧ ನಿಜ ಎಂದು ತೋರಿಸಿ."
+    ),
+    "target_params": {"mode": "dots", "a": 2, "b": 3, "c": 5, "showHints": "true"},
+    "concept_tag": "Distributive property visual dot array",
+    "expected_insight": (
+        "2 × (3+5) = 2 × 8 = 16. "
+        "ನೀಲಿ: 2×3 = 6 ಚುಕ್ಕೆಗಳು; ಹಸಿರು: 2×5 = 10 ಚುಕ್ಕೆಗಳು; ಒಟ್ಟು 6+10 = 16. "
+        "ಎರಡೂ ಕಡೆ ಒಂದೇ ಉತ್ತರ — ವಿಭಾಜಕ ಗುಣ ದೃಶ್ಯವಾಗಿ ನಿಜ."
+    ),
+    "success_rule": "mode == 'dots' and a == 2 and b == 3 and c == 5",
+    "question_kannada": (
+        "2 × (3 + 5) = 2×3 + 2×5 ಎಂದು Dot Array ಮಾದರಿ ಉಪಯೋಗಿಸಿ ತೋರಿಸಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["distributive_kn_q2"] = {
+    "simulation": "distributive_kn",
+    "question": (
+        "Area Model ಮೋಡ್ ತೆರೆಯಿರಿ, a=4, b=3, c=5 ಇಟ್ಟು ನೋಡಿ. "
+        "ನೀಲಿ ಆಯತ ಮತ್ತು ಹಸಿರು ಆಯತದ ವಿಸ್ತೀರ್ಣ ಲೆಕ್ಕ ಹಾಕಿ. "
+        "ಒಟ್ಟು ಆಯತದ ವಿಸ್ತೀರ್ಣ 4×(3+5) = 4×8 = 32 ಎಂದು ಖಚಿತಪಡಿಸಿ."
+    ),
+    "target_params": {"mode": "area", "a": 4, "b": 3, "c": 5, "showHints": "true"},
+    "concept_tag": "Distributive property area model visual proof",
+    "expected_insight": (
+        "ನೀಲಿ ಭಾಗ: 4×3 = 12 ಚೌಕ ಘಟಕಗಳು (ಶ್ರೇಣಿಗಳ ಮೂಲಕ ಎಣಿಸಬಹುದು). "
+        "ಹಸಿರು ಭಾಗ: 4×5 = 20 ಚೌಕ ಘಟಕಗಳು. ಒಟ್ಟು = 32 = 4×8. "
+        "ಒಂದೇ ಆಯತ ಎರಡು ಭಾಗಗಳಾಗಿ ವಿಭಜಿಸಿದರೂ ಒಟ್ಟು ವಿಸ್ತೀರ್ಣ ಬದಲಾಗುವುದಿಲ್ಲ."
+    ),
+    "success_rule": "mode == 'area' and a == 4 and b == 3 and c == 5",
+    "question_kannada": (
+        "Area Model ಉಪಯೋಗಿಸಿ 4×(3+5) = 4×3 + 4×5 ಎಂದು ದೃಶ್ಯಪ್ರಮಾಣ ನೀಡಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["distributive_kn_q3"] = {
+    "simulation": "distributive_kn",
+    "question": (
+        "Mental Math ಮೋಡ್ ತೆರೆಯಿರಿ, Example 0 (97 × 25) ನೋಡಿ. "
+        "97 ಅನ್ನು (100 − 3) ಎಂದು ಬದಲಾಯಿಸಿ, ನಂತರ ವಿಭಾಜಕ ಗುಣ ಉಪಯೋಗಿಸಿ "
+        "97×25 ಎಷ್ಟು ಎಂದು ಮಾನಸಿಕ ಲೆಕ್ಕ ಹಾಕಿ."
+    ),
+    "target_params": {"mode": "mental", "mentalMathIndex": 0, "showHints": "true"},
+    "concept_tag": "Mental math via distributive property decomposition",
+    "expected_insight": (
+        "97 × 25 = (100 − 3) × 25 = 100×25 − 3×25 = 2500 − 75 = 2425. "
+        "ಕಷ್ಟದ ಗುಣಾಕಾರ ಸುಲಭ ಗೋಲ ಸಂಖ್ಯೆ ± ಸಣ್ಣ ತಿದ್ದುಪಡಿ ಮೂಲಕ ಬಗೆಹರಿಸಲಾಗುತ್ತದೆ."
+    ),
+    "success_rule": "mode == 'mental' and mentalMathIndex == 0",
+    "question_kannada": (
+        "97 × 25 ಅನ್ನು (100 − 3) × 25 ಎಂದು ಬಿಡಿ ಮಾಡಿ ಮಾನಸಿಕ ಲೆಕ್ಕ ಹಾಕಿ."
+    ),
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# expression_compare_kn
+# ─────────────────────────────────────────────────────────────────────
+QUIZ_QUESTIONS_MATHS_KN["expression_compare_kn_q1"] = {
+    "simulation": "expression_compare_kn",
+    "question": (
+        "Simulation ತೆರೆಯಿರಿ. ಮೊದಲ ಪ್ರಶ್ನೆಯಿಂದ ಆರಂಭಿಸಿ. "
+        "ಎರಡೂ ಸಮೀಕರಣಗಳಿಗಿಂತ ಯಾವ ಭಾಗ ಬದಲಾಗಿದೆ — ಅದನ್ನು ನೋಡಿ < / = / > ನಿರ್ಧರಿಸಿ. "
+        "ಉತ್ತರ ಒತ್ತಿ ವಿವರಣೆ ಓದಿ."
+    ),
+    "target_params": {"questionIndex": 0, "showHints": "true"},
+    "concept_tag": "Compare by spotting what changed",
+    "expected_insight": (
+        "1023+125 vs 1022+128: ಎಡಕ್ಕೆ −1, ಬಲಕ್ಕೆ +3 → ಬಲ ಕಡೆ 2 ಹೆಚ್ಚಾಗಿದೆ → ಎಡ < ಬಲ. "
+        "ಎಲ್ಲ ಗಣನೆ ಮಾಡದೆ, ಬದಲಾದ ಭಾಗ ಮಾತ್ರ ನೋಡಿ ಉತ್ತರ ಕಂಡುಕೊಳ್ಳಬಹುದು."
+    ),
+    "success_rule": "questionIndex == 0",
+    "question_kannada": (
+        "1023+125 ಮತ್ತು 1022+128 ಹೋಲಿಸಿ. ಎರಡೂ ಲೆಕ್ಕ ಮಾಡದೆ ಉತ್ತರ ಹೇಳಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["expression_compare_kn_q2"] = {
+    "simulation": "expression_compare_kn",
+    "question": (
+        "Simulation ನಲ್ಲಿ questionIndex=9 ಇಟ್ಟು ತೆರೆಯಿರಿ. "
+        "(34−28)×42 ಮತ್ತು 34×42 − 28×42 ಹೋಲಿಸಿ. "
+        "ವಿಭಾಜಕ ಗುಣ ನೆನಪು ಮಾಡಿಕೊಂಡು ಉತ್ತರ ಆಯ್ಕೆ ಮಾಡಿ."
+    ),
+    "target_params": {"questionIndex": 9, "showHints": "true"},
+    "concept_tag": "Distributive property reveals equality",
+    "expected_insight": (
+        "(34−28)×42 = 6×42 = 252. 34×42 − 28×42 = 42×(34−28) = 42×6 = 252. "
+        "ವಿಭಾಜಕ ಗುಣದಿಂದ ಎರಡೂ ಒಂದೇ. =."
+    ),
+    "success_rule": "questionIndex == 9",
+    "question_kannada": (
+        "(34−28)×42 ಮತ್ತು 34×42 − 28×42 ಇವುಗಳ ಸಂಬಂಧ ಹೇಳಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["expression_compare_kn_q3"] = {
+    "simulation": "expression_compare_kn",
+    "question": (
+        "questionIndex=7 ಇಟ್ಟು Simulation ತೆರೆಯಿರಿ. "
+        "15+9×18 ಮತ್ತು (15+9)×18 ಹೋಲಿಸಿ. "
+        "BODMAS ನಿಯಮ ಉಪಯೋಗಿಸಿ ಯಾವ ಕಡೆ ಮೌಲ್ಯ ಹೆಚ್ಚು ಎಂದು ನಿರ್ಧರಿಸಿ."
+    ),
+    "target_params": {"questionIndex": 7, "showHints": "true"},
+    "concept_tag": "BODMAS: brackets change computation order",
+    "expected_insight": (
+        "ಆವರಣ ಇಲ್ಲದೆ: 15 + 9×18 = 15 + 162 = 177. "
+        "ಆವರಣ ಇದ್ದರೆ: (15+9)×18 = 24×18 = 432. "
+        "ಬಲ ಕಡೆ ಎರಡಕ್ಕಿಂತ ಹೆಚ್ಚು. ಆವರಣ ಇರಿಸಿದ ಸ್ಥಳ ಮೌಲ್ಯ ಮೇಲೆ ಬಹು ಪ್ರಭಾವ ಬೀರುತ್ತದೆ."
+    ),
+    "success_rule": "questionIndex == 7",
+    "question_kannada": (
+        "15+9×18 ಮತ್ತು (15+9)×18 ಹೋಲಿಸಿ. BODMAS ಉಪಯೋಗಿಸಿ."
+    ),
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# expression_engineer_kn
+# ─────────────────────────────────────────────────────────────────────
+QUIZ_QUESTIONS_MATHS_KN["expression_engineer_kn_q1"] = {
+    "simulation": "expression_engineer_kn",
+    "question": (
+        "ಮೂರು 3ಗಳ (three3s) challenge ತೆರೆಯಿರಿ. "
+        "ಗುರಿ ಸಂಖ್ಯೆ 0 ಮಾಡಲು 3, 3, 3 ಮತ್ತು +, −, ×, ÷, () ಬಳಕೆ ಮಾಡಿ ಒಂದು ಸಮೀಕರಣ ಬರೆಯಿರಿ. "
+        "ನಂತರ ಗುರಿ 6 ಮತ್ತು 12 ಕೂಡ ಮಾಡಲು ಪ್ರಯತ್ನಿಸಿ."
+    ),
+    "target_params": {"challenge": "three3s", "showHints": "true"},
+    "concept_tag": "Same digits different operators different results",
+    "expected_insight": (
+        "0 = (3−3)×3 ಅಥವಾ 3−3−0×3 ಸಾಧ್ಯ. "
+        "6 = 3×3−3. 12 = 3×3+3. "
+        "ಒಂದೇ ಮೂರು 3ಗಳಿಂದ ವಿವಿಧ ಮೌಲ್ಯಗಳಿಗೆ ತಲುಪಬಹುದು — ಕಾರ್ಯಾಚರಣೆ ಬದಲಾದಾಗ ಫಲಿತಾಂಶ ಬದಲಾಗುತ್ತದೆ."
+    ),
+    "success_rule": "challenge == 'three3s'",
+    "question_kannada": (
+        "ಮೂರು 3ಗಳಿಂದ 0, 6, 12 ಮಾಡಬಲ್ಲ ಸಮೀಕರಣ ಬರೆಯಿರಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["expression_engineer_kn_q2"] = {
+    "simulation": "expression_engineer_kn",
+    "question": (
+        "ನಾಲ್ಕು 4ಗಳ (four4s) challenge ತೆರೆಯಿರಿ. "
+        "ಗುರಿ 1 ಮಾಡಲು ನಾಲ್ಕು 4ಗಳಿಂದ ಸಮೀಕರಣ ಬರೆಯಿರಿ. "
+        "ನಂತರ ಗುರಿ 4 ಮತ್ತು 8 ಕೂಡ ಸಾಧಿಸಿ."
+    ),
+    "target_params": {"challenge": "four4s", "showHints": "true"},
+    "concept_tag": "Brackets change expression value dramatically",
+    "expected_insight": (
+        "1 = (4+4)÷(4+4) ಅಥವಾ 44÷44. "
+        "4 = 4×(4−4)+4 ಅಥವಾ 4+4×(4−4). "
+        "8 = 4+4+4−4. "
+        "ಆವರಣ ಇರಿಸುವ ಸ್ಥಳ ಬದಲಾಯಿಸಿದಾಗ ಫಲಿತಾಂಶ ಬಹಳ ಬದಲಾಗುತ್ತದೆ."
+    ),
+    "success_rule": "challenge == 'four4s'",
+    "question_kannada": (
+        "ನಾಲ್ಕು 4ಗಳಿಂದ 1, 4, 8 ಮಾಡಬಲ್ಲ ಸಮೀಕರಣ ಬರೆಯಿರಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["expression_engineer_kn_q3"] = {
+    "simulation": "expression_engineer_kn",
+    "question": (
+        "₹432 ಪಾವತಿ (pay432) challenge ತೆರೆಯಿರಿ. "
+        "₹100, ₹50, ₹20, ₹10, ₹5 ಮತ್ತು ₹1 ನೋಟುಗಳ ಸಂಖ್ಯೆ ಆಯ್ಕೆ ಮಾಡಿ "
+        "ಮೊತ್ತ ₹432 ಬರುವಂತೆ ಮಾಡಿ."
+    ),
+    "target_params": {"challenge": "pay432", "showHints": "true"},
+    "concept_tag": "Currency amount as sum of products",
+    "expected_insight": (
+        "ಒಂದು ಉತ್ತರ: 4×100 + 1×20 + 1×10 + 2×1 = 400 + 20 + 10 + 2 = 432. "
+        "ಇದು ವಿಭಾಜಕ ಗುಣದ ನೈಜ ಜೀವನ ಅನ್ವಯ — "
+        "ಮೊತ್ತ = Σ (ಎಣಿಕೆ × ಮೌಲ್ಯ)."
+    ),
+    "success_rule": "challenge == 'pay432'",
+    "question_kannada": (
+        "₹432 ಅನ್ನು ನೋಟು/ನಾಣ್ಯ ಸಂಯೋಜನೆ ಮೂಲಕ ಮಾಡಿ."
+    ),
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# decimal_number_line_kn
+# ─────────────────────────────────────────────────────────────────────
+QUIZ_QUESTIONS_MATHS_KN["decimal_number_line_kn_q1"] = {
+    "simulation": "decimal_number_line_kn",
+    "question": (
+        "Explore ಮೋಡ್ ತೆರೆಯಿರಿ, num=4.185 ಇಟ್ಟು ನೋಡಿ. "
+        "Zoom 1, Zoom 2, Zoom 3 ಮೂರೂ ಸಂಖ್ಯಾರೇಖೆ ನೋಡಿ ಈ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರ ಹೇಳಿ: "
+        "4.185 ಇರುವ ಸ್ಥಾನ Zoom 1 ರಲ್ಲಿ, Zoom 2 ರಲ್ಲಿ, Zoom 3 ರಲ್ಲಿ ಯಾವ ಎರಡು ಮೌಲ್ಯಗಳ ನಡುವೆ ಇದೆ?"
+    ),
+    "target_params": {"mode": "explore", "num": 4.185, "showHints": "true"},
+    "concept_tag": "Each decimal place 10x more precise zoom reveals position",
+    "expected_insight": (
+        "Zoom 1: 4 ಮತ್ತು 5 ನಡುವೆ. "
+        "Zoom 2: 4.1 ಮತ್ತು 4.2 ನಡುವೆ. "
+        "Zoom 3: 4.18 ಮತ್ತು 4.19 ನಡುವೆ. "
+        "ಪ್ರತಿ ಝೂಮ್ ಮಟ್ಟ 10× ಹೆಚ್ಚು ನಿಖರ."
+    ),
+    "success_rule": "mode == 'explore' and abs(num - 4.185) < 0.001",
+    "question_kannada": (
+        "4.185 ಅನ್ನು ಮೂರು ಝೂಮ್ ಮಟ್ಟಗಳಲ್ಲಿ ಗುರುತಿಸಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["decimal_number_line_kn_q2"] = {
+    "simulation": "decimal_number_line_kn",
+    "question": (
+        "Sequence ಮೋಡ್ ತೆರೆಯಿರಿ, seqIndex=1 ಇಟ್ಟು ನೋಡಿ. "
+        "4.4, 4.45, 4.5 ಅನುಕ್ರಮ ನೋಡಿ: ಅಡ್ಡಹೆಜ್ಜೆ (step) ಎಷ್ಟು? "
+        "ಮುಂದಿನ ಮೂರು ಮೌಲ್ಯಗಳು ಎಷ್ಟು ಎಂದು ಊಹಿಸಿ, ನಂತರ ಖಚಿತಪಡಿಸಿ."
+    ),
+    "target_params": {"mode": "sequence", "seqIndex": 1, "showHints": "true"},
+    "concept_tag": "Decimal arithmetic sequences hundredths step",
+    "expected_insight": (
+        "Step = 4.45 − 4.4 = 0.05. "
+        "ಮುಂದಿನ ಮೌಲ್ಯಗಳು: 4.55, 4.60, 4.65. "
+        "ಪ್ರತಿ ಹಂತ 5 ಶತಮಾನ (hundredths) ಹೆಚ್ಚಾಗುತ್ತದೆ."
+    ),
+    "success_rule": "mode == 'sequence' and seqIndex == 1",
+    "question_kannada": (
+        "4.4, 4.45, 4.5 ಅನುಕ್ರಮದ step ಮತ್ತು ಮುಂದಿನ 3 ಮೌಲ್ಯ ಹೇಳಿ."
+    ),
+}
+
+QUIZ_QUESTIONS_MATHS_KN["decimal_number_line_kn_q3"] = {
+    "simulation": "decimal_number_line_kn",
+    "question": (
+        "Quiz ಮೋಡ್ ತೆರೆಯಿರಿ, quizIndex=3 ಇಟ್ಟು ತೆರೆಯಿರಿ. "
+        "0.2 ಮತ್ತು 0.20 ಒಂದೇ ಎ? 0.2 ಮತ್ತು 0.02 ಒಂದೇ ಎ? "
+        "ಎರಡೂ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರ ಕೊಡಿ ಮತ್ತು ಕಾರಣ ವಿವರಿಸಿ."
+    ),
+    "target_params": {"mode": "quiz", "quizIndex": 3, "showHints": "true"},
+    "concept_tag": "Trailing zeros vs position zeros in decimals",
+    "expected_insight": (
+        "0.2 = 0.20: ಹೌದು, ಒಂದೇ. ಕೊನೆ ಶೂನ್ಯ ಮೌಲ್ಯ ಬದಲಿಸುವುದಿಲ್ಲ (trailing zero). "
+        "0.2 ≠ 0.02: ಇಲ್ಲ, ಬೇರೆ. 0.02 = 2 ಶತಮಾನ = 0.2 ÷ 10 (position zero). "
+        "ಲೇಖನ ಶೂನ್ಯ (trailing) vs ಸ್ಥಾನ ಶೂನ್ಯ (position) ವ್ಯತ್ಯಾಸ ತಿಳಿಯಿರಿ."
+    ),
+    "success_rule": "mode == 'quiz' and quizIndex == 3",
+    "question_kannada": (
+        "0.2 ಮತ್ತು 0.20 ಒಂದೇ ಏಕೆ? 0.2 ಮತ್ತು 0.02 ಬೇರೆ ಏಕೆ ?"
+    ),
+}
 
 
 # ═══════════════════════════════════════════════════════════════════════
