@@ -3513,6 +3513,80 @@ SIMULATIONS["nonuniform_motion_kn"] = {
 }
 
 # =============================================================================
+# ಕನ್ನಡ ಗಣಿತ ಸಿಮ್ಯುಲೇಷನ್‌ಗಳು (Kannada Maths Simulations)
+# =============================================================================
+# GitHub Pages base URL for the Kannada maths simulations folder
+GITHUB_PAGES_BASE_MATHS_KN = (
+    "https://imhv0609.github.io/simulation_to_concept_version3_github_modified"
+    "/maths_simulations_kannada"
+)
+
+# Each Kannada maths simulation is added directly to the SIMULATIONS dict so
+# that build_simulation_url() and get_default_params() work without modification.
+# A "language": "kannada_maths" field is added so the sidebar groups them separately.
+
+# =============================================================================
+# PLACE VALUE CALCULATOR SIMULATION (Kannada Maths)
+# ಸ್ಥಾನ ಬೆಲೆ ಕ್ಯಾಲ್ಕುಲೇಟರ್ – ಸ್ಥಾನ ಬೆಲೆ ಬಟನ್‌ಗಳಿಂದ ಸಂಖ್ಯೆ ನಿರ್ಮಾಣ
+# Maths Chapter 1 – Knowing Our Numbers (Place Value)
+# =============================================================================
+SIMULATIONS["place_value_calculator_kn"] = {
+    "name": "ಸ್ಥಾನ ಬೆಲೆ ಕ್ಯಾಲ್ಕುಲೇಟರ್ (Place Value Calculator)",
+    "language": "kannada_maths",
+    "description": (
+        "ಸ್ಥಾನ ಬೆಲೆ ಬಟನ್‌ಗಳಿಂದ ಸಂಖ್ಯೆಗಳನ್ನು ನಿರ್ಮಿಸಿ — ಭಾರತೀಯ ಸ್ಥಾನ ಬೆಲೆ ವ್ಯವಸ್ಥೆ ಅಧ್ಯಯನ ಮಾಡಿ.\n"
+        "Build numbers using place-value buttons and discover the Indian place value system."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter1_simulation1_place_value_calculator_kn.html"
+    ),
+    # ── Parameter definitions ────────────────────────────────────────────────
+    # mode        : select   — challenge mode or free explore mode
+    # targetIndex : number   — which preset target number (0-9)
+    # restrict    : select   — which place-value button is active
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಮೋಡ್ (Mode)",
+            "default": "challenge",
+            "options": ["challenge", "free"],
+            "option_labels": [
+                "ಸವಾಲು ಮೋಡ್ (Challenge — build a target number)",
+                "ಉಚಿತ ಅನ್ವೇಷಣೆ (Free Explore — build any number)"
+            ],
+            "url_param": "mode"
+        },
+        {
+            "name": "targetIndex",
+            "type": "number",
+            "display_name": "ಗುರಿ ಸಂಖ್ಯೆ ಸೂಚ್ಯಂಕ (Target Number Index)",
+            "default": 0,
+            "min": 0,
+            "max": 9,
+            "url_param": "targetIndex"
+        },
+        {
+            "name": "restrict",
+            "type": "select",
+            "display_name": "ಬಟನ್ ನಿರ್ಬಂಧ (Button Restriction)",
+            "default": "all",
+            "options": ["all", "1000", "100", "10"],
+            "option_labels": [
+                "ಎಲ್ಲಾ ಬಟನ್‌ಗಳು (All buttons)",
+                "+1K ಮಾತ್ರ (Only +1,000)",
+                "+100 ಮಾತ್ರ (Only +100)",
+                "+10 ಮಾತ್ರ (Only +10)"
+            ],
+            "url_param": "restrict"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Knowing Our Numbers (ಸಂಖ್ಯೆಗಳ ಪರಿಚಯ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================

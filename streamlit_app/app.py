@@ -23,6 +23,11 @@ try:
 except ImportError:
     KN_SIMULATION_IDS = []
 
+try:
+    from maths_simulations_config_kannada import MATHS_KN_SIMULATION_IDS
+except ImportError:
+    MATHS_KN_SIMULATION_IDS = []
+
 # Import components
 from components.simulation import (
     render_simulation_single
@@ -410,16 +415,28 @@ def render_sidebar():
             for sim in all_simulations
             if sim.get("language") == "kannada"
         }
+        kannada_maths_sim_options = {
+            sim["title"]: sim["id"]
+            for sim in all_simulations
+            if sim.get("language") == "kannada_maths"
+        }
 
         if not st.session_state.session_started:
             # Radio to choose simulation category
             current_is_kn = st.session_state.current_simulation in KN_SIMULATION_IDS
+            current_is_maths_kn = st.session_state.current_simulation in MATHS_KN_SIMULATION_IDS
+            if current_is_maths_kn:
+                default_cat_idx = 2
+            elif current_is_kn:
+                default_cat_idx = 1
+            else:
+                default_cat_idx = 0
             sim_category = st.radio(
                 "Simulation type:",
-                ["🔬 English Simulations", "🔬 ಕನ್ನಡ ಸಿಮ್ಯುಲೇಷನ್‌ಗಳು"],
-                index=1 if current_is_kn else 0,
+                ["🔬 English Simulations", "🔬 ಕನ್ನಡ ವಿಜ್ಞಾನ", "📐 ಕನ್ನಡ ಗಣಿತ"],
+                index=default_cat_idx,
                 horizontal=True,
-                help="Choose between English and Kannada simulations"
+                help="Choose between English, Kannada Science, and Kannada Maths simulations"
             )
 
             if sim_category == "🔬 English Simulations":
@@ -430,11 +447,11 @@ def render_sidebar():
                 )
                 selected_id = english_sim_options[selected_title]
                 # Reset language to English if user came from a Kannada sim
-                if current_is_kn:
+                if current_is_kn or current_is_maths_kn:
                     st.session_state.language = "english"
-            else:
-                # Kannada simulations section
-                st.caption("ಕನ್ನಡ ಮಾಧ್ಯಮದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ")
+            elif sim_category == "🔬 ಕನ್ನಡ ವಿಜ್ಞಾನ":
+                # Kannada Science simulations section
+                st.caption("ಕನ್ನಡ ಮಾಧ್ಯಮದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ — ವಿಜ್ಞಾನ")
                 selected_title = st.selectbox(
                     "ಸಿಮ್ಯುಲೇಷನ್ ಆಯ್ಕೆ ಮಾಡಿ:",
                     options=list(kannada_sim_options.keys()),
@@ -442,6 +459,18 @@ def render_sidebar():
                 )
                 selected_id = kannada_sim_options.get(selected_title)
                 # Auto-set language to Kannada for all Kannada simulations
+                st.session_state.language = "kannada"
+                st.caption("🌐 ಭಾಷೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕನ್ನಡಕ್ಕೆ ಹೊಂದಿಸಲಾಗಿದೆ")
+            else:
+                # Kannada Maths simulations section
+                st.caption("ಕನ್ನಡ ಮಾಧ್ಯಮದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ — ಗಣಿತ")
+                selected_title = st.selectbox(
+                    "ಗಣಿತ ಸಿಮ್ಯುಲೇಷನ್ ಆಯ್ಕೆ ಮಾಡಿ:",
+                    options=list(kannada_maths_sim_options.keys()),
+                    help="ಕನ್ನಡ ಗಣಿತ ಸಿಮ್ಯುಲೇಷನ್ ಆಯ್ಕೆ ಮಾಡಿ"
+                )
+                selected_id = kannada_maths_sim_options.get(selected_title)
+                # Auto-set language to Kannada for Kannada Maths simulations
                 st.session_state.language = "kannada"
                 st.caption("🌐 ಭಾಷೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕನ್ನಡಕ್ಕೆ ಹೊಂದಿಸಲಾಗಿದೆ")
 
@@ -461,7 +490,10 @@ def render_sidebar():
         st.markdown("## 🌐 Language")
 
         language_options = {"English": "english", "ಕನ್ನಡ (Kannada)": "kannada"}
-        current_sim_is_kn = st.session_state.current_simulation in KN_SIMULATION_IDS
+        current_sim_is_kn = (
+            st.session_state.current_simulation in KN_SIMULATION_IDS
+            or st.session_state.current_simulation in MATHS_KN_SIMULATION_IDS
+        )
 
         if not st.session_state.session_started:
             if current_sim_is_kn:
