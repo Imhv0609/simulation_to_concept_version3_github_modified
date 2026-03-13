@@ -3587,6 +3587,214 @@ SIMULATIONS["place_value_calculator_kn"] = {
 }
 
 # =============================================================================
+# NUMBER SYSTEMS SIMULATION (Kannada Maths)
+# ಭಾರತೀಯ vs ಅಂತರರಾಷ್ಟ್ರೀಯ ಸಂಖ್ಯಾ ವ್ಯವಸ್ಥೆ
+# Maths Chapter 1 – Knowing Our Numbers (Number Systems)
+# =============================================================================
+SIMULATIONS["number_systems_kn"] = {
+    "name": "ಭಾರತೀಯ vs ಅಂತರರಾಷ್ಟ್ರೀಯ ಸಂಖ್ಯಾ ವ್ಯವಸ್ಥೆ (Number Systems)",
+    "language": "kannada_maths",
+    "description": (
+        "ಭಾರತೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಸಂಖ್ಯಾ ವ್ಯವಸ್ಥೆಗಳನ್ನು ಅಕ್ಕಪಕ್ಕ ಹೋಲಿಸಿ.\n"
+        "Compare Indian and International number systems side by side."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter1_simulation2_number_systems_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಮೋಡ್ (Mode)",
+            "default": "explore",
+            "options": ["explore", "quiz"],
+            "option_labels": [
+                "ಅನ್ವೇಷಣೆ (Explore — see both systems for any number)",
+                "ರಸಪ್ರಶ್ನೆ (Quiz — comparison questions)"
+            ],
+            "url_param": "mode"
+        },
+        {
+            "name": "number",
+            "type": "number",
+            "display_name": "ಸಂಖ್ಯೆ (Number)",
+            "default": 4050678,
+            "min": 1,
+            "max": 999999999,
+            "url_param": "number"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Knowing Our Numbers (ಸಂಖ್ಯಾ ವ್ಯವಸ್ಥೆ)"
+}
+
+# =============================================================================
+# SENSE OF SCALE SIMULATION (Kannada Maths)
+# ಸ್ಕೇಲ್ ಅರಿವು – Large Number Visualisation
+# Maths Chapter 1 – Knowing Our Numbers (Large Numbers)
+# =============================================================================
+SIMULATIONS["sense_of_scale_kn"] = {
+    "name": "ಸ್ಕೇಲ್ ಅರಿವು — ದೊಡ್ಡ ಸಂಖ್ಯೆ ದೃಶ್ಯೀಕರಣ (Sense of Scale)",
+    "language": "kannada_maths",
+    "description": (
+        "ದೊಡ್ಡ ಸಂಖ್ಯೆಗಳನ್ನು ನಿಜ ಜೀವನದ ಉದಾಹರಣೆಗಳ ಮೂಲಕ ಅರ್ಥ ಮಾಡಿಕೊಳ್ಳಿ.\n"
+        "Make large numbers tangible through real-world scenarios."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter1_simulation3_sense_of_scale_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "scenario",
+            "type": "select",
+            "display_name": "ಸನ್ನಿವೇಶ (Scenario)",
+            "default": "0",
+            "options": ["0", "1", "2", "3", "4"],
+            "option_labels": [
+                "🚀 ಪ್ರಯಾಣ (Journey — driving distance vs Moon/Sun)",
+                "🚌 ಬಸ್‌ಗಳು (Buses — passengers vs city populations)",
+                "⚖️ ತೂಕ (Weight — stacking items vs human weight)",
+                "⏱️ ಎಣಿಕೆ (Counting — items at rate vs time durations)",
+                "🔢 ತಥ್ಯಗಳು (Facts — probability-based number facts)"
+            ],
+            "url_param": "scenario"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Knowing Our Numbers (ದೊಡ್ಡ ಸಂಖ್ಯೆಗಳು)"
+}
+
+# =============================================================================
+# ROUNDING & ESTIMATION SIMULATION (Kannada Maths)
+# ಪೂರ್ಣಾಂಕನ ಮತ್ತು ಅಂದಾಜು – Rounding and Estimation
+# Maths Chapter 1 – Knowing Our Numbers (Rounding)
+# =============================================================================
+SIMULATIONS["rounding_estimation_kn"] = {
+    "name": "ಪೂರ್ಣಾಂಕನ ಮತ್ತು ಅಂದಾಜು (Rounding and Estimation)",
+    "language": "kannada_maths",
+    "description": (
+        "ಸಂಖ್ಯಾ ರೇಖೆ ದೃಶ್ಯೀಕರಣ ಮೂಲಕ ಪೂರ್ಣಾಂಕನ ನಿಯಮ ಕಲಿಯಿರಿ.\n"
+        "Learn rounding rules using animated number-line visualisations."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter1_simulation4_rounding_estimation_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಮೋಡ್ (Mode)",
+            "default": "explore",
+            "options": ["explore", "quiz"],
+            "option_labels": [
+                "ಅನ್ವೇಷಣೆ (Explore — number lines for all rounding places)",
+                "ರಸಪ್ರಶ್ನೆ (Quiz — estimation questions)"
+            ],
+            "url_param": "mode"
+        },
+        {
+            "name": "number",
+            "type": "number",
+            "display_name": "ಸಂಖ್ಯೆ (Number)",
+            "default": 38769957,
+            "min": 1,
+            "max": 99999999,
+            "url_param": "number"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Knowing Our Numbers (ಪೂರ್ಣಾಂಕನ)"
+}
+
+# =============================================================================
+# MULTIPLICATION PATTERNS SIMULATION (Kannada Maths)
+# ಗುಣಾಕಾರ ಭಾವನೆ ಮತ್ತು ಅಂಕಿ ಎಣಿಕೆ – Multiplication Patterns
+# Maths Chapter 1 – Knowing Our Numbers (Multiplication)
+# =============================================================================
+SIMULATIONS["multiplication_patterns_kn"] = {
+    "name": "ಗುಣಾಕಾರ ಭಾವನೆ ಮತ್ತು ಅಂಕಿ ಎಣಿಕೆ (Multiplication Patterns)",
+    "language": "kannada_maths",
+    "description": (
+        "ಗುಣಾಕಾರ ಉತ್ಪನ್ನದಲ್ಲಿ ಅಂಕಿ ಸಂಖ್ಯೆ ಮತ್ತು ಶಾರ್ಟ್‌ಕಟ್ ಕಲಿಯಿರಿ.\n"
+        "Explore digit-count patterns in products and multiplication shortcuts."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter1_simulation5_multiplication_patterns_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "mode",
+            "type": "select",
+            "display_name": "ಟ್ಯಾಬ್ (Tab)",
+            "default": "multiply",
+            "options": ["multiply", "patterns", "shortcuts", "digitGrid"],
+            "option_labels": [
+                "ಗುಣಿಸಿ (Multiply — live sliders with digit-count badge)",
+                "ಭಾವನೆ (Patterns — preset multiplication tables)",
+                "ಶಾರ್ಟ್‌ಕಟ್ (Shortcuts — rules for ×10, ×100, ×1000)",
+                "ಅಂಕಿ ಗ್ರಿಡ್ (Digit Grid — 5×5 digit-count range grid)"
+            ],
+            "url_param": "mode"
+        },
+        {
+            "name": "numA",
+            "type": "number",
+            "display_name": "ಸಂಖ್ಯೆ A",
+            "default": 111,
+            "min": 1,
+            "max": 99999,
+            "url_param": "numA"
+        },
+        {
+            "name": "numB",
+            "type": "number",
+            "display_name": "ಸಂಖ್ಯೆ B",
+            "default": 111,
+            "min": 1,
+            "max": 99999,
+            "url_param": "numB"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Knowing Our Numbers (ಗುಣಾಕಾರ)"
+}
+
+# =============================================================================
+# EXPRESSION EVALUATOR SIMULATION (Kannada Maths)
+# ಸಮೀಕರಣ ಮೌಲ್ಯಮಾಪನ – Expression Evaluator
+# Maths Chapter 2 – Whole Numbers (Algebraic Expressions)
+# =============================================================================
+SIMULATIONS["expression_evaluator_kn"] = {
+    "name": "ಸಮೀಕರಣ ಮೌಲ್ಯಮಾಪನ (Expression Evaluator)",
+    "language": "kannada_maths",
+    "description": (
+        "ಸಮೀಕರಣದ ಪದಗಳನ್ನು ಗುರುತಿಸಿ ಹಂತ ಹಂತವಾಗಿ ಮೌಲ್ಯಮಾಪನ ಮಾಡಿ.\n"
+        "Identify terms in an expression and evaluate step by step."
+    ),
+    "base_url": (
+        f"{GITHUB_PAGES_BASE_MATHS_KN}"
+        "/math_chapter2_simulation1_expression_evaluator_kn.html"
+    ),
+    "parameters": [
+        {
+            "name": "problem",
+            "type": "number",
+            "display_name": "ಸಮೀಕರಣ ಸೂಚ್ಯಂಕ (Expression Index)",
+            "default": 0,
+            "min": 0,
+            "max": 11,
+            "url_param": "problem"
+        }
+    ],
+    "auto_start_param": None,
+    "topic": "Maths – Whole Numbers (ಸಮೀಕರಣ ಮೌಲ್ಯಮಾಪನ)"
+}
+
+# =============================================================================
 # DEFAULT SIMULATION
 # =============================================================================
 # =============================================================================
