@@ -259,14 +259,20 @@ def quiz_evaluator_node(state: TeachingState, config: RunnableConfig) -> Dict[st
     # STEP 3: Check if retry allowed
     # ========================================
     allow_retry = should_allow_retry(attempts)
-    
+
+    # Session language — ensure LLM feedback is in the right language
+    session_language = state.get("language", "english")
+    language_instruction = "English" if session_language.lower() == "english" else session_language.capitalize()
+
     # ========================================
     # STEP 4: Generate LLM feedback (adaptive)
     # ========================================
     llm = get_llm()
     
     # Build context for LLM
-    system_prompt = f"""You are a supportive science teacher providing feedback on a simulation-based challenge.
+    system_prompt = f"""⚠️ LANGUAGE REQUIREMENT: You MUST write your ENTIRE response in {language_instruction} only. This is mandatory. Do not use any other language, even if the challenge text below contains text in another language.
+
+You are a supportive science teacher providing feedback on a simulation-based challenge.
 
 **Challenge:** {current_question['challenge']}
 
