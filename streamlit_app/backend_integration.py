@@ -209,30 +209,31 @@ def extract_display_data(state: Dict[str, Any]) -> Dict[str, Any]:
     # Get parameter change metadata (single simulation display)
     param_history = state.get("parameter_history", [])
     param_change_info = None
-    
+
     # Get simulation_id from state for dynamic param loading
     simulation_id = state.get("simulation_id", "simple_pendulum")
     default_params = get_initial_params(simulation_id)
     current_params = state.get("current_params", default_params)
-    
-    # Check if there was a recent parameter change (within the last response)
-    if param_history:
+
+    # Use the explicit show_simulation flag set by the teacher node each turn.
+    # This mirrors the same logic used in format_api_response (api_integration.py)
+    # so the Streamlit UI and the Android API behave identically:
+    #   - True  → teacher triggered a display this exact turn (new/different params
+    #             OR student explicitly asked to see it)
+    #   - False → pure Q&A turn, or duplicate params were suppressed by teacher node
+    show_simulation = state.get("show_simulation", False)
+
+    if show_simulation and param_history:
         last_change = param_history[-1]
         print(f"   🔎 DEBUG - Last param change: {last_change.get('parameter')} = {last_change.get('old_value')} → {last_change.get('new_value')}")
-        print(f"   🔎 DEBUG - student_reaction: '{last_change.get('student_reaction', '')}'")
-        
-        # Only show simulation if the student hasn't reacted yet (empty reaction)
-        if last_change.get("student_reaction", "") == "":
-            param_change_info = {
-                "parameter": last_change["parameter"],
-                "old_value": last_change["old_value"],
-                "new_value": last_change["new_value"]
-            }
-            print(f"   ✅ DEBUG - Will show simulation with param change info!")
-        else:
-            print(f"   ❌ DEBUG - student_reaction filled, no simulation display")
+        param_change_info = {
+            "parameter": last_change["parameter"],
+            "old_value": last_change["old_value"],
+            "new_value": last_change["new_value"]
+        }
+        print(f"   ✅ DEBUG - show_simulation=True → displaying simulation")
     else:
-        print(f"   🔎 DEBUG - No param_history yet")
+        print(f"   🔎 DEBUG - show_simulation=False → no simulation display this turn")
     
     return {
         # Teacher message

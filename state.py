@@ -102,6 +102,12 @@ class TeachingState(TypedDict):
     cannot_demonstrate: List[str]       # Topics NOT in this simulation (don't mention)
     
     # ═══════════════════════════════════════════════════════════════════════
+    # SIMULATION DISPLAY TRACKING
+    # ═══════════════════════════════════════════════════════════════════════
+    show_simulation: bool               # True ONLY when simulation should display this turn
+    last_displayed_params: Dict[str, float]  # Params the last time simulation was actually shown
+
+    # ═══════════════════════════════════════════════════════════════════════
     # STUDENT RESPONSE TYPE FLAGS (set by evaluator)
     # ═══════════════════════════════════════════════════════════════════════
     student_asked_question: bool        # True if student asked a question
@@ -191,7 +197,11 @@ def create_initial_state(topic_description: str, initial_params: Dict[str, float
         "requested_param": "",
         "requested_value": None,
         "is_factually_wrong": False,
-        
+
+        # Simulation display tracking
+        "show_simulation": False,
+        "last_displayed_params": {},
+
         # Quiz mode (initialized as False, activated after concepts complete)
         "quiz_mode": False,
         "quiz_questions": [],

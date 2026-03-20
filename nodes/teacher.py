@@ -132,6 +132,46 @@ def parse_json_safe(text: str) -> dict:
     raise ValueError(f"Could not parse JSON from response")
 
 
+def clean_teacher_message(text: str) -> str:
+    """
+    Strip any accidentally-leaked JSON from a teacher message string.
+
+    The LLM is instructed to return *only* JSON, but it occasionally prepends
+    the human-readable reply as plain text and appends the JSON block without
+    proper code-fence markers (or with a malformed one that the regex misses).
+    In that situation parse_json_safe falls back to using the entire
+    response.content as teacher_message, which causes the raw JSON to be
+    rendered in the UI alongside the actual message.
+
+    This function removes any trailing JSON-like block so only the readable
+    part of the message reaches the student.
+    """
+    if not text:
+        return text
+
+    # Remove ```json ... ``` or ``` ... ``` fenced blocks at the end
+    cleaned = re.sub(r'\s*```(?:json)?\s*\{[\s\S]*?\}\s*```\s*$', '', text).strip()
+    if cleaned != text:
+        return cleaned
+
+    # Remove a bare JSON object that contains known structural keys
+    cleaned = re.sub(
+        r'\s*\{[\s\S]*?"teacher_message"[\s\S]*?\}\s*$',
+        '',
+        text
+    ).strip()
+    if cleaned != text:
+        return cleaned
+
+    # Catch any trailing { ... } block that looks like JSON output
+    cleaned = re.sub(
+        r'\s*\{[\s\S]*?"suggests_param_change"[\s\S]*?\}\s*$',
+        '',
+        text
+    ).strip()
+    return cleaned if cleaned else text
+
+
 def format_parameter_history(history: list) -> str:
     """Format parameter history for the prompt."""
     if not history:
@@ -726,12 +766,15 @@ REMEMBER: Output ONLY the JSON object. Start your response with {{ and end with 
         result = parse_json_safe(response.content)
     except Exception as e:
         print(f"   ⚠️ JSON parse failed, using raw response")
+        # Attempt to salvage the human-readable portion by stripping any
+        # leaked JSON block that the model appended to its plain-text reply.
+        salvaged = clean_teacher_message(response.content)
         result = {
-            "teacher_message": response.content,
+            "teacher_message": salvaged,
             "suggests_param_change": False
         }
     
-    teacher_message = result.get("teacher_message", response.content)
+    teacher_message = clean_teacher_message(result.get("teacher_message", response.content))
     
     # ─── Post-process: force simulation display when teacher references it ───
     # If the teacher message contains observation/watch keywords but the LLM
@@ -773,34 +816,54 @@ REMEMBER: Output ONLY the JSON object. Start your response with {{ and end with 
     new_message = add_message_to_history(state, "teacher", teacher_message)
     updates["conversation_history"] = state.get("conversation_history", []) + [new_message]
     
-    # Handle parameter change
+    # ── Simulation display logic ──────────────────────────────────────────────
+    # Tracks two things:
+    #   1. show_simulation (Feature 1): explicit per-turn flag so the API can
+    #      tell the frontend "display now" vs stale param_change from the past.
+    #   2. last_displayed_params (Feature 2): suppress consecutive renders of
+    #      the exact same parameter set unless the student explicitly asked.
+    last_displayed_params = state.get("last_displayed_params", {})
+    student_wants_to_see = state.get("student_wants_to_see_simulation", False)
+    show_simulation = False
+
     if result.get("suggests_param_change") and result.get("param_to_change"):
         param = result["param_to_change"]
         new_val = result.get("new_value")
         
         if param and new_val is not None:
-            # Record the parameter change
-            change_record = {
-                "parameter": param,
-                "old_value": current_params.get(param, 0),
-                "new_value": new_val,
-                "reason": result.get("change_reason", "To illustrate the concept"),
-                "prediction_asked": result.get("prediction_question", ""),
-                "student_reaction": "",
-                "understanding_before": understanding,
-                "understanding_after": "",
-                "was_effective": False
-            }
-            
-            # Update params
+            # Build the candidate params if this change is applied
             new_params = current_params.copy()
             new_params[param] = new_val
-            
-            updates["current_params"] = new_params
-            updates["parameter_history"] = state.get("parameter_history", []) + [change_record]
-            
-            print(f"\n   📊 Parameter Change: {param} = {change_record['old_value']} → {new_val}")
+
+            # Feature 2: suppress repeat if params are unchanged from last display
+            # UNLESS the student explicitly asked to see the simulation
+            if new_params == last_displayed_params and not student_wants_to_see:
+                print(f"\n   ⏭️ SKIP: Params unchanged from last display — suppressing repeat simulation")
+                # show_simulation stays False; no history entry added
+            else:
+                # Record the parameter change
+                change_record = {
+                    "parameter": param,
+                    "old_value": current_params.get(param, 0),
+                    "new_value": new_val,
+                    "reason": result.get("change_reason", "To illustrate the concept"),
+                    "prediction_asked": result.get("prediction_question", ""),
+                    "student_reaction": "",
+                    "understanding_before": understanding,
+                    "understanding_after": "",
+                    "was_effective": False
+                }
+                
+                updates["current_params"] = new_params
+                updates["parameter_history"] = state.get("parameter_history", []) + [change_record]
+                updates["last_displayed_params"] = new_params
+                show_simulation = True  # Feature 1: mark display for this turn
+                print(f"\n   📊 Parameter Change: {param} = {change_record['old_value']} → {new_val}")
     
+    # Feature 1: always write the flag so API response is accurate this turn
+    updates["show_simulation"] = show_simulation
+    # ─────────────────────────────────────────────────────────────────────────
+
     # Print the teacher's message
     print(f"\n🎓 Teacher says:")
     print(f"   {teacher_message}")

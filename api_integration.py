@@ -91,10 +91,13 @@ def format_api_response(thread_id: str, state: Dict[str, Any], simulation_id: st
     # Build current simulation URL with correct simulation_id
     sim_url = build_simulation_url(current_params, autostart=True, simulation_id=simulation_id)
     
-    # Check for parameter changes (metadata only — single simulation URL via html_url)
+    # Check for parameter changes this turn.
+    # show_simulation is True ONLY when the teacher node decided to display the
+    # simulation in the current turn (Feature 1 fix: no stale param_change).
+    show_simulation = state.get('show_simulation', False)
     param_change = None
     param_history = state.get('parameter_history', [])
-    if param_history:
+    if show_simulation and param_history:
         last_change = param_history[-1]
         
         param_change = {
@@ -135,6 +138,7 @@ def format_api_response(thread_id: str, state: Dict[str, Any], simulation_id: st
             "id": simulation_id,
             "title": sim_config['title'],
             "html_url": sim_url,
+            "show_simulation": show_simulation,
             "current_params": current_params,
             "param_change": param_change
         },
