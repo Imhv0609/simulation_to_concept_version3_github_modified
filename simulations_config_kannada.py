@@ -5179,6 +5179,17 @@ SIMULATIONS_KN["weathering_erosion_kn"] = {
                 "  true  → show the key concept explanation card (default)\n"
                 "  false → hide the concept card"
             )
+        },
+        "timeLevel": {
+            "label": "Erosion Time Level",
+            "range": "0-100 (integer)",
+            "url_key": "timeLevel",
+            "effect": (
+                "Sets the time slider position controlling erosion progress.\n"
+                "  0   → freshly formed landscape (no erosion)\n"
+                "  50  → mid-stage erosion\n"
+                "  100 → fully eroded landscape"
+            )
         }
     },
     "concepts": [
@@ -8186,6 +8197,15 @@ SIMULATIONS_KN["growth_chart_kn"] = {
             "range": "true/false",
             "url_key": "showHints",
             "effect": "Shows or hides the concept card, puberty highlight fact box, and takeaway."
+        },
+        "age": {
+            "label": "Age (years)",
+            "range": "5-20 (integer)",
+            "url_key": "age",
+            "effect": (
+                "Sets the age slider and updates growth statistics accordingly.\n"
+                "Reports the student's currently selected age value."
+            )
         }
     },
     "concepts": [
@@ -14320,6 +14340,18 @@ SIMULATIONS_KN["speed_calculator_kn"] = {
             "range": "true/false",
             "url_key": "showHints",
             "effect": "Shows or hides the insight explanation box (if present)."
+        },
+        "distance": {
+            "label": "Distance (km)",
+            "range": "0-1000 (number)",
+            "url_key": "distance",
+            "effect": "The distance value entered by the student in the calculator."
+        },
+        "time": {
+            "label": "Time (hours)",
+            "range": "0-100 (number)",
+            "url_key": "time",
+            "effect": "The time value entered by the student in the calculator."
         }
     },
     "concepts": [
@@ -14649,6 +14681,18 @@ SIMULATIONS_KN["uniform_motion_kn"] = {
             "range": "true/false",
             "url_key": "showHints",
             "effect": "Shows or hides the insight explanation box (if present)."
+        },
+        "speed": {
+            "label": "Speed (km/h)",
+            "range": "0-100 (number)",
+            "url_key": "speed",
+            "effect": "The current speed of the moving object set by the student slider."
+        },
+        "time": {
+            "label": "Elapsed Time (s)",
+            "range": "0+ (number)",
+            "url_key": "time",
+            "effect": "The current elapsed time in the animation."
         }
     },
     "concepts": [
@@ -14815,6 +14859,18 @@ SIMULATIONS_KN["nonuniform_motion_kn"] = {
             "range": "true/false",
             "url_key": "showHints",
             "effect": "Shows or hides the insight explanation box (if present)."
+        },
+        "speed": {
+            "label": "Current Speed (km/h)",
+            "range": "0-100 (number)",
+            "url_key": "speed",
+            "effect": "The instantaneous speed of the vehicle at the current time."
+        },
+        "time": {
+            "label": "Elapsed Time (s)",
+            "range": "0+ (number)",
+            "url_key": "time",
+            "effect": "The current elapsed time in the animation."
         }
     },
     "concepts": [

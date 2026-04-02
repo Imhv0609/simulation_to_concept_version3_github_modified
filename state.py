@@ -28,7 +28,8 @@ class ParameterChange(TypedDict):
     student_reaction: str               # How student responded
     understanding_before: str           # Level before this change
     understanding_after: str            # Level after this change
-    was_effective: bool                 # Did this help understanding?
+    was_effective: Optional[bool]       # Did this help understanding? None if student-driven (unknown yet)
+    initiated_by: Optional[str]         # "agent" (default) or "student" for slider-driven changes
 
 
 class Concept(TypedDict):
@@ -121,6 +122,12 @@ class TeachingState(TypedDict):
     # LANGUAGE
     # ═══════════════════════════════════════════════════════════════════════
     language: str                       # "english" | "kannada" — controls API translation
+
+    # ═══════════════════════════════════════════════════════════════════════
+    # STUDENT-DRIVEN SIMULATION CHANGES (new feature)
+    # ═══════════════════════════════════════════════════════════════════════
+    student_changed_params: Dict[str, Any]    # params the student manually changed this turn
+    student_changed_params_this_turn: bool    # True if student changed params this turn
     
     # ═══════════════════════════════════════════════════════════════════════
     # QUIZ MODE (activated after all concepts taught)
@@ -189,7 +196,11 @@ def create_initial_state(topic_description: str, initial_params: Dict[str, float
         
         # Language (for API translation layer)
         "language": language,
-        
+
+        # Student-driven simulation changes (initialized empty each session)
+        "student_changed_params": {},
+        "student_changed_params_this_turn": False,
+
         # Student response type flags
         "student_asked_question": False,
         "question_asked": "",
@@ -271,6 +282,7 @@ def add_parameter_change(
         "student_reaction": "",  # Filled later
         "understanding_before": state.get("understanding_level", "none"),
         "understanding_after": "",  # Filled after evaluation
-        "was_effective": False  # Determined later
+        "was_effective": False,  # Determined later
+        "initiated_by": "agent"  # Default: agent-driven
     }
     return change

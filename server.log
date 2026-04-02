@@ -1,0 +1,8 @@
+::1 - - [31/Mar/2026 18:46:20] "GET /simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=true HTTP/1.1" 200 -
+::1 - - [31/Mar/2026 18:56:02] "GET /simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=true HTTP/1.1" 200 -
+::1 - - [31/Mar/2026 19:02:02] "GET /simulations_kannada/science_chapter8_simulation3_pendulum_kn.html HTTP/1.1" 200 -
+::1 - - [31/Mar/2026 19:02:02] code 404, message File not found
+::1 - - [31/Mar/2026 19:02:02] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [31/Mar/2026 19:10:52] "GET /simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=true HTTP/1.1" 200 -
+::1 - - [31/Mar/2026 19:17:28] "GET /simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=true HTTP/1.1" 304 -
+::1 - - [31/Mar/2026 19:17:48] "GET /simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=true HTTP/1.1" 304 -

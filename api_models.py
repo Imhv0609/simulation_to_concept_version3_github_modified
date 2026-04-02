@@ -41,14 +41,21 @@ class StartSessionRequest(BaseModel):
 class StudentResponseRequest(BaseModel):
     """Request to send student's response"""
     student_response: str = Field(
-        ..., 
-        description="What the student typed/said"
+        default="",
+        description="What the student typed/said. Can be empty if student only changed simulation parameters."
+    )
+    student_changed_params: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Parameters the student manually changed in the simulation this turn. "
+                    "Keys are parameter names (e.g. 'length'), values are the new values. "
+                    "Omit or pass null if the student did not change any parameters."
     )
     
     class Config:
         json_schema_extra = {
             "example": {
-                "student_response": "I think it swings faster?"
+                "student_response": "I made it shorter",
+                "student_changed_params": {"length": 3}
             }
         }
 
@@ -71,6 +78,7 @@ class SimulationState(BaseModel):
     title: str
     html_url: str
     current_params: Dict[str, Any]
+    show_simulation: Optional[bool] = False
     param_change: Optional[ParameterChange] = None
 
 

@@ -144,13 +144,14 @@ def create_new_session(simulation_id: str = "simple_pendulum", language: str = "
     return thread_id, state
 
 
-def send_student_response(thread_id: str, response: str, language: str = "english") -> Dict[str, Any]:
+def send_student_response(thread_id: str, response: str, student_changed_params: dict = None, language: str = "english") -> Dict[str, Any]:
     """
-    Send a student response and get the updated state.
+    Send a student response (and optional parameter changes) and get the updated state.
     
     Args:
         thread_id: The session thread ID
         response: Student's response text
+        student_changed_params: Parameters changed by the student before sending
         language: Session language for inbound translation
         
     Returns:
@@ -165,7 +166,11 @@ def send_student_response(thread_id: str, response: str, language: str = "englis
     # Import fresh continue_session to ensure we're using the reloaded graph
     from graph import continue_session as fresh_continue_session
     
-    state = fresh_continue_session(translated_response, thread_id)
+    state = fresh_continue_session(
+        translated_response, 
+        thread_id,
+        student_changed_params=student_changed_params
+    )
     return state
 
 

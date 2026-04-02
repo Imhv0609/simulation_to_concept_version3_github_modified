@@ -196,5 +196,51 @@ function render(){
 }
 render();
 </script>
+
+<script>
+/* AndroidBridge: student interaction */
+(function () {
+    var SKIP = ['help','hint','next','submit','reset','close','back','check','nxt','cancel'];
+    function skip(el) {
+        if (!el) return false;
+        var t = (el.textContent||'').toLowerCase().trim().slice(0,20);
+        var i = (el.id||'').toLowerCase();
+        var c = (el.className||'').toLowerCase();
+        return SKIP.some(function(w){ return t===w||i.indexOf(w)!==-1||c.indexOf(w)!==-1; });
+    }
+    function payload() {
+        try { return (typeof scIdx!=='undefined'?{scenario:scIdx}:{scenario:0}); }
+        catch(e) { return {initialState:'changed'}; }
+    }
+    function report() {
+        var p = payload();
+        if (window.AndroidBridge) {
+            try { window.AndroidBridge.onParamChanged(JSON.stringify(p)); } catch(e) {}
+        }
+        if (window.parent) {
+            p['__t'] = Date.now();
+            window.parent.postMessage({
+                type: 'simulation_update',
+                params: p
+            }, '*');
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        var el = e.target;
+        while (el && el !== document.body) {
+            if (el.tagName==='BUTTON' || el.hasAttribute('onclick') ||
+                (el.dataset && (el.dataset.m||el.dataset.i||el.dataset.v||el.dataset.state))) {
+                if (!skip(el)) setTimeout(report, 130);
+                break;
+            }
+            el = el.parentElement;
+        }
+    }, true);
+    document.addEventListener('input', function(e) {
+        if (e.target.type==='range') setTimeout(report, 130);
+    }, true);
+})();
+</script>
 </body>
 </html>

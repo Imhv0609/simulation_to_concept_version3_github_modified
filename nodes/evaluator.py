@@ -88,9 +88,34 @@ def understanding_evaluator_node(state: Dict[str, Any]) -> Dict[str, Any]:
     print("\n" + "="*60)
     print("🔍 EVALUATOR NODE: Classifying & Assessing")
     print("="*60)
-    
+
+    # ── NEW: Short-circuit if student changed params independently ────────────
+    # When a student drags a slider and presses Send (with or without typing anything),
+    # we don't need the LLM to "evaluate" a slider drag as an answer.
+    # The teacher node will handle the reaction to the param change.
+    if state.get("student_changed_params_this_turn", False):
+        changed = state.get("student_changed_params", {})
+        print(f"   🎛️ Student changed params this turn: {changed}")
+        print(f"   ⏭️ Short-circuiting LLM evaluation — passing through as 'student_param_change'")
+        return {
+            "response_type": "student_param_change",
+            # Preserve existing understanding level — exploring ≠ wrong answer
+            "understanding_level": state.get("understanding_level", "none"),
+            "understanding_reasoning": "Student explored the simulation independently",
+            "understanding_trajectory": state.get("understanding_trajectory", []),
+            "is_factually_wrong": False,
+            "needs_deeper": False,
+            "student_asked_question": False,
+            "question_asked": "",
+            "student_requested_param": False,
+            "requested_param": "",
+            "requested_value": None,
+            "student_wants_to_see_simulation": False,
+        }
+    # ─────────────────────────────────────────────────────────────────────────
+
     student_response = state.get("student_response", "")
-    
+
     if not student_response:
         print("   ⚠️ No student response to evaluate")
         return {

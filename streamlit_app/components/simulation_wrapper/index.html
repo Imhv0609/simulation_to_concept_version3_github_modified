@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background: transparent; }
+        iframe { width: 100vw; height: calc(100vh - 20px); border: none; }
+        #debug { height: 20px; font-family: monospace; font-size: 10px; color: red; background: #eee; overflow: hidden; white-space: nowrap; }
+    </style>
+</head>
+<body>
+    <div id="debug">Waiting for Streamlit...</div>
+    <iframe id="sim"></iframe>
+    
+    <script>
+        function logDebug(msg) {
+            document.getElementById('debug').textContent = msg;
+        }
+
+        // --- Streamlit Custom Component Vanilla API ---
+        function sendMessageToStreamlitClient(type, data) {
+            let outData = Object.assign({
+                isStreamlitMessage: true,
+                type: type,
+            }, data);
+            window.parent.postMessage(outData, "*");
+        }
+
+        function setComponentReady() {
+            sendMessageToStreamlitClient("streamlit:componentReady", {apiVersion: 1});
+            logDebug("Ready sent.");
+        }
+
+        function setFrameHeight(height) {
+            sendMessageToStreamlitClient("streamlit:setFrameHeight", {height: height + 20});
+        }
+
+        function sendValueToStreamlit(value) {
+            logDebug("Sending: " + JSON.stringify(value));
+            sendMessageToStreamlitClient("streamlit:setComponentValue", {
+                value: value,
+                dataType: "json"
+            });
+        }
+
+        let currentUrl = "";
+
+        // Listen for rendering updates from Streamlit
+        window.addEventListener("message", function(event) {
+            if (event.data.type === "streamlit:render") {
+                const args = event.data.args;
+                logDebug("Render Recv: " + (args ? args.url : "null"));
+                
+                const iframe = document.getElementById("sim");
+                
+                if (currentUrl !== args.url) {
+                    currentUrl = args.url;
+                    iframe.src = args.url;
+                }
+                
+                setFrameHeight(args.height || 600);
+            }
+        });
+
+        // Listen for messages from the deep simulation <iframe>
+        // Simulations use inconsistent message formats, so we handle all variants:
+        //   - type: 'simulation_params'      + data in .params       (speed_calculator, time_units)
+        //   - type: 'simulation-update'       + data in .parameters   (brackets_signs)
+        //   - type: 'simulation_parameters'   + data in .parameters   (distributive)
+        //   - type: 'simulation_update'       + data in .params       (original convention)
+        //   - no type at all — raw param object with known keys       (pendulum, angle-sum)
+        const SIM_TYPES = new Set([
+            'simulation_update',
+            'simulation_params',
+            'simulation-update',
+            'simulation_parameters',
+            'simulationUpdate'
+        ]);
+
+        window.addEventListener("message", (event) => {
+            const d = event.data;
+            if (!d || typeof d !== 'object') return;
+
+            // Skip Streamlit's own internal messages
+            if (d.isStreamlitMessage || d.type === 'streamlit:render') return;
+
+            let params = null;
+
+            if (d.type && SIM_TYPES.has(d.type)) {
+                // Typed message — params may be in .params or .parameters
+                params = d.params || d.parameters || null;
+            } else if (!d.type && typeof d === 'object') {
+                // Raw param object (no type field) — used by pendulum, angle-sum etc.
+                // Heuristic: must have at least one numeric/boolean value and no 'isStreamlitMessage'
+                // Skip control messages like {cmd: 'iframe-ready'} which are not param changes
+                if (d.cmd) return;
+                const vals = Object.values(d);
+                const looksLikeParams = vals.length > 0 &&
+                    vals.some(v => typeof v === 'number' || typeof v === 'boolean' || typeof v === 'string');
+                if (looksLikeParams) {
+                    params = d;
+                }
+            }
+
+            if (params && typeof params === 'object') {
+                // Add a timestamp for Streamlit cache-busting
+                params['__t'] = Date.now();
+                logDebug("Caught param change! " + JSON.stringify(params));
+                sendValueToStreamlit(params);
+            }
+        });
+
+        setComponentReady();
+    </script>
+</body>
+</html>

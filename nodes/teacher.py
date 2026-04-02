@@ -278,6 +278,10 @@ def teacher_node(state: Dict[str, Any], config: RunnableConfig) -> Dict[str, Any
     requested_value = state.get("requested_value", None)
     student_wants_to_see_simulation = state.get("student_wants_to_see_simulation", False)
 
+    # NEW: Student-driven simulation parameter changes
+    student_changed_params_this_turn = state.get("student_changed_params_this_turn", False)
+    student_changed_params = state.get("student_changed_params", {})
+
     # Language this session is running in — controls what language the LLM must respond in.
     # This is critical for Kannada simulations: their titles/descriptions are in Kannada,
     # which would otherwise cause the LLM to infer and respond in Kannada even for English sessions.
@@ -592,6 +596,43 @@ The student's answer is FACTUALLY INCORRECT. You MUST start with:
 🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨🚨
 """
         
+        # Build instruction for student INDEPENDENTLY CHANGED params (new feature)
+        student_exploration_instruction = ""
+        if student_changed_params_this_turn and student_changed_params:
+            changed_lines = []
+            for param_key, new_val in student_changed_params.items():
+                info = PARAMETER_INFO.get(param_key, {})
+                label = info.get("label", param_key)
+                effect = info.get("effect", "")
+                old_val = current_params.get(param_key, "?")
+                changed_lines.append(f"  - {label}: {old_val} → {new_val}  (Effect: {effect})")
+            
+            student_text = student_response.strip()
+            if student_text:
+                student_context_note = f'The student also said: "{student_text}"'
+            else:
+                student_context_note = "(The student did not type anything — they only changed the simulation parameter.)" 
+
+            student_exploration_instruction = f"""
+🎛️🎛️🎛️ STUDENT INDEPENDENTLY CHANGED SIMULATION PARAMETERS 🎛️🎛️🎛️
+Parameters changed this turn:
+{chr(10).join(changed_lines)}
+{student_context_note}
+
+This is an EXPLORATORY action — the student is experimenting on their own!
+⚠️ YOUR RESPONSE MUST:
+1. Acknowledge what they changed with genuine excitement: "Oh, I see you changed [X] to [Y]..."
+2. Ask what they OBSERVED or NOTICED: "What did you notice happen to the simulation?"
+3. Connect their exploration to the concept we are teaching
+4. Set suggests_param_change=true so the simulation updates to their chosen values
+
+⚠️ DO NOT:
+- Correct them or redirect them to different values (they chose these!)
+- Evaluate their response as right or wrong (they made a change, not an answer)
+- Ask for a prediction (they already changed it — ask for an OBSERVATION instead)
+🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️🎛️
+"""
+
         user_prompt = f"""{wrong_answer_alert}
 CONCEPT BEING TAUGHT:
 Title: {current_concept['title']}
@@ -599,6 +640,7 @@ Key Insight: {current_concept['key_insight']}
 
 STUDENT'S UNDERSTANDING LEVEL: {understanding}
 EXCHANGE NUMBER: {exchange_count}
+{student_exploration_instruction}
 {question_instruction}
 {param_request_instruction}
 {correction_instruction}
@@ -805,10 +847,13 @@ REMEMBER: Output ONLY the JSON object. Start your response with {{ and end with 
     # ─────────────────────────────────────────────────────────────────────────
 
     # Handle parameter change suggestion
+    # If this was a pure exploration turn, do not charge them an exchange count
+    next_exchange_count = exchange_count if student_changed_params_this_turn else exchange_count + 1
+    
     updates = {
         "last_teacher_message": teacher_message,
         "waiting_for_input": True,
-        "exchange_count": exchange_count + 1,
+        "exchange_count": next_exchange_count,
         "needs_deeper": False  # Reset after handling
     }
     
@@ -851,7 +896,8 @@ REMEMBER: Output ONLY the JSON object. Start your response with {{ and end with 
                     "student_reaction": "",
                     "understanding_before": understanding,
                     "understanding_after": "",
-                    "was_effective": False
+                    "was_effective": False,
+                    "initiated_by": "agent"
                 }
                 
                 updates["current_params"] = new_params
@@ -862,6 +908,45 @@ REMEMBER: Output ONLY the JSON object. Start your response with {{ and end with 
     
     # Feature 1: always write the flag so API response is accurate this turn
     updates["show_simulation"] = show_simulation
+    # ─────────────────────────────────────────────────────────────────────────
+
+    # ── NEW: Merge student-changed params into current_params ─────────────────
+    # When the student dragged sliders this turn, we need to:
+    # 1. Apply their chosen values to current_params (so the next simulation URL is correct)
+    # 2. Add a history entry tagged as student-initiated
+    # 3. Reset the flag so it doesn't fire again next turn
+    if student_changed_params_this_turn and student_changed_params:
+        # Start from whatever current_params already are (possibly updated by agent above)
+        merged_params = dict(updates.get("current_params", current_params))
+        student_history_entries = list(updates.get("parameter_history", state.get("parameter_history", [])))
+
+        for param_key, new_val in student_changed_params.items():
+            old_val = current_params.get(param_key)
+            merged_params[param_key] = new_val
+            student_history_entries.append({
+                "parameter": param_key,
+                "old_value": old_val,
+                "new_value": new_val,
+                "reason": "Student changed independently",
+                "prediction_asked": "",
+                "student_reaction": student_response,
+                "understanding_before": understanding,
+                "understanding_after": "",
+                "was_effective": None,          # Unknown until next evaluation
+                "initiated_by": "student"       # Tag as student-driven
+            })
+            print(f"   🎛️ Applied student param: {param_key} {old_val} → {new_val}")
+
+        updates["current_params"] = merged_params
+        updates["parameter_history"] = student_history_entries
+        updates["last_displayed_params"] = merged_params
+        updates["show_simulation"] = True  # Always show when student changed params
+
+        print(f"   ✅ Student-driven params merged into current_params: {merged_params}")
+
+    # Always reset student params flag so it doesn't persist into next turn
+    updates["student_changed_params_this_turn"] = False
+    updates["student_changed_params"] = {}
     # ─────────────────────────────────────────────────────────────────────────
 
     # Print the teacher's message

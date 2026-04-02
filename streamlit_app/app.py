@@ -108,6 +108,10 @@ def initialize_session_state():
     # Language preference (for translation)
     if "language" not in st.session_state:
         st.session_state.language = "english"
+        
+    # Pending student simulation params (waiting to be piggybacked)
+    if "pending_student_params" not in st.session_state:
+        st.session_state.pending_student_params = None
 
 
 def start_new_teaching_session():
@@ -176,9 +180,21 @@ def process_student_response(user_input: str):
         return
     
     try:
-        # Send response to backend (translated to English if needed)
+        # Grab the waiting params
+        student_changed_params = st.session_state.get("pending_student_params")
+        
+        # Send response to backend
         language = st.session_state.get("language", "english")
-        state = send_student_response(st.session_state.thread_id, user_input, language=language)
+        state = send_student_response(
+            st.session_state.thread_id, 
+            user_input, 
+            student_changed_params=student_changed_params,
+            language=language
+        )
+        
+        # Clear the pending params after sending
+        st.session_state.pending_student_params = None
+        
         st.session_state.backend_state = state
         
         # Extract display data and translate if needed
@@ -618,12 +634,19 @@ def render_chat_with_simulations():
     Simulations appear as part of the conversation flow.
     """
     messages = st.session_state.chat_messages
-    
+
     if not messages:
         st.info("Waiting for teacher to start...")
         return
-    
-    for msg in messages:
+
+    # Only the most recent simulation in the chat is interactive (student can
+    # drag its sliders). Older ones are read-only history displays.
+    last_sim_idx = None
+    for i, m in enumerate(messages):
+        if m.get("simulation_data"):
+            last_sim_idx = i
+
+    for msg_idx, msg in enumerate(messages):
         role = msg.get("role", "system")
         content = msg.get("content", "")
         timestamp = msg.get("timestamp")
@@ -649,12 +672,16 @@ def render_chat_with_simulations():
                         label = change_info["parameter"].replace("_", " ").title()
                         st.info(f"📊 **Parameter Change:** **{label}**: {change_info['old_value']} → {change_info['new_value']}")
                     
-                    # Single simulation iframe with current (updated) params
+                    # Single simulation iframe with current (updated) params.
+                    # Only the last simulation in the chat captures student changes;
+                    # earlier ones are read-only so they never clobber pending params.
                     current_sim_key = st.session_state.current_simulation
                     render_simulation_single(
                         sim_key=current_sim_key,
                         params=current_params,
-                        title=""
+                        title="",
+                        unique_id=f"chat_{msg_idx}",
+                        capture_changes=(msg_idx == last_sim_idx)
                     )
                     
                     st.markdown("---")
@@ -920,6 +947,17 @@ def main():
         
         # Chat input (only if backend available and session not complete)
         if backend_available:
+            # Allow sending pure parameter changes if any exist
+            pending_params = st.session_state.get("pending_student_params")
+            if pending_params:
+                st.info("💡 You changed the simulation parameters. Type a message in the chat box to send, or click the button below to submit just your parameter changes.")
+                if st.button("🚀 Send Parameter Changes Only", use_container_width=True):
+                    # Add a visual indicator to chat history that student explored
+                    add_message_to_chat("student", "*(Explored simulation parameters)*")
+                    with st.spinner("Teacher is thinking... 🤔"):
+                        process_student_response("")
+                    st.rerun()
+            
             user_input = render_chat_input()
             
             if user_input:

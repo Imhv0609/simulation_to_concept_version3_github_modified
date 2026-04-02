@@ -1,0 +1,184 @@
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8505
+  Network URL: http://172.16.134.112:8505
+
+[simulations_config] ✅ Loaded 70 Kannada simulation(s): industrial_waste_treatment_kn, turmeric_indicator_kn, red_rose_indicator_kn, properties_acids_bases_kn, litmus_indicator_kn, hidden_message_kn, olfactory_indicator_kn, neutralisation_reaction_kn, ant_bite_treatment_kn, soil_treatment_kn, conductors_insulators_kn, electricity_uses_kn, electricity_sources_kn, torch_components_kn, electric_cell_kn, battery_connection_kn, lamp_types_kn, simple_circuit_kn, electric_switch_kn, circuit_symbols_kn, materials_applications_kn, malleability_kn, ductility_kn, sonority_kn, heat_conduction_kn, electrical_conductivity_kn, rusting_experiment_kn, metal_oxide_reaction_kn, nonmetal_oxide_reaction_kn, metals_nonmetals_compare_kn, weathering_erosion_kn, physical_changes_kn, chemical_changes_kn, reversible_irreversible_kn, states_of_matter_kn, fire_triangle_kn, oxygen_combustion_kn, candle_burning_kn, combustion_examples_kn, desirable_undesirable_kn, say_no_kn, life_stages_kn, growth_chart_kn, puberty_physical_changes_kn, voice_changes_kn, menstrual_cycle_kn, emotional_changes_kn, nutrition_adolescence_kn, personal_hygiene_kn, healthy_habits_kn, water_conservation_kn, heat_sources_kn, conduction_experiment_kn, thermal_conductors_kn, convection_kn, land_sea_breeze_kn, radiation_kn, combined_heat_transfer_kn, water_cycle_kn, infiltration_kn, speedometer_kn, historical_clocks_kn, sundial_kn, pendulum_kn, pendulum_timing_kn, time_units_kn, speed_calculator_kn, speed_race_kn, uniform_motion_kn, nonuniform_motion_kn
+[simulations_config] ✅ Loaded 11 Kannada Maths simulation(s): place_value_calculator_kn, number_systems_kn, sense_of_scale_kn, rounding_estimation_kn, multiplication_patterns_kn, expression_evaluator_kn, brackets_signs_kn, distributive_kn, expression_compare_kn, expression_engineer_kn, decimal_number_line_kn
+[TRACKER] Initialized for models: ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemma-3-27b-it']
+[TRACKER] Will track usage across 7 API keys
+[TRACKER] Rate limits: {'gemini-2.5-flash': {'per_minute': 5, 'per_day': 20}, 'gemini-2.5-flash-lite': {'per_minute': 10, 'per_day': 20}, 'gemma-3-27b-it': {'per_minute': 30, 'per_day': 14400}}
+🔍 Initializing Postgres checkpointer...
+⏭️  Skipping table setup (assuming tables exist)
+✅ Postgres checkpointer initialized successfully
+[simulations_config] ✅ Loaded 70 Kannada simulation(s): industrial_waste_treatment_kn, turmeric_indicator_kn, red_rose_indicator_kn, properties_acids_bases_kn, litmus_indicator_kn, hidden_message_kn, olfactory_indicator_kn, neutralisation_reaction_kn, ant_bite_treatment_kn, soil_treatment_kn, conductors_insulators_kn, electricity_uses_kn, electricity_sources_kn, torch_components_kn, electric_cell_kn, battery_connection_kn, lamp_types_kn, simple_circuit_kn, electric_switch_kn, circuit_symbols_kn, materials_applications_kn, malleability_kn, ductility_kn, sonority_kn, heat_conduction_kn, electrical_conductivity_kn, rusting_experiment_kn, metal_oxide_reaction_kn, nonmetal_oxide_reaction_kn, metals_nonmetals_compare_kn, weathering_erosion_kn, physical_changes_kn, chemical_changes_kn, reversible_irreversible_kn, states_of_matter_kn, fire_triangle_kn, oxygen_combustion_kn, candle_burning_kn, combustion_examples_kn, desirable_undesirable_kn, say_no_kn, life_stages_kn, growth_chart_kn, puberty_physical_changes_kn, voice_changes_kn, menstrual_cycle_kn, emotional_changes_kn, nutrition_adolescence_kn, personal_hygiene_kn, healthy_habits_kn, water_conservation_kn, heat_sources_kn, conduction_experiment_kn, thermal_conductors_kn, convection_kn, land_sea_breeze_kn, radiation_kn, combined_heat_transfer_kn, water_cycle_kn, infiltration_kn, speedometer_kn, historical_clocks_kn, sundial_kn, pendulum_kn, pendulum_timing_kn, time_units_kn, speed_calculator_kn, speed_race_kn, uniform_motion_kn, nonuniform_motion_kn
+[simulations_config] ✅ Loaded 11 Kannada Maths simulation(s): place_value_calculator_kn, number_systems_kn, sense_of_scale_kn, rounding_estimation_kn, multiplication_patterns_kn, expression_evaluator_kn, brackets_signs_kn, distributive_kn, expression_compare_kn, expression_engineer_kn, decimal_number_line_kn
+🔍 Initializing Postgres checkpointer...
+⏭️  Skipping table setup (assuming tables exist)
+✅ Postgres checkpointer initialized successfully
+🔍 Initializing Postgres checkpointer...
+⏭️  Skipping table setup (assuming tables exist)
+✅ Postgres checkpointer initialized successfully
+🔄 Graph reset - will recompile on next use
+✅ API Tracker enabled: 7 API keys available
+✅ Config loaded: Model=gemini-2.5-flash, MaxExchanges=6
+✅ Current Simulation: ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period) (pendulum_kn)
+🔄 Creating session for: ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period) (pendulum_kn)
+
+============================================================
+🔧 COMPILING TEACHING GRAPH
+============================================================
+✅ Graph compiled with:
+   • PostgresSaver checkpointer
+   • Interrupt before: evaluator, quiz_evaluator
+   • Teaching Flow: content_loader → teacher → [WAIT] → evaluator → trajectory → strategy → [loop]
+   • Quiz Flow: strategy → quiz_initializer → quiz_teacher → [WAIT] → quiz_evaluator → [retry/next/END]
+
+============================================================
+🚀 STARTING SESSION: streamlit_session_3edd95bb
+============================================================
+
+============================================================
+📚 CONTENT LOADER: Loading pre-defined concepts
+============================================================
+
+✅ Loaded 3 concepts for 'ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period)':
+   1. Pendulum Period Depends ONLY on String Length
+      Key insight: Length makes a pendulum slower (longer string = longer period). Double the length → period increases by √2 = 1.41× (not double). Mass is completely irrelevant to period — change it and T stays the same.
+      Params: ['length', 'initialState']
+   2. Mass Independence: Heavy and Light Bobs Swing at the Same Rate
+      Key insight: Mass independence is counterintuitive but experimentally verifiable. This is related to the equivalence of gravitational and inertial mass — the same principle that makes all objects fall at the same rate.
+      Params: ['mass', 'initialState']
+   3. The Pendulum as a Clock: Why Clocks Use Long Pendulums
+      Key insight: L = 1 m → T = 2π√(1/9.8) ≈ 2 s. Each half-swing = 1 second = 1 tick on the clock mechanism. Longer pendulum → ticks slower → clock runs slow. This is how grandma would adjust her clock: shorten pendulum to speed up.
+      Params: ['length', 'initialState', 'showHints']
+
+⚠️ Topics NOT in this simulation (will not mention):
+   - Effect of amplitude on period (small-angle approximation used)
+   - Pendulum on different planets (fixed g = 9.8 m/s²)
+   - Damping due to air resistance in detail
+   ✓ Completed: content_loader
+
+============================================================
+🎓 TEACHER NODE: Generating response
+============================================================
+   🎮 Loaded config for: ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period) (pendulum_kn)
+   Concept: Pendulum Period Depends ONLY on String Length
+   Strategy: continue
+   Mode: encouraging
+   Understanding: none
+   Exchange #: 0
+[TRACKER] Found 7 valid API keys within limits for model 'gemini-2.5-flash'
+[TRACKER] Selected ...6sRFG0 for gemini-2.5-flash from top 3 (usage: 0)
+[TEACHER] Using tracked API key ...6sRFG0 for gemini-2.5-flash
+[TRACKER] Found 7 valid API keys within limits for model 'gemini-2.5-flash'
+[TRACKER] Selected ...6sRFG0 for gemini-2.5-flash from top 3 (usage: 0)
+[TEACHER] 📊 LangSmith metadata: simulation_url=https://imhv0609.github.io/simulation_to_concept_version3_github_modified/simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=True
+[TEACHER] 📊 LangSmith metadata: simulation_id=pendulum_kn
+[TEACHER] ⚠️ Run tree update: property 'metadata' of 'RunTree' object has no setterException ignored in: <function ConnectionPool.__del__ at 0x115d0cb80>
+Traceback (most recent call last):
+  File "/Users/imhvs0609/miniforge3/lib/python3.12/site-packages/psycopg_pool/pool.py", line 122, in __del__
+    gather(*workers, timeout=5.0, timeout_hint=hint)
+  File "/Users/imhvs0609/miniforge3/lib/python3.12/site-packages/psycopg_pool/_acompat.py", line 152, in gather
+    t.join(timeout)
+  File "/Users/imhvs0609/miniforge3/lib/python3.12/threading.py", line 1146, in join
+    raise RuntimeError("cannot join current thread")
+RuntimeError: cannot join current thread
+Exception ignored in: <function ConnectionPool.__del__ at 0x115d0cb80>
+Traceback (most recent call last):
+  File "/Users/imhvs0609/miniforge3/lib/python3.12/site-packages/psycopg_pool/pool.py", line 122, in __del__
+    gather(*workers, timeout=5.0, timeout_hint=hint)
+  File "/Users/imhvs0609/miniforge3/lib/python3.12/site-packages/psycopg_pool/_acompat.py", line 152, in gather
+    t.join(timeout)
+  File "/Users/imhvs0609/miniforge3/lib/python3.12/threading.py", line 1146, in join
+    raise RuntimeError("cannot join current thread")
+RuntimeError: cannot join current thread
+
+[TRACKER] Recorded API ...6sRFG0 + gemini-2.5-flash call at 2026-03-31T19:17:24.315684
+[TEACHER] Tracked API call: ...6sRFG0 + gemini-2.5-flash
+
+   📊 Parameter Change: length = 100 → 100
+
+🎓 Teacher says:
+   ನಮಸ್ಕಾರ ಸ್ನೇಹಿತರೇ! ಅಲೆಕ್ಸ್ ನಿಮ್ಮ ವಿಜ್ಞಾನ ಶಿಕ್ಷಕ. ಇಂದು ನಾವು ಸರಳ ಲೋಲಕದ (Simple Pendulum) ವಿಸ್ಮಯವನ್ನು ಅನ್ವೇಷಿಸೋಣ. ನಿಮ್ಮ ಪರದೆಯ ಮೇಲೆ ಈಗ 100 ಸೆಂ.ಮೀ ಉದ್ದದ ದಾರ ಮತ್ತು 100 ಗ್ರಾಂ ತೂಕದ ಗುಂಡಿಯೊಂದಿಗೆ ನಿಂತಿರುವ ಒಂದು ಲೋಲಕವನ್ನು ನೋಡುತ್ತಿದ್ದೀರಿ, ಅಲ್ಲವೇ? ಗಡಿಯಾರದಲ್ಲಿರುವ ಲೋಲಕದಂತೆ, ನಾವು ಇದನ್ನು ತೂಗಾಡಲು ಪ್ರಾರಂಭಿಸಿದರೆ, ಅದು ಒಂದು ಸುತ್ತು ಪೂರ್ಣಗೊಳಿಸಲು ಎಷ್ಟು ಸಮಯ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ ಎಂದು ನೀವು ಭಾವಿಸುತ್ತೀರಿ? ಅದು ನಿಧಾನವಾಗಿ ತೂಗಾಡುತ್ತದೆಯೇ ಅಥವಾ ವೇಗವಾಗಿ ತೂಗಾಡುತ್ತದೆಯೇ?
+   ✓ Completed: teacher
+   ✓ Completed: __interrupt__
+   🔎 DEBUG - Last param change: length = 100 → 100
+   ✅ DEBUG - show_simulation=True → displaying simulation
+   🔎 DEBUG - Last param change: length = 100 → 100
+   ✅ DEBUG - show_simulation=True → displaying simulation
+   🔎 DEBUG - Last param change: length = 100 → 100
+   ✅ DEBUG - show_simulation=True → displaying simulation
+[simulations_config] ✅ Loaded 70 Kannada simulation(s): industrial_waste_treatment_kn, turmeric_indicator_kn, red_rose_indicator_kn, properties_acids_bases_kn, litmus_indicator_kn, hidden_message_kn, olfactory_indicator_kn, neutralisation_reaction_kn, ant_bite_treatment_kn, soil_treatment_kn, conductors_insulators_kn, electricity_uses_kn, electricity_sources_kn, torch_components_kn, electric_cell_kn, battery_connection_kn, lamp_types_kn, simple_circuit_kn, electric_switch_kn, circuit_symbols_kn, materials_applications_kn, malleability_kn, ductility_kn, sonority_kn, heat_conduction_kn, electrical_conductivity_kn, rusting_experiment_kn, metal_oxide_reaction_kn, nonmetal_oxide_reaction_kn, metals_nonmetals_compare_kn, weathering_erosion_kn, physical_changes_kn, chemical_changes_kn, reversible_irreversible_kn, states_of_matter_kn, fire_triangle_kn, oxygen_combustion_kn, candle_burning_kn, combustion_examples_kn, desirable_undesirable_kn, say_no_kn, life_stages_kn, growth_chart_kn, puberty_physical_changes_kn, voice_changes_kn, menstrual_cycle_kn, emotional_changes_kn, nutrition_adolescence_kn, personal_hygiene_kn, healthy_habits_kn, water_conservation_kn, heat_sources_kn, conduction_experiment_kn, thermal_conductors_kn, convection_kn, land_sea_breeze_kn, radiation_kn, combined_heat_transfer_kn, water_cycle_kn, infiltration_kn, speedometer_kn, historical_clocks_kn, sundial_kn, pendulum_kn, pendulum_timing_kn, time_units_kn, speed_calculator_kn, speed_race_kn, uniform_motion_kn, nonuniform_motion_kn
+[simulations_config] ✅ Loaded 11 Kannada Maths simulation(s): place_value_calculator_kn, number_systems_kn, sense_of_scale_kn, rounding_estimation_kn, multiplication_patterns_kn, expression_evaluator_kn, brackets_signs_kn, distributive_kn, expression_compare_kn, expression_engineer_kn, decimal_number_line_kn
+🔍 Initializing Postgres checkpointer...
+⏭️  Skipping table setup (assuming tables exist)
+✅ Postgres checkpointer initialized successfully
+🔍 Initializing Postgres checkpointer...
+⏭️  Skipping table setup (assuming tables exist)
+✅ Postgres checkpointer initialized successfully
+🔄 Graph reset - will recompile on next use
+✅ API Tracker enabled: 7 API keys available
+✅ Config loaded: Model=gemini-2.5-flash, MaxExchanges=6
+✅ Current Simulation: ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period) (pendulum_kn)
+🔄 Creating session for: ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period) (pendulum_kn)
+
+============================================================
+🔧 COMPILING TEACHING GRAPH
+============================================================
+✅ Graph compiled with:
+   • PostgresSaver checkpointer
+   • Interrupt before: evaluator, quiz_evaluator
+   • Teaching Flow: content_loader → teacher → [WAIT] → evaluator → trajectory → strategy → [loop]
+   • Quiz Flow: strategy → quiz_initializer → quiz_teacher → [WAIT] → quiz_evaluator → [retry/next/END]
+
+============================================================
+🚀 STARTING SESSION: streamlit_session_9c1b1c23
+============================================================
+
+============================================================
+📚 CONTENT LOADER: Loading pre-defined concepts
+============================================================
+
+✅ Loaded 3 concepts for 'ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period)':
+   1. Pendulum Period Depends ONLY on String Length
+      Key insight: Length makes a pendulum slower (longer string = longer period). Double the length → period increases by √2 = 1.41× (not double). Mass is completely irrelevant to period — change it and T stays the same.
+      Params: ['length', 'initialState']
+   2. Mass Independence: Heavy and Light Bobs Swing at the Same Rate
+      Key insight: Mass independence is counterintuitive but experimentally verifiable. This is related to the equivalence of gravitational and inertial mass — the same principle that makes all objects fall at the same rate.
+      Params: ['mass', 'initialState']
+   3. The Pendulum as a Clock: Why Clocks Use Long Pendulums
+      Key insight: L = 1 m → T = 2π√(1/9.8) ≈ 2 s. Each half-swing = 1 second = 1 tick on the clock mechanism. Longer pendulum → ticks slower → clock runs slow. This is how grandma would adjust her clock: shorten pendulum to speed up.
+      Params: ['length', 'initialState', 'showHints']
+
+⚠️ Topics NOT in this simulation (will not mention):
+   - Effect of amplitude on period (small-angle approximation used)
+   - Pendulum on different planets (fixed g = 9.8 m/s²)
+   - Damping due to air resistance in detail
+   ✓ Completed: content_loader
+
+============================================================
+🎓 TEACHER NODE: Generating response
+============================================================
+   🎮 Loaded config for: ಸರಳ ಲೋಲಕ (Simple Pendulum — Length, Mass, and Period) (pendulum_kn)
+   Concept: Pendulum Period Depends ONLY on String Length
+   Strategy: continue
+   Mode: encouraging
+   Understanding: none
+   Exchange #: 0
+[TRACKER] Found 7 valid API keys within limits for model 'gemini-2.5-flash'
+[TRACKER] Selected ...Jd1sTo for gemini-2.5-flash from top 3 (usage: 0)
+[TEACHER] Using tracked API key ...Jd1sTo for gemini-2.5-flash
+[TRACKER] Found 7 valid API keys within limits for model 'gemini-2.5-flash'
+[TRACKER] Selected ...cLRcWY for gemini-2.5-flash from top 3 (usage: 0)
+[TEACHER] 📊 LangSmith metadata: simulation_url=https://imhv0609.github.io/simulation_to_concept_version3_github_modified/simulations_kannada/science_chapter8_simulation3_pendulum_kn.html?initialState=stopped&length=100&mass=100&showHints=True
+[TEACHER] 📊 LangSmith metadata: simulation_id=pendulum_kn
+[TEACHER] ⚠️ Run tree update: property 'metadata' of 'RunTree' object has no setter
+[TRACKER] Recorded API ...cLRcWY + gemini-2.5-flash call at 2026-03-31T19:17:45.747092
+[TEACHER] Tracked API call: ...cLRcWY + gemini-2.5-flash
+
+   📊 Parameter Change: length = 100 → 100
+
+🎓 Teacher says:
+   ನಮಸ್ತೆ ನನ್ನ ಆತ್ಮೀಯ ಸ್ನೇಹಿತ! ಇಂದು ನಾವು ಒಂದು ರೋಚಕ ವಿಷಯವನ್ನು ಅನ್ವೇಷಿಸಲಿದ್ದೇವೆ – ಸರಳ ಲೋಲಕ! ಗಡಿಯಾರಗಳಲ್ಲಿ, ಅಥವಾ ನೀವು ಆಟವಾಡಲು ಬಳಸುವ ಜೂಲಾಟದಲ್ಲಿ ಇದರ ಚಲನೆಯನ್ನು ನೀವು ನೋಡಿರಬಹುದು. ಇಲ್ಲಿ ನಮ್ಮ ಪರದೆಯ ಮೇಲೆ ಒಂದು ಲೋಲಕ ಇದೆ. ಇದರ ದಾರ 100 ಸೆಂ.ಮೀ ಉದ್ದವಿದೆ ಮತ್ತು ಲೋಲಕದ ತೂಕ 100 ಗ್ರಾಂ ಇದೆ. ಇದು ಈಗ ನಿಂತಿದೆ. ನಾವು ಇದನ್ನು ಚಲಿಸುವಂತೆ ಮಾಡಿದಾಗ, ಅದು ಒಂದು ಪೂರ್ಣ ಆಂದೋಲನವನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಎಷ್ಟು ಸಮಯ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ ಎಂದು ನೋಡೋಣ. ನಿಮ್ಮ ಪ್ರಕಾರ, ಈ ಲೋಲಕದ ಒಂದು ಆಂದೋಲನದ ಅವಧಿಯನ್ನು (ಸಮಯವನ್ನು) ಯಾವ ಅಂಶವು ಹೆಚ್ಚು ಪ್ರಭಾವಿಸಬಹುದು – ದಾರದ ಉದ್ದವೇ, ಅಥವಾ ಲೋಲಕದ ತೂಕವೇ?

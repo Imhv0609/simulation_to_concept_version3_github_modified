@@ -215,7 +215,8 @@ async def send_response(session_id: str, request: StudentResponseRequest):
         # Process student input
         response = process_student_input(
             session_id=session_id,
-            student_response=request.student_response
+            student_response=request.student_response,
+            student_changed_params=request.student_changed_params  # NEW: student-driven param changes
         )
         
         return response

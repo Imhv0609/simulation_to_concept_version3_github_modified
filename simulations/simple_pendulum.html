@@ -401,6 +401,19 @@
             }
         }
 
+        // Send current parameters to parent window (Streamlit) via postMessage
+        function sendParametersToParent() {
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({
+                    type: 'simulation_params',
+                    params: {
+                        length: currentPendulumLengthRaw,
+                        number_of_oscillations: targetOscillations
+                    }
+                }, '*');
+            }
+        }
+
         // Event Listeners
         lengthSlider.addEventListener('input', (e) => {
             currentPendulumLengthRaw = parseFloat(e.target.value);
@@ -408,11 +421,13 @@
             lengthValueDisplay.textContent = currentPendulumLengthRaw.toFixed(1) + ' arbitrary units';
             updatePendulumVisual(currentPendulumLengthPx, MAX_ANGLE); // Update visual to max angle for consistency
             updateProjectedTimePeriod();
+            sendParametersToParent();
         });
 
         oscCountSlider.addEventListener('input', (e) => {
             targetOscillations = parseInt(e.target.value);
             oscCountValueDisplay.textContent = targetOscillations + ' oscillations';
+            sendParametersToParent();
         });
 
         startResetButton.addEventListener('click', () => {

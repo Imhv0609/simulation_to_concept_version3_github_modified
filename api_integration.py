@@ -268,13 +268,15 @@ def create_teaching_session(simulation_id: str, student_id: str = None, language
     return thread_id, response
 
 
-def process_student_input(session_id: str, student_response: str) -> Dict[str, Any]:
+def process_student_input(session_id: str, student_response: str, student_changed_params: dict = None) -> Dict[str, Any]:
     """
     Process student's response and return formatted API response.
     
     Args:
         session_id: The session thread ID
         student_response: What the student said
+        student_changed_params: Optional dict of params student manually changed
+                                in the simulation. E.g. {"length": 3}.
         
     Returns:
         Formatted API response dictionary
@@ -285,19 +287,21 @@ def process_student_input(session_id: str, student_response: str) -> Dict[str, A
     print(f"\n{'='*60}")
     print(f"💬 Processing student response")
     print(f"   Session: {session_id}")
-    print(f"   Student said: {student_response[:80]}...")
+    print(f"   Student said: {student_response[:80]}..." if len(student_response) > 80 else f"   Student said: {student_response}")
+    if student_changed_params:
+        print(f"   🎛️ Student changed params: {student_changed_params}")
     print(f"{'='*60}")
     
     # Get simulation and language from per-session store
     simulation_id = _session_simulations.get(session_id, os.environ.get('SIMULATION_ID', 'simple_pendulum'))
     language = _session_languages.get(session_id, DEFAULT_LANGUAGE)
     
-    # Translate student input to English if needed
+    # Translate student input to English if needed (only text, not params)
     if needs_translation(language):
         student_response = translate_student_input(student_response, language)
     
-    # Continue conversation using graph
-    state = continue_session(student_response, session_id)
+    # Continue conversation using graph — pass student_changed_params through
+    state = continue_session(student_response, session_id, student_changed_params=student_changed_params)
     
     print(f"✅ Response generated")
     print(f"📝 Teacher: {state.get('last_teacher_message', '')[:80]}...")
@@ -307,7 +311,8 @@ def process_student_input(session_id: str, student_response: str) -> Dict[str, A
     param_history = state.get('parameter_history', [])
     if param_history:
         last_change = param_history[-1]
-        print(f"⚙️  Parameter changed: {last_change['parameter']} "
+        initiated_by = last_change.get('initiated_by', 'agent')
+        print(f"⚙️  Parameter changed ({initiated_by}): {last_change['parameter']} "
               f"{last_change['old_value']} → {last_change['new_value']}")
     
     # Format for API
