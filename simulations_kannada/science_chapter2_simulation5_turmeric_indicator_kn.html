@@ -540,7 +540,7 @@ updateDisplay();
     var lim = document.querySelector('.limitation-box');
     if (lim) lim.style.display = 'none';
   }
-  var solutionMap = { 'acidic': 'lemon', 'basic': 'soap', 'neutral': '\u0ca8\u0cc0\u0cb0\u0cc1' };
+  var solutionMap = { 'acidic': 'lemon', 'basic': 'soap', 'neutral': '\u0ca8\u0cc0\u0cb0\u0cc1', 'lemon': 'lemon', 'vinegar': 'vinegar', 'amla': 'amla', 'soap': 'soap', 'baking': 'baking', 'lime': 'lime', 'water': '\u0ca8\u0cc0\u0cb0\u0cc1', 'salt': 'salt', 'sugar': 'sugar' };
   var targetSolution = solutionMap[initState];
   if (!targetSolution) return;
   setTimeout(function () {

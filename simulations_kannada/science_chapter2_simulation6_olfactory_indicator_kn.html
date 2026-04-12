@@ -520,7 +520,7 @@ updateDisplay();
     var box = document.querySelector('.insight-box');
     if (box) box.style.display = 'none';
   }
-  var solutionMap = { 'acidic': 'tamarind', 'basic': 'baking' };
+  var solutionMap = { 'acidic': 'tamarind', 'basic': 'baking', 'tamarind': 'tamarind', 'vinegar': 'vinegar', 'soap': 'soap', 'baking': 'baking' };
   var targetSolution = solutionMap[initState];
   if (!targetSolution) return;
   setTimeout(function () {

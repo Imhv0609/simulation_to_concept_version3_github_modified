@@ -535,7 +535,7 @@ updateDisplay();
     var box = document.querySelector('.insight-box');
     if (box) box.style.display = 'none';
   }
-  var solutionMap = { 'acidic': 'lemon', 'basic': 'soap', 'neutral': 'water' };
+  var solutionMap = { 'acidic': 'lemon', 'basic': 'soap', 'neutral': 'water', 'lemon': 'lemon', 'vinegar': 'vinegar', 'orange': 'orange', 'soap': 'soap', 'baking': 'baking', 'lime': 'lime', 'water': 'water', 'milk': 'milk', 'salt': 'salt' };
   var targetSolution = solutionMap[initState];
   if (!targetSolution) return;
   setTimeout(function () {

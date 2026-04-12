@@ -602,11 +602,20 @@ SIMULATIONS["turmeric_indicator_kn"] = {
             "type": "select",
             "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
             "default": "basic",
-            "options": ["acidic", "basic", "neutral"],
+            "options": ["acidic", "basic", "neutral", "lemon", "vinegar", "amla", "soap", "baking", "lime", "water", "salt", "sugar"],
             "option_labels": [
                 "ಆಮ್ಲ (Acidic — lemon juice, stays yellow)",
                 "ಕ್ಷಾರ (Basic — soap, turns red/brown)",
-                "ತಟಸ್ಥ (Neutral — tap water, stays yellow)"
+                "ತಟಸ್ಥ (Neutral — tap water, stays yellow)",
+                "ನಿಂಬೆ ರಸ (Lemon — acid, yellow)",
+                "ವಿನೆಗರ್ (Vinegar — acid, yellow)",
+                "ನೆಲ್ಲಿಕಾಯಿ (Amla — acid, yellow)",
+                "ಸೋಪು (Soap — base, red/brown)",
+                "ಅಡುಗೆ ಸೋಡಾ (Baking soda — base, red/brown)",
+                "ಸುಣ್ಣದ ನೀರು (Lime water — base, red/brown)",
+                "ನೀರು (Tap water — neutral, yellow)",
+                "ಉಪ್ಪು (Salt — neutral, yellow)",
+                "ಸಕ್ಕರೆ (Sugar — neutral, yellow)"
             ],
             "url_param": "initialState"
         },
@@ -645,11 +654,20 @@ SIMULATIONS["red_rose_indicator_kn"] = {
             "type": "select",
             "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
             "default": "acidic",
-            "options": ["acidic", "basic", "neutral"],
+            "options": ["acidic", "basic", "neutral", "lemon", "vinegar", "orange", "soap", "baking", "lime", "water", "milk", "salt"],
             "option_labels": [
                 "ಆಮ್ಲ (Acidic — lemon juice, turns red)",
                 "ಕ್ಷಾರ (Basic — soap, turns green)",
-                "ತಟಸ್ಥ (Neutral — tap water, stays pink)"
+                "ತಟಸ್ಥ (Neutral — tap water, stays pink)",
+                "ನಿಂಬೆ ರಸ (Lemon — acid, red)",
+                "ವಿನೆಗರ್ (Vinegar — acid, red)",
+                "ಕಿತ್ತಳೆ ರಸ (Orange — acid, red)",
+                "ಸೋಪು (Soap — base, green)",
+                "ಅಡುಗೆ ಸೋಡಾ (Baking soda — base, green)",
+                "ಸುಣ್ಣದ ನೀರು (Lime water — base, green)",
+                "ನೀರು (Tap water — neutral, pink)",
+                "ಹಾಲು (Milk — neutral, pink)",
+                "ಉಪ್ಪು (Salt — neutral, pink)"
             ],
             "url_param": "initialState"
         },
@@ -731,11 +749,20 @@ SIMULATIONS["litmus_indicator_kn"] = {
             "type": "select",
             "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
             "default": "acidic",
-            "options": ["acidic", "basic", "neutral"],
+            "options": ["acidic", "basic", "neutral", "lemon", "vinegar", "curd", "soap", "baking", "lime", "water", "salt", "sugar"],
             "option_labels": [
                 "ಆಮ್ಲ (Acidic — lemon juice, blue→red)",
                 "ಕ್ಷಾರ (Basic — soap, red→blue)",
-                "ತಟಸ್ಥ (Neutral — tap water, no change)"
+                "ತಟಸ್ಥ (Neutral — tap water, no change)",
+                "ನಿಂಬೆ ರಸ (Lemon — acid)",
+                "ವಿನೆಗರ್ (Vinegar — acid)",
+                "ಮೊಸರು (Curd — acid)",
+                "ಸೋಪು (Soap — base)",
+                "ಅಡುಗೆ ಸೋಡಾ (Baking soda — base)",
+                "ಸುಣ್ಣದ ನೀರು (Lime water — base)",
+                "ನೀರು (Tap water — neutral)",
+                "ಉಪ್ಪು (Salt — neutral)",
+                "ಸಕ್ಕರೆ (Sugar — neutral)"
             ],
             "url_param": "initialState"
         },
@@ -817,10 +844,14 @@ SIMULATIONS["olfactory_indicator_kn"] = {
             "type": "select",
             "display_name": "ದ್ರಾವಣದ ಪ್ರಕಾರ / Solution Type",
             "default": "basic",
-            "options": ["acidic", "basic"],
+            "options": ["acidic", "basic", "tamarind", "vinegar", "soap", "baking"],
             "option_labels": [
                 "ಆಮ್ಲ (Acidic — tamarind, smell stays)",
-                "ಕ್ಷಾರ (Basic — baking soda, smell disappears)"
+                "ಕ್ಷಾರ (Basic — baking soda, smell disappears)",
+                "ಹುಣಸೆ ಹಣ್ಣಿನ ನೀರು (Tamarind — acid, smell stays)",
+                "ವಿನೆಗರ್ (Vinegar — acid, smell stays)",
+                "ಸೋಪು (Soap — base, smell disappears)",
+                "ಅಡುಗೆ ಸೋಡಾ (Baking soda — base, smell disappears)"
             ],
             "url_param": "initialState"
         },

@@ -343,13 +343,23 @@ SIMULATIONS_KN["turmeric_indicator_kn"] = {
     "parameter_info": {
         "initialState": {
             "label": "Solution Type",
-            "range": "acidic, basic, neutral",
+            "range": "lemon, vinegar, amla, soap, baking, lime, water, salt, sugar (or categories: acidic, basic, neutral)",
             "url_key": "initialState",
             "effect": (
-                "Selects a solution and auto-runs the turmeric test.\n"
-                "  'acidic'  → lemon juice — turmeric stays yellow (no change)\n"
-                "  'basic'   → soap solution — turmeric turns red/brown\n"
-                "  'neutral' → tap water — turmeric stays yellow (same as acid!)"
+                "Selects a specific solution and auto-runs the turmeric test.\n"
+                "ACIDS (turmeric stays yellow — no change):\n"
+                "  'lemon'   → lemon juice (ನಿಂಬೆ ರಸ)\n"
+                "  'vinegar' → vinegar (ವಿನೆಗರ್)\n"
+                "  'amla'    → amla/gooseberry (ನೆಲ್ಲಿಕಾಯಿ)\n"
+                "BASES (turmeric turns red/brown):\n"
+                "  'soap'    → soap solution (ಸೋಪು)\n"
+                "  'baking'  → baking soda (ಅಡುಗೆ ಸೋಡಾ)\n"
+                "  'lime'    → lime water (ಸುಣ್ಣದ ನೀರು)\n"
+                "NEUTRAL (turmeric stays yellow — same as acid!):\n"
+                "  'water'   → tap water (ನೀರು)\n"
+                "  'salt'    → salt solution (ಉಪ್ಪು)\n"
+                "  'sugar'   → sugar solution (ಸಕ್ಕರೆ)\n"
+                "You can also use 'acidic' (=lemon), 'basic' (=soap), 'neutral' (=water)."
             )
         },
         "showHints": {
@@ -501,13 +511,23 @@ SIMULATIONS_KN["red_rose_indicator_kn"] = {
     "parameter_info": {
         "initialState": {
             "label": "Solution Type",
-            "range": "acidic, basic, neutral",
+            "range": "lemon, vinegar, orange, soap, baking, lime, water, milk, salt (or categories: acidic, basic, neutral)",
             "url_key": "initialState",
             "effect": (
-                "Selects a solution and auto-runs the colour test.\n"
-                "  'acidic'  → lemon juice — rose extract turns RED\n"
-                "  'basic'   → soap solution — rose extract turns GREEN\n"
-                "  'neutral' → tap water — rose extract stays PINK (no change)"
+                "Selects a specific solution and auto-runs the colour test.\n"
+                "ACIDS (rose extract turns RED):\n"
+                "  'lemon'   → lemon juice\n"
+                "  'vinegar' → vinegar\n"
+                "  'orange'  → orange juice\n"
+                "BASES (rose extract turns GREEN):\n"
+                "  'soap'    → soap solution\n"
+                "  'baking'  → baking soda\n"
+                "  'lime'    → lime water\n"
+                "NEUTRAL (rose extract stays PINK — no change):\n"
+                "  'water'   → tap water\n"
+                "  'milk'    → milk\n"
+                "  'salt'    → salt solution\n"
+                "You can also use 'acidic' (=lemon), 'basic' (=soap), 'neutral' (=water)."
             )
         },
         "showHints": {
@@ -818,13 +838,23 @@ SIMULATIONS_KN["litmus_indicator_kn"] = {
     "parameter_info": {
         "initialState": {
             "label": "Solution Type",
-            "range": "acidic, basic, neutral",
+            "range": "lemon, vinegar, curd, soap, baking, lime, water, salt, sugar (or categories: acidic, basic, neutral)",
             "url_key": "initialState",
             "effect": (
-                "Selects a solution and auto-runs the litmus dip animation.\n"
-                "  'acidic'  → lemon juice: blue paper turns RED, red unchanged\n"
-                "  'basic'   → soap: red paper turns BLUE, blue unchanged\n"
-                "  'neutral' → tap water: NEITHER paper changes colour"
+                "Selects a specific solution and auto-runs the litmus dip animation.\n"
+                "ACIDS (blue paper → RED, red unchanged):\n"
+                "  'lemon'   → lemon juice (ನಿಂಬೆ ರಸ)\n"
+                "  'vinegar' → vinegar (ವಿನೆಗರ್)\n"
+                "  'curd'    → curd (ಮೊಸರು)\n"
+                "BASES (red paper → BLUE, blue unchanged):\n"
+                "  'soap'    → soap solution (ಸೋಪು)\n"
+                "  'baking'  → baking soda (ಅಡುಗೆ ಸೋಡಾ)\n"
+                "  'lime'    → lime water (ಸುಣ್ಣದ ನೀರು)\n"
+                "NEUTRAL (NEITHER paper changes colour):\n"
+                "  'water'   → tap water (ನೀರು)\n"
+                "  'salt'    → salt solution (ಉಪ್ಪು)\n"
+                "  'sugar'   → sugar solution (ಸಕ್ಕರೆ)\n"
+                "You can also use 'acidic' (=lemon), 'basic' (=soap), 'neutral' (=water)."
             )
         },
         "showHints": {
@@ -1136,12 +1166,17 @@ SIMULATIONS_KN["olfactory_indicator_kn"] = {
     "parameter_info": {
         "initialState": {
             "label": "Solution Type",
-            "range": "acidic, basic",
+            "range": "tamarind, vinegar, soap, baking (or categories: acidic, basic)",
             "url_key": "initialState",
             "effect": (
-                "Selects a solution and auto-runs the mixing test.\n"
-                "  'acidic' → tamarind water — smell stays strong (acid confirmed)\n"
-                "  'basic'  → baking soda — smell disappears (base confirmed)"
+                "Selects a specific solution and auto-runs the mixing test.\n"
+                "ACIDS (smell stays strong — acid confirmed):\n"
+                "  'tamarind' → tamarind water (ಹುಣಸೆ ಹಣ್ಣಿನ ನೀರು)\n"
+                "  'vinegar'  → vinegar (ವಿನೆಗರ್)\n"
+                "BASES (smell disappears — base confirmed):\n"
+                "  'soap'    → soap solution (ಸೋಪು)\n"
+                "  'baking'  → baking soda (ಅಡುಗೆ ಸೋಡಾ)\n"
+                "You can also use 'acidic' (=tamarind), 'basic' (=baking)."
             )
         },
         "showHints": {
