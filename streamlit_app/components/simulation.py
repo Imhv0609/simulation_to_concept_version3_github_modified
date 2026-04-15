@@ -66,10 +66,36 @@ def render_simulation_single(sim_key: str, params: dict, title: str = "Simulatio
 
     # Ignore empty dicts (e.g. after stripping control keys like cmd)
     if clean_params:
-        # Use a per-key last-seen cache so multiple live components don't clobber each other
-        cache_key = f"_last_sim_val_{component_key}"
-        if clean_params != st.session_state.get(cache_key):
-            st.session_state[cache_key] = clean_params
-            st.session_state.pending_student_params = clean_params
-            print(f"   🎛️ Streamlit captured param change: {clean_params}")
+        # ── Autostart echo filter ──────────────────────────────────────────
+        # When a simulation loads, its autostart IIFE clicks buttons which
+        # triggers the AndroidBridge to send a postMessage with the *resolved*
+        # initial state (e.g., URL has initialState=acidic, HTML solutionMap
+        # resolves to 'lemon', simulation reports {initialState:'lemon'}).
+        # This is NOT a student-initiated change.  We detect autostart echoes
+        # by tracking the URL: the first param report for a given URL is always
+        # the autostart echo (the "baseline").  Only subsequent *different*
+        # reports from the same URL are genuine student interactions.
+        url_key = f"_sim_url_{component_key}"
+        baseline_key = f"_sim_baseline_{component_key}"
+
+        current_url = url  # the URL we just passed to the iframe
+
+        if st.session_state.get(url_key) != current_url:
+            # URL changed (new simulation load or param update from agent).
+            # Store the new URL and treat this first report as the baseline.
+            st.session_state[url_key] = current_url
+            st.session_state[baseline_key] = clean_params
+            print(f"   🎛️ Autostart baseline set for new URL: {clean_params}")
+        else:
+            # Same URL — compare against the baseline
+            baseline = st.session_state.get(baseline_key, {})
+            if clean_params != baseline:
+                # Genuinely different from autostart → real student interaction
+                cache_key = f"_last_sim_val_{component_key}"
+                if clean_params != st.session_state.get(cache_key):
+                    st.session_state[cache_key] = clean_params
+                    st.session_state.pending_student_params = clean_params
+                    print(f"   🎛️ Streamlit captured param change: {clean_params}")
+            else:
+                print(f"   🔇 Ignored autostart echo: {clean_params}")
 

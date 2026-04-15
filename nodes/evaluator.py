@@ -188,6 +188,11 @@ PARAMETER EFFECTS (use these to judge correctness):
     for param_name, param_info in PARAMETER_INFO.items():
         physics_rules += f"\n{param_info['label']} ({param_info['range']}): {param_info['effect']}"
     
+    # Pre-compute dynamic param strings (can't have complex expressions inside f-string with {{}} escapes)
+    _param_bullets = chr(10).join([f'      - "{k}" (valid values: {v["range"]})' for k, v in PARAMETER_INFO.items()])
+    _param_names_list = ', '.join(PARAMETER_INFO.keys())
+    _param_names_enum = '" or "'.join(PARAMETER_INFO.keys())
+
     # Build the combined classification + evaluation prompt
     eval_prompt = f"""⚠️ LANGUAGE REQUIREMENT: All free-text fields in your JSON response (understanding_reasoning, question_asked, correction_explanation) MUST be written in {language_instruction} only. Do not use any other language, even if the simulation topic contains text in another language.
 
@@ -222,10 +227,12 @@ First, determine what TYPE of response this is:
 
 3. "param_request" - Student wants to CHANGE simulation parameters OR see the simulation
    Examples: 
-   - "Change length to 3", "Set it to 5 units", "Make it shorter", "Try with 20 oscillations"
+   - "Change to vinegar", "Set it to 5 units", "Make it shorter", "Try with soap", "Use baking soda"
    - "Can you show the simulation?", "Show me", "Let me see it", "Display the simulation", "Show simulation as well"
    NOTE: Student may request MULTIPLE params at once
    ⚠️ IMPORTANT: If student asks to "show", "see", or "display" the simulation, treat as param_request with "show_simulation": true
+   ⚠️ CRITICAL: The param_requested field MUST be one of the exact parameter names listed below:
+{_param_bullets}
 
 ═══════════════════════════════════════════════════════════════
 STEP 2: BASED ON TYPE, FILL RELEVANT FIELDS
@@ -240,8 +247,8 @@ IF response_type == "question":
 - Set level to current understanding (don't change it)
 
 IF response_type == "param_request":
-- Extract which parameter (length or number_of_oscillations)
-- Extract the requested value
+- Extract which parameter — MUST use the exact parameter name from this list: {_param_names_list}
+- Extract the requested value (must match the valid range for that parameter)
 - Validate it's in range
 - Set level to current understanding (don't change it)
 - **SPECIAL CASE**: If student asks to "show"/"see"/"display" simulation (without specifying values), set "show_simulation": true
@@ -277,12 +284,10 @@ RESPOND WITH ONLY THIS JSON:
     // For "question" type:
     "question_asked": "The question the student is asking",
     
-    // For "param_request" type (can have BOTH if student requested multiple):
-    "param_requested": "length" or "number_of_oscillations" or "both" or null,
-    "param_value": number or null,
+    // For "param_request" type:
+    "param_requested": "{_param_names_enum}" or null,
+    "param_value": value or null,
     "param_valid": true/false,
-    "length_value": number or null (if length was requested),
-    "oscillations_value": number or null (if oscillations was requested),
     "show_simulation": true/false (true if student asked to see/show/display simulation without specific values)
 }}
 ```
@@ -377,14 +382,20 @@ RESPOND WITH ONLY THIS JSON:
         
     elif response_type == "param_request":
         # Student requested parameter change
-        param =result.get("param_requested")
+        param = result.get("param_requested")
         value = result.get("param_value")
         is_valid = result.get("param_valid", False)
         show_simulation = result.get("show_simulation", False)
         
-        # Handle "both" - multiple params requested
-        length_val = result.get("length_value")
-        osc_val = result.get("oscillations_value")
+        # Validate that param_requested is an actual parameter name from PARAMETER_INFO
+        valid_param_names = set(PARAMETER_INFO.keys())
+        if param and param not in valid_param_names and not show_simulation:
+            print(f"   ⚠️ LLM returned unknown param '{param}', attempting to match to valid params: {valid_param_names}")
+            # Try to fuzzy-match: if there's only one param (besides showHints), use it
+            content_params = [k for k in valid_param_names if k != "showHints"]
+            if len(content_params) == 1:
+                param = content_params[0]
+                print(f"   🔧 Auto-corrected to: {param}")
         
         if show_simulation:
             print(f"   🖥️ Student requested to SEE/SHOW simulation")
@@ -393,10 +404,6 @@ RESPOND WITH ONLY THIS JSON:
             output["requested_param"] = "show"  # Special marker
             output["requested_value"] = None
             output["param_request_valid"] = True
-        elif param == "both":
-            print(f"   🎛️ Multiple Parameters Requested:")
-            print(f"      - length = {length_val}")
-            print(f"      - oscillations = {osc_val}")
         else:
             print(f"   🎛️ Parameter Request: {param} = {value}")
             print(f"   ✓ Valid: {is_valid}")
@@ -410,20 +417,12 @@ RESPOND WITH ONLY THIS JSON:
         # If valid, update the params (only for actual value changes, not show requests)
         if not show_simulation:
             new_params = current_params.copy()
-            if param == "both":
-                # Handle both parameters
-                if length_val is not None:
-                    new_params["length"] = length_val
-                    print(f"   ✅ Updating length → {length_val}")
-                if osc_val is not None:
-                    new_params["number_of_oscillations"] = osc_val
-                    print(f"   ✅ Updating oscillations → {osc_val}")
-                if length_val is not None or osc_val is not None:
-                    output["current_params"] = new_params
-            elif is_valid and param and value is not None:
+            if is_valid and param and param in valid_param_names and value is not None:
                 new_params[param] = value
                 output["current_params"] = new_params
                 print(f"   ✅ Updating params: {param} → {value}")
+            elif param and param not in valid_param_names:
+                print(f"   ⚠️ Skipping update — '{param}' is not a recognized parameter")
         
         # Don't update trajectory for param requests
         output["understanding_trajectory"] = state.get("understanding_trajectory", [])
