@@ -36,6 +36,28 @@ from quiz_rules import (
 )
 
 
+def extract_text_content(content) -> str:
+    """
+    Normalise response.content to a plain string.
+    Multimodal models (e.g. Gemma 4) return content as a list of parts.
+    """
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for part in content:
+            if isinstance(part, str):
+                parts.append(part)
+            elif isinstance(part, dict):
+                parts.append(part.get("text", ""))
+            elif hasattr(part, "text"):
+                parts.append(part.text)
+            else:
+                parts.append(str(part))
+        return "".join(parts)
+    return str(content)
+
+
 def get_llm():
     """Get configured LLM instance with API tracking."""
     if USE_API_TRACKER:
@@ -399,7 +421,7 @@ Generate your feedback now:"""
         ) as trace_rt:
             llm_config = config or {}
             response = llm.invoke(messages, config=llm_config)
-            trace_rt.outputs = {"response_length": len(response.content) if response.content else 0}
+            trace_rt.outputs = {"response_length": len(extract_text_content(response.content)) if response.content else 0}
         
         # Track the API call
         if USE_API_TRACKER and used_api_key:
@@ -409,7 +431,7 @@ Generate your feedback now:"""
             except Exception as e:
                 print(f"[QUIZ_EVALUATOR] Warning: Failed to track API call: {e}")
         
-        feedback = response.content.strip()
+        feedback = extract_text_content(response.content).strip()
         
     except Exception as e:
         print(f"❌ LLM feedback generation failed: {e}")

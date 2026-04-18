@@ -7,6 +7,7 @@ AVAILABLE_MODELS = [
     "gemini-2.5-flash",
     "gemini-2.5-flash-lite",
     "gemma-3-27b-it",
+    "gemma-4-31b-it",
 ]
 
 # Default model
@@ -23,6 +24,10 @@ RATE_LIMITS = {
         "per_day": 20
     },  
     "gemma-3-27b-it": {
+        "per_minute": 30,
+        "per_day": 14400
+    },
+    "gemma-4-31b-it": {
         "per_minute": 30,
         "per_day": 14400
     }

@@ -95,7 +95,7 @@ def invoke_llm_with_prompts(llm, system_prompt: str, user_prompt: str, api_key: 
         # Also pass parent config to llm.invoke for callback chain continuity
         config = parent_config or {}
         response = llm.invoke(messages, config=config)
-        rt.outputs = {"response_length": len(response.content) if response.content else 0}
+        rt.outputs = {"response_length": len(extract_text_content(response.content)) if response.content else 0}
     
     # Track the API call if tracker is enabled
     if USE_API_TRACKER and api_key:
@@ -106,6 +106,30 @@ def invoke_llm_with_prompts(llm, system_prompt: str, user_prompt: str, api_key: 
             print(f"[TEACHER] Warning: Failed to track API call: {e}")
     
     return response
+
+
+def extract_text_content(content) -> str:
+    """
+    Normalise response.content to a plain string.
+    Multimodal models (e.g. Gemma 4) return content as a list of parts
+    such as [{'type': 'text', 'text': '...'}] or [AIMessageChunk(...)],
+    while text-only models return a plain string.
+    """
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for part in content:
+            if isinstance(part, str):
+                parts.append(part)
+            elif isinstance(part, dict):
+                parts.append(part.get("text", ""))
+            elif hasattr(part, "text"):
+                parts.append(part.text)
+            else:
+                parts.append(str(part))
+        return "".join(parts)
+    return str(content)
 
 
 def parse_json_safe(text: str) -> dict:
@@ -805,18 +829,18 @@ REMEMBER: Output ONLY the JSON object. Start your response with {{ and end with 
     response = invoke_llm_with_prompts(llm, system_prompt, user_prompt, api_key=used_api_key, metadata=langsmith_metadata, parent_config=config)
     
     try:
-        result = parse_json_safe(response.content)
+        result = parse_json_safe(extract_text_content(response.content))
     except Exception as e:
         print(f"   ⚠️ JSON parse failed, using raw response")
         # Attempt to salvage the human-readable portion by stripping any
         # leaked JSON block that the model appended to its plain-text reply.
-        salvaged = clean_teacher_message(response.content)
+        salvaged = clean_teacher_message(extract_text_content(response.content))
         result = {
             "teacher_message": salvaged,
             "suggests_param_change": False
         }
     
-    teacher_message = clean_teacher_message(result.get("teacher_message", response.content))
+    teacher_message = clean_teacher_message(result.get("teacher_message", extract_text_content(response.content)))
     
     # ─── Post-process: force simulation display when teacher references it ───
     # If the teacher message contains observation/watch keywords but the LLM

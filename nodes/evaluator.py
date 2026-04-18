@@ -27,6 +27,28 @@ from config import (
 from state import add_message_to_history
 
 
+def extract_text_content(content) -> str:
+    """
+    Normalise response.content to a plain string.
+    Multimodal models (e.g. Gemma 4) return content as a list of parts.
+    """
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts = []
+        for part in content:
+            if isinstance(part, str):
+                parts.append(part)
+            elif isinstance(part, dict):
+                parts.append(part.get("text", ""))
+            elif hasattr(part, "text"):
+                parts.append(part.text)
+            else:
+                parts.append(str(part))
+        return "".join(parts)
+    return str(content)
+
+
 def get_llm():
     """Get configured LLM instance with API tracking."""
     if USE_API_TRACKER:
@@ -320,7 +342,7 @@ RESPOND WITH ONLY THIS JSON:
         except Exception as e:
             print(f"[EVALUATOR] Warning: Failed to track API call: {e}")
     
-    result = parse_json_safe(response.content)
+    result = parse_json_safe(extract_text_content(response.content))
     
     # Extract response type (default to "answer")
     response_type = result.get("response_type", "answer")

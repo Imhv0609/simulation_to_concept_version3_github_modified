@@ -108,6 +108,11 @@ def initialize_session_state():
     # Language preference (for translation)
     if "language" not in st.session_state:
         st.session_state.language = "english"
+
+    # Model selection — default to whatever is configured in the environment
+    if "selected_model" not in st.session_state:
+        import os
+        st.session_state.selected_model = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
         
     # Pending student simulation params (waiting to be piggybacked)
     if "pending_student_params" not in st.session_state:
@@ -124,6 +129,11 @@ def start_new_teaching_session():
         # Get the current simulation from session state
         simulation_id = st.session_state.get("current_simulation", "simple_pendulum")
         language = st.session_state.get("language", "english")
+
+        # Apply selected model so that the config reload in create_new_session picks it up
+        import os
+        selected_model = st.session_state.get("selected_model", "gemma-3-27b-it")
+        os.environ["GEMINI_MODEL"] = selected_model
         
         # Create new session with the selected simulation and language
         thread_id, state = create_new_session(simulation_id, language=language)
@@ -530,9 +540,41 @@ def render_sidebar():
             current_lang_label = "English" if st.session_state.language == "english" else "ಕನ್ನಡ (Kannada)"
             st.info(f"🔒 **Language:** {current_lang_label}")
             st.caption("(Cannot change during active session)")
-        
+
+        # ── Model Selection ──
+        st.markdown("## 🤖 Model")
+
+        model_options = {
+            "Gemini 2.5 Flash (default)": "gemini-2.5-flash",
+            "Gemini 2.5 Flash-Lite": "gemini-2.5-flash-lite",
+            "Gemma 3 27B": "gemma-3-27b-it",
+            "Gemma 4 31B (new)": "gemma-4-31b-it",
+        }
+
+        if not st.session_state.session_started:
+            current_model_label = next(
+                (label for label, val in model_options.items()
+                 if val == st.session_state.selected_model),
+                list(model_options.keys())[0]
+            )
+            selected_model_label = st.selectbox(
+                "Choose model:",
+                options=list(model_options.keys()),
+                index=list(model_options.keys()).index(current_model_label),
+                help="Select the LLM used by the teaching agent. Gemma 4 is Google's latest open model."
+            )
+            st.session_state.selected_model = model_options[selected_model_label]
+        else:
+            current_model_label = next(
+                (label for label, val in model_options.items()
+                 if val == st.session_state.selected_model),
+                st.session_state.selected_model
+            )
+            st.info(f"🔒 **Model:** {current_model_label}")
+            st.caption("(Cannot change during active session)")
+
         st.markdown("---")
-        st.markdown("## �📊 Learning Progress")
+        st.markdown("## 📊 Learning Progress")
         
         # Show progress if session is active
         if st.session_state.backend_state:
