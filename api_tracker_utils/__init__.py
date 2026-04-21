@@ -28,7 +28,7 @@ LangGraph/LangChain agent with zero configuration.
     response = llm.invoke(...)
 
 🔧 Setup:
-1. Set environment variables: GOOGLE_API_KEY_1 through GOOGLE_API_KEY_7
+1. Set environment variables with the GOOGLE_API_KEY_ prefix (e.g. GOOGLE_API_KEY_1, GOOGLE_API_KEY_2, ...)
 2. Configure rate limits in config.py (or use defaults)
 3. Import and use - that's it!
 

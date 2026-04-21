@@ -32,15 +32,17 @@ from email.mime.multipart import MIMEMultipart
 # ============================================================================
 
 def get_available_api_keys() -> List[str]:
-    """Get all 7 available Google API keys from environment."""
+    """Auto-discover all Google API keys from environment variables with GOOGLE_API_KEY_ prefix."""
     api_keys = []
-    for i in range(1, 8):  # GOOGLE_API_KEY_1 through GOOGLE_API_KEY_7
-        key = os.getenv(f"GOOGLE_API_KEY_{i}")
-        if key:
-            api_keys.append(key)
+    for key_name, key_value in os.environ.items():
+        if key_name.startswith("GOOGLE_API_KEY_") and key_value:
+            api_keys.append(key_value)
     
     if not api_keys:
-        raise RuntimeError("No Google API keys found. Please set GOOGLE_API_KEY_1 through GOOGLE_API_KEY_7 in .env file")
+        raise RuntimeError(
+            "No Google API keys found. Set environment variables with the GOOGLE_API_KEY_ prefix "
+            "(e.g. GOOGLE_API_KEY_1, GOOGLE_API_KEY_2, ...)"
+        )
     
     return api_keys
 
@@ -80,7 +82,7 @@ class ModelUsageTracker:
         self._email_cooldown_hours = 6  # Don't spam, wait 6 hours between emails
         
         print(f"[TRACKER] Initialized for models: {AVAILABLE_MODELS}")
-        print(f"[TRACKER] Will track usage across 7 API keys")
+        print(f"[TRACKER] Will auto-discover API keys with GOOGLE_API_KEY_ prefix")
         print(f"[TRACKER] Rate limits: {RATE_LIMITS}")
     
     def track_call(self, api_key: str, model_name: str):

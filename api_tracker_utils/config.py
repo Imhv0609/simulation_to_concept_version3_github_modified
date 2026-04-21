@@ -11,7 +11,7 @@ AVAILABLE_MODELS = [
 ]
 
 # Default model
-DEFAULT_MODEL = "gemma-3-27b-it"
+DEFAULT_MODEL = "gemini-2.5-flash"
 
 # Rate limits per model (requests per minute and per day)
 RATE_LIMITS = {

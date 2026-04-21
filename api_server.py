@@ -12,6 +12,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import traceback
 
+from api_tracker_utils.error import MinuteLimitExhaustedError, DayLimitExhaustedError
+
 from api_models import (
     StartSessionRequest,
     StudentResponseRequest,
@@ -155,6 +157,23 @@ async def start_session(request: StartSessionRequest):
         
         return response
         
+    except MinuteLimitExhaustedError as e:
+        raise HTTPException(
+            status_code=429,
+            detail={
+                "error": "Rate Limit (Per Minute)",
+                "message": "All API keys have exhausted their per-minute quota. Retry shortly.",
+                "retry_after": e.retry_after_seconds
+            }
+        )
+    except DayLimitExhaustedError as e:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "error": "Rate Limit (Daily)",
+                "message": str(e)
+            }
+        )
     except ValueError as e:
         # Invalid simulation or configuration error
         raise HTTPException(
@@ -221,6 +240,23 @@ async def send_response(session_id: str, request: StudentResponseRequest):
         
         return response
         
+    except MinuteLimitExhaustedError as e:
+        raise HTTPException(
+            status_code=429,
+            detail={
+                "error": "Rate Limit (Per Minute)",
+                "message": "All API keys have exhausted their per-minute quota. Retry shortly.",
+                "retry_after": e.retry_after_seconds
+            }
+        )
+    except DayLimitExhaustedError as e:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "error": "Rate Limit (Daily)",
+                "message": str(e)
+            }
+        )
     except KeyError:
         # Session not found
         raise HTTPException(
@@ -368,6 +404,23 @@ async def submit_quiz(session_id: str, request: QuizSubmissionRequest):
         
         return response
         
+    except MinuteLimitExhaustedError as e:
+        raise HTTPException(
+            status_code=429,
+            detail={
+                "error": "Rate Limit (Per Minute)",
+                "message": "All API keys have exhausted their per-minute quota. Retry shortly.",
+                "retry_after": e.retry_after_seconds
+            }
+        )
+    except DayLimitExhaustedError as e:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "error": "Rate Limit (Daily)",
+                "message": str(e)
+            }
+        )
     except KeyError as e:
         # Session not found
         raise HTTPException(

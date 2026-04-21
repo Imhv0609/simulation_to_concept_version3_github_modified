@@ -26,6 +26,7 @@ from config import (
     GOOGLE_API_KEY, GEMINI_MODEL, TEMPERATURE, USE_API_TRACKER,
     get_best_api_key_for_model, track_model_call
 )
+from api_tracker_utils.error import MinuteLimitExhaustedError, DayLimitExhaustedError
 from state import TeachingState
 from simulations_config import get_quiz_questions
 from quiz_rules import (
@@ -58,24 +59,25 @@ def extract_text_content(content) -> str:
     return str(content)
 
 
-def get_llm():
-    """Get configured LLM instance with API tracking."""
+def get_llm_with_key():
+    """Get configured LLM instance and the selected API key.
+
+    MinuteLimitExhaustedError / DayLimitExhaustedError propagate naturally
+    to the caller — never caught here.
+    """
     if USE_API_TRACKER:
-        try:
-            # Get best API key for this model from tracker
-            api_key = get_best_api_key_for_model(GEMINI_MODEL)
-            print(f"[QUIZ_EVALUATOR] Using tracked API key ...{api_key[-6:]} for {GEMINI_MODEL}")
-        except Exception as e:
-            print(f"[QUIZ_EVALUATOR] Tracker error: {e}, falling back to GOOGLE_API_KEY")
-            api_key = GOOGLE_API_KEY
+        # Limit errors propagate to the caller — do NOT wrap in try/except
+        api_key = get_best_api_key_for_model(GEMINI_MODEL)
+        print(f"[QUIZ_EVALUATOR] Using tracked API key ...{api_key[-6:]} for {GEMINI_MODEL}")
     else:
         api_key = GOOGLE_API_KEY
-    
-    return ChatGoogleGenerativeAI(
+
+    llm = ChatGoogleGenerativeAI(
         model=GEMINI_MODEL,
         google_api_key=api_key,
         temperature=TEMPERATURE
     )
+    return llm, api_key
 
 
 def is_gemma_model() -> bool:
@@ -289,7 +291,8 @@ def quiz_evaluator_node(state: TeachingState, config: RunnableConfig) -> Dict[st
     # ========================================
     # STEP 4: Generate LLM feedback (adaptive)
     # ========================================
-    llm = get_llm()
+    # Single selection — key flows through to tracking and LLM construction
+    llm, used_api_key = get_llm_with_key()
     
     # Build context for LLM
     system_prompt = f"""⚠️ LANGUAGE REQUIREMENT: You MUST write your ENTIRE response in {language_instruction} only. This is mandatory. Do not use any other language, even if the challenge text below contains text in another language.
@@ -341,15 +344,12 @@ They configured the simulation with these parameters:
 Generate your feedback now:"""
 
     user_prompt = f"Status: {status}, Attempt: {attempts}, Hint: {hint}"
-    
-    # Get the API key that was used (for tracking)
-    used_api_key = None
-    if USE_API_TRACKER:
-        try:
-            used_api_key = get_best_api_key_for_model(GEMINI_MODEL)
-        except:
-            pass
-    
+
+    # Track BEFORE invoking — counts attempts, not just successes (per usage guide Section 5)
+    if USE_API_TRACKER and used_api_key:
+        track_model_call(used_api_key, GEMINI_MODEL)
+        print(f"[QUIZ_EVALUATOR] Tracked API call: ...{used_api_key[-6:]} + {GEMINI_MODEL}")
+
     # Build simulation URL for LangSmith metadata
     from simulations_config import get_simulation
     simulation_id = os.environ.get("SIMULATION_ID", "simple_pendulum")
@@ -423,16 +423,10 @@ Generate your feedback now:"""
             response = llm.invoke(messages, config=llm_config)
             trace_rt.outputs = {"response_length": len(extract_text_content(response.content)) if response.content else 0}
         
-        # Track the API call
-        if USE_API_TRACKER and used_api_key:
-            try:
-                track_model_call(used_api_key, GEMINI_MODEL)
-                print(f"[QUIZ_EVALUATOR] Tracked API call: ...{used_api_key[-6:]} + {GEMINI_MODEL}")
-            except Exception as e:
-                print(f"[QUIZ_EVALUATOR] Warning: Failed to track API call: {e}")
-        
         feedback = extract_text_content(response.content).strip()
         
+    except (MinuteLimitExhaustedError, DayLimitExhaustedError):
+        raise  # Propagate limit errors to the entry-point handler
     except Exception as e:
         print(f"❌ LLM feedback generation failed: {e}")
         # Fallback feedback
